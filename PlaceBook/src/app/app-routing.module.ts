@@ -11,7 +11,7 @@ import { EditorComponent } from './editor/editor.component';
 
 
 const routes: Routes = [
-  { path: '', redirectTo: '/login', pathMatch: 'full'},
+  { path: '', redirectTo: '/my_bookings', pathMatch: 'full'},
   { path: 'login', component: LoginComponent },
   { path: 'my_bookings', component: MyBookingsComponent },
   { path: 'book', component: BookComponent },
