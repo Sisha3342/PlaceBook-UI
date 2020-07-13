@@ -8,6 +8,7 @@ import { EmployeesBookingsComponent } from './employees-bookings/employees-booki
 import { EmployeesComponent } from './employees/employees.component';
 import { MyMapsComponent } from './my-maps/my-maps.component';
 import { EditorComponent } from './editor/editor.component';
+import {NotFoundComponent} from './not-found/not-found.component';
 
 
 const routes: Routes = [
@@ -18,7 +19,8 @@ const routes: Routes = [
   { path: 'employees_bookings', component: EmployeesBookingsComponent },
   { path: 'employees', component: EmployeesComponent },
   { path: 'my_maps', component: MyMapsComponent },
-  { path: 'editor', component: EditorComponent }
+  { path: 'editor', component: EditorComponent },
+  { path: '**', component: NotFoundComponent }
 ];
 
 @NgModule({
