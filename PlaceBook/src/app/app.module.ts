@@ -9,9 +9,26 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatInputModule } from '@angular/material/input';
 import { MatDividerModule } from '@angular/material/divider';
 
+import { LoginComponent } from './login/login.component';
+import { MyBookingsComponent } from './my-bookings/my-bookings.component';
+import { BookComponent } from './book/book.component';
+import { EmployeesBookingsComponent } from './employees-bookings/employees-bookings.component';
+import { EmployeesComponent } from './employees/employees.component';
+import { MyMapsComponent } from './my-maps/my-maps.component';
+import { EditorComponent } from './editor/editor.component';
+import { NotFoundComponent } from './not-found/not-found.component';
+
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    LoginComponent,
+    MyBookingsComponent,
+    BookComponent,
+    EmployeesBookingsComponent,
+    EmployeesComponent,
+    MyMapsComponent,
+    EditorComponent,
+    NotFoundComponent
   ],
   imports: [
     BrowserModule,
