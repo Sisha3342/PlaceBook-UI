@@ -17,6 +17,7 @@ import { EmployeesBookingsComponent } from './employees-bookings/employees-booki
 import { EmployeesComponent } from './employees/employees.component';
 import { MyMapsComponent } from './my-maps/my-maps.component';
 import { EditorComponent } from './editor/editor.component';
+import { NotFoundComponent } from './not-found/not-found.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import { EditorComponent } from './editor/editor.component';
     EmployeesBookingsComponent,
     EmployeesComponent,
     MyMapsComponent,
-    EditorComponent
+    EditorComponent,
+    NotFoundComponent
   ],
   imports: [
     BrowserModule,
