@@ -6,10 +6,22 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./login.component.less']
 })
 export class LoginComponent implements OnInit {
+  login = '';
+  password = '';
 
-  constructor() { }
+  constructor() {
+   }
 
   ngOnInit(): void {
+    this.login = localStorage.getItem('login');
+    this.password = localStorage.getItem('password');
   }
 
+  loginUser(event: any): void{
+    event.preventDefault();
+    const target = event.target;
+    console.log(this.login, this.password);
+    localStorage.setItem('login', this.login);
+    localStorage.setItem('password', this.password);
+   }
 }

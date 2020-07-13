@@ -1,1 +1,11 @@
-<p>login works!</p>
+<div id="container">
+    <img src="" alt="Logo">
+
+    <form (submit)="loginUser($event)">
+        <input type="text" name="login" [(ngModel)]="login" minlength="2" maxlength="20" pattern="^[a-zA-Z0-9._]{8,20}$" placeholder="Login 2-20 char" id="login" required>
+        <span></span>
+        <input type="password" name="password" [(ngModel)]="password" minlength="8" maxlength="20" pattern="^[a-zA-Z0-9]{8,20}$" placeholder="Password 8-20 char" id="password" required>
+        <span></span>
+        <input type="submit" value="Sign in">
+    </form>
+</div>
