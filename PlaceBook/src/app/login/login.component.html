@@ -1,5 +1,5 @@
 <div id="container">
-    <img src=""
+    <img src="assets/logo.svg"
         alt="Logo">
     <form (submit)="loginUser($event)"
         class="example-form">
@@ -11,7 +11,8 @@
                 [(ngModel)]="login"
                 minlength="8"
                 maxlength="20"
-                placeholder="user@email.com">
+                placeholder="user@email.com"
+                required>
             <mat-error>Please enter a valid email address</mat-error>
         </mat-form-field>
 
@@ -22,7 +23,8 @@
                 name="password"
                 [(ngModel)]="password"
                 minlength="8"
-                maxlength="20">
+                maxlength="20"
+                required>
         </mat-form-field>
 
         <button mat-raised-button
