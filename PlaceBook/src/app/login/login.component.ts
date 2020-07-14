@@ -1,3 +1,4 @@
+import { NgForm } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -14,9 +15,8 @@ export class LoginComponent implements OnInit {
   ngOnInit(): void {
    }
 
-  loginUser(event: any): void {
-    event.preventDefault();
-    if (event.target.classList.contains('ng-invalid')) {
+  loginUser(form: NgForm): void {
+    if (form.invalid) {
       return;
     } else {
       localStorage.setItem('login', this.login);
