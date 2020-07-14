@@ -21,6 +21,7 @@ import { SidebarComponent } from './sidebar/sidebar.component';
 import {MatSidenavModule} from '@angular/material/sidenav';
 import { RouteButtonComponent } from './route-button/route-button.component';
 import { UserCardComponent } from './user-card/user-card.component';
+import {MatCardModule} from '@angular/material/card';
 
 @NgModule({
   declarations: [
@@ -45,7 +46,8 @@ import { UserCardComponent } from './user-card/user-card.component';
     MatButtonModule,
     MatInputModule,
     MatDividerModule,
-    MatSidenavModule
+    MatSidenavModule,
+    MatCardModule
   ],
   providers: [],
   bootstrap: [AppComponent]

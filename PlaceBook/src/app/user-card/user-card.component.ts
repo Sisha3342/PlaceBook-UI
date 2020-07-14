@@ -6,10 +6,14 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./user-card.component.less']
 })
 export class UserCardComponent implements OnInit {
+  userName: string;
+  userImage: string;
 
   constructor() { }
 
   ngOnInit(): void {
+    this.userName = 'Sasha';
+    this.userImage = '../assets/images/sisha.jpg';
   }
 
 }
