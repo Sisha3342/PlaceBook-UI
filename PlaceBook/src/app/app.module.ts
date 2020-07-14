@@ -17,6 +17,8 @@ import { EmployeesComponent } from './employees/employees.component';
 import { MyMapsComponent } from './my-maps/my-maps.component';
 import { EditorComponent } from './editor/editor.component';
 import { NotFoundComponent } from './not-found/not-found.component';
+import { SidebarComponent } from './sidebar/sidebar.component';
+import {MatSidenavModule} from '@angular/material/sidenav';
 
 @NgModule({
   declarations: [
@@ -28,7 +30,8 @@ import { NotFoundComponent } from './not-found/not-found.component';
     EmployeesComponent,
     MyMapsComponent,
     EditorComponent,
-    NotFoundComponent
+    NotFoundComponent,
+    SidebarComponent
   ],
   imports: [
     BrowserModule,
@@ -37,7 +40,8 @@ import { NotFoundComponent } from './not-found/not-found.component';
     MatIconModule,
     MatButtonModule,
     MatInputModule,
-    MatDividerModule
+    MatDividerModule,
+    MatSidenavModule
   ],
   providers: [],
   bootstrap: [AppComponent]
