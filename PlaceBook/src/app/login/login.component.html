@@ -1,19 +1,31 @@
 <div id="container">
-    <img src="" alt="Logo">
-    <form (submit)="loginUser($event)" class="example-form">
+    <img src=""
+        alt="Logo">
+    <form (submit)="loginUser($event)"
+        class="example-form">
         <mat-form-field appearance="fill">
             <mat-label>Enter your login</mat-label>
-            <input matInput type="text" name="login" [(ngModel)]="login" minlength="2" maxlength="20" placeholder="user@email.com">
-            <mat-hint align="end">8-20 char long</mat-hint>
+            <input matInput
+                type="text"
+                name="login"
+                [(ngModel)]="login"
+                minlength="8"
+                maxlength="20"
+                placeholder="user@email.com">
             <mat-error>Please enter a valid email address</mat-error>
         </mat-form-field>
 
         <mat-form-field appearance="fill">
             <mat-label>Enter your password</mat-label>
-            <input matInput type="password" name="password" [(ngModel)]="password" minlength="8" maxlength="20">
-            <mat-hint align="end">8-20 char long</mat-hint>
+            <input matInput
+                type="password"
+                name="password"
+                [(ngModel)]="password"
+                minlength="8"
+                maxlength="20">
         </mat-form-field>
 
-        <button mat-raised-button color="primary">Sign in</button>
+        <button mat-raised-button
+            color="primary">Sign in</button>
     </form>
 </div>
