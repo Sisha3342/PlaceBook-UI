@@ -19,6 +19,8 @@ import { EditorComponent } from './editor/editor.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
 import {MatSidenavModule} from '@angular/material/sidenav';
+import { RouteButtonComponent } from './route-button/route-button.component';
+import { UserCardComponent } from './user-card/user-card.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +33,9 @@ import {MatSidenavModule} from '@angular/material/sidenav';
     MyMapsComponent,
     EditorComponent,
     NotFoundComponent,
-    SidebarComponent
+    SidebarComponent,
+    RouteButtonComponent,
+    UserCardComponent
   ],
   imports: [
     BrowserModule,
