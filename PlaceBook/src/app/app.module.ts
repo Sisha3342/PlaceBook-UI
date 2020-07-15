@@ -9,7 +9,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 import { MatInputModule } from '@angular/material/input';
 import { MatDividerModule } from '@angular/material/divider';
-import { MatFormFieldModule} from '@angular/material/form-field';
+import { MatFormFieldModule } from '@angular/material/form-field';
 
 import { LoginComponent } from './login/login.component';
 import { MyBookingsComponent } from './my-bookings/my-bookings.component';
@@ -19,6 +19,8 @@ import { EmployeesComponent } from './employees/employees.component';
 import { MyMapsComponent } from './my-maps/my-maps.component';
 import { EditorComponent } from './editor/editor.component';
 import { NotFoundComponent } from './not-found/not-found.component';
+import { MatSnackBar } from '@angular/material/snack-bar';
+import { Overlay } from '@angular/cdk/overlay';
 
 @NgModule({
   declarations: [
@@ -30,7 +32,7 @@ import { NotFoundComponent } from './not-found/not-found.component';
     EmployeesComponent,
     MyMapsComponent,
     EditorComponent,
-    NotFoundComponent
+    NotFoundComponent,
   ],
   imports: [
     BrowserModule,
@@ -42,10 +44,9 @@ import { NotFoundComponent } from './not-found/not-found.component';
     MatDividerModule,
     FormsModule,
     MatFormFieldModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
   ],
-  providers: [
-  ],
-  bootstrap: [AppComponent]
+  providers: [MatSnackBar, Overlay],
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

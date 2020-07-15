@@ -1,3 +1,4 @@
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { NgForm } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
 
@@ -9,14 +10,19 @@ import { Component, OnInit } from '@angular/core';
 export class LoginComponent implements OnInit {
   login = '';
   password = '';
+  warnMessage = 'Invalid credentials';
 
-  constructor() {}
+  constructor(private snackbar: MatSnackBar) {}
 
-  ngOnInit(): void {
-   }
+  ngOnInit(): void {}
+
+  isLoginPasswordValid(login: string, password: string): boolean {
+    return !login || !password ? false : true;
+  }
 
   loginUser(form: NgForm): void {
-    if (form.invalid) {
+    if (!this.isLoginPasswordValid(this.login, this.password)) {
+      this.snackbar.open(this.warnMessage);
       return;
     } else {
       localStorage.setItem('login', this.login);
