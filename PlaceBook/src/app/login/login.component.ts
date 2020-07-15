@@ -17,12 +17,18 @@ export class LoginComponent implements OnInit {
   ngOnInit(): void {}
 
   isLoginPasswordValid(login: string, password: string): boolean {
-    return !login || !password ? false : true;
+    const regex = new RegExp(
+      /^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/
+    );
+    return regex.test(login) && password ? true : false;
   }
 
   loginUser(form: NgForm): void {
     if (!this.isLoginPasswordValid(this.login, this.password)) {
-      this.snackbar.open(this.warnMessage);
+      this.snackbar.open(this.warnMessage, 'Close', {
+        verticalPosition: 'top',
+        panelClass: ['snack-white'],
+      });
       return;
     } else {
       localStorage.setItem('login', this.login);
