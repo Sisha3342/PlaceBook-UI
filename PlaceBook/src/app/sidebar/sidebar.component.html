@@ -5,6 +5,6 @@
                   [routerLink]='button.route'
                   [iconType]="button.iconType"
                   [setType]="button.setType"
-                  [activeTabName]="activeTabName"
+                  [isActive]="activeTabName === button.name"
                   (click)="changeActiveTab(button.name)">
 </app-route-button>

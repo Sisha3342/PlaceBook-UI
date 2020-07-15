@@ -9,7 +9,7 @@ export class RouteButtonComponent implements OnInit {
   @Input() name: string;
   @Input() iconType: string;
   @Input() setType: string;
-  @Input() activeTabName: string;
+  @Input() isActive: boolean;
 
   constructor() { }
 
