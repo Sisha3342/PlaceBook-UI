@@ -1,6 +1,7 @@
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { NgForm } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -12,7 +13,7 @@ export class LoginComponent implements OnInit {
   password = '';
   warnMessage = 'Invalid credentials';
 
-  constructor(private snackbar: MatSnackBar) {}
+  constructor(private snackbar: MatSnackBar, private router: Router) {}
 
   ngOnInit(): void {}
 
@@ -31,8 +32,10 @@ export class LoginComponent implements OnInit {
       });
       return;
     } else {
+      this.snackbar.dismiss();
       localStorage.setItem('login', this.login);
       localStorage.setItem('password', this.password);
+      this.router.navigate(['my_bookings']);
     }
   }
 }
