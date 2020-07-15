@@ -1,0 +1,35 @@
+.user-card-container {
+  margin-top: 1rem;
+  background-color: #d4e8f1;
+  border-radius: 0 5rem 5rem 0;
+  width: 11.5rem;
+  padding: 0.5rem;
+}
+
+.user-card-container .user-image {
+  width: 4rem;
+  height: 4rem;
+  display: inline-block;
+  overflow: hidden;
+  border-radius: 50%;
+}
+
+.user-card-container .card-content {
+  margin-left: 0.5rem;
+  width: 6rem;
+  display: inline-block;
+  vertical-align: top;
+  margin-top: 0.4rem;
+}
+
+.user-card-container .card-content .user-card-name {
+  font-weight: bold;
+  margin-bottom: 0.3rem;
+  margin-left: 0.2rem;
+  font-size: 16px;
+}
+
+.user-card-container button {
+  line-height: 1.7rem;
+  border-radius: 1.5rem;
+}

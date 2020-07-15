@@ -1,15 +1,16 @@
-import { AppComponent } from './app.component';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { AppRoutingModule } from './app-routing.module';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
+import { AppRoutingModule } from './app-routing.module';
+import { AppComponent } from './app.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 import { MatInputModule } from '@angular/material/input';
 import { MatDividerModule } from '@angular/material/divider';
-import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatSnackBar } from '@angular/material/snack-bar';
+import { Overlay } from '@angular/cdk/overlay';
 
 import { LoginComponent } from './login/login.component';
 import { MyBookingsComponent } from './my-bookings/my-bookings.component';
@@ -19,8 +20,12 @@ import { EmployeesComponent } from './employees/employees.component';
 import { MyMapsComponent } from './my-maps/my-maps.component';
 import { EditorComponent } from './editor/editor.component';
 import { NotFoundComponent } from './not-found/not-found.component';
-import { MatSnackBar } from '@angular/material/snack-bar';
-import { Overlay } from '@angular/cdk/overlay';
+import { SidebarComponent } from './sidebar/sidebar.component';
+import { MatSidenavModule } from '@angular/material/sidenav';
+import { RouteButtonComponent } from './sidebar/route-button/route-button.component';
+import { UserCardComponent } from './sidebar/user-card/user-card.component';
+import { MatCardModule } from '@angular/material/card';
+import { MatFormFieldModule } from '@angular/material/form-field';
 
 @NgModule({
   declarations: [
@@ -33,6 +38,9 @@ import { Overlay } from '@angular/cdk/overlay';
     MyMapsComponent,
     EditorComponent,
     NotFoundComponent,
+    SidebarComponent,
+    RouteButtonComponent,
+    UserCardComponent,
   ],
   imports: [
     BrowserModule,
@@ -42,6 +50,8 @@ import { Overlay } from '@angular/cdk/overlay';
     MatButtonModule,
     MatInputModule,
     MatDividerModule,
+    MatSidenavModule,
+    MatCardModule,
     FormsModule,
     MatFormFieldModule,
     ReactiveFormsModule,
