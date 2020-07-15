@@ -6,24 +6,21 @@
         novalidate
         (ngSubmit)="loginUser(loginForm)"
         class="example-form">
-    <mat-form-field appearance="fill">
+    <mat-form-field>
       <mat-label>Login</mat-label>
       <input matInput
              type="email"
              name="login"
              [(ngModel)]="login"
-             placeholder="user@email.com"
-             pattern="^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$"
-             required />
+             placeholder="user@email.com" />
     </mat-form-field>
 
-    <mat-form-field appearance="fill">
+    <mat-form-field>
       <mat-label>Password</mat-label>
       <input matInput
              type="password"
              name="password"
-             [(ngModel)]="password"
-             required />
+             [(ngModel)]="password" />
     </mat-form-field>
 
     <button mat-raised-button
