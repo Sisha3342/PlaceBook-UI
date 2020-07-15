@@ -18,10 +18,10 @@ import { MyMapsComponent } from './my-maps/my-maps.component';
 import { EditorComponent } from './editor/editor.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
-import {MatSidenavModule} from '@angular/material/sidenav';
+import { MatSidenavModule } from '@angular/material/sidenav';
 import { RouteButtonComponent } from './route-button/route-button.component';
 import { UserCardComponent } from './user-card/user-card.component';
-import {MatCardModule} from '@angular/material/card';
+import { MatCardModule } from '@angular/material/card';
 
 @NgModule({
   declarations: [
