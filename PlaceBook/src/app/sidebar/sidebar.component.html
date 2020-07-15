@@ -1,5 +1,6 @@
 <app-user-card></app-user-card>
 
 <app-route-button *ngFor='let button of routeButtons'
-                  [name]='button.name' [routerLink]='button.route'>
+                  [name]='button.name' [routerLink]='button.route'
+                  [iconType]="button.iconType" [setType]="button.setType">
 </app-route-button>
