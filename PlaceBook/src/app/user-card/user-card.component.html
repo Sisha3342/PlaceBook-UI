@@ -1,9 +1,9 @@
-<mat-card>
-  <img mat-card-md-image src="{{ userImage }}" alt="ERR">
+<div class="user-card-container">
+  <img src="{{ userImage }}">
 
   <div class="card-content">
-    <mat-card-title>{{ userName }}</mat-card-title>
+    <div class="user-card-name">{{ userName }}</div>
 
     <button mat-raised-button color="primary" routerLink="/login">Log out</button>
   </div>
-</mat-card>
+</div>

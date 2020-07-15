@@ -22,9 +22,15 @@ export class SidebarComponent implements OnInit {
     {name: 'Editor', route: '/editor', iconType: 'fa-tools', setType: 'fas'}
   ];
 
+  activeTabName = 'My bookings';
+
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  changeActiveTab(name: string): void {
+    this.activeTabName = name;
   }
 
 }
