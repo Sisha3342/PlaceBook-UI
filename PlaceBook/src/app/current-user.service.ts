@@ -5,18 +5,32 @@ import { User } from './user';
   providedIn: 'root',
 })
 export class CurrentUserService {
-  private user: User;
-
   constructor() {}
 
-  setCurrentUser(): void {
-    this.user.name = localStorage.getItem('name');
-    this.user.password = localStorage.getItem('password');
-    this.user.email = localStorage.getItem('email');
-    this.user.role = localStorage.getItem('role');
+  async login(email: string, password: string): Promise<boolean> {
+    const user: User = {
+      name: 'Anton',
+      email,
+      password,
+      role: 'user',
+    };
+
+    localStorage.setItem('user', JSON.stringify(user));
+
+    return true;
+  }
+
+  logout(): void {
+    localStorage.clear();
   }
 
   getCurrentUser(): User {
-    return this.user;
+    const user = localStorage.getItem('user');
+
+    return JSON.parse(user);
+  }
+
+  isAuthorized(): boolean {
+    return localStorage.length === 0;
   }
 }
