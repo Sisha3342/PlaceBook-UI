@@ -21,12 +21,6 @@ export class SidebarComponent implements OnInit {
       setType: 'fas',
     },
     {
-      name: 'Add booking',
-      route: '/bookings',
-      iconType: 'fa-book',
-      setType: 'fas',
-    },
-    {
       name: 'Employees bookings',
       route: '/employees_bookings',
       iconType: 'fa-address-book',
@@ -39,7 +33,6 @@ export class SidebarComponent implements OnInit {
       setType: 'fas',
     },
     { name: 'My maps', route: '/my_maps', iconType: 'fa-map', setType: 'fas' },
-    { name: 'Add map', route: '/editor', iconType: 'fa-tools', setType: 'fas' },
   ];
 
   activeTabName = 'My bookings';
