@@ -1,9 +1,11 @@
 <mat-card id="user-card">
     <img id="user-photo"
-         src="{{employeeObject.photo}}">
+         src="{{employeeObject.photo}}"
+         width="200px"
+         height="200px">
     <p id="user-name">{{employeeObject.username}}</p>
     <p id="user-email">{{employeeObject.email}}</p>
-    <mat-button-toggle-group [(ngModel)]="employeeObject.role">
+    <mat-button-toggle-group [(value)]="employeeObject.role">
         <mat-button-toggle value="employee">Employee</mat-button-toggle>
         <mat-button-toggle value="hr">HR</mat-button-toggle>
         <mat-button-toggle value="editor">Editor</mat-button-toggle>
