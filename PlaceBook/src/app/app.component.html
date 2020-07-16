@@ -1,4 +1,8 @@
 <mat-sidenav-container>
-  <mat-sidenav mode="side" [fixedInViewport]='true' opened><app-sidebar></app-sidebar></mat-sidenav>
-  <mat-sidenav-content><router-outlet></router-outlet></mat-sidenav-content>
+  <mat-sidenav-content>
+    <router-outlet></router-outlet>
+  </mat-sidenav-content>
+  <mat-sidenav mode="side" [fixedInViewport]="true" [opened]="!isLoginPage">
+    <app-sidebar (isLoginPageEvent)="hideSidebar($event)"></app-sidebar>
+  </mat-sidenav>
 </mat-sidenav-container>
