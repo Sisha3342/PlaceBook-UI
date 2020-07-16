@@ -21,6 +21,8 @@ import { AppMaterialModule } from './app-material/app-material.module';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { HomeLayoutComponent } from './layouts/home/home-layout.component';
 import { LoginLayoutComponent } from './layouts/login/login-layout.component';
+import { AuthGuard } from './auth/auth.guard';
+import { AuthService } from './auth/auth.service';
 
 @NgModule({
   declarations: [
@@ -47,7 +49,7 @@ import { LoginLayoutComponent } from './layouts/login/login-layout.component';
     ReactiveFormsModule,
     AppMaterialModule
   ],
-  providers: [MatSnackBar, Overlay],
+  providers: [MatSnackBar, Overlay, AuthGuard, AuthService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
