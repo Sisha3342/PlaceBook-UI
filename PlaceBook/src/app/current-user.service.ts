@@ -31,6 +31,6 @@ export class CurrentUserService {
   }
 
   isAuthorized(): boolean {
-    return localStorage.length === 0;
+    return localStorage.getItem('user') !== null;
   }
 }
