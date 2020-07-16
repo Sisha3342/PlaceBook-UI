@@ -1,12 +1,11 @@
-<mat-card>
-    <img src=""
-         alt="">
-    <p id="user-name">Ivan Petrov</p>
-    <p id="user-email">Mail@mail.mail</p>
-    <mat-button-toggle-group name="fontStyle"
-                             aria-label="Font Style">
-        <mat-button-toggle value="bold">Employee</mat-button-toggle>
-        <mat-button-toggle value="italic">HR</mat-button-toggle>
-        <mat-button-toggle value="underline">Editor</mat-button-toggle>
+<mat-card id="user-card">
+    <img id="user-photo"
+         src="{{employeeObject.photo}}">
+    <p id="user-name">{{employeeObject.username}}</p>
+    <p id="user-email">{{employeeObject.email}}</p>
+    <mat-button-toggle-group [(ngModel)]="employeeObject.role">
+        <mat-button-toggle value="employee">Employee</mat-button-toggle>
+        <mat-button-toggle value="hr">HR</mat-button-toggle>
+        <mat-button-toggle value="editor">Editor</mat-button-toggle>
     </mat-button-toggle-group>
 </mat-card>

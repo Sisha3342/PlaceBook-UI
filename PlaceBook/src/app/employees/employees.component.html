@@ -1,32 +1,8 @@
 <app-search></app-search>
-<mat-grid-list cols="3"
-               rowHeight="2:1">
-    <mat-grid-tile>
-        <app-employee-card></app-employee-card>
+<mat-grid-list id="user-list"
+               cols="3">
+    <mat-grid-tile id="card-tile"
+                   *ngFor="let employee of employees">
+        <app-employee-card [employee]="employee"></app-employee-card>
     </mat-grid-tile>
-    <mat-grid-tile>
-        <app-employee-card></app-employee-card>
-    </mat-grid-tile>
-    <mat-grid-tile>
-        <app-employee-card></app-employee-card>
-    </mat-grid-tile>
-    <mat-grid-tile>
-        <app-employee-card></app-employee-card>
-    </mat-grid-tile>
-    <mat-grid-tile>
-        <app-employee-card></app-employee-card>
-    </mat-grid-tile>
-    <mat-grid-tile>
-        <app-employee-card></app-employee-card>
-    </mat-grid-tile>
-    <mat-grid-tile>
-        <app-employee-card></app-employee-card>
-    </mat-grid-tile>
-    <mat-grid-tile>
-        <app-employee-card></app-employee-card>
-    </mat-grid-tile>
-    <mat-grid-tile>
-        <app-employee-card></app-employee-card>
-    </mat-grid-tile>
-
 </mat-grid-list>
