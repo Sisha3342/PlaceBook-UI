@@ -26,6 +26,10 @@ import { RouteButtonComponent } from './sidebar/route-button/route-button.compon
 import { UserCardComponent } from './sidebar/user-card/user-card.component';
 import { MatCardModule } from '@angular/material/card';
 import { MatFormFieldModule } from '@angular/material/form-field';
+import { SearchComponent } from './search/search.component';
+import { EmployeeCardComponent } from './employee-card/employee-card.component';
+import { MatGridListModule } from '@angular/material/grid-list';
+import { MatButtonToggleModule } from '@angular/material/button-toggle';
 
 @NgModule({
   declarations: [
@@ -41,6 +45,8 @@ import { MatFormFieldModule } from '@angular/material/form-field';
     SidebarComponent,
     RouteButtonComponent,
     UserCardComponent,
+    SearchComponent,
+    EmployeeCardComponent,
   ],
   imports: [
     BrowserModule,
@@ -55,6 +61,8 @@ import { MatFormFieldModule } from '@angular/material/form-field';
     FormsModule,
     MatFormFieldModule,
     ReactiveFormsModule,
+    MatGridListModule,
+    MatButtonToggleModule,
   ],
   providers: [MatSnackBar, Overlay],
   bootstrap: [AppComponent],

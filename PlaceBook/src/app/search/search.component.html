@@ -1,0 +1,15 @@
+<mat-card id="search-field">
+    <mat-form-field>
+        <input matInput
+               id="search-input"
+               type="text"
+               [(ngModel)]="searchText"
+               (keyup)="applyFilter()"
+               placeholder="Search by Employees"
+               autofocus>
+
+    </mat-form-field>
+    <button mat-raised-button
+            color="primary"
+            id="search-button">Search</button>
+</mat-card>
