@@ -31,6 +31,7 @@ export class LoginComponent implements OnInit {
         verticalPosition: 'top',
         panelClass: ['snack-white'],
       });
+
       return;
     } else {
       this.snackbar.dismiss();
