@@ -47,7 +47,7 @@ import { AuthService } from './auth/auth.service';
     BrowserAnimationsModule,
     FormsModule,
     ReactiveFormsModule,
-    AppMaterialModule
+    AppMaterialModule,
   ],
   providers: [MatSnackBar, Overlay, AuthGuard, AuthService],
   bootstrap: [AppComponent],
