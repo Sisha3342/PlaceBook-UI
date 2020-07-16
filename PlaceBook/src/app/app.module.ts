@@ -30,6 +30,7 @@ import { SearchComponent } from './search/search.component';
 import { EmployeeCardComponent } from './employee-card/employee-card.component';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { MatButtonToggleModule } from '@angular/material/button-toggle';
+import { SnackBarComponent } from './snack-bar/snack-bar.component';
 
 @NgModule({
   declarations: [
@@ -47,6 +48,7 @@ import { MatButtonToggleModule } from '@angular/material/button-toggle';
     UserCardComponent,
     SearchComponent,
     EmployeeCardComponent,
+    SnackBarComponent,
   ],
   imports: [
     BrowserModule,
