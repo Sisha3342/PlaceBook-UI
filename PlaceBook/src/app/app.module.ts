@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -8,6 +9,8 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 import { MatInputModule } from '@angular/material/input';
 import { MatDividerModule } from '@angular/material/divider';
+import { MatSnackBar } from '@angular/material/snack-bar';
+import { Overlay } from '@angular/cdk/overlay';
 
 import { LoginComponent } from './login/login.component';
 import { MyBookingsComponent } from './my-bookings/my-bookings.component';
@@ -22,6 +25,7 @@ import { MatSidenavModule } from '@angular/material/sidenav';
 import { RouteButtonComponent } from './sidebar/route-button/route-button.component';
 import { UserCardComponent } from './sidebar/user-card/user-card.component';
 import { MatCardModule } from '@angular/material/card';
+import { MatFormFieldModule } from '@angular/material/form-field';
 
 @NgModule({
   declarations: [
@@ -36,7 +40,7 @@ import { MatCardModule } from '@angular/material/card';
     NotFoundComponent,
     SidebarComponent,
     RouteButtonComponent,
-    UserCardComponent
+    UserCardComponent,
   ],
   imports: [
     BrowserModule,
@@ -47,9 +51,12 @@ import { MatCardModule } from '@angular/material/card';
     MatInputModule,
     MatDividerModule,
     MatSidenavModule,
-    MatCardModule
+    MatCardModule,
+    FormsModule,
+    MatFormFieldModule,
+    ReactiveFormsModule,
   ],
-  providers: [],
-  bootstrap: [AppComponent]
+  providers: [MatSnackBar, Overlay],
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
