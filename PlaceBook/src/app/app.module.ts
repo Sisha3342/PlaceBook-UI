@@ -5,13 +5,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MatIconModule } from '@angular/material/icon';
-import { MatButtonModule } from '@angular/material/button';
-import { MatInputModule } from '@angular/material/input';
-import { MatDividerModule } from '@angular/material/divider';
-import { MatSnackBar } from '@angular/material/snack-bar';
 import { Overlay } from '@angular/cdk/overlay';
-
 import { LoginComponent } from './login/login.component';
 import { MyBookingsComponent } from './my-bookings/my-bookings.component';
 import { BookComponent } from './book/book.component';
@@ -21,15 +15,18 @@ import { MyMapsComponent } from './my-maps/my-maps.component';
 import { EditorComponent } from './editor/editor.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
-import { MatSidenavModule } from '@angular/material/sidenav';
 import { RouteButtonComponent } from './sidebar/route-button/route-button.component';
 import { UserCardComponent } from './sidebar/user-card/user-card.component';
-import { MatCardModule } from '@angular/material/card';
-import { MatFormFieldModule } from '@angular/material/form-field';
+import { AppMaterialModule } from './app-material/app-material.module';
+import { MatSnackBar } from '@angular/material/snack-bar';
+import { HomeLayoutComponent } from './layouts/home/home-layout.component';
+import { LoginLayoutComponent } from './layouts/login/login-layout.component';
 
 @NgModule({
   declarations: [
     AppComponent,
+    LoginLayoutComponent,
+    HomeLayoutComponent,
     LoginComponent,
     MyBookingsComponent,
     BookComponent,
@@ -46,15 +43,9 @@ import { MatFormFieldModule } from '@angular/material/form-field';
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    MatIconModule,
-    MatButtonModule,
-    MatInputModule,
-    MatDividerModule,
-    MatSidenavModule,
-    MatCardModule,
     FormsModule,
-    MatFormFieldModule,
     ReactiveFormsModule,
+    AppMaterialModule
   ],
   providers: [MatSnackBar, Overlay],
   bootstrap: [AppComponent],

@@ -11,8 +11,4 @@ export class AppComponent {
   constructor() {
     this.isLoginPage = true;
   }
-
-  hideSidebar(isLoginPage: boolean): void {
-    this.isLoginPage = isLoginPage;
-  }
 }

@@ -1,5 +1,4 @@
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
-import { NavigationEnd, Router } from '@angular/router';
+import { Component, OnInit } from '@angular/core';
 
 type RouteButton = {
   name: string;
@@ -14,8 +13,6 @@ type RouteButton = {
   styleUrls: ['./sidebar.component.scss'],
 })
 export class SidebarComponent implements OnInit {
-  @Output() isLoginPageEvent = new EventEmitter<boolean>();
-
   routeButtons: RouteButton[] = [
     {
       name: 'My bookings',
@@ -42,18 +39,9 @@ export class SidebarComponent implements OnInit {
 
   activeTabName = 'My bookings';
 
-  constructor(private router: Router) {}
-
-  private isLogin(url: string): void {
-    this.isLoginPageEvent.emit(url === '/login');
-  }
+  constructor() {}
 
   ngOnInit(): void {
-    this.router.events.subscribe((event) => {
-      if (event instanceof NavigationEnd) {
-        this.isLogin(event.url);
-      }
-    });
   }
 
   changeActiveTab(name: string): void {

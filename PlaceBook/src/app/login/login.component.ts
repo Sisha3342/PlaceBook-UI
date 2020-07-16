@@ -23,19 +23,17 @@ export class LoginComponent implements OnInit {
   ngOnInit(): void {}
 
   isLoginPasswordValid(login: string, password: string): boolean {
-    const regex = new RegExp(
-      /^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/
-    );
+    const regex = new RegExp(/^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/);
 
     return !!(regex.test(login) && password);
   }
 
-  loginUser(form: NgForm): void {
+  loginUser(): void {
     if (!this.isLoginPasswordValid(this.login, this.password)) {
       this.snackbar.open(this.warnMessage, 'Close', {
-        verticalPosition: 'top',
-        panelClass: ['snack-white'],
+        verticalPosition: 'top'
       });
+
       return;
     } else {
       this.snackbar.dismiss();
