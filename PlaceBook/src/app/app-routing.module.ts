@@ -11,11 +11,13 @@ import { EditorComponent } from './editor/editor.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { HomeLayoutComponent } from './layouts/home/home-layout.component';
 import { LoginLayoutComponent } from './layouts/login/login-layout.component';
+import { AuthGuard } from './auth/auth.guard';
 
 const routes: Routes = [
   {
     path: '',
     component: HomeLayoutComponent,
+    canActivate: [AuthGuard],
     children: [
       { path: '', redirectTo: '/my_bookings', pathMatch: 'full'},
       { path: 'my_bookings', component: MyBookingsComponent },
