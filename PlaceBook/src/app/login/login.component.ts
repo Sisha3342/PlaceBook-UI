@@ -21,7 +21,8 @@ export class LoginComponent implements OnInit {
     const regex = new RegExp(
       /^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/
     );
-    return regex.test(login) && password ? true : false;
+
+    return !!(regex.test(login) && password);
   }
 
   loginUser(form: NgForm): void {
