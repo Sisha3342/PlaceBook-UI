@@ -5,6 +5,7 @@
                type="text"
                [(ngModel)]="searchText"
                (keyup)="applyFilter()"
+               (enter)="showSearched()"
                placeholder="Search by Employees"
                autofocus>
     </mat-form-field>

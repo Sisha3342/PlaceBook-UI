@@ -10,6 +10,7 @@ export class SearchComponent implements OnInit {
   constructor() {}
 
   applyFilter() {}
+  showSearched() {}
 
   ngOnInit(): void {}
 }
