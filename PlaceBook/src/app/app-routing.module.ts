@@ -19,14 +19,14 @@ const routes: Routes = [
     component: HomeLayoutComponent,
     canActivate: [AuthGuard],
     children: [
-      { path: '', redirectTo: '/my_bookings', pathMatch: 'full'},
+      { path: '', redirectTo: '/my_bookings', pathMatch: 'full' },
       { path: 'my_bookings', component: MyBookingsComponent },
       { path: 'book', component: BookComponent },
       { path: 'employees_bookings', component: EmployeesBookingsComponent },
       { path: 'employees', component: EmployeesComponent },
       { path: 'my_maps', component: MyMapsComponent },
       { path: 'editor', component: EditorComponent },
-    ]
+    ],
   },
   {
     path: '',
@@ -34,15 +34,15 @@ const routes: Routes = [
     children: [
       {
         path: 'login',
-        component: LoginComponent
-      }
-    ]
+        component: LoginComponent,
+      },
+    ],
   },
-  { path: '**', component: NotFoundComponent }
+  { path: '**', component: NotFoundComponent },
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}

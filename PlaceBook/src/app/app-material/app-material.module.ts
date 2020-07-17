@@ -16,7 +16,7 @@ import { MatSidenavModule } from '@angular/material/sidenav';
     MatDividerModule,
     MatSidenavModule,
     MatCardModule,
-    MatFormFieldModule
-  ]
+    MatFormFieldModule,
+  ],
 })
 export class AppMaterialModule {}

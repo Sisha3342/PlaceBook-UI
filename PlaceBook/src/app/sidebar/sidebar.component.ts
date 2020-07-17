@@ -20,7 +20,6 @@ export class SidebarComponent implements OnInit {
       iconType: 'fa-list',
       setType: 'fas',
     },
-    { name: 'Book', route: '/book', iconType: 'fa-book', setType: 'fas' },
     {
       name: 'Employees bookings',
       route: '/employees_bookings',
@@ -34,15 +33,13 @@ export class SidebarComponent implements OnInit {
       setType: 'fas',
     },
     { name: 'My maps', route: '/my_maps', iconType: 'fa-map', setType: 'fas' },
-    { name: 'Editor', route: '/editor', iconType: 'fa-tools', setType: 'fas' },
   ];
 
   activeTabName = 'My bookings';
 
   constructor() {}
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void {}
 
   changeActiveTab(name: string): void {
     this.activeTabName = name;

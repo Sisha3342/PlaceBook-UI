@@ -1,4 +1,10 @@
 <app-user-card></app-user-card>
+
+<button mat-raised-button color="primary" routerLink="/booking">
+  Add booking
+</button>
+<button mat-raised-button color="primary" routerLink="/editor">Add map</button>
+
 <app-route-button
   *ngFor="let button of routeButtons"
   [name]="button.name"

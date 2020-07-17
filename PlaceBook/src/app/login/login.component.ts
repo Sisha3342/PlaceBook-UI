@@ -23,7 +23,9 @@ export class LoginComponent implements OnInit {
   ngOnInit(): void {}
 
   isLoginPasswordValid(login: string, password: string): boolean {
-    const regex = new RegExp(/^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/);
+    const regex = new RegExp(
+      /^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/
+    );
 
     return !!(regex.test(login) && password);
   }
@@ -31,7 +33,7 @@ export class LoginComponent implements OnInit {
   loginUser(): void {
     if (!this.isLoginPasswordValid(this.login, this.password)) {
       this.snackbar.open(this.warnMessage, 'Close', {
-        verticalPosition: 'top'
+        verticalPosition: 'top',
       });
 
       return;
