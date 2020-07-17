@@ -3,12 +3,17 @@
         <input matInput
                id="search-input"
                type="text"
-               [(ngModel)]="searchText"
-               (keyup)="applyFilter()"
+               (input)="checkInput()"
+               [(ngModel)]="inputText"
+               (keyup)="instantFilter()"
                (enter)="showSearched()"
                placeholder="Search by Employees"
                autofocus>
     </mat-form-field>
+    <ul *ngIf="inputArray.length != 0">
+        <li *ngFor="let i of inputArray">{{ i }}</li>
+    </ul>
+
     <button mat-raised-button
             color="primary"
             id="search-button">Search</button>

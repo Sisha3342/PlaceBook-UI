@@ -6,10 +6,18 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./search.component.scss'],
 })
 export class SearchComponent implements OnInit {
-  searchText = '';
+  inputText = '';
+  inputArray = ['ddd', 'fff', 'ggg', 'jghjhbkj'];
+
+  checkInput(): void {
+    this.inputArray = this.inputArray.filter(
+      (input) => (input = this.inputText)
+    );
+  }
+
   constructor() {}
 
-  applyFilter() {}
+  instantFilter() {}
   showSearched() {}
 
   ngOnInit(): void {}
