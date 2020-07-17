@@ -22,6 +22,11 @@ import { MatSidenavModule } from '@angular/material/sidenav';
 import { RouteButtonComponent } from './sidebar/route-button/route-button.component';
 import { UserCardComponent } from './sidebar/user-card/user-card.component';
 import { MatCardModule } from '@angular/material/card';
+import { MatTabsModule } from '@angular/material/tabs';
+import { MatTableModule } from '@angular/material/table';
+import { TableComponent } from './my-bookings/table/table.component';
+import { ButtonAddBookingComponent } from './my-bookings/button-add-booking/button-add-booking.component';
+import { StatisticsBoxComponent } from './my-bookings/statistics-box/statistics-box.component';
 
 @NgModule({
   declarations: [
@@ -36,7 +41,10 @@ import { MatCardModule } from '@angular/material/card';
     NotFoundComponent,
     SidebarComponent,
     RouteButtonComponent,
-    UserCardComponent
+    UserCardComponent,
+    TableComponent,
+    ButtonAddBookingComponent,
+    StatisticsBoxComponent
   ],
   imports: [
     BrowserModule,
@@ -47,7 +55,9 @@ import { MatCardModule } from '@angular/material/card';
     MatInputModule,
     MatDividerModule,
     MatSidenavModule,
-    MatCardModule
+    MatCardModule,
+    MatTabsModule,
+    MatTableModule
   ],
   providers: [],
   bootstrap: [AppComponent]

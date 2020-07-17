@@ -1,1 +1,25 @@
-<p>my-bookings works!</p>
+
+<div class="tab-group">
+  <mat-tab-group>
+    <mat-tab label="Active" class="demo-tab-label" >
+      <app-table></app-table>
+    </mat-tab>
+
+<!--    (click)="changeData('Active')"-->
+
+    <mat-tab label="Completed">
+      <app-table></app-table>
+    </mat-tab>
+
+
+    <mat-tab label="Cancelled">
+      <app-table></app-table>
+    </mat-tab>
+  </mat-tab-group>
+</div>
+
+
+<div class="white-background">
+  <app-button-add-booking></app-button-add-booking>
+  <app-statistics-box></app-statistics-box>
+</div>

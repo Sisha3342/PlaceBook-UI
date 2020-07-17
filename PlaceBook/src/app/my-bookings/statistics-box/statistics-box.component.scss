@@ -1,0 +1,60 @@
+.statistics-item{
+  width: 8.7rem;
+  height: 8.7rem;
+  border-radius: 1.5rem;
+  box-shadow: 0px 4px 23px rgba(0, 0, 0, 0.25);
+  background: white;
+  margin-top: 2rem;
+  margin-left: 4.1rem;
+  position:relative;
+}
+
+.amount-all-bookings{
+  color: #673AB7;
+  position: absolute;
+  font-size: 3rem;
+  font-weight: normal;
+  justify-content: center;
+  align-items: center;
+  margin-top: 3.3rem;
+  left: 50%;
+  margin-right: -50%;
+  transform: translate(-50%, -50%);
+}
+
+.amount-completed-bookings{
+  color: #00C19F;
+  position: absolute;
+  font-size: 3rem;
+  font-weight: normal;
+  justify-content: center;
+  align-items: center;
+  margin-top: 3.3rem;
+  left: 50%;
+  margin-right: -50%;
+  transform: translate(-50%, -50%);
+}
+
+.amount-cancelled-bookings{
+  color: #F44336;
+  position: absolute;
+  font-size: 3rem;
+  font-weight: normal;
+  justify-content: center;
+  align-items: center;
+  margin-top: 3.3rem;
+  left: 50%;
+  margin-right: -50%;
+  transform: translate(-50%, -50%);
+}
+
+.text-bookings{
+  position: absolute;
+  margin-top: 5.5rem;
+  font-size: 1rem;
+  color: #5B5B5B;
+  display: flex;
+  align-items: center;
+  left: 30%;
+  transform: translate(-14%, 0);
+}
