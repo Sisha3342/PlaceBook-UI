@@ -1,12 +1,10 @@
 <mat-card>
   <mat-card-content>
     <img class="logo"
-         src="
-         assets/logo.svg"
+         src="assets/logo.svg"
          alt="Logo" />
-    <form #loginForm="ngForm"
-          novalidate
-          (ngSubmit)="loginUser(loginForm)"
+    <form novalidate
+          (ngSubmit)="loginUser()"
           class="example-form">
       <mat-form-field>
         <mat-label>Login</mat-label>
