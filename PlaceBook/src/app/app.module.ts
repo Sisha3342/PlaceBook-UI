@@ -1,14 +1,11 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MatIconModule } from '@angular/material/icon';
-import { MatButtonModule } from '@angular/material/button';
-import { MatInputModule } from '@angular/material/input';
-import { MatDividerModule } from '@angular/material/divider';
-
+import { Overlay } from '@angular/cdk/overlay';
 import { LoginComponent } from './login/login.component';
 import { MyBookingsComponent } from './my-bookings/my-bookings.component';
 import { BookComponent } from './book/book.component';
@@ -18,12 +15,14 @@ import { MyMapsComponent } from './my-maps/my-maps.component';
 import { EditorComponent } from './editor/editor.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
-import { MatSidenavModule } from '@angular/material/sidenav';
 import { RouteButtonComponent } from './sidebar/route-button/route-button.component';
 import { UserCardComponent } from './sidebar/user-card/user-card.component';
-import { MatCardModule } from '@angular/material/card';
-import { MatTabsModule } from '@angular/material/tabs';
-import { MatTableModule } from '@angular/material/table';
+import { AppMaterialModule } from './app-material/app-material.module';
+import { MatSnackBar } from '@angular/material/snack-bar';
+import { HomeLayoutComponent } from './layouts/home/home-layout.component';
+import { LoginLayoutComponent } from './layouts/login/login-layout.component';
+import { AuthGuard } from './auth/auth.guard';
+import { AuthService } from './auth/auth.service';
 import { TableComponent } from './my-bookings/table/table.component';
 import { ButtonAddBookingComponent } from './my-bookings/button-add-booking/button-add-booking.component';
 import { StatisticsBoxComponent } from './my-bookings/statistics-box/statistics-box.component';
@@ -31,6 +30,8 @@ import { StatisticsBoxComponent } from './my-bookings/statistics-box/statistics-
 @NgModule({
   declarations: [
     AppComponent,
+    LoginLayoutComponent,
+    HomeLayoutComponent,
     LoginComponent,
     MyBookingsComponent,
     BookComponent,
@@ -50,16 +51,11 @@ import { StatisticsBoxComponent } from './my-bookings/statistics-box/statistics-
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    MatIconModule,
-    MatButtonModule,
-    MatInputModule,
-    MatDividerModule,
-    MatSidenavModule,
-    MatCardModule,
-    MatTabsModule,
-    MatTableModule
+    FormsModule,
+    ReactiveFormsModule,
+    AppMaterialModule,
   ],
-  providers: [],
-  bootstrap: [AppComponent]
+  providers: [MatSnackBar, Overlay, AuthGuard, AuthService],
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

@@ -1,0 +1,33 @@
+:host {
+  display: flex;
+  justify-content: center;
+  margin: 10rem 0;
+}
+
+mat-card.mat-card:not([class*="mat-elevation-z"]) {
+  border: 2px solid #dedede;
+  box-shadow: 0 4px 23px rgba(0, 0, 0, 0.25);
+}
+
+mat-card-content {
+  padding: 1rem;
+  width: 20rem;
+  margin: 10rem auto;
+}
+
+.logo {
+  display: block;
+  width: 50%;
+  margin: 1rem auto;
+}
+
+.mat-form-field {
+  display: block;
+}
+
+button#login-button {
+  display: block;
+  border-radius: 20px;
+  background-color: #3f51b5;
+  margin: 0 auto;
+}
