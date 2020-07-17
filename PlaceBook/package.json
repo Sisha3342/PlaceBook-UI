@@ -11,9 +11,14 @@
     "prettier": "./node_modules/.bin/prettier --write './src/**/*.{ts,js,html,css,json}'",
     "precommit": "lint-staged"
   },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
   "lint-staged": {
     "*.{ts,js,html,css,json}": [
-      "./node_modules/.bin/prettier --write",
+      "prettier --write",
       "git add"
     ]
   },
