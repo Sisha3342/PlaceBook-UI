@@ -1,4 +1,4 @@
-#search-field {
+.search-field {
   position: relative;
   margin: 1rem 1rem;
   padding: 0;
@@ -10,28 +10,28 @@ mat-form-field {
   flex: 1;
   padding: 0 1rem;
 }
-#search-button {
+.search-button {
   margin: 1rem;
   border-radius: 20px;
   background-color: #3f51b5;
 }
 
-ul {
-  margin: 0;
-  margin-top: 1rem;
-  padding: 0;
-  left: 0;
-  top: 2rem;
-  width: 90%;
-  position: absolute;
-  z-index: 3;
-}
-li {
-  position: relative;
-  margin-left: 1rem;
-  background: #fff;
-  flex-direction: column;
-  list-style-type: none;
-  border: 1px solid #d4e8f1;
-  border-radius: 5px;
-}
+// ul {
+//   margin: 0;
+//   margin-top: 1rem;
+//   padding: 0;
+//   left: 0;
+//   top: 2rem;
+//   width: 90%;
+//   position: absolute;
+//   z-index: 3;
+// }
+// li {
+//   position: relative;
+//   margin-left: 1rem;
+//   background: #fff;
+//   flex-direction: column;
+//   list-style-type: none;
+//   border: 1px solid #d4e8f1;
+//   border-radius: 5px;
+// }

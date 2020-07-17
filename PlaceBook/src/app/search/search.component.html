@@ -1,7 +1,23 @@
-<mat-card id="search-field">
+<mat-autocomplete #auto="matAutocomplete">
+    <mat-option class="search-input"
+                (input)="checkInput()"
+                [(ngModel)]="inputText"
+                (keyup)="instantFilter()"
+                (enter)="showSearched()"
+                placeholder="Search by Employees"
+                *ngFor="let option of inputArray"
+                [value]="option">
+        {{ option }}
+    </mat-option>
+    <button mat-raised-button
+            color="primary"
+            class="search-button">Search</button>
+</mat-autocomplete>
+
+<!-- <mat-card class="search-field">
     <mat-form-field>
         <input matInput
-               id="search-input"
+               class="search-input"
                type="text"
                (input)="checkInput()"
                [(ngModel)]="inputText"
@@ -16,5 +32,5 @@
 
     <button mat-raised-button
             color="primary"
-            id="search-button">Search</button>
-</mat-card>
+            class="search-button">Search</button>
+</mat-card> -->

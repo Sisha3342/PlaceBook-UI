@@ -1,3 +1,4 @@
+import { CurrentUserService } from './../current-user.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { NgForm } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
@@ -13,6 +14,8 @@ export class LoginComponent implements OnInit {
   password = '';
   warnMessage = 'Invalid credentials';
 
+  service: CurrentUserService;
+
   constructor(private snackbar: MatSnackBar, private router: Router) {}
 
   ngOnInit(): void {}
@@ -25,7 +28,7 @@ export class LoginComponent implements OnInit {
     return !!(regex.test(login) && password);
   }
 
-  loginUser(form: NgForm): void {
+  async loginUser(form: NgForm): Promise<void> {
     if (!this.isLoginPasswordValid(this.login, this.password)) {
       this.snackbar.open(this.warnMessage, 'Close', {
         verticalPosition: 'top',
@@ -34,6 +37,8 @@ export class LoginComponent implements OnInit {
 
       return;
     } else {
+      // const result = await this.service.login(this.login, this.password);
+      // console.log(result);
       this.snackbar.dismiss();
       localStorage.setItem('login', this.login);
       localStorage.setItem('password', this.password);

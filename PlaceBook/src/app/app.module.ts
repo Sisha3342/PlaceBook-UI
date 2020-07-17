@@ -27,10 +27,11 @@ import { UserCardComponent } from './sidebar/user-card/user-card.component';
 import { MatCardModule } from '@angular/material/card';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { SearchComponent } from './search/search.component';
-import { EmployeeCardComponent } from './employee-card/employee-card.component';
+import { EmployeeCardComponent } from './employees/employee-card/employee-card.component';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { MatButtonToggleModule } from '@angular/material/button-toggle';
 import { SnackBarComponent } from './snack-bar/snack-bar.component';
+import { MatAutocompleteModule } from '@angular/material/autocomplete';
 
 @NgModule({
   declarations: [
@@ -65,6 +66,7 @@ import { SnackBarComponent } from './snack-bar/snack-bar.component';
     ReactiveFormsModule,
     MatGridListModule,
     MatButtonToggleModule,
+    MatAutocompleteModule,
   ],
   providers: [MatSnackBar, Overlay],
   bootstrap: [AppComponent],

@@ -7,7 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SearchComponent implements OnInit {
   inputText = '';
-  inputArray = ['ddd', 'fff', 'ggg', 'jghjhbkj'];
+  inputArray = [];
 
   checkInput(): void {
     this.inputArray = this.inputArray.filter(
