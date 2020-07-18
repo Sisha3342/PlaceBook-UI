@@ -26,7 +26,7 @@ export class EmployeesComponent implements OnInit {
     {
       username: 'John Snou',
       photo:
-        'https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcRLIOWxbmNzYWVHdX9RQDFgl4iwM8yeDfFZtw&usqp=CAU',
+        'https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcT2_nvhHB59-k3oEmKLcoEJ6KDLtmmGtTTnAw&usqp=CAU',
       email: 'john@mail.by',
       role: 'employee',
     },
