@@ -67,6 +67,7 @@ import { MatAutocompleteModule } from '@angular/material/autocomplete';
     MatGridListModule,
     MatButtonToggleModule,
     MatAutocompleteModule,
+    ReactiveFormsModule,
   ],
   providers: [MatSnackBar, Overlay],
   bootstrap: [AppComponent],
