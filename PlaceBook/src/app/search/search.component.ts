@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { FormControl } from '@angular/forms';
+import { Observable } from 'rxjs';
+import { map, startWith } from 'rxjs/operators';
 
 @Component({
   selector: 'app-search',
@@ -6,19 +9,25 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./search.component.scss'],
 })
 export class SearchComponent implements OnInit {
-  inputText = '';
-  inputArray = [];
+  myControl = new FormControl();
+  options: string[] = ['One', 'Two', 'Three', 'hhh78'];
 
-  checkInput(): void {
-    this.inputArray = this.inputArray.filter(
-      (input) => (input = this.inputText)
-    );
-  }
+  filteredOptions: Observable<string[]>;
 
   constructor() {}
 
-  instantFilter() {}
-  showSearched() {}
+  ngOnInit(): void {
+    this.filteredOptions = this.myControl.valueChanges.pipe(
+      startWith(''),
+      map((value) => this._filter(value))
+    );
+  }
 
-  ngOnInit(): void {}
+  private _filter(value: string): string[] {
+    const filterValue = value.toLowerCase();
+
+    return this.options.filter((option) =>
+      option.toLowerCase().includes(filterValue)
+    );
+  }
 }
