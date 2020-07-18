@@ -1,6 +1,7 @@
 <app-search></app-search>
 <mat-grid-list id="user-list"
-               cols="4">
+               [cols]="dynamicColsValue"
+               (window:resize)="onResize($event)">
     <mat-grid-tile id="card-tile"
                    *ngFor="let employee of employees">
         <app-employee-card [employee]="employee"></app-employee-card>

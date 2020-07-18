@@ -7,7 +7,10 @@ import { Employee } from './employee-card/employee.class';
   styleUrls: ['./employees.component.scss'],
 })
 export class EmployeesComponent implements OnInit {
+  dynamicColsValue = 0;
+
   constructor() {}
+
   employees: Employee[] = [
     {
       username: 'Ivan Ivanov',
@@ -66,5 +69,12 @@ export class EmployeesComponent implements OnInit {
       role: 'editor',
     },
   ];
-  ngOnInit(): void {}
+
+  ngOnInit(): void {
+    this.dynamicColsValue = Math.floor(window.innerWidth / 450);
+  }
+
+  onResize(event): void {
+    this.dynamicColsValue = Math.floor(event.target.innerWidth / 450);
+  }
 }
