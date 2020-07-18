@@ -1,4 +1,4 @@
-<app-search></app-search>
+<app-search (searchClicked)="filterEmployees($event)"></app-search>
 <mat-grid-list id="user-list"
                [cols]="dynamicColsValue"
                (window:resize)="onResize($event)">

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { Observable } from 'rxjs';
 import { map, startWith } from 'rxjs/operators';
@@ -14,6 +14,9 @@ export class SearchComponent implements OnInit {
 
   filteredOptions: Observable<string[]>;
 
+  @Output()
+  searchClicked = new EventEmitter<string>();
+
   constructor() {}
 
   ngOnInit(): void {
@@ -25,9 +28,12 @@ export class SearchComponent implements OnInit {
 
   private _filter(value: string): string[] {
     const filterValue = value.toLowerCase();
-
     return this.options.filter((option) =>
       option.toLowerCase().includes(filterValue)
     );
+  }
+
+  onClick(): void {
+    this.searchClicked.emit(this.myControl.value);
   }
 }
