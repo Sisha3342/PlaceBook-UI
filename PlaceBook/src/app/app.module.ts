@@ -23,6 +23,11 @@ import { HomeLayoutComponent } from './layouts/home/home-layout.component';
 import { LoginLayoutComponent } from './layouts/login/login-layout.component';
 import { AuthGuard } from './auth/auth.guard';
 import { AuthService } from './auth/auth.service';
+import { MapEditorComponent } from './map-editor/map-editor.component';
+import { GridsterModule } from 'angular-gridster2';
+import { MapComponent } from './map-editor/map/map.component';
+import { MapObjectComponent } from './map-editor/map-object/map-object.component';
+import { MatListModule } from '@angular/material/list';
 
 @NgModule({
   declarations: [
@@ -40,6 +45,9 @@ import { AuthService } from './auth/auth.service';
     SidebarComponent,
     RouteButtonComponent,
     UserCardComponent,
+    MapEditorComponent,
+    MapComponent,
+    MapObjectComponent,
   ],
   imports: [
     BrowserModule,
@@ -48,6 +56,8 @@ import { AuthService } from './auth/auth.service';
     FormsModule,
     ReactiveFormsModule,
     AppMaterialModule,
+    GridsterModule,
+    MatListModule,
   ],
   providers: [MatSnackBar, Overlay, AuthGuard, AuthService],
   bootstrap: [AppComponent],
