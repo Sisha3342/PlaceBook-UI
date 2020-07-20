@@ -3,27 +3,33 @@
   border-radius: 20px;
   box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.25);
 }
+
 .user-card-content {
   display: flex;
   flex-direction: column;
   width: 100%;
   text-align: center;
 }
+
 .user-photo-container {
   margin: 1rem auto;
   border-radius: 50%;
   overflow: hidden;
-  width: 7rem;
-  height: 7rem;
+  width: 8rem;
+  height: 8rem;
 }
 
 .user-photo {
   object-fit: contain;
-  width: 100%;
+  width: auto;
+  height: 100%;
 }
+
 .user-name {
   font-weight: bold;
+  margin-bottom: 5px;
 }
+
 p.user-email {
   font-size: 80%;
   color: #706e6b;
@@ -32,7 +38,7 @@ p.user-email {
 .mat-button-toggle-group {
   margin-top: 1rem;
   width: 100%;
-  // border-radius: 20px;
+  border-radius: 20px;
 }
 
 .mat-button-toggle {
