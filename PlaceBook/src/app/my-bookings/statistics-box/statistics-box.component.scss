@@ -1,6 +1,4 @@
-.add-button{
-  margin-left: 2rem;
-  margin-top: 2rem;
+.add-button {
   width: 13rem;
   height: 4rem;
   border-radius: 1.5rem;
@@ -9,74 +7,64 @@
 }
 
 .white-background {
-  width: 17rem;
-  height: 42rem;
   background: white;
-  border-radius: 2rem ;
-  margin-top: 2rem;
+  border-radius: 2rem;
   margin-left: 4rem;
   float: left;
   display: block;
+  padding: 1.5rem;
   box-shadow: 0 4px 23px rgba(0, 0, 0, 0.25);
 }
 
-.statistics-item{
-  width: 8.7rem;
-  height: 8.7rem;
+.statistics-item {
+  width: 7.5rem;
+  height: 7.5rem;
   border-radius: 1.5rem;
   box-shadow: 0 4px 23px rgba(0, 0, 0, 0.25);
   background: white;
-  margin-top: 2rem;
-  margin-left: 4.1rem;
-  position:relative;
+  margin: 2rem auto 0 auto;
+  padding: 1rem;
+  text-align: center;
 }
 
-.amount-all-bookings{
+.statistics-item .statistics-item-count {
+  font-size: 3rem;
+  font-weight: normal;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  top: 2rem;
+}
+
+.statistics-item .statistics-item-count.all {
   color: #673AB7;
-  position: absolute;
-  font-size: 3rem;
-  font-weight: normal;
-  justify-content: center;
-  align-items: center;
-  margin-top: 3.3rem;
-  left: 50%;
-  margin-right: -50%;
-  transform: translate(-50%, -50%);
 }
 
-.amount-completed-bookings{
+.statistics-item .statistics-item-count.completed {
   color: #00C19F;
-  position: absolute;
-  font-size: 3rem;
-  font-weight: normal;
-  justify-content: center;
-  align-items: center;
-  margin-top: 3.3rem;
-  left: 50%;
-  margin-right: -50%;
-  transform: translate(-50%, -50%);
 }
 
-.amount-cancelled-bookings{
+.statistics-item .statistics-item-count.cancelled {
   color: #F44336;
-  position: absolute;
-  font-size: 3rem;
-  font-weight: normal;
-  justify-content: center;
-  align-items: center;
-  margin-top: 3.3rem;
-  left: 50%;
-  margin-right: -50%;
-  transform: translate(-50%, -50%);
 }
 
-.text-bookings{
-  position: absolute;
-  margin-top: 5.5rem;
+.statistics-item .text-bookings {
   font-size: 1rem;
-  color: #5B5B5B;
-  display: flex;
-  align-items: center;
-  left: 30%;
-  transform: translate(-14%, 0);
+  margin-top: 3rem;
+}
+
+@media (max-width: 1530px) {
+  .add-button {
+    display: block;
+  }
+
+  .statistics-item {
+    display: inline-block;
+    margin: 2rem;
+  }
+
+  .add-button {
+    margin: auto;
+    width: 100%;
+  }
 }
