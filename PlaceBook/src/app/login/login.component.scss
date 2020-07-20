@@ -1,7 +1,12 @@
 :host {
   display: flex;
   justify-content: center;
-  margin: 100px 0px;
+  margin: 10rem 0;
+}
+
+mat-card.mat-card:not([class*="mat-elevation-z"]) {
+  border: 2px solid #dedede;
+  box-shadow: 0 4px 23px rgba(0, 0, 0, 0.25);
 }
 
 mat-card-content {
