@@ -7,7 +7,7 @@ import { Employee } from './employee-card/employee.class';
   styleUrls: ['./employees.component.scss'],
 })
 export class EmployeesComponent implements OnInit {
-  dynamicColsValue = 0;
+  breakpoint = 0;
 
   constructor() {}
 
@@ -85,10 +85,10 @@ export class EmployeesComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.dynamicColsValue = Math.floor(window.innerWidth / 450);
+    this.breakpoint = Math.floor(window.innerWidth / 450);
   }
 
   onResize(event): void {
-    this.dynamicColsValue = Math.floor(event.target.innerWidth / 450);
+    this.breakpoint = Math.floor(event.target.innerWidth / 450);
   }
 }
