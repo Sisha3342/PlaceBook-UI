@@ -27,7 +27,6 @@ table.mat-table{
 
 th.mat-header-cell{
   width: 18rem;
-  //padding: 12px;
   padding-right: 4rem;
   padding-left: 1rem;
 }
@@ -35,7 +34,6 @@ th.mat-header-cell{
 td.mat-cell{
   width: 5rem;
   height: 4rem;
-  //padding-right: 12px;
   padding-left: 0.6rem;
 }
 
@@ -54,7 +52,6 @@ td.mat-cell:first-of-type{
   top: 13px;
 }
 
-
 ::ng-deep .mat-tab-label .mat-tab-label-content {
   padding: 0 5.3rem;
 }
@@ -69,5 +66,3 @@ td.mat-cell:last-of-type{
   padding-left:0;
   width: 5rem;
 }
-
-

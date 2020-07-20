@@ -1,8 +1,30 @@
+.add-button{
+  margin-left: 2rem;
+  margin-top: 2rem;
+  width: 13rem;
+  height: 4rem;
+  border-radius: 1.5rem;
+  font-weight: bold;
+  font-size: 16px;
+}
+
+.white-background {
+  width: 17rem;
+  height: 42rem;
+  background: white;
+  border-radius: 2rem ;
+  margin-top: 2rem;
+  margin-left: 4rem;
+  float: left;
+  display: block;
+  box-shadow: 0 4px 23px rgba(0, 0, 0, 0.25);
+}
+
 .statistics-item{
   width: 8.7rem;
   height: 8.7rem;
   border-radius: 1.5rem;
-  box-shadow: 0px 4px 23px rgba(0, 0, 0, 0.25);
+  box-shadow: 0 4px 23px rgba(0, 0, 0, 0.25);
   background: white;
   margin-top: 2rem;
   margin-left: 4.1rem;

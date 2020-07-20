@@ -24,7 +24,6 @@ import { LoginLayoutComponent } from './layouts/login/login-layout.component';
 import { AuthGuard } from './auth/auth.guard';
 import { AuthService } from './auth/auth.service';
 import { TableComponent } from './my-bookings/table/table.component';
-import { ButtonAddBookingComponent } from './my-bookings/button-add-booking/button-add-booking.component';
 import { StatisticsBoxComponent } from './my-bookings/statistics-box/statistics-box.component';
 
 @NgModule({
@@ -44,8 +43,7 @@ import { StatisticsBoxComponent } from './my-bookings/statistics-box/statistics-
     RouteButtonComponent,
     UserCardComponent,
     TableComponent,
-    ButtonAddBookingComponent,
-    StatisticsBoxComponent
+    StatisticsBoxComponent,
   ],
   imports: [
     BrowserModule,
