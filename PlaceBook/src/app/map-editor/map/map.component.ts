@@ -9,7 +9,7 @@ import {
   PushDirections,
   Resizable,
 } from 'angular-gridster2';
-import { MapObject } from '../config/map-object';
+import { MapEditorService, emptyCellClick } from '../map-editor.service';
 
 interface Safe extends GridsterConfig {
   draggable: Draggable;
@@ -25,6 +25,8 @@ interface Safe extends GridsterConfig {
 export class MapComponent implements OnInit {
   options: Safe;
   dashboard: Array<GridsterItem>;
+
+  constructor(public editorService: MapEditorService) {}
 
   ngOnInit(): void {
     this.options = {
@@ -80,23 +82,12 @@ export class MapComponent implements OnInit {
       disableWindowResize: false,
       disableWarnings: false,
       scrollToNewItems: false,
-      emptyCellClickCallback: this.emptyCellClick.bind(this),
-      emptyCellContextMenuCallback: this.emptyCellClick.bind(this),
-      emptyCellDropCallback: this.emptyCellClick.bind(this),
-      emptyCellDragCallback: this.emptyCellClick.bind(this),
+      emptyCellClickCallback: emptyCellClick.bind(this),
+      emptyCellContextMenuCallback: emptyCellClick.bind(this),
+      emptyCellDropCallback: emptyCellClick.bind(this),
+      emptyCellDragCallback: emptyCellClick.bind(this),
     };
 
     this.dashboard = [];
-  }
-
-  emptyCellClick(event: DragEvent, item: GridsterItem): void {
-    item.data = JSON.parse(event.dataTransfer.getData('json')) as MapObject;
-    this.dashboard.push(item);
-  }
-
-  remove($event: MouseEvent | TouchEvent, item: GridsterItem): void {
-    $event.preventDefault();
-    $event.stopPropagation();
-    this.dashboard.splice(this.dashboard.indexOf(item), 1);
   }
 }

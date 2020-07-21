@@ -1,5 +1,6 @@
-import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { MapObject } from '../config/map-object';
+import { MapEditorService } from '../map-editor.service';
 
 @Component({
   selector: 'app-map-object',
@@ -9,13 +10,7 @@ import { MapObject } from '../config/map-object';
 export class MapObjectComponent implements OnInit {
   @Input() object: MapObject;
 
-  constructor() {}
+  constructor(public editorService: MapEditorService) {}
 
   ngOnInit(): void {}
-
-  dragStartHandler(ev: DragEvent): void {
-    if (ev.dataTransfer) {
-      ev.dataTransfer.setData('json', JSON.stringify(this.object));
-    }
-  }
 }

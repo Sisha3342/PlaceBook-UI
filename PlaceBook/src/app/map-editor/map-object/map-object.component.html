@@ -1,6 +1,6 @@
 <div
   draggable="true"
-  (dragstart)="dragStartHandler($event)"
+  (dragstart)="editorService.dragStart($event, object)"
   class="icon-background"
 >
   <mat-icon fontSet="fas" [fontIcon]="object.icon"></mat-icon>

@@ -9,7 +9,10 @@
       actions
     </button>
     <mat-menu #actions="matMenu">
-      <button mat-menu-item (click)="remove($event, item)">
+      <button
+        mat-menu-item
+        (click)="editorService.remove($event, item, dashboard)"
+      >
         <span>Remove</span>
       </button>
       <button mat-menu-item>
