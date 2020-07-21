@@ -1,7 +1,7 @@
-import { Component, OnInit, Inject } from '@angular/core';
+import { Component } from '@angular/core';
 import { Employee } from '../employees/employee-card/employee.class';
-import { MatIconModule } from '@angular/material/icon';
 import { MatDialogRef } from '@angular/material/dialog';
+
 @Component({
   selector: 'app-modal-dialog-dialog',
   templateUrl: 'modal-dialog-details.component.html',
