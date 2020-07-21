@@ -1,9 +1,7 @@
-import { AppMaterialModule } from './../../app-material/app-material.module';
-import { MatTableModule } from '@angular/material/table';
 import { Component, Input, OnInit } from '@angular/core';
 import { Booking } from '../../models/booking';
 import { MatDialog } from '@angular/material/dialog';
-import { ModalDialogComponent } from '../../modal-dialog-details/modal-dialog-details.component';
+import { ModalDialogDetailsComponent } from '../../modal-dialog-details/modal-dialog-details.component';
 
 @Component({
   selector: 'app-table',
@@ -18,9 +16,10 @@ export class TableComponent implements OnInit {
 
   constructor(public dialog: MatDialog) {}
 
-  openDialog(): void {
-    this.dialog.open(ModalDialogComponent, {
+  openDialog(event: Event, booking: Booking): void {
+    this.dialog.open(ModalDialogDetailsComponent, {
       width: '30rem',
+      data: booking
     });
   }
 
@@ -36,5 +35,13 @@ export class TableComponent implements OnInit {
     }
 
     return this.defaultColumns;
+  }
+
+  cancelBooking(event: Event): void {
+    event.stopPropagation();
+  }
+
+  editBooking(event: Event): void {
+    event.stopPropagation();
   }
 }

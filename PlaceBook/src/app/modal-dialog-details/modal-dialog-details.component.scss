@@ -1,1 +1,41 @@
+h2 {
+  font-weight: bold;
+}
 
+app-booking-status {
+  margin-bottom: 0.5rem;
+}
+
+table.booking-details {
+  border-collapse: collapse;
+  margin-top: 0.5rem;
+}
+
+table.booking-details td {
+  padding: 0.5rem 0;
+  font-size: 14px;
+  vertical-align: top;
+  border-bottom: 1px solid #dedede;
+}
+
+table.booking-details td.booking-details-label {
+  color: #787878;
+  padding-right: 1rem;
+}
+
+table.booking-rate {
+  width: 100%;
+  border-radius: 19px;
+  margin: 1rem 0;
+  border: 1px solid #dedede;
+  padding: 0.5rem;
+}
+
+table.booking-rate td {
+  text-align: center;
+}
+
+table.booking-rate td svg {
+  font-size: 30px;
+  color: #3f51b5;
+}

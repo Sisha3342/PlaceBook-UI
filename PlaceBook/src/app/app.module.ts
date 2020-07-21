@@ -28,6 +28,8 @@ import { AuthGuard } from './auth/auth.guard';
 import { AuthService } from './auth/auth.service';
 import { TableComponent } from './my-bookings/table/table.component';
 import { StatisticsBoxComponent } from './my-bookings/statistics-box/statistics-box.component';
+import { ModalDialogDetailsComponent } from './modal-dialog-details/modal-dialog-details.component';
+import { BookingStatusComponent } from './booking-status/booking-status.component';
 
 @NgModule({
   declarations: [
@@ -50,6 +52,8 @@ import { StatisticsBoxComponent } from './my-bookings/statistics-box/statistics-
     SearchComponent,
     EmployeeCardComponent,
     SnackBarComponent,
+    ModalDialogDetailsComponent,
+    BookingStatusComponent,
   ],
   imports: [
     BrowserModule,

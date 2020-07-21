@@ -30,7 +30,8 @@ import { MatDialogModule } from '@angular/material/dialog';
     MatGridListModule,
     MatButtonToggleModule,
     MatAutocompleteModule,
+    MatDialogModule,
   ],
-  imports: [MatDialogModule],
+  imports: [],
 })
 export class AppMaterialModule {}

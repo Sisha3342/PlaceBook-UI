@@ -1,17 +1,19 @@
-import { Component } from '@angular/core';
+import { Component, Inject} from '@angular/core';
 import { Employee } from '../employees/employee-card/employee.class';
-import { MatDialogRef } from '@angular/material/dialog';
+import { MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { Booking } from '../models/booking';
 
 @Component({
-  selector: 'app-modal-dialog-dialog',
+  selector: 'app-modal-dialog-details',
   templateUrl: 'modal-dialog-details.component.html',
+  styleUrls: ['./modal-dialog-details.component.scss'],
 })
-export class ModalDialogComponent {
-  constructor(private dialogRef: MatDialogRef<ModalDialogComponent>) {}
+export class ModalDialogDetailsComponent {
+  booking: Booking;
+
+  constructor(@Inject(MAT_DIALOG_DATA) public data: Booking) {
+    this.booking = this.data;
+  }
 
   employee: Employee;
-
-  close(): void {
-    this.dialogRef.close();
-  }
 }

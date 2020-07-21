@@ -1,54 +1,61 @@
-<div class="dialog-header">
-    <div mat-dialog-title>Booking details</div>
-    <div mat-dialog-actions>
-        <span mat-dialog-close
-              (click)="close()">
-            <i class="close fas fa-times"></i>
-        </span>
-    </div>
-</div>
+<h2 mat-dialog-title>Booking details</h2>
+
+<app-booking-status [status]="booking.status"></app-booking-status>
+
 <div mat-dialog-content>
-    <div class="user-photo-container">
-        <img class="user-photo"
-             src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcSD3q5bStREkXh38lc4Evmv6ow1wQjuq9iq3A&usqp=CAU">
-    </div>
-    <p class="user-name"> Dart Weider </p>
-    <p class="user-email"> Dart@dart.ru </p>
-    <p class="no-center">
-        <span> Time: </span>
-        <span class="align">2 Jan 2020</span>
-    </p>
-    <p class="no-center">
-        <span>Place #:</span>
-        <span class="align">67</span>
-    </p>
-    <p class="no-center">
-        <span>Office address:</span>
-        <span class="align">Kuprevicha 3</span>
-    </p>
-    <p class="no-center">
-        <span>Place status:</span>
-        <span class="align">Active</span>
-    </p>
-    <div class="rating-line">
-        <span><i class="fa fa-lightbulb"> </i>
-            <span>5</span>
-        </span>
-        <span><i class="fas fa-wind"> </i>
-            <span>4.5</span>
-        </span>
-        <span><i class="fas fa-volume-up"> </i>
-            <span>3.5</span>
-        </span>
-        <span><i class="fas fa-hand-sparkles"> </i>
-            <span>4</span>
-        </span>
-        <span><i class="fas fa-map-marker-alt"> </i>
-            <span>5</span>
-        </span>
-    </div>
-    <p class="no-center">
-        <span>Feedback:</span>
-        <span class="align">Super!</span>
-    </p>
+  <table class="booking-details">
+    <tr>
+      <td class="booking-details-label">Date:</td>
+      <td>{{booking.date}}</td>
+    </tr>
+    <tr>
+      <td class="booking-details-label">Address:</td>
+      <td>{{booking.country}}, {{booking.city}}, {{booking.address}}</td>
+    </tr>
+    <tr>
+      <td class="booking-details-label">Place #:</td>
+      <td>{{booking.place}}</td>
+    </tr>
+    <tr>
+      <td class="booking-details-label">Feedback:</td>
+      <td>Мне все очень понравилось, единственное, что чем-то подванивало</td>
+    </tr>
+  </table>
+
+  <table class="booking-rate">
+    <tr>
+      <td matTooltip="Light"
+          [matTooltipPosition]="'above'">
+        <i class="fa fa-lightbulb"></i>
+      </td>
+      <td matTooltip="Fresh air"
+          [matTooltipPosition]="'above'">
+        <i class="fas fa-wind"> </i>
+      </td>
+      <td matTooltip="Noise"
+          [matTooltipPosition]="'above'">
+        <i class="fas fa-volume-up"> </i>
+      </td>
+      <td matTooltip="Сleanliness"
+          [matTooltipPosition]="'above'">
+        <i class="fas fa-hand-sparkles"> </i>
+      </td>
+      <td matTooltip="Location"
+          [matTooltipPosition]="'above'">
+        <i class="fas fa-map-marker-alt"> </i>
+      </td>
+    </tr>
+    <tr>
+      <td>5.0</td>
+      <td>4.0</td>
+      <td>3.5</td>
+      <td>5.0</td>
+      <td>2.5</td>
+    </tr>
+  </table>
+
 </div>
+
+<mat-dialog-actions align="end">
+  <button mat-button mat-dialog-close>Close</button>
+</mat-dialog-actions>

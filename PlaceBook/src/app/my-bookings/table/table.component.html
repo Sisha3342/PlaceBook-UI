@@ -5,18 +5,18 @@
     <!--Place Column -->
     <ng-container matColumnDef="place">
       <th mat-header-cell
-          *matHeaderCellDef>Place No.</th>
+          *matHeaderCellDef>Place #
+      </th>
       <td mat-cell
-          *matCellDef="let element">
+          *matCellDef="let booking">
         <span>
           <span class="bookmark"
-                [ngClass]="getBookmarkClass()">{{
-            element.place
-          }}</span>
+                [ngClass]="getBookmarkClass()">{{booking.place}}</span>
           <span>
             <button mat-icon-button
                     aria-label="Example icon button with a vertical three dot icon"
-                    class="edit-button">
+                    class="edit-button"
+                    (click)="editBooking($event)">
               <mat-icon>edit</mat-icon>
             </button>
           </span>
@@ -27,33 +27,37 @@
     <!-- Date Column -->
     <ng-container matColumnDef="date">
       <th mat-header-cell
-          *matHeaderCellDef>Date</th>
+          *matHeaderCellDef>Date
+      </th>
       <td mat-cell
-          *matCellDef="let element">{{ element.date }}</td>
+          *matCellDef="let booking">{{ booking.date }}</td>
     </ng-container>
 
     <!-- Country Column -->
     <ng-container matColumnDef="country">
       <th mat-header-cell
-          *matHeaderCellDef>Country</th>
+          *matHeaderCellDef>Country
+      </th>
       <td mat-cell
-          *matCellDef="let element">{{ element.country }}</td>
+          *matCellDef="let booking">{{ booking.country }}</td>
     </ng-container>
 
     <!-- City Column -->
     <ng-container matColumnDef="city">
       <th mat-header-cell
-          *matHeaderCellDef>City</th>
+          *matHeaderCellDef>City
+      </th>
       <td mat-cell
-          *matCellDef="let element">{{ element.city }}</td>
+          *matCellDef="let booking">{{ booking.city }}</td>
     </ng-container>
 
     <!-- Address Column -->
     <ng-container matColumnDef="address">
       <th mat-header-cell
-          *matHeaderCellDef>Address</th>
+          *matHeaderCellDef>Address
+      </th>
       <td mat-cell
-          *matCellDef="let element">{{ element.address }}</td>
+          *matCellDef="let booking">{{ booking.address }}</td>
     </ng-container>
 
     <ng-container matColumnDef="action">
@@ -65,7 +69,8 @@
                 mat-icon-button
                 matTooltip="Cancel booking"
                 [matTooltipPosition]="'above'"
-                class="close-button">
+                class="close-button"
+                (click)="cancelBooking($event)">
           <mat-icon>close</mat-icon>
         </button>
       </td>
@@ -75,6 +80,6 @@
         *matHeaderRowDef="getTableColumns()"></tr>
     <tr mat-row
         *matRowDef="let row; columns: getTableColumns()"
-        (dblclick)="openDialog()"></tr>
+        (click)="openDialog($event, row)"></tr>
   </table>
 </div>
