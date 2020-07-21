@@ -33,7 +33,9 @@
               "src/styles.scss",
               "src/theme.scss"
             ],
-            "scripts": ["./node_modules/@fortawesome/fontawesome-free/js/all.js"]
+            "scripts": [
+              "./node_modules/@fortawesome/fontawesome-free/js/all.js"
+            ]
           },
           "configurations": {
             "production": {
@@ -129,5 +131,8 @@
       }
     }
   },
-  "defaultProject": "PlaceBook"
+  "defaultProject": "PlaceBook",
+  "cli": {
+    "analytics": false
+  }
 }

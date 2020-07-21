@@ -1,29 +1,32 @@
 <mat-card>
   <mat-card-content>
-    <img class="logo" src="assets/logo.svg" alt="Logo" />
-    <form novalidate (ngSubmit)="loginUser()" class="example-form">
+    <app-snack-bar></app-snack-bar>
+    <img class="logo"
+         src="assets/logo.svg"
+         alt="Logo" />
+    <form novalidate
+          (ngSubmit)="loginUser()"
+          class="example-form">
       <mat-form-field>
         <mat-label>Login</mat-label>
-        <input
-          matInput
-          type="email"
-          name="login"
-          [(ngModel)]="login"
-          placeholder="user@email.com"
-        />
+        <input matInput
+               type="email"
+               name="login"
+               [(ngModel)]="login"
+               placeholder="user@email.com" />
       </mat-form-field>
 
       <mat-form-field>
         <mat-label>Password</mat-label>
-        <input
-          matInput
-          type="password"
-          name="password"
-          [(ngModel)]="password"
-        />
+        <input matInput
+               type="password"
+               name="password"
+               [(ngModel)]="password" />
       </mat-form-field>
 
-      <button mat-raised-button color="primary" id="login-button">
+      <button mat-raised-button
+              color="primary"
+              id="login-button">
         Sign in
       </button>
     </form>
