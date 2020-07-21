@@ -1,15 +1,14 @@
 <mat-card class="user-card">
-    <mat-card-content class="user-card-content">
-        <div class="user-photo-container">
-            <img class="user-photo"
-                 src="{{ employeeObject.photo }}">
-        </div>
-        <p class="user-name">{{ employeeObject.username }}</p>
-        <p class="user-email">{{ employeeObject.email }}</p>
-        <mat-button-toggle-group [(value)]="employeeObject.role">
-            <mat-button-toggle value="employee"> Employee </mat-button-toggle>
-            <mat-button-toggle value="hr"> HR </mat-button-toggle>
-            <mat-button-toggle value="editor"> Editor </mat-button-toggle>
-        </mat-button-toggle-group>
-    </mat-card-content>
+  <mat-card-content class="user-card-content">
+    <div class="user-photo-container">
+      <img class="user-photo" src="{{ employeeObject.photo }}" />
+    </div>
+    <p class="user-name">{{ employeeObject.username }}</p>
+    <p class="user-email">{{ employeeObject.email }}</p>
+    <mat-button-toggle-group [(value)]="employeeObject.role">
+      <mat-button-toggle value="employee"> Employee </mat-button-toggle>
+      <mat-button-toggle value="hr"> HR </mat-button-toggle>
+      <mat-button-toggle value="editor"> Editor </mat-button-toggle>
+    </mat-button-toggle-group>
+  </mat-card-content>
 </mat-card>

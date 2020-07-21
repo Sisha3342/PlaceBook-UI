@@ -7,6 +7,12 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatIconModule } from '@angular/material/icon';
 import { MatDividerModule } from '@angular/material/divider';
 import { MatSidenavModule } from '@angular/material/sidenav';
+import { MatTabsModule } from '@angular/material/tabs';
+import { MatTableModule } from '@angular/material/table';
+import { MatTooltipModule } from '@angular/material/tooltip';
+import { MatGridListModule } from '@angular/material/grid-list';
+import { MatButtonToggleModule } from '@angular/material/button-toggle';
+import { MatAutocompleteModule } from '@angular/material/autocomplete';
 
 @NgModule({
   exports: [
@@ -17,6 +23,12 @@ import { MatSidenavModule } from '@angular/material/sidenav';
     MatSidenavModule,
     MatCardModule,
     MatFormFieldModule,
+    MatTableModule,
+    MatTabsModule,
+    MatTooltipModule,
+    MatGridListModule,
+    MatButtonToggleModule,
+    MatAutocompleteModule,
   ],
 })
 export class AppMaterialModule {}

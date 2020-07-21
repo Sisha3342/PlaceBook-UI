@@ -1,0 +1,63 @@
+.bookmark {
+  padding: 0.75rem;
+  width: 30%;
+  color: white;
+  border-radius: 0 1.1rem 1.1rem 0;
+  font-weight: normal;
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+}
+
+.bookmark.active {
+  background: #673AB7;
+}
+
+.bookmark.cancelled {
+  background: #F44336;
+}
+
+.bookmark.completed {
+  background: #00C19F;
+}
+
+th.mat-header-cell {
+  width: 18rem;
+  padding-right: 4rem;
+  padding-left: 1rem;
+}
+
+td.mat-cell {
+  width: 5rem;
+  height: 4rem;
+  padding-left: 0.6rem;
+}
+
+td.mat-cell:first-of-type {
+  width: 5rem;
+  height: 6rem;
+  padding-left: 0;
+}
+
+.edit-button {
+  display: inline-block;
+  position: relative;
+  background: #93CBFF;
+  color: white;
+  right: 16px;
+  top: 13px;
+}
+
+::ng-deep .mat-tab-label .mat-tab-label-content {
+  padding: 0 5.3rem;
+}
+
+.close-button {
+  color: #787878;
+}
+
+td.mat-cell:last-of-type {
+  padding-right: 0;
+  padding-left: 0;
+  width: 5rem;
+}

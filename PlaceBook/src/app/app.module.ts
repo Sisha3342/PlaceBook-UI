@@ -17,20 +17,17 @@ import { NotFoundComponent } from './not-found/not-found.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
 import { RouteButtonComponent } from './sidebar/route-button/route-button.component';
 import { UserCardComponent } from './sidebar/user-card/user-card.component';
-import { MatCardModule } from '@angular/material/card';
-import { MatFormFieldModule } from '@angular/material/form-field';
 import { SearchComponent } from './search/search.component';
 import { EmployeeCardComponent } from './employees/employee-card/employee-card.component';
-import { MatGridListModule } from '@angular/material/grid-list';
-import { MatButtonToggleModule } from '@angular/material/button-toggle';
 import { SnackBarComponent } from './snack-bar/snack-bar.component';
-import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { AppMaterialModule } from './app-material/app-material.module';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { HomeLayoutComponent } from './layouts/home/home-layout.component';
 import { LoginLayoutComponent } from './layouts/login/login-layout.component';
 import { AuthGuard } from './auth/auth.guard';
 import { AuthService } from './auth/auth.service';
+import { TableComponent } from './my-bookings/table/table.component';
+import { StatisticsBoxComponent } from './my-bookings/statistics-box/statistics-box.component';
 
 @NgModule({
   declarations: [
@@ -48,6 +45,8 @@ import { AuthService } from './auth/auth.service';
     SidebarComponent,
     RouteButtonComponent,
     UserCardComponent,
+    TableComponent,
+    StatisticsBoxComponent,
     SearchComponent,
     EmployeeCardComponent,
     SnackBarComponent,
@@ -57,10 +56,6 @@ import { AuthService } from './auth/auth.service';
     AppRoutingModule,
     BrowserAnimationsModule,
     FormsModule,
-    ReactiveFormsModule,
-    MatGridListModule,
-    MatButtonToggleModule,
-    MatAutocompleteModule,
     ReactiveFormsModule,
     AppMaterialModule,
   ],

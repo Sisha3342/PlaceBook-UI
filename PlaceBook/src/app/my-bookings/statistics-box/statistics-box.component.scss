@@ -1,0 +1,70 @@
+.add-button {
+  width: 13rem;
+  height: 4rem;
+  border-radius: 1.5rem;
+  font-weight: bold;
+  font-size: 16px;
+}
+
+.white-background {
+  background: white;
+  border-radius: 2rem;
+  margin-left: 4rem;
+  float: left;
+  display: block;
+  padding: 1.5rem;
+  box-shadow: 0 4px 23px rgba(0, 0, 0, 0.25);
+}
+
+.statistics-item {
+  width: 7.5rem;
+  height: 7.5rem;
+  border-radius: 1.5rem;
+  box-shadow: 0 4px 23px rgba(0, 0, 0, 0.25);
+  background: white;
+  margin: 2rem auto 0 auto;
+  padding: 1rem;
+  text-align: center;
+}
+
+.statistics-item .statistics-item-count {
+  font-size: 3rem;
+  font-weight: normal;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  top: 2rem;
+}
+
+.statistics-item .statistics-item-count.all {
+  color: #673AB7;
+}
+
+.statistics-item .statistics-item-count.completed {
+  color: #00C19F;
+}
+
+.statistics-item .statistics-item-count.cancelled {
+  color: #F44336;
+}
+
+.statistics-item .text-bookings {
+  font-size: 1rem;
+  margin-top: 3rem;
+}
+
+@media (max-width: 1530px) {
+  .add-button {
+    display: block;
+  }
+
+  .statistics-item {
+    display: inline-block;
+    margin: 2rem;
+  }
+
+  .add-button {
+    margin: auto;
+    width: 100%;
+  }
+}
