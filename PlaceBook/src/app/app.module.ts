@@ -17,6 +17,14 @@ import { NotFoundComponent } from './not-found/not-found.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
 import { RouteButtonComponent } from './sidebar/route-button/route-button.component';
 import { UserCardComponent } from './sidebar/user-card/user-card.component';
+import { MatCardModule } from '@angular/material/card';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { SearchComponent } from './search/search.component';
+import { EmployeeCardComponent } from './employees/employee-card/employee-card.component';
+import { MatGridListModule } from '@angular/material/grid-list';
+import { MatButtonToggleModule } from '@angular/material/button-toggle';
+import { SnackBarComponent } from './snack-bar/snack-bar.component';
+import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { AppMaterialModule } from './app-material/app-material.module';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { HomeLayoutComponent } from './layouts/home/home-layout.component';
@@ -44,6 +52,9 @@ import { StatisticsBoxComponent } from './my-bookings/statistics-box/statistics-
     UserCardComponent,
     TableComponent,
     StatisticsBoxComponent,
+    SearchComponent,
+    EmployeeCardComponent,
+    SnackBarComponent,
   ],
   imports: [
     BrowserModule,
