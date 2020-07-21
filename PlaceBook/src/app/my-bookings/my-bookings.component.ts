@@ -1,5 +1,6 @@
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { Booking } from '../models/booking';
+import { AppMaterialModule } from './../app-material/app-material.module';
 
 @Component({
   selector: 'app-my-bookings',

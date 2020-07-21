@@ -6,5 +6,56 @@ body {
   margin: 0;
 }
 
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+// ***** Modal - Dialog - Details *****
+
+p.no-center {
+  padding-left: 0.5rem;
+}
+p.no-center span:first-child {
+  font-weight: bold;
+}
+
+.rating-line {
+  display: flex;
+  justify-content: space-between;
+  text-align: center;
+  border: 1px solid #d4e8f1;
+  border-radius: 10px;
+  margin-bottom: 0.5rem;
+}
+
+.rating-line svg {
+  display: block;
+  padding: 0.5rem;
+  opacity: 70%;
+}
+
+.user-photo-container {
+  margin: 1rem auto;
+  border-radius: 50%;
+  overflow: hidden;
+  width: 8rem;
+  height: 8rem;
+}
+
+.user-photo {
+  object-fit: contain;
+  width: auto;
+  height: 100%;
+}
+
+.user-name {
+  font-weight: bold;
+  text-align: center;
+}
+
+.user-email {
+  text-align: center;
+  font-size: 80%;
+  opacity: 80%;
+}
+
+mat-dialog-container {
+  background: grey;
+}
+// **************************************
