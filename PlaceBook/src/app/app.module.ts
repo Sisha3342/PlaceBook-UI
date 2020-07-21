@@ -29,6 +29,8 @@ import { MapComponent } from './map-editor/map/map.component';
 import { MapObjectComponent } from './map-editor/map-object/map-object.component';
 import { MatListModule } from '@angular/material/list';
 import { MatMenuModule } from '@angular/material/menu';
+import { ScopeToolComponent } from './map-editor/size-tools/scope-tool/scope-tool.component';
+import { SizeToolComponent } from './map-editor/size-tools/size-tool/size-tool.component';
 
 @NgModule({
   declarations: [
@@ -49,6 +51,8 @@ import { MatMenuModule } from '@angular/material/menu';
     MapEditorComponent,
     MapComponent,
     MapObjectComponent,
+    ScopeToolComponent,
+    SizeToolComponent,
   ],
   imports: [
     BrowserModule,

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { OBJECTS } from './config/objects';
+import { OBJECTS } from './model/objects';
 
 @Component({
   selector: 'app-map-editor',

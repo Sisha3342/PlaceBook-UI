@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { MapObject } from '../config/map-object';
+import { MapObject } from '../model/map-object';
 import { MapEditorService } from '../map-editor.service';
 
 @Component({

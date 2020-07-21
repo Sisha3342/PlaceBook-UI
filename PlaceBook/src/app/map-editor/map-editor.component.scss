@@ -1,11 +1,34 @@
-.mat-list {
-  margin: 3rem;
-  border-radius: 2rem;
-  border: 2px solid #dedede;
-  display: inline-block;
-  background-color: white;
+.tools-container {
+  text-align: center;
 }
 
-.mat-list-item {
-  margin: 1.5rem;
+.tools {
+  margin: 1rem;
+  border-radius: 2rem;
+  border: 2px solid #dedede;
+  background-color: white;
+  width: 20rem;
+  text-align: center;
+}
+
+.size-tools {
+  display: inline-block;
+  vertical-align: bottom;
+}
+
+app-map-object {
+  margin: 1rem 0.5rem;
+  display: inline-block;
+}
+
+app-map {
+  margin: 10rem;
+}
+
+app-scope-tool {
+  display: inline-block;
+}
+
+app-size-tool {
+  display: inline-block;
 }

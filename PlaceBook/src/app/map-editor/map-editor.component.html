@@ -1,6 +1,16 @@
-<mat-list class="tools">
-  <mat-list-item *ngFor="let object of objects">
-    <app-map-object [object]="object"></app-map-object>
-  </mat-list-item>
-</mat-list>
-<app-map></app-map>
+<div class="tools-container">
+  <div class="tools" style="display: inline-block;">
+    <ng-container *ngFor="let object of objects">
+      <app-map-object [object]="object"></app-map-object>
+    </ng-container>
+  </div>
+  <div class="size-tools">
+    <div class="tools">
+      <app-scope-tool (scopeEvent)="map.changeScope($event)"></app-scope-tool>
+    </div>
+    <div class="tools">
+      <app-size-tool></app-size-tool>
+    </div>
+  </div>
+</div>
+<app-map #map></app-map>
