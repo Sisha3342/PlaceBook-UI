@@ -11,6 +11,8 @@ import { MatTabsModule } from '@angular/material/tabs';
 import { MatTableModule } from '@angular/material/table';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatGridListModule } from '@angular/material/grid-list';
+import { MatButtonToggleModule } from '@angular/material/button-toggle';
+import { MatAutocompleteModule } from '@angular/material/autocomplete';
 
 @NgModule({
   exports: [
@@ -25,6 +27,8 @@ import { MatGridListModule } from '@angular/material/grid-list';
     MatTabsModule,
     MatTooltipModule,
     MatGridListModule,
+    MatButtonToggleModule,
+    MatAutocompleteModule,
   ],
 })
 export class AppMaterialModule {}
