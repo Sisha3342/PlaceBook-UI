@@ -1,3 +1,20 @@
 <gridster [options]="options">
-  <gridster-item [item]="item" *ngFor="let item of dashboard"> </gridster-item>
+  <gridster-item [item]="item" *ngFor="let item of dashboard">
+    <app-map-object [object]="item.data"></app-map-object>
+    <button
+      class="action-button"
+      mat-raised-button
+      [matMenuTriggerFor]="actions"
+    >
+      actions
+    </button>
+    <mat-menu #actions="matMenu">
+      <button mat-menu-item (click)="remove($event, item)">
+        <span>Remove</span>
+      </button>
+      <button mat-menu-item>
+        <span>disable</span>
+      </button>
+    </mat-menu>
+  </gridster-item>
 </gridster>

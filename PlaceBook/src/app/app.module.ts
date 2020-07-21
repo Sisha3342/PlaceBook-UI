@@ -5,7 +5,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { Overlay } from '@angular/cdk/overlay';
+import { Overlay, OverlayModule } from '@angular/cdk/overlay';
 import { LoginComponent } from './login/login.component';
 import { MyBookingsComponent } from './my-bookings/my-bookings.component';
 import { BookComponent } from './book/book.component';
@@ -28,6 +28,7 @@ import { GridsterModule } from 'angular-gridster2';
 import { MapComponent } from './map-editor/map/map.component';
 import { MapObjectComponent } from './map-editor/map-object/map-object.component';
 import { MatListModule } from '@angular/material/list';
+import { MatMenuModule } from '@angular/material/menu';
 
 @NgModule({
   declarations: [
@@ -58,6 +59,8 @@ import { MatListModule } from '@angular/material/list';
     AppMaterialModule,
     GridsterModule,
     MatListModule,
+    OverlayModule,
+    MatMenuModule,
   ],
   providers: [MatSnackBar, Overlay, AuthGuard, AuthService],
   bootstrap: [AppComponent],

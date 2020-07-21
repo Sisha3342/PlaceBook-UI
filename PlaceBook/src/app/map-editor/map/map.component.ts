@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import {
   CompactType,
   DisplayGrid,
@@ -9,6 +9,7 @@ import {
   PushDirections,
   Resizable,
 } from 'angular-gridster2';
+import { MapObject } from '../config/map-object';
 
 interface Safe extends GridsterConfig {
   draggable: Draggable;
@@ -85,30 +86,17 @@ export class MapComponent implements OnInit {
       emptyCellDragCallback: this.emptyCellClick.bind(this),
     };
 
-    this.dashboard = [
-      { cols: 2, rows: 1, y: 0, x: 0 },
-      { cols: 2, rows: 2, y: 0, x: 2, hasContent: true },
-      { cols: 1, rows: 1, y: 0, x: 4 },
-      { cols: 1, rows: 1, y: 2, x: 5 },
-      { cols: 1, rows: 1, y: 1, x: 0 },
-      { cols: 1, rows: 1, y: 1, x: 0 },
-      { cols: 2, rows: 2, y: 3, x: 5 },
-      { cols: 2, rows: 2, y: 2, x: 0 },
-      { cols: 2, rows: 1, y: 2, x: 2 },
-      { cols: 1, rows: 1, y: 2, x: 4 },
-      { cols: 1, rows: 1, y: 2, x: 6 },
-    ];
+    this.dashboard = [];
   }
 
   emptyCellClick(event: DragEvent, item: GridsterItem): void {
-    console.log(event.dataTransfer.getData('text'));
-    console.log(item);
+    item.data = JSON.parse(event.dataTransfer.getData('json')) as MapObject;
     this.dashboard.push(item);
   }
 
-  // removeItem($event: MouseEvent | TouchEvent, item): void {
-  //   $event.preventDefault();
-  //   $event.stopPropagation();
-  //   this.dashboard.splice(this.dashboard.indexOf(item), 1);
-  // }
+  remove($event: MouseEvent | TouchEvent, item: GridsterItem): void {
+    $event.preventDefault();
+    $event.stopPropagation();
+    this.dashboard.splice(this.dashboard.indexOf(item), 1);
+  }
 }

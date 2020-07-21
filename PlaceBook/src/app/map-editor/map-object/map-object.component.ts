@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
 import { MapObject } from '../config/map-object';
 
 @Component({
@@ -15,7 +15,7 @@ export class MapObjectComponent implements OnInit {
 
   dragStartHandler(ev: DragEvent): void {
     if (ev.dataTransfer) {
-      ev.dataTransfer.setData('text/plain', 'Drag Me Button');
+      ev.dataTransfer.setData('json', JSON.stringify(this.object));
     }
   }
 }
