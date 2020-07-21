@@ -19,7 +19,9 @@ export class TableComponent implements OnInit {
   constructor(public dialog: MatDialog) {}
 
   openDialog(): void {
-    this.dialog.open(ModalDialogComponent);
+    this.dialog.open(ModalDialogComponent, {
+      width: '30rem',
+    });
   }
 
   ngOnInit(): void {}
