@@ -9,7 +9,11 @@
       <app-scope-tool (scopeEvent)="map.changeScope($event)"></app-scope-tool>
     </div>
     <div class="tools">
-      <app-size-tool></app-size-tool>
+      <app-size-tool
+        (changeWidthEvent)="map.changeWidth($event)"
+        (changeHeightEvent)="map.changeHeight($event)"
+      >
+      </app-size-tool>
     </div>
   </div>
 </div>

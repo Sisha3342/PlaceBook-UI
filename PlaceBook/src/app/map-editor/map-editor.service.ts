@@ -27,15 +27,15 @@ export class MapEditorService {
       outerMarginLeft: null,
       useTransformPositioning: true,
       mobileBreakpoint: 0,
-      minCols: 10,
-      maxCols: 10,
-      minRows: 10,
-      maxRows: 10,
-      maxItemCols: 10,
+      minCols: 1,
+      maxCols: 1,
+      minRows: 1,
+      maxRows: 1,
+      maxItemCols: 1,
       minItemCols: 1,
-      maxItemRows: 10,
+      maxItemRows: 1,
       minItemRows: 1,
-      maxItemArea: 100,
+      maxItemArea: 1,
       minItemArea: 1,
       defaultItemCols: 1,
       defaultItemRows: 1,
@@ -94,15 +94,18 @@ export class MapEditorService {
     dashboard.splice(dashboard.indexOf(item), 1);
   }
 
-  setSize(width: number, height: number, options: Safe): void {
-    options.minCols = width;
-    options.maxCols = width;
+  setHeight(height: number, options: Safe): void {
     options.minRows = height;
     options.maxRows = height;
-
-    options.maxItemCols = width;
     options.maxItemRows = height;
-    options.maxItemArea = width * height;
+    options.maxItemArea = options.maxItemCols * height;
+  }
+
+  setWidth(width: number, options: Safe): void {
+    options.minCols = width;
+    options.maxCols = width;
+    options.maxItemCols = width;
+    options.maxItemArea = width * options.maxItemRows;
   }
 
   setScope(
