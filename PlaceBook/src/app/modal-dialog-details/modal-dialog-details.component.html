@@ -25,7 +25,9 @@
   <table class="booking-rate">
     <tr>
       <td matTooltip="Light"
-          [matTooltipPosition]="'above'">
+          [matTooltipPosition]="'above'"
+          [matTooltipShowDelay]="showDelay.value"
+          [matTooltipHideDelay]="hideDelay.value">
         <i class="fa fa-lightbulb"></i>
       </td>
       <td matTooltip="Fresh air"
@@ -33,15 +35,21 @@
         <i class="fas fa-wind"> </i>
       </td>
       <td matTooltip="Noise"
-          [matTooltipPosition]="'above'">
+          [matTooltipPosition]="'above'"
+          [matTooltipShowDelay]="showDelay.value"
+          [matTooltipHideDelay]="hideDelay.value">
         <i class="fas fa-volume-up"> </i>
       </td>
       <td matTooltip="Сleanliness"
-          [matTooltipPosition]="'above'">
+          [matTooltipPosition]="'above'"
+          [matTooltipShowDelay]="showDelay.value"
+          [matTooltipHideDelay]="hideDelay.value">
         <i class="fas fa-hand-sparkles"> </i>
       </td>
       <td matTooltip="Location"
-          [matTooltipPosition]="'above'">
+          [matTooltipPosition]="'above'"
+          [matTooltipShowDelay]="showDelay.value"
+          [matTooltipHideDelay]="hideDelay.value">
         <i class="fas fa-map-marker-alt"> </i>
       </td>
     </tr>
@@ -57,5 +65,6 @@
 </div>
 
 <mat-dialog-actions align="end">
-  <button mat-button mat-dialog-close>Close</button>
+  <button mat-button
+          mat-dialog-close>Close</button>
 </mat-dialog-actions>
