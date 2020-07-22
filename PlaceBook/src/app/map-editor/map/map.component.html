@@ -10,27 +10,18 @@
     "
   >
     <gridster [options]="options">
-      <gridster-item [item]="item" *ngFor="let item of dashboard">
+      <gridster-item
+        [item]="item"
+        *ngFor="let item of dashboard"
+        [matMenuTriggerFor]="actionsMenu.actions"
+      >
         <app-map-object [object]="item.data" [isOnMap]="true"></app-map-object>
+        <app-action-tools
+          #actionsMenu
+          [object]="item.data"
+          (deleteEvent)="remove(item)"
+        ></app-action-tools>
       </gridster-item>
     </gridster>
   </div>
 </div>
-<!--    <button-->
-<!--      class="action-button"-->
-<!--      mat-raised-button-->
-<!--      [matMenuTriggerFor]="actions"-->
-<!--    >-->
-<!--      actions-->
-<!--    </button>-->
-<!--    <mat-menu #actions="matMenu">-->
-<!--      <button-->
-<!--        mat-menu-item-->
-<!--        (click)="editorService.remove($event, item, dashboard)"-->
-<!--      >-->
-<!--        <span>Remove</span>-->
-<!--      </button>-->
-<!--      <button mat-menu-item>-->
-<!--        <span>disable</span>-->
-<!--      </button>-->
-<!--    </mat-menu>-->

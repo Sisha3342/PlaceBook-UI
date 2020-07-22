@@ -19,7 +19,7 @@ export class MapEditorService {
     return {
       gridType: GridType.Fixed,
       compactType: CompactType.None,
-      margin: 1,
+      margin: 0,
       outerMargin: true,
       outerMarginTop: null,
       outerMarginRight: null,
@@ -66,7 +66,7 @@ export class MapEditorService {
       pushDirections: { north: true, east: true, south: true, west: true },
       pushResizeItems: false,
       displayGrid: DisplayGrid.Always,
-      disableWindowResize: false,
+      disableWindowResize: true,
       disableWarnings: false,
       scrollToNewItems: false,
       emptyCellClickCallback: emptyCellClick.bind(map),
@@ -84,13 +84,7 @@ export class MapEditorService {
     }
   }
 
-  remove(
-    $event: MouseEvent | TouchEvent,
-    item: GridsterItem,
-    dashboard: Array<GridsterItem>
-  ): void {
-    $event.preventDefault();
-    $event.stopPropagation();
+  remove(item: GridsterItem, dashboard: Array<GridsterItem>): void {
     dashboard.splice(dashboard.indexOf(item), 1);
   }
 

@@ -1,0 +1,19 @@
+<mat-menu #actions>
+  <div mat-menu-item>
+    <button mat-fab color="warn" (click)="delete()">
+      <mat-icon>delete</mat-icon>
+    </button>
+  </div>
+  <mat-button-toggle-group
+    mat-menu-item
+    [(value)]="object.isActive"
+    *ngIf="object.isWorkPlace"
+  >
+    <mat-button-toggle [value]="true">
+      <mat-icon>done</mat-icon>
+    </mat-button-toggle>
+    <mat-button-toggle [value]="false">
+      <mat-icon>clear</mat-icon>
+    </mat-button-toggle>
+  </mat-button-toggle-group>
+</mat-menu>

@@ -45,4 +45,8 @@ export class MapComponent implements OnInit {
     this.editorService.setWidth(width, this.options);
     this.options.api.optionsChanged();
   }
+
+  remove(item: GridsterItem): void {
+    this.editorService.remove(item, this.dashboard);
+  }
 }

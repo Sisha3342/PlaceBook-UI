@@ -1,0 +1,40 @@
+mat-button-toggle-group {
+  border: 2px solid #dedede;
+  border-radius: 2rem;
+  padding: 0;
+  margin: 0.5rem 0.5rem;
+}
+
+.mat-fab .mat-icon {
+  font-size: 1.8rem;
+  margin: auto;
+  color: white;
+  position: relative;
+  bottom: 0.5rem;
+  right: 0.1rem;
+}
+
+.mat-button-toggle .mat-icon {
+  margin: auto;
+}
+
+.mat-fab {
+  margin: auto;
+  display: block;
+  border-radius: 2rem;
+  border: 2px solid #dedede;
+  width: 3rem;
+  height: 3rem;
+  white-space: normal;
+  line-height: 1rem;
+}
+
+.mat-fab .mat-button-wrapper[role="generic"] {
+  padding: 16px 0;
+  display: inline-block;
+  line-height: 24px;
+}
+
+.mat-fab:not([class*=mat-elevation-z]), .mat-mini-fab:not([class*=mat-elevation-z]) {
+  box-shadow: none;
+}

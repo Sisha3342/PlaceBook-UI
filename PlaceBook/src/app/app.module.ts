@@ -31,6 +31,8 @@ import { MatListModule } from '@angular/material/list';
 import { MatMenuModule } from '@angular/material/menu';
 import { ScopeToolComponent } from './map-editor/size-tools/scope-tool/scope-tool.component';
 import { SizeToolComponent } from './map-editor/size-tools/size-tool/size-tool.component';
+import { ActionToolsComponent } from './map-editor/action-tools/action-tools.component';
+import { MatButtonToggleModule } from '@angular/material/button-toggle';
 
 @NgModule({
   declarations: [
@@ -53,6 +55,7 @@ import { SizeToolComponent } from './map-editor/size-tools/size-tool/size-tool.c
     MapObjectComponent,
     ScopeToolComponent,
     SizeToolComponent,
+    ActionToolsComponent,
   ],
   imports: [
     BrowserModule,
@@ -65,6 +68,7 @@ import { SizeToolComponent } from './map-editor/size-tools/size-tool/size-tool.c
     MatListModule,
     OverlayModule,
     MatMenuModule,
+    MatButtonToggleModule,
   ],
   providers: [MatSnackBar, Overlay, AuthGuard, AuthService],
   bootstrap: [AppComponent],
