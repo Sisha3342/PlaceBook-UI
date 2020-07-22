@@ -1,7 +1,18 @@
 <p>{{ scope | percent }}</p>
-<button mat-mini-fab color="primary" (click)="decrease()">
+<button
+  mat-mini-fab
+  [color]="scope > 0.25 ? 'primary' : 'warn'"
+  (click)="decrease()"
+>
   <mat-icon>remove</mat-icon>
 </button>
-<button mat-mini-fab color="primary" (click)="increase()">
+<button mat-mini-fab color="primary" (click)="reset()">
+  <mat-icon>refresh</mat-icon>
+</button>
+<button
+  mat-mini-fab
+  [color]="scope < 2 ? 'primary' : 'warn'"
+  (click)="increase()"
+>
   <mat-icon>add</mat-icon>
 </button>

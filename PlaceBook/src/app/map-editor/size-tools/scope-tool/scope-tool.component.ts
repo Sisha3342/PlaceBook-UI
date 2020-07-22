@@ -29,4 +29,9 @@ export class ScopeToolComponent implements OnInit {
       this.scopeEvent.emit(this.scope);
     }
   }
+
+  reset(): void {
+    this.scope = 1;
+    this.scopeEvent.emit(this.scope);
+  }
 }
