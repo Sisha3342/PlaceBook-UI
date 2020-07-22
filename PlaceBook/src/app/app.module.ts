@@ -32,13 +32,9 @@ import { MapEditorComponent } from './map-editor/map-editor.component';
 import { GridsterModule } from 'angular-gridster2';
 import { MapComponent } from './map-editor/map/map.component';
 import { MapObjectComponent } from './map-editor/map-object/map-object.component';
-import { MatListModule } from '@angular/material/list';
-import { MatMenuModule } from '@angular/material/menu';
 import { ScopeToolComponent } from './map-editor/size-tools/scope-tool/scope-tool.component';
 import { SizeToolComponent } from './map-editor/size-tools/size-tool/size-tool.component';
 import { ActionToolsComponent } from './map-editor/action-tools/action-tools.component';
-import { MatButtonToggleModule } from '@angular/material/button-toggle';
-import { MatTooltipModule } from '@angular/material/tooltip';
 
 @NgModule({
   declarations: [
@@ -76,11 +72,7 @@ import { MatTooltipModule } from '@angular/material/tooltip';
     ReactiveFormsModule,
     AppMaterialModule,
     GridsterModule,
-    MatListModule,
     OverlayModule,
-    MatMenuModule,
-    MatButtonToggleModule,
-    MatTooltipModule,
   ],
   providers: [MatSnackBar, Overlay, AuthGuard, AuthService],
   bootstrap: [AppComponent],
