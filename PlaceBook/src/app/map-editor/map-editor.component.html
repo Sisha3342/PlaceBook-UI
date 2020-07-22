@@ -1,7 +1,7 @@
 <div class="tools-container">
   <div class="tools" style="display: inline-block;">
     <ng-container *ngFor="let object of objects">
-      <app-map-object [object]="object"></app-map-object>
+      <app-map-object [object]="object" [isOnMap]="false"></app-map-object>
     </ng-container>
   </div>
   <div class="size-tools">

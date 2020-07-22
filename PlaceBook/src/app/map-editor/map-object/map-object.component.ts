@@ -9,6 +9,7 @@ import { MapEditorService } from '../map-editor.service';
 })
 export class MapObjectComponent implements OnInit {
   @Input() object: MapObject;
+  @Input() isOnMap;
 
   constructor(public editorService: MapEditorService) {}
 

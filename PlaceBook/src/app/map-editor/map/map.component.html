@@ -8,11 +8,10 @@
       (options.fixedRowHeight + options.margin) * options.minRows +
       options.margin
     "
-    class="map"
   >
     <gridster [options]="options">
       <gridster-item [item]="item" *ngFor="let item of dashboard">
-        <app-map-object [object]="item.data"></app-map-object>
+        <app-map-object [object]="item.data" [isOnMap]="true"></app-map-object>
       </gridster-item>
     </gridster>
   </div>

@@ -1,11 +1,16 @@
-.map {
-
-}
-
 .map-holder {
   height: 30rem;
   width: 30rem;
   margin: 2rem 28rem;
   overflow: auto;
   text-align: center;
+}
+
+.object {
+  height: 1rem;
+  width: 1rem;
+}
+
+gridster-item {
+  padding: 1%;
 }
