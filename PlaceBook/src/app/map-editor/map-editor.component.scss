@@ -1,35 +1,25 @@
-.tools-container {
-  text-align: center;
-}
-
 .tools {
-  margin: 1rem;
-  border-radius: 2rem;
-  border: 2px solid #dedede;
-  background-color: white;
-  width: 20rem;
+  width: 10%;
+  vertical-align: top;
+  margin-right: 4rem;
+}
+
+.my-grid {
+  width: calc(90% - 4rem);
+  text-align: center;
+  height: calc(100% - 4rem);
+}
+
+.tools,
+.my-grid {
+  display: inline-block;
+}
+
+.tools .tools-container {
+  background: white;
+  border-radius: 20px;
+  box-shadow: 0 4px 23px rgba(0, 0, 0, 0.25);
+  padding: 1rem 1rem;
   text-align: center;
 }
 
-.size-tools {
-  display: inline-block;
-  vertical-align: bottom;
-}
-
-app-map-object {
-  margin: 1rem 0.5rem;
-  display: inline-block;
-}
-
-app-scope-tool {
-  display: inline-block;
-}
-
-app-size-tool {
-  display: inline-block;
-}
-
-//gridster {
-//  height: 30rem;
-//  width: 30rem;
-//}

@@ -3,4 +3,5 @@ export interface MapObject {
   isWorkPlace: boolean;
   isActive: boolean;
   icon: string;
+  tooltip: string;
 }

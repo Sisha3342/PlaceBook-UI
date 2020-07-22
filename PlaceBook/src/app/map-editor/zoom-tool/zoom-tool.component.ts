@@ -1,11 +1,11 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 
 @Component({
-  selector: 'app-scope-tool',
-  templateUrl: './scope-tool.component.html',
-  styleUrls: ['./scope-tool.component.scss'],
+  selector: 'app-zoom-tool',
+  templateUrl: './zoom-tool.component.html',
+  styleUrls: ['./zoom-tool.component.scss'],
 })
-export class ScopeToolComponent implements OnInit {
+export class ZoomToolComponent implements OnInit {
   @Output() scopeEvent = new EventEmitter<number>();
   scope = 1;
   scopeChange = 0.25;

@@ -1,7 +1,14 @@
 <div
   draggable="true"
+  [matTooltip]="object.tooltip"
+  matTooltipShowDelay="1000"
+  matTooltipPosition="right"
   (dragstart)="editorService.dragStart($event, object)"
-  [ngClass]="{ 'on-map-icon-background': isOnMap, 'icon-background': !isOnMap }"
+  [ngClass]="{
+    'on-map-icon-background': isOnMap,
+    'icon-background': !isOnMap,
+    disabled: !object.isActive && object.isWorkPlace
+  }"
 >
   <mat-icon
     fontSet="fas"

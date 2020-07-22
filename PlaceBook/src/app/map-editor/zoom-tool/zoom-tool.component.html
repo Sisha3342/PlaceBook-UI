@@ -1,0 +1,23 @@
+<p class="zoom-percent">Zoom: {{ scope | percent }}</p>
+
+<button
+  mat-mini-fab
+  color="primary"
+  [disabled]="scope >= 2"
+  (click)="increase()"
+>
+  <mat-icon>zoom_in</mat-icon>
+</button>
+
+<button
+  mat-mini-fab
+  color="primary"
+  [disabled]="scope <= 0.25"
+  (click)="decrease()"
+>
+  <mat-icon>zoom_out</mat-icon>
+</button>
+
+<button mat-mini-fab color="primary" (click)="reset()">
+  <mat-icon>refresh</mat-icon>
+</button>

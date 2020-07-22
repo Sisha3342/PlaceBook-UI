@@ -1,16 +1,17 @@
 .map-holder {
-  max-height: 30rem;
-  max-width: 30rem;
-  margin: 2rem 28rem;
+  max-height: 100%;
+  max-width: 100%;
   overflow: auto;
   text-align: center;
   display: inline-block;
 }
 
-gridster-item {
-  padding: 1%;
+gridster {
+  background: #c7c7c7;
 }
 
-gridster-item.inactive {
-  background-color: lightcoral;
+gridster-item {
+  padding: 1px;
+  border: 1px solid white;
+  background-color: #dad8d8;
 }

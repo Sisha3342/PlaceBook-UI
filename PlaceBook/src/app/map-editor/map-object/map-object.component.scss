@@ -1,27 +1,37 @@
 .icon {
-  margin: 0.7rem;
-  position: relative;
-  top: 0.2rem;
-  font-size: 1.5rem;
+  display: block;
+  margin: auto;
   color: white;
+  width: 1.7rem;
+  height: 3rem;
 }
 
 .icon-background {
   height: 3rem;
   width: 3rem;
-  margin: 1rem auto 0.7rem auto;
-  border-radius: 50%;
+  margin: 0 auto 1rem auto;
+  border-radius: 5px;
   background-color: #3f51b5;
+  cursor: pointer;
 }
 
 .on-map-icon-background {
-  height: 60%;
-  width: 60%;
-  border-radius: 50%;
-  background-color: #3f51b5;
-  margin: 1.25em auto;
+  height: 100%;
+  width: 100%;
+  margin: auto;
+  background-color: #dad8d8;
+  color: #3f51b5;
+  position: relative;
+  top: 20%;
+  cursor: pointer;
 }
 
-.on-map-icon {
+.on-map-icon-background svg{
+  width: 50%;
+  height: 100%;
+}
 
+.on-map-icon-background.disabled {
+  background-color: lightcoral;
+  color: white;
 }

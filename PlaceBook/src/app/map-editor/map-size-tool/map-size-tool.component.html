@@ -1,3 +1,5 @@
+<p>Floor size:</p>
+
 <mat-form-field>
   <mat-label>Width</mat-label>
   <input
@@ -5,16 +7,17 @@
     type="number"
     [(ngModel)]="width"
     (ngModelChange)="changeWidth()"
-    [min]="1"
+    [min]="10"
   />
 </mat-form-field>
+
 <mat-form-field>
-  <mat-label>Height</mat-label>
+  <mat-label>Length</mat-label>
   <input
     matInput
     type="number"
     [(ngModel)]="height"
     (ngModelChange)="changeHeight()"
-    [min]="1"
+    [min]="10"
   />
 </mat-form-field>

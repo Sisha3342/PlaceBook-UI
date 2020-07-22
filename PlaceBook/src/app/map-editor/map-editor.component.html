@@ -1,22 +1,25 @@
-<div class="tools-container">
-  <div class="tools" style="display: inline-block;">
+<div class="tools">
+  <div class="tools-container">
     <ng-container *ngFor="let object of objects">
       <app-map-object [object]="object" [isOnMap]="false"></app-map-object>
     </ng-container>
-  </div>
-  <div class="size-tools">
-    <div class="tools">
-      <app-scope-tool (scopeEvent)="map.changeScope($event)"></app-scope-tool>
-    </div>
-    <div class="tools">
-      <app-size-tool
-        [height]="map.initMapHeight"
-        [width]="map.initMapWidth"
-        (changeWidthEvent)="map.changeWidth($event)"
-        (changeHeightEvent)="map.changeHeight($event)"
-      >
-      </app-size-tool>
-    </div>
+
+    <hr />
+
+    <app-zoom-tool (scopeEvent)="map.changeScope($event)"></app-zoom-tool>
+
+    <hr />
+
+    <app-map-size-tool
+      [height]="map.initMapHeight"
+      [width]="map.initMapWidth"
+      (changeWidthEvent)="map.changeWidth($event)"
+      (changeHeightEvent)="map.changeHeight($event)"
+    >
+    </app-map-size-tool>
   </div>
 </div>
-<app-map #map></app-map>
+
+<div class="my-grid">
+  <app-map #map></app-map>
+</div>
