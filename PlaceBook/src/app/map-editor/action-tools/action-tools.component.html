@@ -1,6 +1,6 @@
 <mat-menu #actions>
   <div mat-menu-item>
-    <button mat-fab color="warn" (click)="delete()">
+    <button mat-fab color="warn" (click)="delete()" matTooltip="Remove">
       <mat-icon>delete</mat-icon>
     </button>
   </div>
@@ -9,10 +9,10 @@
     [(value)]="object.isActive"
     *ngIf="object.isWorkPlace"
   >
-    <mat-button-toggle [value]="true">
+    <mat-button-toggle [value]="true" matTooltip="Active">
       <mat-icon>done</mat-icon>
     </mat-button-toggle>
-    <mat-button-toggle [value]="false">
+    <mat-button-toggle [value]="false" matTooltip="Disabled">
       <mat-icon>clear</mat-icon>
     </mat-button-toggle>
   </mat-button-toggle-group>
