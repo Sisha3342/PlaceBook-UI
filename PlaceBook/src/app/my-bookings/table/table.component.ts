@@ -1,7 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Booking } from '../../models/booking';
 import { MatDialog } from '@angular/material/dialog';
-import { RatePlaceComponent } from '../rate-place/rate-place.component';
+import { RatePlaceModalComponent } from '../rate-place-modal/rate-place-modal.component';
 
 @Component({
   selector: 'app-table',
@@ -30,6 +30,6 @@ export class TableComponent implements OnInit {
   }
 
   openRatePlaceDialog(): void {
-    this.dialog.open(RatePlaceComponent);
+    this.dialog.open(RatePlaceModalComponent);
   }
 }

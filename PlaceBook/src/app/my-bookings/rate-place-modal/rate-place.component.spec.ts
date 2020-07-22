@@ -1,19 +1,19 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { RatePlaceComponent } from './rate-place.component';
+import { RatePlaceModalComponent } from './rate-place-modal.component';
 
 describe('RatePlaceComponent', () => {
-  let component: RatePlaceComponent;
-  let fixture: ComponentFixture<RatePlaceComponent>;
+  let component: RatePlaceModalComponent;
+  let fixture: ComponentFixture<RatePlaceModalComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [RatePlaceComponent],
+      declarations: [RatePlaceModalComponent],
     }).compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(RatePlaceComponent);
+    fixture = TestBed.createComponent(RatePlaceModalComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
