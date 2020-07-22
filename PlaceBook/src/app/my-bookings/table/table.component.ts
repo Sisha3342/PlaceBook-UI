@@ -29,8 +29,7 @@ export class TableComponent implements OnInit {
     return this.defaultColumns;
   }
 
-  // tslint:disable-next-line:typedef
-  openDialog() {
+  openRatePlaceDialog(): void {
     this.dialog.open(RatePlaceComponent);
   }
 }

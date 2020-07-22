@@ -29,7 +29,7 @@ import { AuthService } from './auth/auth.service';
 import { TableComponent } from './my-bookings/table/table.component';
 import { StatisticsBoxComponent } from './my-bookings/statistics-box/statistics-box.component';
 import { RatePlaceComponent } from './my-bookings/rate-place/rate-place.component';
-import { FeatureRatePlaceComponent } from './my-bookings/rate-place/feature-rate-place/feature-rate-place.component';
+import { RateComponent } from './my-bookings/rate-place/rate/rate.component';
 
 @NgModule({
   declarations: [
@@ -53,7 +53,7 @@ import { FeatureRatePlaceComponent } from './my-bookings/rate-place/feature-rate
     EmployeeCardComponent,
     SnackBarComponent,
     RatePlaceComponent,
-    FeatureRatePlaceComponent,
+    RateComponent,
   ],
   imports: [
     BrowserModule,

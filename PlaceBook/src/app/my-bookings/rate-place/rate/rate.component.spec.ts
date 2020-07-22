@@ -1,19 +1,19 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { FeatureRatePlaceComponent } from './feature-rate-place.component';
+import { RateComponent } from './rate.component';
 
-describe('FeatureRatePlaceComponent', () => {
-  let component: FeatureRatePlaceComponent;
-  let fixture: ComponentFixture<FeatureRatePlaceComponent>;
+describe('RateComponent', () => {
+  let component: RateComponent;
+  let fixture: ComponentFixture<RateComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [FeatureRatePlaceComponent],
+      declarations: [RateComponent],
     }).compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(FeatureRatePlaceComponent);
+    fixture = TestBed.createComponent(RateComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
