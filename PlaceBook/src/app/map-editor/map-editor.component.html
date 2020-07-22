@@ -10,6 +10,8 @@
     </div>
     <div class="tools">
       <app-size-tool
+        [height]="map.initMapHeight"
+        [width]="map.initMapWidth"
         (changeWidthEvent)="map.changeWidth($event)"
         (changeHeightEvent)="map.changeHeight($event)"
       >

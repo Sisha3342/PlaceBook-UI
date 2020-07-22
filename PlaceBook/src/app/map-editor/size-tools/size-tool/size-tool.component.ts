@@ -6,15 +6,12 @@ import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
   styleUrls: ['./size-tool.component.scss'],
 })
 export class SizeToolComponent implements OnInit {
-  width: number;
-  height: number;
+  @Input() width: number;
+  @Input() height: number;
   @Output() changeHeightEvent = new EventEmitter<number>();
   @Output() changeWidthEvent = new EventEmitter<number>();
 
-  constructor() {
-    this.height = 1;
-    this.width = 1;
-  }
+  constructor() {}
 
   ngOnInit(): void {}
 

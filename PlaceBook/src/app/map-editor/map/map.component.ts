@@ -15,6 +15,9 @@ export class MapComponent implements OnInit {
   initCellHeight: number;
   initCellWidth: number;
 
+  initMapHeight = 10;
+  initMapWidth = 10;
+
   constructor(private editorService: MapEditorService) {}
 
   ngOnInit(): void {
@@ -22,6 +25,9 @@ export class MapComponent implements OnInit {
 
     this.initCellWidth = this.options.fixedColWidth;
     this.initCellHeight = this.options.fixedRowHeight;
+
+    this.editorService.setHeight(this.initMapHeight, this.options);
+    this.editorService.setWidth(this.initMapWidth, this.options);
 
     this.dashboard = [];
   }
