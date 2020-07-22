@@ -1,7 +1,7 @@
+import { BookingDetailsModalComponent } from './../../booking-details-modal/booking-details-modal.component';
 import { Component, Input, OnInit } from '@angular/core';
 import { Booking } from '../../models/booking';
 import { MatDialog } from '@angular/material/dialog';
-import { ModalDialogDetailsComponent } from '../../modal-dialog-details/modal-dialog-details.component';
 
 @Component({
   selector: 'app-table',
@@ -16,10 +16,10 @@ export class TableComponent implements OnInit {
 
   constructor(public dialog: MatDialog) {}
 
-  openDialog(event: Event, booking: Booking): void {
-    this.dialog.open(ModalDialogDetailsComponent, {
+  openBookingDetailsModal(event: Event, booking: Booking): void {
+    this.dialog.open(BookingDetailsModalComponent, {
       width: '30rem',
-      data: booking
+      data: booking,
     });
   }
 

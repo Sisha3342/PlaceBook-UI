@@ -80,6 +80,6 @@
         *matHeaderRowDef="getTableColumns()"></tr>
     <tr mat-row
         *matRowDef="let row; columns: getTableColumns()"
-        (click)="openDialog($event, row)"></tr>
+        (click)="openBookingDetailsModal($event, row)"></tr>
   </table>
 </div>

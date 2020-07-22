@@ -5,17 +5,13 @@ import { Booking } from '../models/booking';
 import { FormControl } from '@angular/forms';
 
 @Component({
-  selector: 'app-modal-dialog-details',
-  templateUrl: 'modal-dialog-details.component.html',
-  styleUrls: ['./modal-dialog-details.component.scss'],
+  selector: 'app-booking-details-modal',
+  templateUrl: 'booking-details-modal.component.html',
+  styleUrls: ['./booking-details-modal.component.scss'],
 })
-export class ModalDialogDetailsComponent {
+export class BookingDetailsModalComponent {
   booking: Booking;
-
   employee: Employee;
-
-  showDelay = new FormControl(500);
-  hideDelay = new FormControl(500);
 
   constructor(@Inject(MAT_DIALOG_DATA) public data: Booking) {
     this.booking = this.data;
