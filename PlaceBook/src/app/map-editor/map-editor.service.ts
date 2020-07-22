@@ -27,15 +27,15 @@ export class MapEditorService {
       outerMarginLeft: null,
       useTransformPositioning: true,
       mobileBreakpoint: 0,
-      minCols: 5,
-      maxCols: 5,
-      minRows: 5,
-      maxRows: 5,
-      maxItemCols: 5,
+      minCols: 10,
+      maxCols: 10,
+      minRows: 10,
+      maxRows: 10,
+      maxItemCols: 10,
       minItemCols: 1,
-      maxItemRows: 5,
+      maxItemRows: 10,
       minItemRows: 1,
-      maxItemArea: 25,
+      maxItemArea: 100,
       minItemArea: 1,
       defaultItemCols: 1,
       defaultItemRows: 1,
@@ -73,6 +73,8 @@ export class MapEditorService {
       emptyCellContextMenuCallback: emptyCellClick.bind(map),
       emptyCellDropCallback: emptyCellClick.bind(map),
       emptyCellDragCallback: emptyCellClick.bind(map),
+      disableScrollHorizontal: true,
+      disableScrollVertical: true,
     };
   }
 
@@ -109,9 +111,6 @@ export class MapEditorService {
     initWidth: number,
     initHeight: number
   ): void {
-    console.log(options);
-    console.log(initWidth);
-    console.log(scope);
     options.fixedColWidth = initWidth * scope;
     options.fixedRowHeight = initHeight * scope;
   }

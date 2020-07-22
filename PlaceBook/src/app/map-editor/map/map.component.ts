@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { GridsterItem } from 'angular-gridster2';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { GridsterComponent, GridsterItem } from 'angular-gridster2';
 import { MapEditorService } from '../map-editor.service';
 import { Safe } from '../model/safe';
 
@@ -11,11 +11,12 @@ import { Safe } from '../model/safe';
 export class MapComponent implements OnInit {
   options: Safe;
   dashboard: Array<GridsterItem>;
+  @ViewChild(GridsterComponent) private grid: GridsterComponent;
 
   initCellHeight: number;
   initCellWidth: number;
 
-  constructor(public editorService: MapEditorService) {}
+  constructor(private editorService: MapEditorService) {}
 
   ngOnInit(): void {
     this.options = this.editorService.getDefaultOptions(this);

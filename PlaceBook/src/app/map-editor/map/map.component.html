@@ -1,23 +1,37 @@
-<gridster [options]="options">
-  <gridster-item [item]="item" *ngFor="let item of dashboard">
-    <app-map-object [object]="item.data"></app-map-object>
-    <button
-      class="action-button"
-      mat-raised-button
-      [matMenuTriggerFor]="actions"
-    >
-      actions
-    </button>
-    <mat-menu #actions="matMenu">
-      <button
-        mat-menu-item
-        (click)="editorService.remove($event, item, dashboard)"
-      >
-        <span>Remove</span>
-      </button>
-      <button mat-menu-item>
-        <span>disable</span>
-      </button>
-    </mat-menu>
-  </gridster-item>
-</gridster>
+<div class="map-holder">
+  <div
+    [style.width.px]="
+      (options.fixedColWidth + options.margin) * options.minCols +
+      options.margin
+    "
+    [style.height.px]="
+      (options.fixedRowHeight + options.margin) * options.minRows +
+      options.margin
+    "
+    class="map"
+  >
+    <gridster [options]="options">
+      <gridster-item [item]="item" *ngFor="let item of dashboard">
+        <app-map-object [object]="item.data"></app-map-object>
+      </gridster-item>
+    </gridster>
+  </div>
+</div>
+<!--    <button-->
+<!--      class="action-button"-->
+<!--      mat-raised-button-->
+<!--      [matMenuTriggerFor]="actions"-->
+<!--    >-->
+<!--      actions-->
+<!--    </button>-->
+<!--    <mat-menu #actions="matMenu">-->
+<!--      <button-->
+<!--        mat-menu-item-->
+<!--        (click)="editorService.remove($event, item, dashboard)"-->
+<!--      >-->
+<!--        <span>Remove</span>-->
+<!--      </button>-->
+<!--      <button mat-menu-item>-->
+<!--        <span>disable</span>-->
+<!--      </button>-->
+<!--    </mat-menu>-->

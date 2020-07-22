@@ -1,5 +1,11 @@
-gridster {
-  display: inline-block;
+.map {
+
+}
+
+.map-holder {
   height: 30rem;
   width: 30rem;
+  margin: 2rem 28rem;
+  overflow: auto;
+  text-align: center;
 }
