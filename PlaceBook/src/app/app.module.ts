@@ -17,12 +17,17 @@ import { NotFoundComponent } from './not-found/not-found.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
 import { RouteButtonComponent } from './sidebar/route-button/route-button.component';
 import { UserCardComponent } from './sidebar/user-card/user-card.component';
+import { SearchComponent } from './search/search.component';
+import { EmployeeCardComponent } from './employees/employee-card/employee-card.component';
+import { SnackBarComponent } from './snack-bar/snack-bar.component';
 import { AppMaterialModule } from './app-material/app-material.module';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { HomeLayoutComponent } from './layouts/home/home-layout.component';
 import { LoginLayoutComponent } from './layouts/login/login-layout.component';
 import { AuthGuard } from './auth/auth.guard';
 import { AuthService } from './auth/auth.service';
+import { TableComponent } from './my-bookings/table/table.component';
+import { StatisticsBoxComponent } from './my-bookings/statistics-box/statistics-box.component';
 import { MapEditorComponent } from './map-editor/map-editor.component';
 import { GridsterModule } from 'angular-gridster2';
 import { MapComponent } from './map-editor/map/map.component';
@@ -57,6 +62,11 @@ import { MatTooltipModule } from '@angular/material/tooltip';
     ScopeToolComponent,
     SizeToolComponent,
     ActionToolsComponent,
+    TableComponent,
+    StatisticsBoxComponent,
+    SearchComponent,
+    EmployeeCardComponent,
+    SnackBarComponent,
   ],
   imports: [
     BrowserModule,
