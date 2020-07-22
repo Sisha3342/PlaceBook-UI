@@ -53,9 +53,19 @@
           mat-icon-button
           matTooltip="Cancel booking"
           [matTooltipPosition]="'above'"
-          class="close-button"
+          class="icon-button"
         >
           <mat-icon>close</mat-icon>
+        </button>
+        <button
+          *ngIf="status === 'completed'"
+          mat-icon-button
+          (click)="openDialog()"
+          matTooltip="Completed booking"
+          [matTooltipPosition]="'above'"
+          class="icon-button"
+        >
+          <mat-icon>star</mat-icon>
         </button>
       </td>
     </ng-container>
