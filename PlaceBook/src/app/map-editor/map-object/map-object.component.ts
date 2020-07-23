@@ -10,8 +10,13 @@ import { MapEditorService } from '../map-editor.service';
 export class MapObjectComponent implements OnInit {
   @Input() object: MapObject;
   @Input() isOnMap;
+  menuOpened = false;
 
   constructor(public editorService: MapEditorService) {}
 
   ngOnInit(): void {}
+
+  openMenu($event: MouseEvent): void {
+    this.menuOpened = !!($event.button === 2 && this.isOnMap);
+  }
 }

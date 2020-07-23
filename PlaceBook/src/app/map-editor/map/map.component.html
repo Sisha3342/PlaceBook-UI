@@ -10,18 +10,20 @@
     "
   >
     <gridster [options]="options">
-      <gridster-item
-        [item]="item"
-        *ngFor="let item of config.dashboard"
-        [matMenuTriggerFor]="actionsMenu.actions"
-      >
-        <app-map-object [object]="item.data" [isOnMap]="true"></app-map-object>
+      <ng-container *ngFor="let item of config.dashboard">
+        <gridster-item [item]="item">
+          <app-map-object
+            #object
+            [object]="item.data"
+            [isOnMap]="true"
+          ></app-map-object>
+        </gridster-item>
         <app-action-tools
-          #actionsMenu
+          *ngIf="object.menuOpened"
           [object]="item.data"
           (deleteEvent)="remove(item)"
         ></app-action-tools>
-      </gridster-item>
+      </ng-container>
     </gridster>
   </div>
 </div>

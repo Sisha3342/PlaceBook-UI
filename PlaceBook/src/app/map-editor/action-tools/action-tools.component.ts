@@ -1,12 +1,4 @@
-import {
-  Component,
-  Input,
-  OnInit,
-  Output,
-  ViewChild,
-  EventEmitter,
-} from '@angular/core';
-import { MatMenuPanel } from '@angular/material/menu';
+import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
 import { MapObject } from '../model/map-object';
 
 @Component({
@@ -17,7 +9,6 @@ import { MapObject } from '../model/map-object';
 export class ActionToolsComponent implements OnInit {
   @Input() object: MapObject;
   @Output() deleteEvent = new EventEmitter<MouseEvent>();
-  @ViewChild('actions') actions: MatMenuPanel;
 
   constructor() {}
 

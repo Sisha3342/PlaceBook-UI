@@ -1,7 +1,6 @@
-<mat-menu #actions>
+<div>
   <div class="action-tools-content">
     <mat-button-toggle-group
-      mat-menu-item
       [(value)]="object.isActive"
       *ngIf="object.isWorkPlace"
     >
@@ -35,4 +34,4 @@
       <mat-icon>delete</mat-icon>
     </button>
   </div>
-</mat-menu>
+</div>

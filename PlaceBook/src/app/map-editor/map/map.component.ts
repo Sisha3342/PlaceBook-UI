@@ -6,6 +6,8 @@ import {
   EventEmitter,
   OnChanges,
   SimpleChanges,
+  ViewChildren,
+  ElementRef,
 } from '@angular/core';
 import { GridsterItem } from 'angular-gridster2';
 import { MapEditorService } from '../map-editor.service';
