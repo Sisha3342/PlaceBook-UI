@@ -1,0 +1,27 @@
+.rate-row {
+  margin-bottom: 0.5rem;
+}
+
+.rate-row > div {
+  vertical-align: middle;
+  display: inline-block;
+  margin-right: 1rem;
+}
+
+.rate-row .rate-icon {
+  color: #3f51b5;
+  width: 2rem;
+  height: 2rem;
+}
+
+.rate-row .star-mark {
+  width: 3rem;
+  height: 3rem;
+}
+
+.rate-row .star-mark mat-icon {
+  color: #ffd740;
+  font-size: 3rem;
+  width: 3rem;
+  height: 2rem;
+}
