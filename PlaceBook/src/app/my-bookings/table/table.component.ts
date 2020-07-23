@@ -1,5 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Booking } from '../../models/booking';
+import { MatDialog } from '@angular/material/dialog';
+import { RatePlaceModalComponent } from '../rate-place-modal/rate-place-modal.component';
 
 @Component({
   selector: 'app-table',
@@ -12,7 +14,7 @@ export class TableComponent implements OnInit {
 
   defaultColumns: string[] = ['place', 'date', 'country', 'city', 'address'];
 
-  constructor() {}
+  constructor(public dialog: MatDialog) {}
 
   ngOnInit(): void {}
 
@@ -24,7 +26,10 @@ export class TableComponent implements OnInit {
     if (this.status === 'active' || this.status === 'completed') {
       return this.defaultColumns.concat(['action']);
     }
-
     return this.defaultColumns;
+  }
+
+  openRatePlaceDialog(): void {
+    this.dialog.open(RatePlaceModalComponent);
   }
 }
