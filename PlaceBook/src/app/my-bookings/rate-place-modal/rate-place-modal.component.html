@@ -1,0 +1,30 @@
+<h2 mat-dialog-title class="heading">My Mark</h2>
+
+<div mat-dialog-content>
+  <app-rate [icon]="'fa-lightbulb'" [iconTooltip]="'Light'"></app-rate>
+  <app-rate [icon]="'fa-wind'" [iconTooltip]="'Fresh air'"></app-rate>
+  <app-rate [icon]="'fa-volume-up'" [iconTooltip]="'Noise'"></app-rate>
+  <app-rate
+    [icon]="'fa-hand-sparkles'"
+    [iconTooltip]="'Сleanliness'"
+  ></app-rate>
+  <app-rate [icon]="'fa-map-marker-alt'" [iconTooltip]="'Location'"></app-rate>
+
+  <mat-form-field class="feedback-field">
+    <input matInput placeholder="Feedback" />
+  </mat-form-field>
+</div>
+
+<div mat-dialog-actions align="end">
+  <button mat-button mat-dialog-close class="close-button">Close</button>
+  <button
+    mat-button
+    mat-flat-button
+    cdkFocusInitial
+    type="submit"
+    color="primary"
+    class="submit-button"
+  >
+    Submit
+  </button>
+</div>
