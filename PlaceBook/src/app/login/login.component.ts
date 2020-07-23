@@ -29,11 +29,11 @@ export class LoginComponent implements OnInit {
   ngOnInit(): void {}
 
   isLoginPasswordValid(login: string, password: string): boolean {
-    const regex = new RegExp(
-      /^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/
-    );
-
-    return !!(regex.test(login) && password);
+    // const regex = new RegExp(
+    //   /^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/
+    // );
+    // return !!(regex.test(login) && password);
+    return true;
   }
 
   loginUser(): void {
