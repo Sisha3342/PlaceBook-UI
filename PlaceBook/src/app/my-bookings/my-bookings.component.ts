@@ -1,6 +1,5 @@
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { Booking } from '../models/booking';
-import { AppMaterialModule } from './../app-material/app-material.module';
 
 @Component({
   selector: 'app-my-bookings',
@@ -17,6 +16,14 @@ export class MyBookingsComponent implements OnInit {
       city: 'Minsk',
       address: 'Kuprevicha 3',
       status: 'active',
+      feedback: '',
+      rating: {
+        light: 3.0,
+        air: 5.0,
+        noise: 2.4,
+        clean: 3.8,
+        location: 2.7,
+      },
     },
     {
       place: '121A',
@@ -25,6 +32,14 @@ export class MyBookingsComponent implements OnInit {
       city: 'Minsk',
       address: 'Kuprevicha 3',
       status: 'active',
+      feedback: 'Все хорошо',
+      rating: {
+        light: 3.0,
+        air: 5.0,
+        noise: 2.4,
+        clean: 3.8,
+        location: 2.7,
+      },
     },
     {
       place: '12K',
@@ -33,6 +48,14 @@ export class MyBookingsComponent implements OnInit {
       city: 'Minsk',
       address: 'Kuprevicha 3',
       status: 'completed',
+      feedback: 'Super',
+      rating: {
+        light: 3.0,
+        air: 5.0,
+        noise: 2.4,
+        clean: 3.8,
+        location: 2.7,
+      },
     },
     {
       place: '12K',
@@ -41,6 +64,14 @@ export class MyBookingsComponent implements OnInit {
       city: 'Minsk',
       address: 'Kuprevicha 3',
       status: 'cancelled',
+      feedback: '',
+      rating: {
+        light: 3.0,
+        air: 5.0,
+        noise: 2.4,
+        clean: 3.8,
+        location: 2.7,
+      },
     },
     {
       place: '12A',
@@ -49,6 +80,14 @@ export class MyBookingsComponent implements OnInit {
       city: 'Minsk',
       address: 'Kuprevicha 3',
       status: 'active',
+      feedback: 'Ok',
+      rating: {
+        light: 3.0,
+        air: 5.0,
+        noise: 2.4,
+        clean: 3.8,
+        location: 2.7,
+      },
     },
     {
       place: '12K',
@@ -57,6 +96,14 @@ export class MyBookingsComponent implements OnInit {
       city: 'Minsk',
       address: 'Kuprevicha 3',
       status: 'cancelled',
+      feedback: '',
+      rating: {
+        light: 3.0,
+        air: 5.0,
+        noise: 2.4,
+        clean: 3.8,
+        location: 2.7,
+      },
     },
     {
       place: '12K',
@@ -65,6 +112,14 @@ export class MyBookingsComponent implements OnInit {
       city: 'Minsk',
       address: 'Kuprevicha 3',
       status: 'completed',
+      feedback: '',
+      rating: {
+        light: 3.0,
+        air: 5.0,
+        noise: 2.4,
+        clean: 3.8,
+        location: 2.7,
+      },
     },
     {
       place: '12K',
@@ -73,6 +128,14 @@ export class MyBookingsComponent implements OnInit {
       city: 'Minsk',
       address: 'Kuprevicha 3',
       status: 'cancelled',
+      feedback: '',
+      rating: {
+        light: 3.0,
+        air: 5.0,
+        noise: 2.4,
+        clean: 3.8,
+        location: 2.7,
+      },
     },
     {
       place: '12A',
@@ -81,6 +144,14 @@ export class MyBookingsComponent implements OnInit {
       city: 'Minsk',
       address: 'Kuprevicha 3',
       status: 'active',
+      feedback: '',
+      rating: {
+        light: 3.0,
+        air: 5.0,
+        noise: 2.4,
+        clean: 3.8,
+        location: 2.7,
+      },
     },
     {
       place: '12K',
@@ -89,6 +160,14 @@ export class MyBookingsComponent implements OnInit {
       city: 'Minsk',
       address: 'Kuprevicha 3',
       status: 'completed',
+      feedback: '',
+      rating: {
+        light: 3.0,
+        air: 5.0,
+        noise: 2.4,
+        clean: 3.8,
+        location: 2.7,
+      },
     },
   ];
 
