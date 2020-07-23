@@ -11,15 +11,32 @@
     <hr />
 
     <app-map-size-tool
-      [height]="map.initMapHeight"
-      [width]="map.initMapWidth"
+      [height]="initHeight"
+      [width]="initWidth"
       (changeWidthEvent)="map.changeWidth($event)"
       (changeHeightEvent)="map.changeHeight($event)"
     >
     </app-map-size-tool>
+
+    <hr />
+
+    <div>
+      <button (click)="addEmptyFloor()">Add floor</button>
+    </div>
+    <mat-button-toggle-group
+      #floorsGroup="matButtonToggleGroup"
+      [value]="floors[0]"
+    >
+      <mat-button-toggle
+        *ngFor="let floor of floors; let i = index"
+        [value]="floor"
+      >
+        {{ i + 1 }}
+      </mat-button-toggle>
+    </mat-button-toggle-group>
   </div>
 </div>
 
 <div class="my-grid">
-  <app-map #map></app-map>
+  <app-map #map [config]="floorsGrp ? floorsGrp.value : floors[0]"></app-map>
 </div>

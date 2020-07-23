@@ -1,7 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { GridsterItem } from 'angular-gridster2';
 import { MapEditorService } from '../map-editor.service';
 import { Safe } from '../model/safe';
+import { FloorConfig } from '../floor-model/floor-config';
 
 @Component({
   selector: 'app-map',
@@ -11,12 +12,10 @@ import { Safe } from '../model/safe';
 export class MapComponent implements OnInit {
   options: Safe;
   dashboard: Array<GridsterItem>;
+  @Input() config: FloorConfig;
 
   initCellHeight: number;
   initCellWidth: number;
-
-  initMapHeight = 10;
-  initMapWidth = 10;
 
   constructor(private editorService: MapEditorService) {}
 
@@ -26,10 +25,10 @@ export class MapComponent implements OnInit {
     this.initCellWidth = this.options.fixedColWidth;
     this.initCellHeight = this.options.fixedRowHeight;
 
-    this.editorService.setHeight(this.initMapHeight, this.options);
-    this.editorService.setWidth(this.initMapWidth, this.options);
+    this.editorService.setHeight(this.config.height, this.options);
+    this.editorService.setWidth(this.config.width, this.options);
 
-    this.dashboard = [];
+    this.dashboard = this.config.dashboard;
   }
 
   changeScope(scope: number): void {
