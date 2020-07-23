@@ -16,7 +16,8 @@ export class MapEditorComponent implements OnInit {
   initWidth = 10;
   initHeight = 10;
 
-  @ViewChild('floorsGroup') floorsGrp: MatButtonToggleGroup;
+  @ViewChild('floorsGroup') floorsGroup: MatButtonToggleGroup;
+  currentFloor = this.floors[0];
 
   ngOnInit(): void {}
 
@@ -28,7 +29,6 @@ export class MapEditorComponent implements OnInit {
     };
 
     this.floors = [...this.floors, newFloor];
-
-    this.floorsGrp.writeValue(newFloor);
+    this.currentFloor = newFloor;
   }
 }

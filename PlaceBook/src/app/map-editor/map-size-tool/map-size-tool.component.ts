@@ -1,4 +1,11 @@
-import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
+import {
+  Component,
+  Input,
+  OnInit,
+  Output,
+  EventEmitter,
+  ChangeDetectorRef,
+} from '@angular/core';
 
 @Component({
   selector: 'app-map-size-tool',
@@ -8,18 +15,18 @@ import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
 export class MapSizeToolComponent implements OnInit {
   @Input() width: number;
   @Input() height: number;
-  @Output() changeHeightEvent = new EventEmitter<number>();
-  @Output() changeWidthEvent = new EventEmitter<number>();
+  @Output() heightChange = new EventEmitter<number>();
+  @Output() widthChange = new EventEmitter<number>();
 
   constructor() {}
 
   ngOnInit(): void {}
 
   changeWidth(): void {
-    this.changeWidthEvent.emit(this.width);
+    this.widthChange.emit(this.width);
   }
 
   changeHeight(): void {
-    this.changeHeightEvent.emit(this.height);
+    this.heightChange.emit(this.height);
   }
 }

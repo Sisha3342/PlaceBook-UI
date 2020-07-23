@@ -12,7 +12,7 @@
     <gridster [options]="options">
       <gridster-item
         [item]="item"
-        *ngFor="let item of dashboard"
+        *ngFor="let item of config.dashboard"
         [matMenuTriggerFor]="actionsMenu.actions"
       >
         <app-map-object [object]="item.data" [isOnMap]="true"></app-map-object>

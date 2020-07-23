@@ -115,5 +115,7 @@ export class MapEditorService {
 
 function emptyCellClick(event: DragEvent, item: GridsterItem): void {
   item.data = JSON.parse(event.dataTransfer.getData('json')) as MapObject;
-  this.dashboard.push(item);
+  this.config.dashboard.push(item);
+
+  this.configChange.emit(this.config);
 }
