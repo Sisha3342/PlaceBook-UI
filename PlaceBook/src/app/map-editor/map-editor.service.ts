@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { MapObject } from './model/map-object';
+import { MapObject } from './map-model/map-object';
 import {
   CompactType,
   DisplayGrid,
@@ -7,7 +7,7 @@ import {
   GridType,
 } from 'angular-gridster2';
 import { MapComponent } from './map/map.component';
-import { Safe } from './model/safe';
+import { Safe } from './map-model/safe';
 
 @Injectable({
   providedIn: 'root',

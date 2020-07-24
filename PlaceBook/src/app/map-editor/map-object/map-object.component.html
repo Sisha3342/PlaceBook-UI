@@ -1,5 +1,4 @@
 <div
-  (mouseup)="openMenu($event)"
   draggable="true"
   [matTooltip]="object.tooltip"
   matTooltipShowDelay="1000"
@@ -8,7 +7,7 @@
   [ngClass]="{
     'on-map-icon-background': isOnMap,
     'icon-background': !isOnMap,
-    disabled: !object.isActive && object.isWorkPlace
+    disabled: !object.isActive && object.hasOwnProperty('number')
   }"
 >
   <mat-icon

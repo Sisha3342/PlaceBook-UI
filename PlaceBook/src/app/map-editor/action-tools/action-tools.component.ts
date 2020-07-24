@@ -1,5 +1,5 @@
 import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
-import { MapObject } from '../model/map-object';
+import { MapObject } from '../map-model/map-object';
 
 @Component({
   selector: 'app-action-tools',

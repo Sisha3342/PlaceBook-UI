@@ -11,7 +11,7 @@ import {
 } from '@angular/core';
 import { GridsterItem } from 'angular-gridster2';
 import { MapEditorService } from '../map-editor.service';
-import { Safe } from '../model/safe';
+import { Safe } from '../map-model/safe';
 import { FloorConfig } from '../floor-model/floor-config';
 
 @Component({
@@ -71,5 +71,9 @@ export class MapComponent implements OnInit, OnChanges {
     this.editorService.remove(item, this.config.dashboard);
 
     this.configChange.emit(this.config);
+  }
+
+  lul(event): void {
+    console.log(event);
   }
 }

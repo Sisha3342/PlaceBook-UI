@@ -1,5 +1,11 @@
-import { Component, Input, OnInit } from '@angular/core';
-import { MapObject } from '../model/map-object';
+import {
+  Component,
+  ElementRef,
+  HostListener,
+  Input,
+  OnInit,
+} from '@angular/core';
+import { MapObject } from '../map-model/map-object';
 import { MapEditorService } from '../map-editor.service';
 
 @Component({
@@ -12,11 +18,24 @@ export class MapObjectComponent implements OnInit {
   @Input() isOnMap;
   menuOpened = false;
 
-  constructor(public editorService: MapEditorService) {}
+  constructor(
+    public editorService: MapEditorService,
+    private eRef: ElementRef
+  ) {}
 
   ngOnInit(): void {}
 
-  openMenu($event: MouseEvent): void {
-    this.menuOpened = !!($event.button === 2 && this.isOnMap);
+  @HostListener('document:mouseup', ['$event'])
+  clickOut($event) {
+    console.log($event);
+    if (
+      $event.button === 2 &&
+      this.eRef.nativeElement.contains($event.target)
+    ) {
+      this.menuOpened = true;
+    } else {
+      this.menuOpened = false;
+      $event.stopPropagation();
+    }
   }
 }

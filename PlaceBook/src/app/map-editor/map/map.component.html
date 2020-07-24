@@ -11,18 +11,27 @@
   >
     <gridster [options]="options">
       <ng-container *ngFor="let item of config.dashboard">
-        <gridster-item [item]="item">
+        <gridster-item
+          [item]="item"
+          cdkOverlayOrigin
+          #trigger="cdkOverlayOrigin"
+        >
           <app-map-object
             #object
             [object]="item.data"
             [isOnMap]="true"
           ></app-map-object>
         </gridster-item>
-        <app-action-tools
-          *ngIf="object.menuOpened"
-          [object]="item.data"
-          (deleteEvent)="remove(item)"
-        ></app-action-tools>
+        <ng-template
+          cdkConnectedOverlay
+          [cdkConnectedOverlayOrigin]="trigger"
+          [cdkConnectedOverlayOpen]="object.menuOpened"
+        >
+          <app-action-tools
+            [object]="item.data"
+            (deleteEvent)="remove(item)"
+          ></app-action-tools>
+        </ng-template>
       </ng-container>
     </gridster>
   </div>
