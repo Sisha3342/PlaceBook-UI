@@ -17,6 +17,7 @@ import { FloorConfig } from '../floor-model/floor-config';
 import { Overlay, OverlayConfig } from '@angular/cdk/overlay';
 import { ActionToolsComponent } from '../action-tools/action-tools.component';
 import { ComponentPortal } from '@angular/cdk/portal';
+import { MapObjectComponent } from '../map-object/map-object.component';
 
 @Component({
   selector: 'app-map',
@@ -75,5 +76,10 @@ export class MapComponent implements OnInit, OnChanges {
     this.editorService.remove(item, this.config.dashboard);
 
     this.configChange.emit(this.config);
+  }
+
+  openMenu(object: MapObjectComponent): boolean {
+    object.menuOpened = true;
+    return false;
   }
 }

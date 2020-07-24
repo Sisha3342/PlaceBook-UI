@@ -15,7 +15,7 @@
           [item]="item"
           cdkOverlayOrigin
           #trigger="cdkOverlayOrigin"
-          (contextmenu)="object.menuOpened = true"
+          (contextmenu)="openMenu(object)"
         >
           <app-map-object
             #object
