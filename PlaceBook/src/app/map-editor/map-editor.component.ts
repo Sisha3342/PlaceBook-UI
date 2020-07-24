@@ -21,7 +21,7 @@ export class MapEditorComponent implements OnInit {
 
   ngOnInit(): void {}
 
-  addEmptyFloor() {
+  addEmptyFloor(): void {
     let newFloor: FloorConfig = {
       height: this.initHeight,
       width: this.initWidth,
@@ -30,5 +30,15 @@ export class MapEditorComponent implements OnInit {
 
     this.floors = [...this.floors, newFloor];
     this.currentFloor = newFloor;
+  }
+
+  deleteFloor(index: number): void {
+    this.floors.splice(index, 1);
+
+    if (this.floors.length === index) {
+      this.currentFloor = this.floors[index - 1];
+    } else {
+      this.currentFloor = this.floors[index];
+    }
   }
 }

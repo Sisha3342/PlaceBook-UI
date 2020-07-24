@@ -27,12 +27,12 @@
       #floorsGroup="matButtonToggleGroup"
       [(value)]="currentFloor"
     >
-      <mat-button-toggle
-        *ngFor="let floor of floors; let i = index"
-        [value]="floor"
-      >
-        {{ i + 1 }}
-      </mat-button-toggle>
+      <div *ngFor="let floor of floors; let i = index">
+        <mat-button-toggle [value]="floor">
+          {{ i + 1 }}
+        </mat-button-toggle>
+        <button *ngIf="floors.length > 1" (click)="deleteFloor(i)">Del</button>
+      </div>
     </mat-button-toggle-group>
   </div>
 </div>
