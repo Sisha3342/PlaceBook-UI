@@ -32,5 +32,6 @@ import { MatDialogModule } from '@angular/material/dialog';
     MatAutocompleteModule,
     MatDialogModule,
   ],
+  imports: [],
 })
 export class AppMaterialModule {}

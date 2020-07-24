@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Employee } from './employee-card/employee.class';
+import { Employee } from '../models/employee';
 
 @Component({
   selector: 'app-employees',

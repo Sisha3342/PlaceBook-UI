@@ -1,3 +1,4 @@
+import { BookingDetailsModalComponent } from './booking-details-modal/booking-details-modal.component';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -28,6 +29,7 @@ import { AuthGuard } from './auth/auth.guard';
 import { AuthService } from './auth/auth.service';
 import { TableComponent } from './my-bookings/table/table.component';
 import { StatisticsBoxComponent } from './my-bookings/statistics-box/statistics-box.component';
+import { BookingStatusComponent } from './booking-status/booking-status.component';
 import { RatePlaceModalComponent } from './my-bookings/rate-place-modal/rate-place-modal.component';
 import { RateComponent } from './my-bookings/rate-place-modal/rate/rate.component';
 
@@ -52,6 +54,8 @@ import { RateComponent } from './my-bookings/rate-place-modal/rate/rate.componen
     SearchComponent,
     EmployeeCardComponent,
     SnackBarComponent,
+    BookingDetailsModalComponent,
+    BookingStatusComponent,
     RatePlaceModalComponent,
     RateComponent,
   ],
