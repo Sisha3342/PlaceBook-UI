@@ -33,5 +33,6 @@ import { HttpClientModule } from '@angular/common/http';
     MatDialogModule,
     HttpClientModule,
   ],
+  imports: [],
 })
 export class AppMaterialModule {}

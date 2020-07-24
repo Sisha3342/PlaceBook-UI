@@ -9,6 +9,11 @@
   align-items: center;
 }
 
+tr.mat-row:hover {
+  background-color: #E6E6E6;
+  cursor: pointer;
+}
+
 .bookmark.active {
   background: #673AB7;
 }
