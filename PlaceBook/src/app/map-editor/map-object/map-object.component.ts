@@ -18,24 +18,7 @@ export class MapObjectComponent implements OnInit {
   @Input() isOnMap;
   menuOpened = false;
 
-  constructor(
-    public editorService: MapEditorService,
-    private eRef: ElementRef
-  ) {}
+  constructor(public editorService: MapEditorService) {}
 
   ngOnInit(): void {}
-
-  @HostListener('document:mouseup', ['$event'])
-  clickOut($event) {
-    console.log($event);
-    if (
-      $event.button === 2 &&
-      this.eRef.nativeElement.contains($event.target)
-    ) {
-      this.menuOpened = true;
-    } else {
-      this.menuOpened = false;
-      $event.stopPropagation();
-    }
-  }
 }

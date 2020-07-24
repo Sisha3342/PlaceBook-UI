@@ -8,11 +8,15 @@ import {
   SimpleChanges,
   ViewChildren,
   ElementRef,
+  ViewContainerRef,
 } from '@angular/core';
 import { GridsterItem } from 'angular-gridster2';
 import { MapEditorService } from '../map-editor.service';
 import { Safe } from '../map-model/safe';
 import { FloorConfig } from '../floor-model/floor-config';
+import { Overlay, OverlayConfig } from '@angular/cdk/overlay';
+import { ActionToolsComponent } from '../action-tools/action-tools.component';
+import { ComponentPortal } from '@angular/cdk/portal';
 
 @Component({
   selector: 'app-map',
@@ -71,9 +75,5 @@ export class MapComponent implements OnInit, OnChanges {
     this.editorService.remove(item, this.config.dashboard);
 
     this.configChange.emit(this.config);
-  }
-
-  lul(event): void {
-    console.log(event);
   }
 }
