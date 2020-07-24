@@ -4,14 +4,12 @@
   </div>
 
   <div class="card-content">
-    <div class="user-card-name">{{ user.name }}</div>
+    <div class="user-card-name">{{ user.name }} {{user.surname}}</div>
 
-    <button
-      mat-raised-button
-      color="primary"
-      routerLink="/login"
-      (click)="logout()"
-    >
+    <button mat-raised-button
+            color="primary"
+            routerLink="/login"
+            (click)="logout()">
       Log out
     </button>
   </div>

@@ -1,3 +1,4 @@
+import { Observable } from 'rxjs';
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { User } from '../models/user';
@@ -13,21 +14,18 @@ export class AuthService {
     return !!localStorage.getItem('user');
   }
 
-  async login(name: string, password: string): Promise<User> {
-    const user: User = await this.http
-      .post<User>('https://placebookapp.herokuapp.com/login', {
-        name,
-        password,
-      })
-      .toPromise();
+  login(name: string, password: string): Observable<User> {
+    const formData = new FormData();
+    formData.append('email', name);
+    formData.append('password', password);
 
-    localStorage.setItem('user', JSON.stringify(user));
-
-    return user;
+    return this.http.post<User>(
+      'https://placebookapp.herokuapp.com/login',
+      formData
+    );
   }
 
   logout(): void {
-    localStorage.clear();
     this.router.navigate(['/login']);
   }
 

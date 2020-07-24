@@ -2,7 +2,6 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthService } from '../auth/auth.service';
-import { CookieService } from 'ngx-cookie-service';
 import { User } from '.././models/user';
 
 @Component({
@@ -20,8 +19,7 @@ export class LoginComponent implements OnInit {
   constructor(
     private snackbar: MatSnackBar,
     private router: Router,
-    private userService: AuthService,
-    private cookieService: CookieService
+    private userService: AuthService
   ) {
     this.Obj = new User();
   }
@@ -45,7 +43,11 @@ export class LoginComponent implements OnInit {
       return;
     } else {
       this.snackbar.dismiss();
-      this.userService.login(this.login, this.password);
+      this.userService
+        .login(this.login, this.password)
+        .subscribe((data: User) => {
+          localStorage.setItem('user', JSON.stringify(data));
+        });
       this.router.navigate(['/my_bookings']);
     }
   }
