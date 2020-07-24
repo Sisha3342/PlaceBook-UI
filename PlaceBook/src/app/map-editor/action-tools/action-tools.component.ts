@@ -1,5 +1,6 @@
 import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
 import { MapObject } from '../map-model/map-object';
+import { FloorConfig } from '../floor-model/floor-config';
 
 @Component({
   selector: 'app-action-tools',

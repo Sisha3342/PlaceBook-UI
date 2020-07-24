@@ -1,15 +1,20 @@
-<div>
-  <button (click)="addEmptyFloor()">Add floor</button>
+<div *ngFor="let floor of floors; let i = index">
+  <button
+    mat-fab
+    color="primary"
+    (click)="changeCurrentFloor(i)"
+    [class.current]="floors[i] === currentFloor"
+  >
+    {{ i + 1 }}
+  </button>
+
+  <button mat-fab *ngIf="floors.length > 1" (click)="deleteFloor(i)">
+    <mat-icon>delete</mat-icon>
+  </button>
 </div>
-<mat-button-toggle-group
-  [(value)]="currentFloor"
-  (valueChange)="currentFloorChange.emit(currentFloor)"
-  vertical
->
-  <div *ngFor="let floor of floors; let i = index">
-    <mat-button-toggle [value]="floor">
-      {{ i + 1 }}
-    </mat-button-toggle>
-    <button *ngIf="floors.length > 1" (click)="deleteFloor(i)">Del</button>
-  </div>
-</mat-button-toggle-group>
+
+<div>
+  <button mat-fab color="primary" (click)="addEmptyFloor()">
+    <mat-icon>add</mat-icon>
+  </button>
+</div>

@@ -1,3 +1,8 @@
-mat-button-toggle, button {
+button {
   display: inline-block;
+}
+
+.current {
+  color: #3c4eae;
+  background-color: white;
 }

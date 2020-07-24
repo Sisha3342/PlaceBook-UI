@@ -1,5 +1,6 @@
 import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
 import { FloorConfig } from '../floor-model/floor-config';
+import { FloorService } from './floor.service';
 
 @Component({
   selector: 'app-floor-panel',
@@ -16,34 +17,37 @@ export class FloorPanelComponent implements OnInit {
   initWidth = 10;
   initHeight = 10;
 
-  constructor() {}
+  constructor(private floorService: FloorService) {}
 
   ngOnInit(): void {}
 
   addEmptyFloor(): void {
-    let newFloor: FloorConfig = {
-      height: this.initHeight,
-      width: this.initWidth,
-      dashboard: [],
-    };
+    let newFloor = this.floorService.getNewFloor(
+      this.initWidth,
+      this.initHeight
+    );
 
     this.floors = [...this.floors, newFloor];
-    this.currentFloor = newFloor;
+    this.changeCurrentFloor(this.floors.length - 1);
 
     this.floorsChange.emit(this.floors);
-    this.currentFloorChange.emit(this.currentFloor);
   }
 
   deleteFloor(index: number): void {
-    this.floors.splice(index, 1);
+    this.floorService.delete(this.floors, index);
 
     if (this.floors.length === index) {
-      this.currentFloor = this.floors[index - 1];
+      this.changeCurrentFloor(index - 1);
     } else {
-      this.currentFloor = this.floors[index];
+      this.changeCurrentFloor(index);
     }
 
     this.floorsChange.emit(this.floors);
+  }
+
+  changeCurrentFloor(index: number): void {
+    this.currentFloor = this.floors[index];
+
     this.currentFloorChange.emit(this.currentFloor);
   }
 }
