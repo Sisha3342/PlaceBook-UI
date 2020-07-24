@@ -35,6 +35,7 @@ import { MapObjectComponent } from './map-editor/map-object/map-object.component
 import { ZoomToolComponent } from './map-editor/zoom-tool/zoom-tool.component';
 import { MapSizeToolComponent } from './map-editor/map-size-tool/map-size-tool.component';
 import { ActionToolsComponent } from './map-editor/action-tools/action-tools.component';
+import { FloorPanelComponent } from './map-editor/floor-panel/floor-panel.component';
 
 @NgModule({
   declarations: [
@@ -63,6 +64,7 @@ import { ActionToolsComponent } from './map-editor/action-tools/action-tools.com
     SearchComponent,
     EmployeeCardComponent,
     SnackBarComponent,
+    FloorPanelComponent,
   ],
   imports: [
     BrowserModule,

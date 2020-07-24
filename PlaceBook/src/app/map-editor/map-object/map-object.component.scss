@@ -9,10 +9,11 @@
 .icon-background {
   height: 3rem;
   width: 3rem;
-  margin: 0 auto 1rem auto;
+  margin: 0 0.5rem;
   border-radius: 5px;
   background-color: #3f51b5;
   cursor: pointer;
+  display: inline-block;
 }
 
 .on-map-icon-background {

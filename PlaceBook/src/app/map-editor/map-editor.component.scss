@@ -1,28 +1,27 @@
 .tools {
-  width: 10%;
-  vertical-align: top;
-  margin-right: 4rem;
-}
-
-.my-grid {
-  width: calc(90% - 4rem);
-  text-align: center;
-  height: calc(100% - 4rem);
-}
-
-.tools,
-.my-grid {
-  display: inline-block;
+  width: 50%;
+  margin: 0 auto 2rem auto;
 }
 
 .tools .tools-container {
   background: white;
   border-radius: 20px;
   box-shadow: 0 4px 23px rgba(0, 0, 0, 0.25);
-  padding: 1rem 1rem;
+  padding: 0.5rem;
+  margin: 1rem;
   text-align: center;
 }
 
-mat-button-toggle {
-  display: block;
+.my-grid {
+  width: 90%;
+  text-align: center;
+  height: 90%;
+  display: inline-block;
+}
+
+app-floor-panel {
+  vertical-align: top;
+  width: 10%;
+  display: inline-block;
+  text-align: center;
 }

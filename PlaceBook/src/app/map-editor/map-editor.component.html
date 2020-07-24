@@ -3,13 +3,13 @@
     <ng-container *ngFor="let object of objects">
       <app-map-object [object]="object" [isOnMap]="false"></app-map-object>
     </ng-container>
+  </div>
 
-    <hr />
-
+  <div class="tools-container">
     <app-zoom-tool (scopeEvent)="map.changeScope($event)"></app-zoom-tool>
+  </div>
 
-    <hr />
-
+  <div class="tools-container">
     <app-map-size-tool
       [(height)]="currentFloor.height"
       [(width)]="currentFloor.width"
@@ -17,26 +17,14 @@
       (widthChange)="map.changeWidth($event)"
     >
     </app-map-size-tool>
-
-    <hr />
-
-    <div>
-      <button (click)="addEmptyFloor()">Add floor</button>
-    </div>
-    <mat-button-toggle-group
-      #floorsGroup="matButtonToggleGroup"
-      [(value)]="currentFloor"
-    >
-      <div *ngFor="let floor of floors; let i = index">
-        <mat-button-toggle [value]="floor">
-          {{ i + 1 }}
-        </mat-button-toggle>
-        <button *ngIf="floors.length > 1" (click)="deleteFloor(i)">Del</button>
-      </div>
-    </mat-button-toggle-group>
   </div>
 </div>
 
 <div class="my-grid">
   <app-map #map [(config)]="currentFloor ? currentFloor : floors[0]"></app-map>
 </div>
+
+<app-floor-panel
+  [(floors)]="floors"
+  [(currentFloor)]="currentFloor"
+></app-floor-panel>

@@ -13,32 +13,7 @@ export class MapEditorComponent implements OnInit {
   objects = OBJECTS;
   floors = FLOORS;
 
-  initWidth = 10;
-  initHeight = 10;
-
-  @ViewChild('floorsGroup') floorsGroup: MatButtonToggleGroup;
   currentFloor = this.floors[0];
 
   ngOnInit(): void {}
-
-  addEmptyFloor(): void {
-    let newFloor: FloorConfig = {
-      height: this.initHeight,
-      width: this.initWidth,
-      dashboard: [],
-    };
-
-    this.floors = [...this.floors, newFloor];
-    this.currentFloor = newFloor;
-  }
-
-  deleteFloor(index: number): void {
-    this.floors.splice(index, 1);
-
-    if (this.floors.length === index) {
-      this.currentFloor = this.floors[index - 1];
-    } else {
-      this.currentFloor = this.floors[index];
-    }
-  }
 }
