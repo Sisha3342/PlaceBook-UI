@@ -1,0 +1,15 @@
+<div class="rate-row">
+  <div [matTooltip]="iconTooltip" [matTooltipPosition]="'above'">
+    <mat-icon class="rate-icon" [fontSet]="'fas'" [fontIcon]="icon"></mat-icon>
+  </div>
+
+  <button
+    mat-button
+    mat-icon-button
+    class="star-mark"
+    *ngFor="let i of [1, 2, 3, 4, 5]"
+    (click)="changeRate(i)"
+  >
+    <mat-icon>{{ i <= rate ? "star" : "star_border" }}</mat-icon>
+  </button>
+</div>

@@ -4,7 +4,8 @@ app-sidebar {
 
 button {
   width: 8rem;
-  margin: 2rem 2.5rem 0 2.5rem;
+  margin: 2rem auto 0 auto;
+  display: block;
   height: 3rem;
   font-weight: bold;
   border-radius: 1.2rem;

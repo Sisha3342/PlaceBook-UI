@@ -3,6 +3,7 @@ import { NgForm } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthService } from '../auth/auth.service';
+import { AppMaterialModule } from './../app-material/app-material.module';
 
 @Component({
   selector: 'app-login',

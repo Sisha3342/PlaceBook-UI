@@ -1,3 +1,4 @@
+import { BookingDetailsModalComponent } from './booking-details-modal/booking-details-modal.component';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -36,6 +37,9 @@ import { ZoomToolComponent } from './map-editor/zoom-tool/zoom-tool.component';
 import { MapSizeToolComponent } from './map-editor/map-size-tool/map-size-tool.component';
 import { ActionToolsComponent } from './map-editor/action-tools/action-tools.component';
 import { FloorPanelComponent } from './map-editor/floor-panel/floor-panel.component';
+import { BookingStatusComponent } from './booking-status/booking-status.component';
+import { RatePlaceModalComponent } from './my-bookings/rate-place-modal/rate-place-modal.component';
+import { RateComponent } from './my-bookings/rate-place-modal/rate/rate.component';
 
 @NgModule({
   declarations: [
@@ -64,6 +68,10 @@ import { FloorPanelComponent } from './map-editor/floor-panel/floor-panel.compon
     SearchComponent,
     EmployeeCardComponent,
     SnackBarComponent,
+    BookingDetailsModalComponent,
+    BookingStatusComponent,
+    RatePlaceModalComponent,
+    RateComponent,
     FloorPanelComponent,
   ],
   imports: [

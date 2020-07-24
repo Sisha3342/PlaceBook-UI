@@ -15,6 +15,7 @@ import { MatButtonToggleModule } from '@angular/material/button-toggle';
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { MatListModule } from '@angular/material/list';
 import { MatMenuModule } from '@angular/material/menu';
+import { MatDialogModule } from '@angular/material/dialog';
 
 @NgModule({
   exports: [
@@ -33,6 +34,8 @@ import { MatMenuModule } from '@angular/material/menu';
     MatAutocompleteModule,
     MatListModule,
     MatMenuModule,
+    MatDialogModule,
   ],
+  imports: [],
 })
 export class AppMaterialModule {}
