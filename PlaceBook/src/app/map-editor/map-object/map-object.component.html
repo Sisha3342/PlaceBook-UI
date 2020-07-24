@@ -16,4 +16,7 @@
     [ngClass]="{ 'on-map-icon': isOnMap, icon: !isOnMap }"
   >
   </mat-icon>
+  <span *ngIf="object.hasOwnProperty('number') && isOnMap">{{
+    object.number
+  }}</span>
 </div>

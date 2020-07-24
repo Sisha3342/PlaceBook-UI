@@ -21,7 +21,7 @@ export const OBJECTS: MapObject[] = [
     icon: 'fa-chalkboard-teacher',
     tooltip: 'Meeting room',
     number: 0,
-    capacity: 0,
+    capacity: 1,
   },
   {
     type: 'kitchen',
