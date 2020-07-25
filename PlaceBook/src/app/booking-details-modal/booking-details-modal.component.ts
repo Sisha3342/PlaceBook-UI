@@ -1,8 +1,6 @@
 import { Component, Inject } from '@angular/core';
-import { Employee } from '../models/employee';
 import { MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { Booking } from '../models/booking';
-import { FormControl } from '@angular/forms';
 
 @Component({
   selector: 'app-booking-details-modal',
@@ -11,7 +9,6 @@ import { FormControl } from '@angular/forms';
 })
 export class BookingDetailsModalComponent {
   booking: Booking;
-  employee: Employee;
 
   constructor(@Inject(MAT_DIALOG_DATA) public data: Booking) {
     this.booking = this.data;
