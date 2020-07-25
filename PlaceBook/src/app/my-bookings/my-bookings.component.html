@@ -5,13 +5,18 @@
 <div class="tab-group">
   <mat-tab-group>
     <mat-tab label="Active" class="demo-tab-label">
-      <app-table [data]="getData('active')" [status]="'active'"></app-table>
+      <app-table
+        [data]="getData('active')"
+        [status]="'active'"
+        [columns]="getColumns('active')"
+      ></app-table>
     </mat-tab>
 
     <mat-tab label="Completed">
       <app-table
         [data]="getData('completed')"
         [status]="'completed'"
+        [columns]="getColumns('completed')"
       ></app-table>
     </mat-tab>
 
@@ -19,6 +24,7 @@
       <app-table
         [data]="getData('cancelled')"
         [status]="'cancelled'"
+        [columns]="getColumns('cancelled')"
       ></app-table>
     </mat-tab>
   </mat-tab-group>

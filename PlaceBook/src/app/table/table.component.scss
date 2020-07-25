@@ -48,10 +48,6 @@ td.mat-cell:first-of-type {
   top: 13px;
 }
 
-::ng-deep .mat-tab-label .mat-tab-label-content {
-  padding: 0 5.3rem;
-}
-
 .icon-button {
   color: #787878;
 }
@@ -60,4 +56,10 @@ td.mat-cell:last-of-type {
   padding-right: 0;
   padding-left: 0;
   width: 5rem;
+}
+
+.photo-logo {
+  border-radius: 50%;
+  width: 4rem;
+  height: 4rem;
 }

@@ -1,11 +1,13 @@
-import { Component, OnInit, ViewEncapsulation } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Booking } from '../models/booking';
+import { Column } from '../models/column';
+import { ColumnService } from '../my-bookings/column.service';
 
 @Component({
   selector: 'app-my-bookings',
   templateUrl: './my-bookings.component.html',
   styleUrls: ['./my-bookings.component.scss'],
-  encapsulation: ViewEncapsulation.None,
+  providers: [ColumnService],
 })
 export class MyBookingsComponent implements OnInit {
   DATA: Booking[] = [
@@ -90,12 +92,39 @@ export class MyBookingsComponent implements OnInit {
       status: 'completed',
     },
   ];
+  columns: Column[];
 
-  constructor() {}
+  cancelColumn = {
+    id: 'cancelButton',
+    type: 'cancel',
+  };
 
-  ngOnInit(): void {}
+  rateColumn = {
+    id: 'rateButton',
+    type: 'rate',
+  };
+
+  constructor(private columnService: ColumnService) {}
+
+  ngOnInit(): void {
+    this.columns = this.columnService.getColumns();
+  }
 
   getData(status: string): Booking[] {
     return this.DATA.filter((item) => item.status === status);
+  }
+
+  getColumns(status: string): Column[] {
+    const columns = [...this.columns];
+
+    if (status === 'active') {
+      columns.push(this.cancelColumn);
+    }
+
+    if (status === 'completed') {
+      columns.push(this.rateColumn);
+    }
+
+    return columns;
   }
 }
