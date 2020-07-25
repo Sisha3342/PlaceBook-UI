@@ -31,6 +31,7 @@ import { StatisticsBoxComponent } from './my-bookings/statistics-box/statistics-
 import { BookingStatusComponent } from './booking-status/booking-status.component';
 import { RatePlaceModalComponent } from './my-bookings/rate-place-modal/rate-place-modal.component';
 import { RateComponent } from './my-bookings/rate-place-modal/rate/rate.component';
+import { AddOfficeModalComponent } from './my-maps/add-office-modal/add-office-modal.component';
 
 @NgModule({
   declarations: [
@@ -57,6 +58,7 @@ import { RateComponent } from './my-bookings/rate-place-modal/rate/rate.componen
     BookingStatusComponent,
     RatePlaceModalComponent,
     RateComponent,
+    AddOfficeModalComponent,
   ],
   imports: [
     BrowserModule,
