@@ -1,15 +1,17 @@
 app-search {
   width: 100%;
+  min-width: 20rem;
 }
 app-employees {
-  margin-left: 0;
   display: inline-block;
+  min-width: 20rem;
 }
+
 app-employee-card {
   position: relative;
   width: 80%;
 }
 
-mat-sidenav-content {
+mat-grid-list {
   min-width: 20rem;
 }
