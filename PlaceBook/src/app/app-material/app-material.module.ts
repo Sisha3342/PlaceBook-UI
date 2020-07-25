@@ -1,5 +1,4 @@
 import { NgModule } from '@angular/core';
-
 import { MatCardModule } from '@angular/material/card';
 import { MatButtonModule } from '@angular/material/button';
 import { MatInputModule } from '@angular/material/input';
@@ -16,6 +15,7 @@ import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { MatListModule } from '@angular/material/list';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatDialogModule } from '@angular/material/dialog';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   exports: [
@@ -35,6 +35,7 @@ import { MatDialogModule } from '@angular/material/dialog';
     MatListModule,
     MatMenuModule,
     MatDialogModule,
+    HttpClientModule,
   ],
   imports: [],
 })
