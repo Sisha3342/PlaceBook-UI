@@ -5,8 +5,8 @@ import {
   Input,
   OnInit,
 } from '@angular/core';
-import { MapObject } from '../map-model/map-object';
-import { MapEditorService } from '../map-editor.service';
+import { MapObject } from '../../map-model/map-object';
+import { MapEditorService } from '../../map-editor.service';
 
 @Component({
   selector: 'app-map-object',
@@ -16,9 +16,14 @@ import { MapEditorService } from '../map-editor.service';
 export class MapObjectComponent implements OnInit {
   @Input() object: MapObject;
   @Input() isOnMap;
+  @Input() zoom: number;
   menuOpened = false;
 
   constructor(public editorService: MapEditorService) {}
 
   ngOnInit(): void {}
+
+  getFontSize(): number {
+    return this.zoom > 0.25 ? 1.2 * this.zoom : 0;
+  }
 }

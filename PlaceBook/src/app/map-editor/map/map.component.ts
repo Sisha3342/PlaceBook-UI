@@ -17,7 +17,7 @@ import { FloorConfig } from '../floor-model/floor-config';
 import { Overlay, OverlayConfig } from '@angular/cdk/overlay';
 import { ActionToolsComponent } from '../action-tools/action-tools.component';
 import { ComponentPortal } from '@angular/cdk/portal';
-import { MapObjectComponent } from '../map-object/map-object.component';
+import { MapObjectComponent } from '../map-tools/map-object/map-object.component';
 
 @Component({
   selector: 'app-map',
@@ -31,6 +31,7 @@ export class MapComponent implements OnInit, OnChanges {
 
   initCellHeight: number;
   initCellWidth: number;
+  zoom = 1;
 
   constructor(private editorService: MapEditorService) {
     this.options = this.editorService.getDefaultOptions(this);
@@ -41,16 +42,18 @@ export class MapComponent implements OnInit, OnChanges {
     this.initCellHeight = this.options.fixedRowHeight;
   }
 
-  ngOnChanges(changes: SimpleChanges) {
+  ngOnChanges(changes: SimpleChanges): void {
     if (this.options.api) {
       this.changeHeight(this.config.height);
       this.changeWidth(this.config.width);
     }
   }
 
-  changeScope(scope: number): void {
+  changeScope(zoom: number): void {
+    this.zoom = zoom;
+
     this.editorService.setScope(
-      scope,
+      zoom,
       this.options,
       this.initCellWidth,
       this.initCellHeight

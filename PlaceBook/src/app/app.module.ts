@@ -32,9 +32,9 @@ import { StatisticsBoxComponent } from './my-bookings/statistics-box/statistics-
 import { MapEditorComponent } from './map-editor/map-editor.component';
 import { GridsterModule } from 'angular-gridster2';
 import { MapComponent } from './map-editor/map/map.component';
-import { MapObjectComponent } from './map-editor/map-object/map-object.component';
-import { ZoomToolComponent } from './map-editor/zoom-tool/zoom-tool.component';
-import { MapSizeToolComponent } from './map-editor/map-size-tool/map-size-tool.component';
+import { MapObjectComponent } from './map-editor/map-tools/map-object/map-object.component';
+import { ZoomToolComponent } from './map-editor/map-tools/zoom-tool/zoom-tool.component';
+import { MapSizeToolComponent } from './map-editor/map-tools/map-size-tool/map-size-tool.component';
 import { ActionToolsComponent } from './map-editor/action-tools/action-tools.component';
 import { FloorPanelComponent } from './map-editor/floor-panel/floor-panel.component';
 import { BookingStatusComponent } from './booking-status/booking-status.component';

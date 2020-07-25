@@ -1,8 +1,22 @@
-button {
-  display: inline-block;
+.floor-panel {
+  text-align: center;
+  display: flex;
+  justify-content: center;;
 }
 
-.current {
-  color: #3c4eae;
+.floor-panel .floor-panel-container {
+  padding: 0.5rem;
   background-color: white;
+  box-shadow: 0 4px 23px rgba(0, 0, 0, 0.25);
+  border-radius: 20px;
+  text-align: left;
+}
+
+.floor-panel .floor-panel-container button {
+  display: inline-block;
+  margin: 0.5rem;
+}
+
+.floor-panel .floor-panel-container button.remove-floor {
+  background-color: #F44336;
 }

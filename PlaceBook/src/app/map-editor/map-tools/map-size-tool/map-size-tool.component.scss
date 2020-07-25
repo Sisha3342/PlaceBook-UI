@@ -1,0 +1,13 @@
+mat-form-field {
+  margin: 0.5rem;;
+  width: 6rem;
+}
+
+p {
+  font-size: 16px;
+  color: #706e6b;
+}
+
+::ng-deep .mat-form-field-wrapper{
+  margin-bottom: -1.25em;
+}

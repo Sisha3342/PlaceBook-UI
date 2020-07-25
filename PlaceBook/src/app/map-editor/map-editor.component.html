@@ -3,13 +3,13 @@
     <ng-container *ngFor="let object of objects">
       <app-map-object [object]="object" [isOnMap]="false"></app-map-object>
     </ng-container>
-  </div>
 
-  <div class="tools-container">
+    <div class="delimiter"></div>
+
     <app-zoom-tool (scopeEvent)="map.changeScope($event)"></app-zoom-tool>
-  </div>
 
-  <div class="tools-container">
+    <div class="delimiter"></div>
+
     <app-map-size-tool
       [(height)]="currentFloor.height"
       [(width)]="currentFloor.width"

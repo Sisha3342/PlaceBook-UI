@@ -22,7 +22,7 @@ export class FloorPanelComponent implements OnInit {
   ngOnInit(): void {}
 
   addEmptyFloor(): void {
-    let newFloor = this.floorService.getNewFloor(
+    const newFloor = this.floorService.getNewFloor(
       this.initWidth,
       this.initHeight
     );

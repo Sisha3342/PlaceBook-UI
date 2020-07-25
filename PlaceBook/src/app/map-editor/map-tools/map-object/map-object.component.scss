@@ -9,11 +9,10 @@
 .icon-background {
   height: 3rem;
   width: 3rem;
-  margin: 0 0.5rem;
+  margin: 0.5rem;
   border-radius: 5px;
   background-color: #3f51b5;
   cursor: pointer;
-  display: inline-block;
 }
 
 .on-map-icon-background {
@@ -36,3 +35,18 @@
   background-color: lightcoral;
   color: white;
 }
+
+.place-number {
+  position: absolute;
+  top: 2%;
+  right: 2%;
+  font-weight: bold;
+}
+
+.conf-room-capacity {
+  position: absolute;
+  bottom: 2%;
+  right: 2%;
+  font-weight: bold;
+}
+

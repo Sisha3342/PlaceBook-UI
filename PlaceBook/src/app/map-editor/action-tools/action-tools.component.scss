@@ -1,21 +1,22 @@
-mat-button-toggle-group {
+.action-tools-content {
+  padding: 0.5rem;
+}
+
+.action-tools-content mat-button-toggle-group {
   border: 2px solid #dedede;
   border-radius: 2rem;
   padding: 0;
-  margin: 0.5rem 0.5rem;
+  box-shadow: none;
 }
 
-.action-tools-content {
-  padding: 0 1rem;
-  text-align: center;
+.action-tools-content button,
+.action-tools-content mat-button-toggle-group {
+  margin: 0.5rem;
 }
 
-.mat-menu-item .mat-icon {
-  margin-right: 0;
-}
-
-button.mat-fab {
-  display: inline-block;
+.action-tools-content mat-form-field {
+  margin: 0 0.5rem;
+  width: 6rem;
 }
 
 .mat-button-toggle-checked.active {
@@ -26,12 +27,4 @@ button.mat-fab {
 .mat-button-toggle-checked.disabled {
   background: #F44336;
   color: white;
-}
-
-.mat-icon {
-  margin: auto;
-}
-
-.mat-fab:not([class*=mat-elevation-z]), .mat-mini-fab:not([class*=mat-elevation-z]) {
-  box-shadow: none;
 }
