@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
-import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog';
+import { Component } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
+import { AddOfficeComponent } from '../editor/add-office-modal/add-office.component';
 
 @Component({
   selector: 'app-my-maps',
@@ -7,19 +8,13 @@ import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog
   styleUrls: ['./my-maps.component.scss'],
 })
 export class MyMapsComponent {
- constructor((public dialog: MatDialog) {}  
+  constructor(public dialog: MatDialog) {}
 
-  ngOnInit(): void {}
   addNewOffice(): void {
-    const dialogRef = this.dialog.open(DialogOverviewExampleDialog, {
-      width: '250px',
-      data: { name: this.name, animal: this.animal },
-    });
+    const dialogRef = this.dialog.open(AddOfficeComponent);
 
     dialogRef.afterClosed().subscribe((result) => {
-      console.log('The dialog was closed');
-      this.animal = result;
+      // this.animal = result;
     });
   }
- 
 }

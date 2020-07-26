@@ -1,5 +1,6 @@
-import { Component, OnInit, Inject } from '@angular/core';
-import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog';
+import { Component } from '@angular/core';
+import { MatDialogRef } from '@angular/material/dialog';
+import { Booking } from '../../models/booking';
 
 @Component({
   selector: 'app-add-office',
@@ -7,10 +8,9 @@ import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog
   styleUrls: ['./add-office.component.scss'],
 })
 export class AddOfficeComponent {
-  constructor() {}
+  constructor(public dialogRef: MatDialogRef<AddOfficeComponent>) {}
 
-  
-
-  public dialogRef: MatDialogRef<DialogOverviewExampleDialog>,
-    @Inject(MAT_DIALOG_DATA) public data: DialogData
+  onNoClick(): void {
+    this.dialogRef.close();
+  }
 }

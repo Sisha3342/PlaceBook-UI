@@ -1,7 +1,62 @@
-<p>add-office works!</p>
-<h2 mat-dialog-title>Booking details</h2>
-
+<h2 mat-dialog-title>Add new office</h2>
 
 <div mat-dialog-content>
+    <div mat-dialog-content>
+        <form class="add-office">
+            <mat-form-field>
+                <mat-label>Country</mat-label>
+                <mat-select>
+                    <mat-option *ngFor=""
+                                [value]="">
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
+            <mat-form-field>
+                <mat-label>City</mat-label>
+                <mat-select>
+                    <mat-option *ngFor=""
+                                [value]="">
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
 
-</div>
+            <mat-form-field>
+                <mat-label>Address</mat-label>
+                <mat-select>
+                    <mat-option *ngFor=""
+                                [value]="">
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
+            <ul class="working-time">
+                <li class="label">From:</li>
+                <li>
+                    <mat-form-field>
+                        <mat-label>Start</mat-label>
+                        <mat-select>
+                            <mat-option *ngFor=""
+                                        [value]="">
+                            </mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                </li>
+
+                <li class="label">To:</li>
+                <li>
+                    <mat-form-field>
+                        <mat-label>End</mat-label>
+                        <mat-select>
+                            <mat-option *ngFor=""
+                                        [value]="">
+                            </mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                </li>
+            </ul>
+        </form>
+
+    </div>
+    <mat-dialog-actions align="end">
+        <button mat-button
+                mat-dialog-close>Close</button>
+    </mat-dialog-actions>
