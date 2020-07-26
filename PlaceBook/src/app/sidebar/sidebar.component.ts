@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 type RouteButton = {
   name: string;
@@ -35,13 +36,11 @@ export class SidebarComponent implements OnInit {
     { name: 'My maps', route: '/my_maps', iconType: 'fa-map', setType: 'fas' },
   ];
 
-  activeTabName = 'My bookings';
-
-  constructor() {}
+  constructor(private router: Router) {}
 
   ngOnInit(): void {}
 
-  changeActiveTab(name: string): void {
-    this.activeTabName = name;
+  isActive(route): boolean {
+    return route === this.router.url;
   }
 }

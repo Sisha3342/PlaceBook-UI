@@ -1,8 +1,8 @@
-import { BookingDetailsModalComponent } from './../../booking-details-modal/booking-details-modal.component';
 import { Component, Input, OnInit } from '@angular/core';
-import { Booking } from '../../models/booking';
 import { MatDialog } from '@angular/material/dialog';
-import { RatePlaceModalComponent } from '../rate-place-modal/rate-place-modal.component';
+import { RatePlaceModalComponent } from '../my-bookings/rate-place-modal/rate-place-modal.component';
+import { Column } from '../models/column';
+import { Booking } from '../models/booking';
 
 @Component({
   selector: 'app-table',
@@ -12,17 +12,10 @@ import { RatePlaceModalComponent } from '../rate-place-modal/rate-place-modal.co
 export class TableComponent implements OnInit {
   @Input() data: Booking[];
   @Input() status: string;
-
-  defaultColumns: string[] = ['place', 'date', 'country', 'city', 'address'];
+  @Input() columns: Column[];
+  @Input() openDetails;
 
   constructor(public dialog: MatDialog) {}
-
-  openBookingDetailsModal(event: Event, booking: Booking): void {
-    this.dialog.open(BookingDetailsModalComponent, {
-      width: '30rem',
-      data: booking,
-    });
-  }
 
   ngOnInit(): void {}
 
@@ -31,10 +24,9 @@ export class TableComponent implements OnInit {
   }
 
   getTableColumns(): Array<string> {
-    if (this.status === 'active' || this.status === 'completed') {
-      return this.defaultColumns.concat(['action']);
-    }
-    return this.defaultColumns;
+    return this.columns.map((column) => {
+      return column.id;
+    });
   }
 
   cancelBooking(event: Event): void {
@@ -44,6 +36,7 @@ export class TableComponent implements OnInit {
   editBooking(event: Event): void {
     event.stopPropagation();
   }
+
   openRatePlaceDialog(): void {
     this.dialog.open(RatePlaceModalComponent);
   }

@@ -6,57 +6,50 @@
   <table class="booking-details">
     <tr>
       <td class="booking-details-label">Date:</td>
-      <td>{{booking.date}}</td>
+      <td>{{ booking.date }}</td>
     </tr>
     <tr>
       <td class="booking-details-label">Address:</td>
-      <td>{{booking.country}}, {{booking.city}}, {{booking.address}}</td>
+      <td>{{ booking.country }}, {{ booking.city }}, {{ booking.address }}</td>
     </tr>
     <tr>
       <td class="booking-details-label">Place #:</td>
-      <td>{{booking.place}}</td>
+      <td>{{ booking.place }}</td>
     </tr>
-    <tr>
+    <tr *ngIf="booking.status === 'completed'">
       <td class="booking-details-label">Feedback:</td>
-      <td>{{booking.feedback}}</td>
+      <td>{{ booking.feedback }}</td>
     </tr>
   </table>
 
-  <table class="booking-rate">
+  <table class="booking-rate" *ngIf="booking.status === 'completed'">
     <tr>
-      <td matTooltip="Light"
-          [matTooltipPosition]="'above'">
+      <td matTooltip="Light" [matTooltipPosition]="'above'">
         <i class="fa fa-lightbulb"></i>
       </td>
-      <td matTooltip="Fresh air"
-          [matTooltipPosition]="'above'">
+      <td matTooltip="Fresh air" [matTooltipPosition]="'above'">
         <i class="fas fa-wind"> </i>
       </td>
-      <td matTooltip="Noise"
-          [matTooltipPosition]="'above'">
+      <td matTooltip="Noise" [matTooltipPosition]="'above'">
         <i class="fas fa-volume-up"> </i>
       </td>
-      <td matTooltip="Сleanliness"
-          [matTooltipPosition]="'above'">
+      <td matTooltip="Сleanliness" [matTooltipPosition]="'above'">
         <i class="fas fa-hand-sparkles"> </i>
       </td>
-      <td matTooltip="Location"
-          [matTooltipPosition]="'above'">
+      <td matTooltip="Location" [matTooltipPosition]="'above'">
         <i class="fas fa-map-marker-alt"> </i>
       </td>
     </tr>
     <tr>
-      <td>{{booking.rating.light}}</td>
-      <td>{{booking.rating.air}}</td>
-      <td>{{booking.rating.noise}}</td>
-      <td>{{booking.rating.clean}}</td>
-      <td>{{booking.rating.location}}</td>
+      <td>{{ booking.rating.light }}</td>
+      <td>{{ booking.rating.air }}</td>
+      <td>{{ booking.rating.noise }}</td>
+      <td>{{ booking.rating.clean }}</td>
+      <td>{{ booking.rating.location }}</td>
     </tr>
   </table>
-
 </div>
 
 <mat-dialog-actions align="end">
-  <button mat-button
-          mat-dialog-close>Close</button>
+  <button mat-button mat-dialog-close>Close</button>
 </mat-dialog-actions>
