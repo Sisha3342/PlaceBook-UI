@@ -1,5 +1,5 @@
 export class Employee {
-  username: string;
+  name: string;
   photo: string;
   email: string;
   role: string;

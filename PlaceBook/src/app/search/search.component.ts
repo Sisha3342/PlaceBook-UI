@@ -17,7 +17,7 @@ export class SearchComponent implements OnInit {
   filteredUsers: Observable<string[]>;
 
   @Output()
-  searchClicked = new EventEmitter<string>();
+  typeText = new EventEmitter<string>();
 
   constructor() {}
 
@@ -44,7 +44,7 @@ export class SearchComponent implements OnInit {
     );
   }
 
-  // onClick(): void {
-  //   this.searchClicked.emit(this.myControl.value);
-  // }
+  onType(): void {
+    this.typeText.emit(this.myControl.value);
+  }
 }
