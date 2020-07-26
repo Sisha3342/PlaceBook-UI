@@ -17,10 +17,7 @@ export class EmployeesComponent implements OnInit {
   constructor(private searchService: SearchService, private http: HttpClient) {}
 
   getAllEmployees(): Observable<User[]> {
-    const params = new HttpParams()
-      .set('offset', '0')
-      .set('limit', '20')
-      .set('text', '');
+    const params = new HttpParams().set('offset', '0').set('limit', '20');
 
     return this.http.get<User[]>(`https://placebookapp.herokuapp.com/users`, {
       params,

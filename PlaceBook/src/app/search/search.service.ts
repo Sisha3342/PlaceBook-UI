@@ -15,7 +15,7 @@ export class SearchService {
   searchUsers(
     offset: number,
     limit: number,
-    searchText: string
+    searchText?: string
   ): Observable<User[]> {
     const params = new HttpParams()
       .set('offset', offset.toString())
