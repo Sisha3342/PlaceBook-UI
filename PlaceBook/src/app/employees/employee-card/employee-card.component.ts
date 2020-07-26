@@ -1,5 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { Employee } from '../../models/employee';
+
+import { User } from '../../models/user';
 
 @Component({
   selector: 'app-employee-card',
@@ -7,14 +8,14 @@ import { Employee } from '../../models/employee';
   styleUrls: ['./employee-card.component.scss'],
 })
 export class EmployeeCardComponent implements OnInit {
-  employeeObject: Employee;
+  employeeObject: User;
 
   @Input()
-  set employee(employeeObject: Employee) {
+  set employee(employeeObject: User) {
     this.employeeObject = employeeObject;
   }
 
-  get employee(): Employee {
+  get employee(): User {
     return this.employeeObject;
   }
 
