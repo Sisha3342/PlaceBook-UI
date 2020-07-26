@@ -12,7 +12,7 @@ import { Observable } from 'rxjs';
 export class EmployeesComponent implements OnInit {
   breakpoint = 0;
 
-  employees: User[];
+  employees: User[] = [];
 
   constructor(private searchService: SearchService, private http: HttpClient) {}
 
