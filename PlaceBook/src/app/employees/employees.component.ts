@@ -15,7 +15,7 @@ export class EmployeesComponent implements OnInit {
   constructor(private searchService: SearchService) {}
 
   filterEmployees(searchText: string): void {
-    this.searchService.searchUsers(1, 1000, searchText).subscribe((em) => {
+    this.searchService.searchUsers(0, 1000, searchText).subscribe((em) => {
       this.employees = em;
     });
   }

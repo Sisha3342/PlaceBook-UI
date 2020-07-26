@@ -20,8 +20,8 @@ export class SearchService {
     const params = new HttpParams()
       .set('offset', offset.toString())
       .set('limit', limit.toString())
-      .set('searchText', searchText);
-    return this.http.get<User[]>('https://placebookapp.herokuapp.com/users', {
+      .set('text', searchText);
+    return this.http.get<User[]>(`https://placebookapp.herokuapp.com/users`, {
       params,
       withCredentials: true,
     });
