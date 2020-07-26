@@ -30,7 +30,7 @@ export class SearchComponent implements OnInit {
   }
 
   private filter(value: string): string[] {
-    const filterValue = value.toLowerCase();
+    value = value.toLowerCase();
     return this.searchService.autocompleteUsers(value);
   }
 
