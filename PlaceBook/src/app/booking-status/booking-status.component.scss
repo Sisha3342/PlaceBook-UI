@@ -1,0 +1,20 @@
+.status {
+  width: 6rem;
+  color: white;
+  border-radius: 20px;
+  padding: 0.2rem;
+  text-align: center;
+  text-transform: capitalize;
+}
+
+.status.active {
+  background: #673AB7;
+}
+
+.status.cancelled {
+  background: #F44336;
+}
+
+.status.completed {
+  background: #00C19F;
+}

@@ -1,5 +1,8 @@
 import { Component, Input, OnInit, ViewChild } from '@angular/core';
 import { Booking } from '../models/booking';
+import { BookingDetailsModalComponent } from './../../booking-details-modal/booking-details-modal.component';
+import { Component, Input, OnInit } from '@angular/core';
+import { Booking } from '../../models/booking';
 import { MatDialog } from '@angular/material/dialog';
 import { RatePlaceModalComponent } from '../my-bookings/rate-place-modal/rate-place-modal.component';
 import { Column } from '../models/column';
@@ -16,6 +19,13 @@ export class TableComponent implements OnInit {
 
   constructor(public dialog: MatDialog) {}
 
+  openBookingDetailsModal(event: Event, booking: Booking): void {
+    this.dialog.open(BookingDetailsModalComponent, {
+      width: '30rem',
+      data: booking,
+    });
+  }
+
   ngOnInit(): void {}
 
   getBookmarkClass(): string {
@@ -28,6 +38,13 @@ export class TableComponent implements OnInit {
     });
   }
 
+  cancelBooking(event: Event): void {
+    event.stopPropagation();
+  }
+
+  editBooking(event: Event): void {
+    event.stopPropagation();
+  }
   openRatePlaceDialog(): void {
     this.dialog.open(RatePlaceModalComponent);
   }
