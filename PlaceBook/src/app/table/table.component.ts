@@ -36,13 +36,9 @@ export class TableComponent implements OnInit {
   editBooking(event: Event): void {
     event.stopPropagation();
   }
-<<<<<<< HEAD:PlaceBook/src/app/my-bookings/table/table.component.ts
+
   openRatePlaceDialog(event: Event): void {
     event.stopPropagation();
-=======
-
-  openRatePlaceDialog(): void {
->>>>>>> master:PlaceBook/src/app/table/table.component.ts
     this.dialog.open(RatePlaceModalComponent);
   }
 }
