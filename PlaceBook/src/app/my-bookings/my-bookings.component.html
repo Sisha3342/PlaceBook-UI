@@ -3,23 +3,17 @@
 </div>
 
 <div class="tab-group">
-  <mat-tab-group>
+  <mat-tab-group (focusChange)="setBookings($event.index)">
     <mat-tab label="Active" class="demo-tab-label">
-      <app-table [data]="getData('active')" [status]="'active'"></app-table>
+      <app-table [data]="displayedBookings" [status]="statuses[0]"></app-table>
     </mat-tab>
 
     <mat-tab label="Completed">
-      <app-table
-        [data]="getData('completed')"
-        [status]="'completed'"
-      ></app-table>
+      <app-table [data]="displayedBookings" [status]="statuses[1]"></app-table>
     </mat-tab>
 
     <mat-tab label="Cancelled">
-      <app-table
-        [data]="getData('cancelled')"
-        [status]="'cancelled'"
-      ></app-table>
+      <app-table [data]="displayedBookings" [status]="statuses[2]"></app-table>
     </mat-tab>
   </mat-tab-group>
 </div>

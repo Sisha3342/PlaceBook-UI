@@ -1,4 +1,4 @@
-import { OfficeAddress } from './office-address';
+import { OfficeAddress } from '../../models/office-address';
 
 export interface Office {
   id: number;

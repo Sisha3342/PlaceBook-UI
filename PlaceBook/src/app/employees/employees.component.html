@@ -4,7 +4,7 @@
   [cols]="breakpoint"
   (window:resize)="onResize($event)"
 >
-  <mat-grid-tile id="card-tile" *ngFor="let employee of employees">
+  <mat-grid-tile id="card-tile" *ngFor="let employee of users">
     <app-employee-card [employee]="employee"></app-employee-card>
   </mat-grid-tile>
 </mat-grid-list>

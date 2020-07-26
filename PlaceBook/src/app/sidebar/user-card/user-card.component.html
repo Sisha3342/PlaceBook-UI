@@ -1,15 +1,17 @@
 <div class="user-card-container">
   <div class="user-image">
-    <img src="{{ user.image }}" />
+    <img src="{{ user.photoUrl }}" />
   </div>
 
   <div class="card-content">
-    <div class="user-card-name">{{ user.name }} {{user.surname}}</div>
+    <div class="user-card-name">{{ user.name }} {{ user.surname }}</div>
 
-    <button mat-raised-button
-            color="primary"
-            routerLink="/login"
-            (click)="logout()">
+    <button
+      mat-raised-button
+      color="primary"
+      routerLink="/login"
+      (click)="logout()"
+    >
       Log out
     </button>
   </div>

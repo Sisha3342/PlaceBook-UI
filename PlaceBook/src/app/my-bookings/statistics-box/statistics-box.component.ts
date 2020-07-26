@@ -23,11 +23,11 @@ export class StatisticsBoxComponent implements OnInit {
     this.statisticsService
       .getStatistics(this.authService.getCurrentUser().id)
       .subscribe((stats: Statistics) => {
-        this.active = stats.active;
-        this.completed = stats.completed;
-        this.cancelled = stats.cancelled;
+        this.active = stats.active ? stats.active : 0;
+        this.completed = stats.completed ? stats.cancelled : 0;
+        this.cancelled = stats.cancelled ? stats.cancelled : 0;
 
-        this.total = stats.active + stats.completed + this.cancelled;
+        this.total = this.active + this.completed + this.cancelled;
       });
   }
 }

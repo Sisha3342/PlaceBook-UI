@@ -1,5 +1,8 @@
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { Booking } from '../models/booking';
+import { MatTabChangeEvent } from '@angular/material/tabs';
+import { MyBookingsService } from './my-bookings.service';
+import { AuthService } from '../auth/auth.service';
 
 @Component({
   selector: 'app-my-bookings',
@@ -8,174 +11,26 @@ import { Booking } from '../models/booking';
   encapsulation: ViewEncapsulation.None,
 })
 export class MyBookingsComponent implements OnInit {
-  DATA: Booking[] = [
-    {
-      place: '12A',
-      date: '12.02.2020',
-      country: 'Belarus',
-      city: 'Minsk',
-      address: 'Kuprevicha 3',
-      status: 'active',
-      feedback: '',
-      rating: {
-        light: 3.0,
-        air: 5.0,
-        noise: 2.4,
-        clean: 3.8,
-        location: 2.7,
-      },
-    },
-    {
-      place: '121A',
-      date: '12.02.2020',
-      country: 'Belarus',
-      city: 'Minsk',
-      address: 'Kuprevicha 3',
-      status: 'active',
-      feedback: 'Все хорошо',
-      rating: {
-        light: 3.0,
-        air: 5.0,
-        noise: 2.4,
-        clean: 3.8,
-        location: 2.7,
-      },
-    },
-    {
-      place: '12K',
-      date: '12.02.2020',
-      country: 'Belarus',
-      city: 'Minsk',
-      address: 'Kuprevicha 3',
-      status: 'completed',
-      feedback: 'Super',
-      rating: {
-        light: 3.0,
-        air: 5.0,
-        noise: 2.4,
-        clean: 3.8,
-        location: 2.7,
-      },
-    },
-    {
-      place: '12K',
-      date: '12.02.2020',
-      country: 'Belarus',
-      city: 'Minsk',
-      address: 'Kuprevicha 3',
-      status: 'cancelled',
-      feedback: '',
-      rating: {
-        light: 3.0,
-        air: 5.0,
-        noise: 2.4,
-        clean: 3.8,
-        location: 2.7,
-      },
-    },
-    {
-      place: '12A',
-      date: '12.02.2020',
-      country: 'Belarus',
-      city: 'Minsk',
-      address: 'Kuprevicha 3',
-      status: 'active',
-      feedback: 'Ok',
-      rating: {
-        light: 3.0,
-        air: 5.0,
-        noise: 2.4,
-        clean: 3.8,
-        location: 2.7,
-      },
-    },
-    {
-      place: '12K',
-      date: '12.02.2020',
-      country: 'Belarus',
-      city: 'Minsk',
-      address: 'Kuprevicha 3',
-      status: 'cancelled',
-      feedback: '',
-      rating: {
-        light: 3.0,
-        air: 5.0,
-        noise: 2.4,
-        clean: 3.8,
-        location: 2.7,
-      },
-    },
-    {
-      place: '12K',
-      date: '12.02.2020',
-      country: 'Belarus',
-      city: 'Minsk',
-      address: 'Kuprevicha 3',
-      status: 'completed',
-      feedback: '',
-      rating: {
-        light: 3.0,
-        air: 5.0,
-        noise: 2.4,
-        clean: 3.8,
-        location: 2.7,
-      },
-    },
-    {
-      place: '12K',
-      date: '12.02.2020',
-      country: 'Belarus',
-      city: 'Minsk',
-      address: 'Kuprevicha 3',
-      status: 'cancelled',
-      feedback: '',
-      rating: {
-        light: 3.0,
-        air: 5.0,
-        noise: 2.4,
-        clean: 3.8,
-        location: 2.7,
-      },
-    },
-    {
-      place: '12A',
-      date: '12.02.2020',
-      country: 'Belarus',
-      city: 'Minsk',
-      address: 'Kuprevicha 3',
-      status: 'active',
-      feedback: '',
-      rating: {
-        light: 3.0,
-        air: 5.0,
-        noise: 2.4,
-        clean: 3.8,
-        location: 2.7,
-      },
-    },
-    {
-      place: '12K',
-      date: '12.02.2020',
-      country: 'Belarus',
-      city: 'Minsk',
-      address: 'Kuprevicha 3',
-      status: 'completed',
-      feedback: '',
-      rating: {
-        light: 3.0,
-        air: 5.0,
-        noise: 2.4,
-        clean: 3.8,
-        location: 2.7,
-      },
-    },
-  ];
+  displayedBookings: Booking[];
+  statuses = ['ACTIVE', 'COMPLETED', 'CANCELED'];
 
-  constructor() {}
+  constructor(
+    private myBookingsService: MyBookingsService,
+    private authService: AuthService
+  ) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.setBookings(0);
+  }
 
-  getData(status: string): Booking[] {
-    return this.DATA.filter((item) => item.status === status);
+  setBookings(statusIndex: number): void {
+    this.myBookingsService
+      .getBookings(
+        this.authService.getCurrentUser().id,
+        this.statuses[statusIndex]
+      )
+      .subscribe((bookings: Booking[]) => {
+        this.displayedBookings = bookings;
+      });
   }
 }

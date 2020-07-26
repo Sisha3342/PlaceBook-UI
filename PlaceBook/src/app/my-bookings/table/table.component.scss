@@ -14,15 +14,15 @@ tr.mat-row:hover {
   cursor: pointer;
 }
 
-.bookmark.active {
+.bookmark.ACTIVE {
   background: #673AB7;
 }
 
-.bookmark.cancelled {
+.bookmark.CANCELLED {
   background: #F44336;
 }
 
-.bookmark.completed {
+.bookmark.COMPLETED {
   background: #00C19F;
 }
 
