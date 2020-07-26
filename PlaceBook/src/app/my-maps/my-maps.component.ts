@@ -1,15 +1,25 @@
 import { Component, OnInit } from '@angular/core';
+import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog';
 
 @Component({
   selector: 'app-my-maps',
   templateUrl: './my-maps.component.html',
-  styleUrls: ['./my-maps.component.scss']
+  styleUrls: ['./my-maps.component.scss'],
 })
-export class MyMapsComponent implements OnInit {
+export class MyMapsComponent {
+ constructor((public dialog: MatDialog) {}  
 
-  constructor() { }
+  ngOnInit(): void {}
+  addNewOffice(): void {
+    const dialogRef = this.dialog.open(DialogOverviewExampleDialog, {
+      width: '250px',
+      data: { name: this.name, animal: this.animal },
+    });
 
-  ngOnInit(): void {
+    dialogRef.afterClosed().subscribe((result) => {
+      console.log('The dialog was closed');
+      this.animal = result;
+    });
   }
-
+ 
 }

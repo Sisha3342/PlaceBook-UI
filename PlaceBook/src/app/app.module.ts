@@ -1,4 +1,4 @@
-import { BookingDetailsModalComponent } from './booking-details-modal/booking-details-modal.component';
+import { BookingDetailsModalComponent } from './my-bookings/booking-details-modal/booking-details-modal.component';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -33,6 +33,7 @@ import { RatePlaceModalComponent } from './my-bookings/rate-place-modal/rate-pla
 import { RateComponent } from './my-bookings/rate-place-modal/rate/rate.component';
 import { EmployeesBookingsColumnService } from './employees-bookings/employees-bookings-column.service';
 import { MyBookingsColumnService } from './my-bookings/my-bookings-column.service';
+import { AddOfficeComponent } from './editor/add-office-modal/add-office.component';
 
 @NgModule({
   declarations: [
@@ -59,6 +60,7 @@ import { MyBookingsColumnService } from './my-bookings/my-bookings-column.servic
     BookingStatusComponent,
     RatePlaceModalComponent,
     RateComponent,
+    AddOfficeComponent,
   ],
   imports: [
     BrowserModule,
