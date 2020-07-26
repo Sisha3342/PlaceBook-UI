@@ -17,12 +17,12 @@ export class SearchService {
     limit: number,
     searchText: string
   ): Observable<User[]> {
-    let params = new HttpParams()
+    const params = new HttpParams()
       .set('offset', offset.toString())
       .set('limit', limit.toString())
       .set('searchText', searchText);
     return this.http.get<User[]>('https://placebookapp.herokuapp.com/users', {
-      params: params,
+      params,
       withCredentials: true,
     });
   }
