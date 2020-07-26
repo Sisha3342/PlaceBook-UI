@@ -1,6 +1,6 @@
 import { SearchService } from './../search/search.service';
 import { Component, OnInit } from '@angular/core';
-import { Employee } from '../models/employee';
+import { User } from '../models/user';
 
 @Component({
   selector: 'app-employees',
@@ -10,12 +10,14 @@ import { Employee } from '../models/employee';
 export class EmployeesComponent implements OnInit {
   breakpoint = 0;
 
-  employees: Employee[];
+  employees: User[];
 
   constructor(private searchService: SearchService) {}
 
   filterEmployees(searchText: string): void {
-    this.employees = this.searchService.searchUsers(searchText);
+    this.searchService.searchUsers(searchText).subscribe((em) => {
+      this.employees = em;
+    });
   }
 
   ngOnInit(): void {
