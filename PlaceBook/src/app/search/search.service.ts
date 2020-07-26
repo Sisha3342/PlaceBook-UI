@@ -66,11 +66,13 @@ export class SearchService {
     },
   ];
 
-  searchUsers(searchText): Employee[] {
+  searchUsers(searchText: string): Employee[] {
     return this.employees.filter((em) => em.name.indexOf(searchText) !== -1);
   }
 
-  autocompleteUsers(): string[] {
-    return;
+  autocompleteUsers(searchText: string): string[] {
+    return this.employees
+      .filter((emStr) => emStr.name.indexOf(searchText) !== -1)
+      .map((em) => em.name);
   }
 }

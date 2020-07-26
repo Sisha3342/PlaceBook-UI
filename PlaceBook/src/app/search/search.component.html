@@ -6,7 +6,9 @@
            placeholder="Search by Employees"
            [formControl]="myControl"
            [matAutocomplete]="auto"
-           (keyup)='this.typeText.emit(this.myControl.value)'>
+           (keyup)='this.typeText.emit(this.myControl.value)'
+           (ngModelChange)='this.typeText.emit(this.myControl.value)'
+           autofocus>
 
     <mat-autocomplete #auto="matAutocomplete">
       <mat-option *ngFor="let option of (filteredUsers | async)"

@@ -1,3 +1,4 @@
+import { SearchService } from './search.service';
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { Observable } from 'rxjs';
@@ -12,14 +13,13 @@ import { AppMaterialModule } from './../app-material/app-material.module';
 })
 export class SearchComponent implements OnInit {
   myControl = new FormControl();
-  options: string[] = ['One', 'Two', 'Three', 'hhh78'];
 
   filteredUsers: Observable<string[]>;
 
   @Output()
   typeText = new EventEmitter<string>();
 
-  constructor() {}
+  constructor(private searchService: SearchService) {}
 
   ngOnInit(): void {
     this.filteredUsers = this.myControl.valueChanges.pipe(
@@ -29,19 +29,9 @@ export class SearchComponent implements OnInit {
     );
   }
 
-  // this.filteredUsers = this.usersForm
-  // .get('userInput')
-  // .valueChanges
-  // .pipe(
-  //   debounceTime(300),
-  //   switchMap(value => this.appService.search({name: value}, 1))
-  //  );
-
   private filter(value: string): string[] {
     const filterValue = value.toLowerCase();
-    return this.options.filter((option) =>
-      option.toLowerCase().includes(filterValue)
-    );
+    return this.searchService.autocompleteUsers(value);
   }
 
   onType(): void {
