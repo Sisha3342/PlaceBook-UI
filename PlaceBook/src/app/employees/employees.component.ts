@@ -10,7 +10,7 @@ import { User } from '../models/user';
 export class EmployeesComponent implements OnInit {
   breakpoint = 0;
 
-  employees: User[];
+  employees: User[] = [];
 
   constructor(private searchService: SearchService) {}
 
