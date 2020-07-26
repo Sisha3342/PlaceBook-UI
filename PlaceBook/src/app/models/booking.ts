@@ -7,8 +7,8 @@ export interface Booking {
   city: string;
   address: string;
   status: string;
-  feedback: string;
-  rating: {
+  feedback?: string;
+  rating?: {
     light: number;
     air: number;
     noise: number;
