@@ -12,12 +12,17 @@ export class SearchService {
 
   employees: User[];
 
-  searchUsers(searchText: string): Observable<User[]> {
-    return this.http.get<User[]>('https://placebookapp.herokuapp.com/users?', {
-      params: new HttpParams()
-        .set('offset', '1')
-        .set('limit', '1000')
-        .set('text', searchText),
+  searchUsers(
+    offset: number,
+    limit: number,
+    searchText: string
+  ): Observable<User[]> {
+    let params = new HttpParams()
+      .set('offset', offset.toString())
+      .set('limit', limit.toString())
+      .set('searchText', searchText);
+    return this.http.get<User[]>('https://placebookapp.herokuapp.com/users', {
+      params: params,
       withCredentials: true,
     });
   }
