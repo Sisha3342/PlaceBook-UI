@@ -16,17 +16,17 @@ export class EmployeesComponent implements OnInit {
 
   constructor(private searchService: SearchService, private http: HttpClient) {}
 
-  // getAllEmployees(): Observable<User[]> {
-  //   const params = new HttpParams()
-  //     .set('offset', '0')
-  //     .set('limit', '20')
-  //     .set('text', '');
+  getAllEmployees(): Observable<User[]> {
+    const params = new HttpParams()
+      .set('offset', '0')
+      .set('limit', '20')
+      .set('text', '');
 
-  //   return this.http.get<User[]>(`https://placebookapp.herokuapp.com/users`, {
-  //     params,
-  //     withCredentials: true,
-  //   });
-  // }
+    return this.http.get<User[]>(`https://placebookapp.herokuapp.com/users`, {
+      params,
+      withCredentials: true,
+    });
+  }
 
   filterEmployees(searchText: string): void {
     this.searchService.searchUsers(0, 1000, searchText).subscribe((data) => {
@@ -35,9 +35,9 @@ export class EmployeesComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    // this.getAllEmployees().subscribe((data) => {
-    //   this.employees = data;
-    // });
+    this.getAllEmployees().subscribe((data) => {
+      this.employees = data;
+    });
 
     this.breakpoint = Math.floor(window.innerWidth / 470);
   }
