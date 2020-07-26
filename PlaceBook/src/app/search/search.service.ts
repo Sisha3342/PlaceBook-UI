@@ -10,7 +10,7 @@ import { HttpParams } from '@angular/common/http';
 export class SearchService {
   constructor(private http: HttpClient) {}
 
-  employees: User[];
+  employees: User[] = [];
 
   searchUsers(
     offset: number,
