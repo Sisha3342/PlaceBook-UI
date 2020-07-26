@@ -32,6 +32,7 @@
               mat-icon-button
               class="close-button"
               matTooltip="Cancel booking"
+              (click)="cancelBooking($event)"
               [matTooltipPosition]="'above'"
               class="icon-button"
             >
@@ -55,6 +56,10 @@
     </ng-container>
 
     <tr mat-header-row *matHeaderRowDef="getTableColumns()"></tr>
-    <tr mat-row *matRowDef="let row; columns: getTableColumns()"></tr>
+    <tr
+      mat-row
+      *matRowDef="let row; columns: getTableColumns()"
+      (click)="openDetails($event, row)"
+    ></tr>
   </table>
 </div>

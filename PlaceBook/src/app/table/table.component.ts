@@ -1,9 +1,8 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { Booking } from '../../models/booking';
 import { MatDialog } from '@angular/material/dialog';
 import { RatePlaceModalComponent } from '../my-bookings/rate-place-modal/rate-place-modal.component';
-import { BookingDetailsModalComponent } from './../../booking-details-modal/booking-details-modal.component';
 import { Column } from '../models/column';
+import { Booking } from '../models/booking';
 
 @Component({
   selector: 'app-table',
@@ -14,15 +13,9 @@ export class TableComponent implements OnInit {
   @Input() data: Booking[];
   @Input() status: string;
   @Input() columns: Column[];
+  @Input() openDetails;
 
   constructor(public dialog: MatDialog) {}
-
-  openBookingDetailsModal(event: Event, booking: Booking): void {
-    this.dialog.open(BookingDetailsModalComponent, {
-      width: '30rem',
-      data: booking,
-    });
-  }
 
   ngOnInit(): void {}
 
@@ -43,6 +36,7 @@ export class TableComponent implements OnInit {
   editBooking(event: Event): void {
     event.stopPropagation();
   }
+
   openRatePlaceDialog(): void {
     this.dialog.open(RatePlaceModalComponent);
   }

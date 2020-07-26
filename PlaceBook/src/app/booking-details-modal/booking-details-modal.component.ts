@@ -2,7 +2,6 @@ import { Component, Inject } from '@angular/core';
 import { Employee } from '../models/employee';
 import { MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { Booking } from '../models/booking';
-import { FormControl } from '@angular/forms';
 
 @Component({
   selector: 'app-booking-details-modal',

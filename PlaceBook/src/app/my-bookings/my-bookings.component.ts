@@ -2,6 +2,8 @@ import { Component } from '@angular/core';
 import { Booking } from '../models/booking';
 import { Column } from '../models/column';
 import { MyBookingsColumnService } from './my-bookings-column.service';
+import { BookingDetailsModalComponent } from '../booking-details-modal/booking-details-modal.component';
+import { MatDialog } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-my-bookings',
@@ -173,7 +175,10 @@ export class MyBookingsComponent {
     },
   ];
 
-  constructor(private columnService: MyBookingsColumnService) {}
+  constructor(
+    private columnService: MyBookingsColumnService,
+    public dialog: MatDialog
+  ) {}
 
   getData(status: string): Booking[] {
     return this.DATA.filter((item) => item.status === status);
@@ -181,5 +186,12 @@ export class MyBookingsComponent {
 
   getColumns(status: string): Column[] {
     return this.columnService.getColumns(status);
+  }
+
+  openBookingDetailsModal(event: Event, booking: Booking): void {
+    this.dialog.open(BookingDetailsModalComponent, {
+      width: '30rem',
+      data: booking,
+    });
   }
 }
