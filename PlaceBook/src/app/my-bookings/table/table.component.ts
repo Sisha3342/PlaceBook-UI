@@ -44,7 +44,8 @@ export class TableComponent implements OnInit {
   editBooking(event: Event): void {
     event.stopPropagation();
   }
-  openRatePlaceDialog(): void {
+  openRatePlaceDialog(event: Event): void {
+    event.stopPropagation();
     this.dialog.open(RatePlaceModalComponent);
   }
 }

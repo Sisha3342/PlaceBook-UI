@@ -75,7 +75,7 @@
         </button>
         <button *ngIf="status === 'completed'"
                 mat-icon-button
-                (click)="openRatePlaceDialog()"
+                (click)="openRatePlaceDialog($event)"
                 matTooltip="Completed booking"
                 [matTooltipPosition]="'above'"
                 class="icon-button">
