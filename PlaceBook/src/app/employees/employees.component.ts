@@ -21,10 +21,10 @@ export class EmployeesComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.breakpoint = Math.floor(window.innerWidth / 450);
+    this.breakpoint = Math.floor(window.innerWidth / 470);
   }
 
   onResize(event): void {
-    this.breakpoint = Math.floor(event.target.innerWidth / 450);
+    this.breakpoint = Math.floor(event.target.innerWidth / 470);
   }
 }
