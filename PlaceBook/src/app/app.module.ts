@@ -30,8 +30,8 @@ import { TableComponent } from './table/table.component';
 import { StatisticsBoxComponent } from './my-bookings/statistics-box/statistics-box.component';
 import { RatePlaceModalComponent } from './my-bookings/rate-place-modal/rate-place-modal.component';
 import { RateComponent } from './my-bookings/rate-place-modal/rate/rate.component';
-import { ColumnDataService } from './employees-bookings/column-data.service';
-import { ColumnService } from './my-bookings/column.service';
+import { EmployeesBookingsColumnService } from './employees-bookings/employees-bookings-column.service';
+import { MyBookingsColumnService } from './my-bookings/my-bookings-column.service';
 
 @NgModule({
   declarations: [
@@ -70,8 +70,8 @@ import { ColumnService } from './my-bookings/column.service';
     Overlay,
     AuthGuard,
     AuthService,
-    ColumnDataService,
-    ColumnService,
+    EmployeesBookingsColumnService,
+    MyBookingsColumnService,
   ],
   bootstrap: [AppComponent],
 })

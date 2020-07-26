@@ -4,7 +4,7 @@ import { Column } from '../models/column';
 @Injectable({
   providedIn: 'root',
 })
-export class ColumnDataService {
+export class MyBookingsColumnService {
   constructor() {}
 
   columns: Column[] = [
@@ -13,18 +13,6 @@ export class ColumnDataService {
       label: 'Place No.',
       field: 'place',
       type: 'place',
-    },
-    {
-      id: 'logo',
-      label: 'Photo',
-      field: 'logo',
-      type: 'logo',
-    },
-    {
-      id: 'name',
-      label: 'Employee',
-      field: 'name',
-      type: 'text',
     },
     {
       id: 'date',
@@ -52,8 +40,27 @@ export class ColumnDataService {
     },
   ];
 
-  // tslint:disable-next-line:typedef
-  getColumns() {
-    return this.columns;
+  cancelColumn = {
+    id: 'cancelButton',
+    type: 'cancel',
+  };
+
+  rateColumn = {
+    id: 'rateButton',
+    type: 'rate',
+  };
+
+  getColumns(status: string): Column[] {
+    const columns = [...this.columns];
+
+    if (status === 'active') {
+      columns.push(this.cancelColumn);
+    }
+
+    if (status === 'completed') {
+      columns.push(this.rateColumn);
+    }
+
+    return columns;
   }
 }

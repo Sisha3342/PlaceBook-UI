@@ -1,15 +1,15 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { Booking } from '../models/booking';
 import { Column } from '../models/column';
-import { ColumnService } from '../my-bookings/column.service';
+import { MyBookingsColumnService } from './my-bookings-column.service';
 
 @Component({
   selector: 'app-my-bookings',
   templateUrl: './my-bookings.component.html',
   styleUrls: ['./my-bookings.component.scss'],
-  providers: [ColumnService],
+  providers: [MyBookingsColumnService],
 })
-export class MyBookingsComponent implements OnInit {
+export class MyBookingsComponent {
   DATA: Booking[] = [
     {
       place: '12A',
@@ -92,39 +92,14 @@ export class MyBookingsComponent implements OnInit {
       status: 'completed',
     },
   ];
-  columns: Column[];
 
-  cancelColumn = {
-    id: 'cancelButton',
-    type: 'cancel',
-  };
-
-  rateColumn = {
-    id: 'rateButton',
-    type: 'rate',
-  };
-
-  constructor(private columnService: ColumnService) {}
-
-  ngOnInit(): void {
-    this.columns = this.columnService.getColumns();
-  }
+  constructor(private columnService: MyBookingsColumnService) {}
 
   getData(status: string): Booking[] {
     return this.DATA.filter((item) => item.status === status);
   }
 
   getColumns(status: string): Column[] {
-    const columns = [...this.columns];
-
-    if (status === 'active') {
-      columns.push(this.cancelColumn);
-    }
-
-    if (status === 'completed') {
-      columns.push(this.rateColumn);
-    }
-
-    return columns;
+    return this.columnService.getColumns(status);
   }
 }

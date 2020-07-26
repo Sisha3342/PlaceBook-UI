@@ -1,15 +1,15 @@
-import { Component, Input, OnInit, ViewEncapsulation } from '@angular/core';
+import { Component } from '@angular/core';
 import { Booking } from '../models/booking';
 import { Column } from '../models/column';
-import { ColumnDataService } from './column-data.service';
+import { EmployeesBookingsColumnService } from './employees-bookings-column.service';
 
 @Component({
   selector: 'app-employees-bookings',
   templateUrl: './employees-bookings.component.html',
   styleUrls: ['./employees-bookings.component.scss'],
-  providers: [ColumnDataService],
+  providers: [EmployeesBookingsColumnService],
 })
-export class EmployeesBookingsComponent implements OnInit {
+export class EmployeesBookingsComponent {
   DATA: Booking[] = [
     {
       place: '12A',
@@ -122,39 +122,14 @@ export class EmployeesBookingsComponent implements OnInit {
       status: 'completed',
     },
   ];
-  columns: Column[];
 
-  cancelColumn = {
-    id: 'cancelButton',
-    type: 'cancel',
-  };
-
-  rateColumn = {
-    id: 'rateButton',
-    type: 'rate',
-  };
-
-  constructor(private columnService: ColumnDataService) {}
-
-  ngOnInit(): void {
-    this.columns = this.columnService.getColumns();
-  }
+  constructor(private columnService: EmployeesBookingsColumnService) {}
 
   getData(status: string): Booking[] {
     return this.DATA.filter((item) => item.status === status);
   }
 
   getColumns(status: string): Column[] {
-    const columns = [...this.columns];
-
-    if (status === 'active') {
-      columns.push(this.cancelColumn);
-    }
-
-    if (status === 'completed') {
-      columns.push(this.rateColumn);
-    }
-
-    return columns;
+    return this.columnService.getColumns(status);
   }
 }

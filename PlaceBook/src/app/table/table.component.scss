@@ -1,5 +1,14 @@
+table {
+  width: 100%;
+}
+
+td.mat-cell {
+  padding: 1rem 0;
+}
+
 .bookmark {
   padding: 0.75rem;
+  margin-left: -1.5rem;
   width: 30%;
   color: white;
   border-radius: 0 1.1rem 1.1rem 0;
@@ -21,24 +30,6 @@
   background: #00C19F;
 }
 
-th.mat-header-cell {
-  width: 18rem;
-  padding-right: 4rem;
-  padding-left: 1rem;
-}
-
-td.mat-cell {
-  width: 5rem;
-  height: 4rem;
-  padding-left: 0.6rem;
-}
-
-td.mat-cell:first-of-type {
-  width: 5rem;
-  height: 6rem;
-  padding-left: 0;
-}
-
 .edit-button {
   display: inline-block;
   position: relative;
@@ -50,12 +41,6 @@ td.mat-cell:first-of-type {
 
 .icon-button {
   color: #787878;
-}
-
-td.mat-cell:last-of-type {
-  padding-right: 0;
-  padding-left: 0;
-  width: 5rem;
 }
 
 .photo-logo {
