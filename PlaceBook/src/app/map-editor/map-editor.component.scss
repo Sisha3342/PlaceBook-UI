@@ -1,0 +1,40 @@
+.tools {
+  margin: 0 10% 2rem 0;
+  display: flex;
+  justify-content: center;
+}
+
+.tools .tools-container {
+  background: white;
+  border-radius: 20px;
+  box-shadow: 0 4px 23px rgba(0, 0, 0, 0.25);
+  padding: 0.5rem;
+  margin: 1rem;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.tools .tools-container .delimiter {
+  border-right: 2px solid #c7c7c7;
+  margin: 0.5rem;
+}
+
+.my-grid {
+  width: 90%;
+  text-align: center;
+  height: calc(100% - 14rem);
+  display: inline-block;
+}
+
+app-floor-panel {
+  vertical-align: top;
+  width: 10%;
+  display: inline-block;
+  text-align: center;
+}
+
+app-zoom-tool {
+  display: flex;
+  align-items: center;
+}
+

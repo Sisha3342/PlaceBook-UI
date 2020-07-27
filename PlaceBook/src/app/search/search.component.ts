@@ -11,7 +11,7 @@ import { AppMaterialModule } from './../app-material/app-material.module';
 })
 export class SearchComponent implements OnInit {
   myControl = new FormControl();
-  options: string[] = ['One', 'Two', 'Three', 'hhh78'];
+  options: string[] = [];
 
   filteredOptions: Observable<string[]>;
 

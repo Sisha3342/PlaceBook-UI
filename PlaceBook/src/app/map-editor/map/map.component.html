@@ -1,0 +1,43 @@
+<div class="map-holder">
+  <div
+    [style.width.px]="
+      (options.fixedColWidth + options.margin) * options.minCols +
+      options.margin
+    "
+    [style.height.px]="
+      (options.fixedRowHeight + options.margin) * options.minRows +
+      options.margin
+    "
+  >
+    <gridster [options]="options">
+      <ng-container *ngFor="let item of config.dashboard">
+        <gridster-item
+          [item]="item"
+          cdkOverlayOrigin
+          #trigger="cdkOverlayOrigin"
+          (contextmenu)="openMenu(object)"
+        >
+          <app-map-object
+            #object
+            [object]="item.data"
+            [zoom]="zoom"
+            [isOnMap]="true"
+          ></app-map-object>
+        </gridster-item>
+        <ng-template
+          cdkConnectedOverlay
+          cdkConnectedOverlayBackdropClass="drop"
+          [cdkConnectedOverlayHasBackdrop]="true"
+          (backdropClick)="object.menuOpened = false"
+          [cdkConnectedOverlayOrigin]="trigger"
+          [cdkConnectedOverlayOpen]="object.menuOpened"
+        >
+          <app-action-tools
+            [object]="item.data"
+            (deleteEvent)="remove(item)"
+          ></app-action-tools>
+        </ng-template>
+      </ng-container>
+    </gridster>
+  </div>
+</div>
