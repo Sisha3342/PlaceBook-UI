@@ -6,23 +6,26 @@
     </p>
     <p class="user-email">{{ employeeObject.email }}</p>
     <mat-button-toggle-group
+      #group="matButtonToggleGroup"
       [value]="employeeObject.role"
       [ngSwitch]="employeeObject.role"
+      (valueChange)="changeRole(group.value)"
     >
-      <p *ngSwitchCase="role.admin">
+      <mat-button-toggle
+        class="admin"
+        *ngSwitchCase="role.admin"
+        [value]="role.admin"
+      >
         Admin
-      </p>
+      </mat-button-toggle>
       <ng-container *ngSwitchDefault>
-        <mat-button-toggle [value]="role.user" (click)="changeRole(role.user)">
+        <mat-button-toggle [value]="role.user">
           Employee
         </mat-button-toggle>
-        <mat-button-toggle [value]="role.hr" (click)="changeRole(role.hr)">
+        <mat-button-toggle [value]="role.hr">
           HR
         </mat-button-toggle>
-        <mat-button-toggle
-          [value]="role.editor"
-          (click)="changeRole(role.editor)"
-        >
+        <mat-button-toggle [value]="role.editor">
           Editor
         </mat-button-toggle>
       </ng-container>
