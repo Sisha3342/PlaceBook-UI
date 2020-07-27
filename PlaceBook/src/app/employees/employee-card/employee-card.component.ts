@@ -26,7 +26,7 @@ export class EmployeeCardComponent implements OnInit {
   ngOnInit(): void {}
 
   changeRole(role: string): void {
-    if (role !== this.role.admin && role !== undefined) {
+    if (role !== this.employeeObject.role) {
       this.employeeService
         .changeRole(this.employeeObject.id, role)
         .subscribe((user: User) => {
