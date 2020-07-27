@@ -1,11 +1,7 @@
 <mat-card class="user-card">
   <mat-card-content class="user-card-content">
     <div class="user-photo-container">
-      <img
-        class="user-photo"
-        src="{{ employeeObject.photoUrl }}"
-        (error)="employeeObject.photoUrl = altImage"
-      />
+      <img class="user-photo" src="{{ employeeObject.photoUrl }}" />
     </div>
     <p class="user-name">
       {{ employeeObject.name + " " + employeeObject.surname }}

@@ -10,5 +10,5 @@ export interface Booking {
   address: OfficeAddress;
   timeStart: string;
   timeEnd: string;
-  status: 'ACTIVE' | 'COMPLETED' | 'CANCELED';
+  status: string;
 }
