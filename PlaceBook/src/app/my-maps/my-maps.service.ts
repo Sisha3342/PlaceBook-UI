@@ -4,22 +4,10 @@ import { Column } from '../models/column';
 @Injectable({
   providedIn: 'root',
 })
-export class MyBookingsColumnService {
+export class MyMapsService {
   constructor() {}
 
   columns: Column[] = [
-    {
-      id: 'place',
-      label: 'Place No.',
-      field: 'place',
-      type: 'place',
-    },
-    {
-      id: 'date',
-      label: 'Date',
-      field: 'date',
-      type: 'text',
-    },
     {
       id: 'country',
       label: 'Country',
@@ -43,26 +31,21 @@ export class MyBookingsColumnService {
   cancelColumn = {
     id: 'cancelButton',
     type: 'cancel',
-    tooltip: 'Cancel booking',
+    width: '3rem',
+    tooltip: 'Delete map',
   };
 
-  rateColumn = {
-    id: 'rateButton',
-    type: 'rate',
-    tooltip: 'Rate booking',
+  editColumn = {
+    id: 'editButton',
+    type: 'edit',
+    width: '7rem',
+    tooltip: 'Edit map',
   };
 
-  getColumns(status: string): Column[] {
+  getColumns(): Column[] {
     const columns = [...this.columns];
-
-    if (status === 'active') {
-      columns.push(this.cancelColumn);
-    }
-
-    if (status === 'completed') {
-      columns.push(this.rateColumn);
-    }
-
+    columns.push(this.editColumn);
+    columns.push(this.cancelColumn);
     return columns;
   }
 }

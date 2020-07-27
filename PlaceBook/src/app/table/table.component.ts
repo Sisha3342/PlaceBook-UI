@@ -14,6 +14,7 @@ export class TableComponent implements OnInit {
   @Input() status: string;
   @Input() columns: Column[];
   @Input() openDetails;
+  @Input() isViewRating: boolean;
 
   constructor(public dialog: MatDialog) {}
 
@@ -37,7 +38,10 @@ export class TableComponent implements OnInit {
     event.stopPropagation();
   }
 
-  openRatePlaceDialog(): void {
-    this.dialog.open(RatePlaceModalComponent);
+  openRatePlaceDialog(event: Event): void {
+    event.stopPropagation();
+    this.dialog.open(RatePlaceModalComponent, {
+      data: { isViewRating: this.isViewRating },
+    });
   }
 }

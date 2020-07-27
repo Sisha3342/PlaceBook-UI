@@ -162,7 +162,7 @@ export class MyBookingsComponent {
       date: '12.02.2020',
       country: 'Belarus',
       city: 'Minsk',
-      address: 'Kuprevicha 3',
+      address: 'Kuprevicha 2',
       status: 'completed',
       feedback: '',
       rating: {

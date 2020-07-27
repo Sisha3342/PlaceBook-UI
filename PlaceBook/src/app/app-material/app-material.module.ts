@@ -14,6 +14,8 @@ import { MatButtonToggleModule } from '@angular/material/button-toggle';
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { MatDialogModule } from '@angular/material/dialog';
 import { HttpClientModule } from '@angular/common/http';
+import { MatSelectModule } from '@angular/material/select';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   exports: [
@@ -32,6 +34,8 @@ import { HttpClientModule } from '@angular/common/http';
     MatAutocompleteModule,
     MatDialogModule,
     HttpClientModule,
+    MatSelectModule,
+    BrowserAnimationsModule,
   ],
   imports: [],
 })

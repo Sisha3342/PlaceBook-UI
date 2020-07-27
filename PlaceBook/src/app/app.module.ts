@@ -33,6 +33,8 @@ import { RatePlaceModalComponent } from './my-bookings/rate-place-modal/rate-pla
 import { RateComponent } from './my-bookings/rate-place-modal/rate/rate.component';
 import { EmployeesBookingsColumnService } from './employees-bookings/employees-bookings-column.service';
 import { MyBookingsColumnService } from './my-bookings/my-bookings-column.service';
+import { MyMapsService } from './my-maps/my-maps.service';
+import { MapsSelectorComponent } from './my-maps/maps-selector/maps-selector.component';
 
 @NgModule({
   declarations: [
@@ -59,6 +61,7 @@ import { MyBookingsColumnService } from './my-bookings/my-bookings-column.servic
     BookingStatusComponent,
     RatePlaceModalComponent,
     RateComponent,
+    MapsSelectorComponent,
   ],
   imports: [
     BrowserModule,
@@ -75,6 +78,7 @@ import { MyBookingsColumnService } from './my-bookings/my-bookings-column.servic
     AuthService,
     EmployeesBookingsColumnService,
     MyBookingsColumnService,
+    MyMapsService,
   ],
   bootstrap: [AppComponent],
 })

@@ -1,1 +1,8 @@
-<p>my-maps works!</p>
+<app-maps-selector></app-maps-selector>
+<div>
+  <app-table
+    class="map-table"
+    [data]="getData()"
+    [columns]="getColumns()"
+  ></app-table>
+</div>

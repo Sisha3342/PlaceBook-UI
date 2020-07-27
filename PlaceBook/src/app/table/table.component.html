@@ -3,7 +3,9 @@
     <!--Place Column -->
 
     <ng-container *ngFor="let column of columns" [matColumnDef]="column.id">
-      <th mat-header-cell *matHeaderCellDef>{{ column.label || "" }}</th>
+      <th mat-header-cell *matHeaderCellDef [width]="column.width">
+        {{ column.label || "" }}
+      </th>
       <td mat-cell *matCellDef="let element">
         <div [ngSwitch]="column.type">
           <span *ngSwitchCase="'text'">
@@ -27,14 +29,24 @@
             <img class="photo-logo" [src]="element[column.field]" />
           </span>
 
+          <span *ngSwitchCase="'edit'">
+            <button
+              mat-icon-button
+              [matTooltip]="column.tooltip"
+              [matTooltipPosition]="'above'"
+              class="icon-button"
+            >
+              <mat-icon>edit</mat-icon>
+            </button>
+          </span>
+
           <span *ngSwitchCase="'cancel'">
             <button
               mat-icon-button
-              class="close-button"
-              matTooltip="Cancel booking"
+              class="close-button icon-button"
+              [matTooltip]="column.tooltip"
               (click)="cancelBooking($event)"
               [matTooltipPosition]="'above'"
-              class="icon-button"
             >
               <mat-icon>close</mat-icon>
             </button>
@@ -43,8 +55,8 @@
           <span *ngSwitchCase="'rate'">
             <button
               mat-icon-button
-              (click)="openRatePlaceDialog()"
-              matTooltip="Completed booking"
+              (click)="openRatePlaceDialog($event)"
+              [matTooltip]="column.tooltip"
               [matTooltipPosition]="'above'"
               class="icon-button"
             >
