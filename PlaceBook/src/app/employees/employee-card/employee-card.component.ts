@@ -11,8 +11,6 @@ import { ROLE } from '../../models/role';
 export class EmployeeCardComponent implements OnInit {
   employeeObject: User;
   role = ROLE;
-  altImage =
-    'https://legacyogden.com/wp-content/uploads/2015/07/No-Image-Available1.png';
 
   @Input()
   set employee(employeeObject: User) {

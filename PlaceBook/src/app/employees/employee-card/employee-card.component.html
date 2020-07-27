@@ -13,9 +13,9 @@
       (valueChange)="changeRole(group.value)"
       [ngSwitch]="employeeObject.role"
     >
-      <mat-button-toggle *ngSwitchCase="role.admin" [value]="role.admin">
+      <p *ngSwitchCase="role.admin">
         Admin
-      </mat-button-toggle>
+      </p>
       <ng-container *ngSwitchDefault>
         <mat-button-toggle [value]="role.user"> Employee </mat-button-toggle>
         <mat-button-toggle [value]="role.hr"> HR </mat-button-toggle>

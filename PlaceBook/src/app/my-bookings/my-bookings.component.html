@@ -3,7 +3,10 @@
 </div>
 
 <div class="tab-group">
-  <mat-tab-group mat-stretch-tabs (focusChange)="setBookings($event.index)">
+  <mat-tab-group
+    mat-stretch-tabs
+    (focusChange)="setBookings($event.tab.textLabel)"
+  >
     <mat-tab label="Active" class="demo-tab-label">
       <app-table
         [data]="displayedBookings"

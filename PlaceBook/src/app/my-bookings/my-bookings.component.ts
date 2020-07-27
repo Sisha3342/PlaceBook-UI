@@ -27,14 +27,14 @@ export class MyBookingsComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.setBookings(0);
+    this.setBookings('Active');
   }
 
-  setBookings(statusIndex: number): void {
+  setBookings(statusLabel: string): void {
     this.myBookingsService
       .getBookings(
         this.authService.getCurrentUser().id,
-        this.status[statusIndex]
+        this.status[statusLabel.toLowerCase()]
       )
       .subscribe((bookings: Booking[]) => {
         this.displayedBookings = bookings;
