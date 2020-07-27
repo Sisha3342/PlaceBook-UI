@@ -4,50 +4,67 @@
     <form class="add-office">
         <mat-form-field>
             <mat-label>Country</mat-label>
-
             <input matInput
                    placeholder="Country"
-                   value="Belarus">
+                   value="Belarus"
+                   name="country"
+                   [(ngModel)]="country">
         </mat-form-field>
 
         <mat-form-field>
             <mat-label>City</mat-label>
             <input matInput
                    placeholder="City"
-                   value="Minsk">
+                   value="Minsk"
+                   name="city"
+                   [(ngModel)]="city">
         </mat-form-field>
 
         <mat-form-field>
             <mat-label>Address</mat-label>
             <input matInput
                    placeholder="Address"
-                   value="Kuprevicha, 3">
+                   value="Kuprevicha, 3"
+                   name="address"
+                   [(ngModel)]="address">
         </mat-form-field>
+    </form>
 
-        <div class="working-time">
-            <mat-label>From</mat-label>
+
+    <div class="working-time">
+        <mat-label>Working time:</mat-label>
+
+        <div class="time-field">
+            <ngx-material-timepicker-toggle [for]="toggleTimepicker"></ngx-material-timepicker-toggle>
+            <ngx-material-timepicker appendToInput="true"
+                                     class="time-picker"
+                                     #toggleTimepicker
+                                     #min></ngx-material-timepicker>
             <input matInput
-                   placeholder="Min time "
+                   placeholder="From "
                    [ngxTimepicker]="min"
                    max="''"
                    readonly>
-            <ngx-material-timepicker #min></ngx-material-timepicker>
-
         </div>
 
-
-
-        <div class="working-time">
-            <mat-label>To</mat-label>
+        <div class="time-field">
+            <ngx-material-timepicker-toggle class="to"
+                                            [for]="toggleTimepicker"></ngx-material-timepicker-toggle>
+            <ngx-material-timepicker class="time-picker"
+                                     #toggleTimepicker
+                                     #max></ngx-material-timepicker>
             <input matInput
-                   placeholder="Max time "
+                   placeholder="To "
                    [ngxTimepicker]="max"
                    max="''"
                    readonly>
-            <ngx-material-timepicker #max></ngx-material-timepicker>
         </div>
 
-    </form>
+    </div>
+
+
+
+
 
 </div>
 

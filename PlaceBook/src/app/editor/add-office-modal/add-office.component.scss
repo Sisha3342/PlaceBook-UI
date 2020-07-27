@@ -14,16 +14,49 @@ mat-form-field {
   display: block;
 }
 
+mat-label {
+  display: inline-block;
+  font-weight: bold;
+  white-space: nowrap;
+  margin-right: 5rem;
+}
 .mat-dialog-content {
   margin: 0;
   padding: 0 1rem;
   overflow: hidden;
 }
 
-.timepicker-overlay {
-  z-index: 1001;
+.working-time {
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid #808080;
 }
 
-.working-time {
-  display: inline-block;
+.time-field {
+  position: relative;
+}
+
+.time-field:last-child {
+  text-align: right;
+}
+
+ngx-material-timepicker-toggle {
+  position: absolute;
+  bottom: 0;
+  right: 4.3rem;
+  opacity: 50%;
+}
+ngx-material-timepicker-toggle.to {
+  right: 1rem;
+}
+
+.cdk-overlay-backdrop-showing {
+  z-index: 1000 !important;
+}
+
+.timepicker-overlay {
+  z-index: 1000 !important;
+}
+.cdk-overlay-container {
+  z-index: 500 !important;
 }
