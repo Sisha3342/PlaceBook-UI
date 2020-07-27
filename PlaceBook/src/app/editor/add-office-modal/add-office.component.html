@@ -5,55 +5,34 @@
         <form class="add-office">
             <mat-form-field>
                 <mat-label>Country</mat-label>
-                <mat-select>
-                    <mat-option *ngFor="let country of countries"
-                                [value]="country.value">
-                        {{country.view}}
-                    </mat-option>
-                </mat-select>
+
+                <input matInput
+                       placeholder="Country"
+                       value="Sushi">
             </mat-form-field>
+
             <mat-form-field>
                 <mat-label>City</mat-label>
-                <mat-select>
-                    <mat-option *ngFor="let city of cities"
-                                [value]="city.value">
-                        {{city.view}}
-                    </mat-option>
-                </mat-select>
+                <input matInput
+                       placeholder="Ex. Pizza"
+                       value="Sushi">
             </mat-form-field>
 
             <mat-form-field>
                 <mat-label>Address</mat-label>
-                <mat-select>
-                    <mat-option *ngFor="let address of addresses"
-                                [value]="address.value">
-                        {{address.view}}
-                    </mat-option>
-                </mat-select>
+                <input matInput
+                       placeholder="Ex. Pizza"
+                       value="Sushi">
             </mat-form-field>
             <ul class="working-time">
                 <li class="label">From:</li>
                 <li>
-                    <mat-form-field>
-                        <mat-label>Start</mat-label>
-                        <mat-select>
-                            <mat-option *ngFor="let i of 12"
-                                        [value]="i">
-                            </mat-option>
-                        </mat-select>
-                    </mat-form-field>
+
                 </li>
 
                 <li class="label">To:</li>
                 <li>
-                    <mat-form-field>
-                        <mat-label>End</mat-label>
-                        <mat-select>
-                            <mat-option *ngFor=""
-                                        [value]="">
-                            </mat-option>
-                        </mat-select>
-                    </mat-form-field>
+
                 </li>
             </ul>
         </form>

@@ -74,11 +74,8 @@ import { AddOfficeComponent } from './editor/add-office-modal/add-office.compone
     BookingStatusComponent,
     RatePlaceModalComponent,
     RateComponent,
-<<<<<<< HEAD
     AddOfficeComponent,
-=======
     FloorPanelComponent,
->>>>>>> master
   ],
   imports: [
     BrowserModule,
