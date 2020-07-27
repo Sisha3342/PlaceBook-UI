@@ -1,7 +1,5 @@
 <div class="user-card-container">
-  <div class="user-image">
-    <img src="{{ user.photoUrl }}" />
-  </div>
+  <app-user-photo [imgSrc]="user.photoUrl"> </app-user-photo>
 
   <div class="card-content">
     <div class="user-card-name">{{ user.name }} {{ user.surname }}</div>

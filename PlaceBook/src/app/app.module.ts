@@ -41,6 +41,7 @@ import { RatePlaceModalComponent } from './my-bookings/rate-place-modal/rate-pla
 import { RateComponent } from './my-bookings/rate-place-modal/rate/rate.component';
 import { EmployeesBookingsColumnService } from './employees-bookings/employees-bookings-column.service';
 import { MyBookingsColumnService } from './my-bookings/my-bookings-column.service';
+import { UserPhotoComponent } from './user-photo/user-photo.component';
 
 @NgModule({
   declarations: [
@@ -74,6 +75,7 @@ import { MyBookingsColumnService } from './my-bookings/my-bookings-column.servic
     RatePlaceModalComponent,
     RateComponent,
     FloorPanelComponent,
+    UserPhotoComponent,
   ],
   imports: [
     BrowserModule,
