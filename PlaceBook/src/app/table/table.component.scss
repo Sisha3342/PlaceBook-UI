@@ -3,11 +3,11 @@ table {
 }
 
 td.mat-cell {
-  padding: 1rem 0;
+  padding: var(--secondary-content-padding) 0;
 }
 
 .bookmark {
-  padding: 0.75rem;
+  padding: var(--secondary-content-padding);
   margin-left: -1.5rem;
   width: 30%;
   color: var(--secondary-color);

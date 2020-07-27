@@ -10,7 +10,7 @@
   margin: var(--secondary-content-margin) auto;
   display: block;
   border-radius: var(--secondary-border-radius);
-  border: var(--primary-border-width) solid #dedede;
+  border: var(--primary-border);
   width: 8rem;
   height: 8rem;
   white-space: normal;
@@ -19,7 +19,7 @@
 }
 
 .mat-button.active {
-  border: 2px solid var(--primary-color);
+  border: var(--primary-border-width) solid var(--primary-color);
 }
 
 .icon-background {
