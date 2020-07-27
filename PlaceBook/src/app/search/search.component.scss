@@ -10,6 +10,7 @@ mat-form-field {
 .search-button {
   width: 10rem;
   margin: 1rem;
-  border-radius: 20px;
-  background-color: #3f51b5;
+  border-radius: var(--secondary-border-radius);
+  background-color: var(--primary-color);
+  color: var(--secondary-color);
 }

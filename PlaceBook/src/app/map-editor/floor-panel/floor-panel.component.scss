@@ -6,9 +6,9 @@
 
 .floor-panel .floor-panel-container {
   padding: 0.5rem;
-  background-color: white;
+  background-color: var(--secondary-color);
   box-shadow: 0 4px 23px rgba(0, 0, 0, 0.25);
-  border-radius: 20px;
+  border-radius: var(--secondary-border-radius);
   text-align: left;
 }
 
@@ -18,5 +18,15 @@
 }
 
 .floor-panel .floor-panel-container button.remove-floor {
-  background-color: #F44336;
+  background-color: var(--delete-button-color);
+}
+
+.mat-mini-fab {
+  background-color: var(--primary-color);
+  color: var(--secondary-color);
+}
+
+.mat-mini-fab.inactive {
+  background-color: var(--secondary-color);
+  color: var(--primary-color);
 }

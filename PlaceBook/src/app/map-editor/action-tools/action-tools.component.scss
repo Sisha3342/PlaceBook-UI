@@ -3,8 +3,8 @@
 }
 
 .action-tools-content mat-button-toggle-group {
-  border: 2px solid #dedede;
-  border-radius: 2rem;
+  border: var(--primary-border-width) solid #dedede;;
+  border-radius: var(--secondary-border-radius);
   padding: 0;
   box-shadow: none;
 }
@@ -20,11 +20,16 @@
 }
 
 .mat-button-toggle-checked.active {
-  background: #00C19F;
-  color: white;
+  background:var(--accept-color);
+  color: var(--secondary-color);
 }
 
 .mat-button-toggle-checked.disabled {
-  background: #F44336;
-  color: white;
+  background: var(--delete-color);
+  color: var(--secondary-color);
+}
+
+.mat-mini-fab {
+  background-color: var(--delete-color);
+  color: var(--secondary-color);
 }

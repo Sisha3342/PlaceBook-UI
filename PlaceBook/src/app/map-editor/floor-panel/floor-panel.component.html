@@ -3,7 +3,7 @@
     <div *ngFor="let floor of floors; let i = index">
       <button
         mat-mini-fab
-        [color]="floors[i] === currentFloor ? 'primary' : null"
+        [class.inactive]="floors[i] !== currentFloor"
         (click)="changeCurrentFloor(i)"
       >
         {{ i + 1 }}
