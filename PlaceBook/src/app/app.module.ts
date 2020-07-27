@@ -41,7 +41,7 @@ import { RatePlaceModalComponent } from './my-bookings/rate-place-modal/rate-pla
 import { RateComponent } from './my-bookings/rate-place-modal/rate/rate.component';
 import { EmployeesBookingsColumnService } from './employees-bookings/employees-bookings-column.service';
 import { MyBookingsColumnService } from './my-bookings/my-bookings-column.service';
-import { AddOfficeComponent } from './editor/add-office-modal/add-office.component';
+import { AddOfficeModalComponent } from './editor/add-office-modal/add-office-modal.component';
 
 @NgModule({
   declarations: [
@@ -74,7 +74,7 @@ import { AddOfficeComponent } from './editor/add-office-modal/add-office.compone
     BookingStatusComponent,
     RatePlaceModalComponent,
     RateComponent,
-    AddOfficeComponent,
+    AddOfficeModalComponent,
     FloorPanelComponent,
   ],
   imports: [
