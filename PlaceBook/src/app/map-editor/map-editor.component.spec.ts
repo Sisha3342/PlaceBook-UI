@@ -1,19 +1,19 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { StatisticsBoxComponent } from './statistics-box.component';
+import { MapEditorComponent } from './map-editor.component';
 
-describe('StatisticsBoxComponent', () => {
-  let component: StatisticsBoxComponent;
-  let fixture: ComponentFixture<StatisticsBoxComponent>;
+describe('MapEditorComponent', () => {
+  let component: MapEditorComponent;
+  let fixture: ComponentFixture<MapEditorComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [StatisticsBoxComponent],
+      declarations: [MapEditorComponent],
     }).compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(StatisticsBoxComponent);
+    fixture = TestBed.createComponent(MapEditorComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

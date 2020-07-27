@@ -1,0 +1,30 @@
+.action-tools-content {
+  padding: 0.5rem;
+}
+
+.action-tools-content mat-button-toggle-group {
+  border: 2px solid #dedede;
+  border-radius: 2rem;
+  padding: 0;
+  box-shadow: none;
+}
+
+.action-tools-content button,
+.action-tools-content mat-button-toggle-group {
+  margin: 0.5rem;
+}
+
+.action-tools-content mat-form-field {
+  margin: 0 0.5rem;
+  width: 6rem;
+}
+
+.mat-button-toggle-checked.active {
+  background: #00C19F;
+  color: white;
+}
+
+.mat-button-toggle-checked.disabled {
+  background: #F44336;
+  color: white;
+}

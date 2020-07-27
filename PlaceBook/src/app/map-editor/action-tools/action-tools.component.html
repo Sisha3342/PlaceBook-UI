@@ -1,0 +1,47 @@
+<div class="action-tools-content">
+  <mat-button-toggle-group
+    appearance="legacy"
+    [(value)]="object.isActive"
+    *ngIf="object.hasOwnProperty('number')"
+  >
+    <mat-button-toggle
+      [value]="true"
+      class="active"
+      matTooltip="Active"
+      (click)="$event.stopPropagation()"
+      matTooltipPosition="above"
+    >
+      <mat-icon>done</mat-icon>
+    </mat-button-toggle>
+
+    <mat-button-toggle
+      [value]="false"
+      class="disabled"
+      matTooltip="Disable"
+      (click)="$event.stopPropagation()"
+      matTooltipPosition="above"
+    >
+      <mat-icon>clear</mat-icon>
+    </mat-button-toggle>
+  </mat-button-toggle-group>
+
+  <button
+    mat-mini-fab
+    color="warn"
+    (click)="delete()"
+    matTooltip="Remove"
+    matTooltipPosition="above"
+  >
+    <mat-icon>delete</mat-icon>
+  </button>
+
+  <mat-form-field *ngIf="object.hasOwnProperty('number')">
+    <mat-label>Place #</mat-label>
+    <input matInput type="text" [(ngModel)]="object.number" />
+  </mat-form-field>
+
+  <mat-form-field *ngIf="object.hasOwnProperty('capacity')">
+    <mat-label>Capacity</mat-label>
+    <input matInput type="number" [(ngModel)]="object.capacity" [min]="1" />
+  </mat-form-field>
+</div>
