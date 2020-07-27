@@ -12,30 +12,34 @@ import { Observable } from 'rxjs';
 export class EmployeesComponent implements OnInit {
   breakpoint = 0;
 
-  employees: User[] = [];
+  employees: User[];
 
   constructor(private searchService: SearchService, private http: HttpClient) {}
 
-  getAllEmployees(): Observable<User[]> {
-    const params = new HttpParams().set('offset', '0').set('limit', '20');
+  // getAllEmployees(): Observable<User[]> {
+  //   const params = new HttpParams().set('offset', '0').set('limit', '20');
 
-    return this.http.get<User[]>(`https://placebookapp.herokuapp.com/users`, {
-      params,
-      withCredentials: true,
-    });
-  }
+  //   return this.http.get<User[]>(`https://placebookapp.herokuapp.com/users`, {
+  //     params,
+  //     withCredentials: true,
+  //   });
+  // }
+
+  // filterEmployees(searchText: string): void {
+  //   this.searchService.searchUsers(0, 1000, searchText).subscribe((data) => {
+  //     this.employees = data;
+  //   });
+  // }
 
   filterEmployees(searchText: string): void {
-    this.searchService.searchUsers(0, 1000, searchText).subscribe((data) => {
-      this.employees = data;
-    });
+    this.employees = this.searchService.searchUsers(searchText);
   }
 
   ngOnInit(): void {
-    this.getAllEmployees().subscribe((data) => {
-      this.employees = data;
-    });
-
+    // this.getAllEmployees().subscribe((data) => {
+    //   this.employees = data;
+    // });
+    this.employees = this.searchService.employees;
     this.breakpoint = Math.floor(window.innerWidth / 470);
   }
 
