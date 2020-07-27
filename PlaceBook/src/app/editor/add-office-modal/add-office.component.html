@@ -1,6 +1,7 @@
 <h2 mat-dialog-title>Add new office</h2>
 
 <div mat-dialog-content>
+
     <form class="add-office">
         <mat-form-field>
             <mat-label>Country</mat-label>
@@ -30,7 +31,6 @@
         </mat-form-field>
     </form>
 
-
     <div class="working-time">
         <mat-label>Working time:</mat-label>
 
@@ -51,6 +51,7 @@
             <ngx-material-timepicker-toggle class="to"
                                             [for]="toggleTimepicker"></ngx-material-timepicker-toggle>
             <ngx-material-timepicker class="time-picker"
+                                     appendToInput="true"
                                      #toggleTimepicker
                                      #max></ngx-material-timepicker>
             <input matInput
@@ -60,15 +61,13 @@
                    readonly>
         </div>
 
+
     </div>
-
-
-
-
-
 </div>
 
 <mat-dialog-actions align="end">
     <button mat-button
             mat-dialog-close>Close</button>
+    <button mat-button
+            type="submit">Add</button>
 </mat-dialog-actions>

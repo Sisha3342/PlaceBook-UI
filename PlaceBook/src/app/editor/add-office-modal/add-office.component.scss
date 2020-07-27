@@ -6,7 +6,7 @@ h2 {
   margin-top: 0.5rem;
   padding: 0.5rem 0;
   font-size: 0.875rem;
-  width: 20rem;
+  // width: 20rem;
   z-index: 1;
 }
 
@@ -26,10 +26,17 @@ mat-label {
   overflow: hidden;
 }
 
+button[type="submit"] {
+  background: #3c4eae;
+  color: white;
+  border-radius: 20px;
+}
+
 .working-time {
   display: flex;
   justify-content: space-between;
   border-bottom: 1px solid #808080;
+  width: 20rem;
 }
 
 .time-field {
@@ -47,7 +54,7 @@ ngx-material-timepicker-toggle {
   opacity: 50%;
 }
 ngx-material-timepicker-toggle.to {
-  right: 1rem;
+  right: 1.5rem;
 }
 
 .cdk-overlay-backdrop-showing {
