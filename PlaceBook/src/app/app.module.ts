@@ -1,3 +1,4 @@
+import { MapService } from './my-maps/map/map.service';
 import { BookingDetailsModalComponent } from './my-bookings/booking-details-modal/booking-details-modal.component';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
@@ -94,6 +95,7 @@ import { AddOfficeModalComponent } from './editor/add-office-modal/add-office-mo
     AuthService,
     EmployeesBookingsColumnService,
     MyBookingsColumnService,
+    MapService,
   ],
   bootstrap: [AppComponent],
 })

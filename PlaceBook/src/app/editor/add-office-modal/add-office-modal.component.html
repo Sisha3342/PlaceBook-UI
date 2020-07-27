@@ -2,65 +2,65 @@
 
 <div mat-dialog-content>
 
-    <form class="office-location-fields">
+    <form #form="ngForm"
+          class="office-location-fields">
         <mat-form-field>
             <mat-label>Country</mat-label>
             <input matInput
                    placeholder="Country"
-                   value="Belarus"
                    name="country"
-                   [(ngModel)]="country">
+                   [(ngModel)]="service.formData.address.country"
+                   required>
+
         </mat-form-field>
 
         <mat-form-field>
             <mat-label>City</mat-label>
             <input matInput
                    placeholder="City"
-                   value="Minsk"
                    name="city"
-                   [(ngModel)]="city">
+                   [(ngModel)]="service.formData.address.city"
+                   required>
         </mat-form-field>
+
 
         <mat-form-field>
             <mat-label>Address</mat-label>
             <input matInput
                    placeholder="Address"
-                   value="Kuprevicha, 3"
                    name="address"
-                   [(ngModel)]="address">
+                   [(ngModel)]="service.formData.address.address"
+                   required>
         </mat-form-field>
+
+
+        <div class="work-time">
+            <mat-label>Working time:</mat-label>
+
+            <div class="work-time-field">
+                <ngx-material-timepicker-toggle [for]="toggleTimepicker"></ngx-material-timepicker-toggle>
+                <ngx-material-timepicker #toggleTimepicker
+                                         #min></ngx-material-timepicker>
+                <input matInput
+                       placeholder="From "
+                       [ngxTimepicker]="min"
+                       max="''"
+                       readonly>
+            </div>
+
+            <div class="work-time-field">
+                <ngx-material-timepicker-toggle class="to"
+                                                [for]="toggleTimepicker"></ngx-material-timepicker-toggle>
+                <ngx-material-timepicker #toggleTimepicker
+                                         #max></ngx-material-timepicker>
+                <input matInput
+                       placeholder="To "
+                       [ngxTimepicker]="max"
+                       max="''"
+                       readonly>
+            </div>
+        </div>
     </form>
-
-    <div class="working-time-">
-        <mat-label>Working time:</mat-label>
-
-        <div class="time-field">
-            <ngx-material-timepicker-toggle [for]="toggleTimepicker"></ngx-material-timepicker-toggle>
-            <ngx-material-timepicker appendToInput="true"
-                                     class="time-picker"
-                                     #toggleTimepicker
-                                     #min></ngx-material-timepicker>
-            <input matInput
-                   placeholder="From "
-                   [ngxTimepicker]="min"
-                   max="''"
-                   readonly>
-        </div>
-
-        <div class="time-field">
-            <ngx-material-timepicker-toggle class="to"
-                                            [for]="toggleTimepicker"></ngx-material-timepicker-toggle>
-            <ngx-material-timepicker class="time-picker"
-                                     appendToInput="true"
-                                     #toggleTimepicker
-                                     #max></ngx-material-timepicker>
-            <input matInput
-                   placeholder="To "
-                   [ngxTimepicker]="max"
-                   max="''"
-                   readonly>
-        </div>
-    </div>
 </div>
 
 <mat-dialog-actions align="end">

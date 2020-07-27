@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { MatDialog } from '@angular/material/dialog';
+import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 import { AddOfficeModalComponent } from '../editor/add-office-modal/add-office-modal.component';
 
 @Component({
@@ -12,9 +12,9 @@ export class MyMapsComponent {
 
   addNewOffice(): void {
     const dialogRef = this.dialog.open(AddOfficeModalComponent);
-
-    dialogRef.afterClosed().subscribe((result) => {
-      // this.animal = result;
-    });
+    dialogRef.afterClosed().subscribe((result) => {});
+    const dialogConfig = new MatDialogConfig();
+    dialogConfig.disableClose = true;
+    dialogConfig.autoFocus = true;
   }
 }
