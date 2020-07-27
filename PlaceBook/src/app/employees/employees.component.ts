@@ -14,9 +14,11 @@ export class EmployeesComponent implements OnInit {
   constructor(private employeeService: EmployeeService) {}
 
   filterEmployees(searchText: string): void {
-    this.users = this.users.filter(
-      (em) => (em.name + ' ' + em.surname).indexOf(searchText) !== -1
-    );
+    this.employeeService
+      .getUsers(0, 100, searchText)
+      .subscribe((users: User[]) => {
+        this.users = users;
+      });
   }
 
   ngOnInit(): void {

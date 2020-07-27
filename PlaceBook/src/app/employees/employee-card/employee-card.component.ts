@@ -1,6 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { EmployeeService } from './employee.service';
 import { User } from '../../models/user';
+import { ROLE } from '../../models/role';
 
 @Component({
   selector: 'app-employee-card',
@@ -9,6 +10,9 @@ import { User } from '../../models/user';
 })
 export class EmployeeCardComponent implements OnInit {
   employeeObject: User;
+  role = ROLE;
+  altImage =
+    'https://legacyogden.com/wp-content/uploads/2015/07/No-Image-Available1.png';
 
   @Input()
   set employee(employeeObject: User) {
@@ -23,7 +27,13 @@ export class EmployeeCardComponent implements OnInit {
 
   ngOnInit(): void {}
 
-  changeRole(role: 'User' | 'HR' | 'Editor'): void {
-    this.employeeService.changeRole(this.employeeObject.id, role);
+  changeRole(role: string): void {
+    if (role !== this.role.admin && role !== undefined) {
+      this.employeeService
+        .changeRole(this.employeeObject.id, role)
+        .subscribe((user: User) => {
+          this.employeeObject.role = role;
+        });
+    }
   }
 }

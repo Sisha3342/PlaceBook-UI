@@ -6,6 +6,8 @@ import { BookingDetailsModalComponent } from '../booking-details-modal/booking-d
 import { MatDialog } from '@angular/material/dialog';
 import { MyBookingsService } from './my-bookings.service';
 import { AuthService } from '../auth/auth.service';
+import { STATUS } from '../models/status';
+import { User } from '../models/user';
 
 @Component({
   selector: 'app-my-bookings',
@@ -15,7 +17,7 @@ import { AuthService } from '../auth/auth.service';
 })
 export class MyBookingsComponent implements OnInit {
   displayedBookings: Booking[];
-  statuses = ['ACTIVE', 'COMPLETED', 'CANCELED'];
+  status = STATUS;
 
   constructor(
     private myBookingsService: MyBookingsService,
@@ -32,7 +34,7 @@ export class MyBookingsComponent implements OnInit {
     this.myBookingsService
       .getBookings(
         this.authService.getCurrentUser().id,
-        this.statuses[statusIndex]
+        this.status[statusIndex]
       )
       .subscribe((bookings: Booking[]) => {
         this.displayedBookings = bookings;
@@ -43,10 +45,10 @@ export class MyBookingsComponent implements OnInit {
     return this.columnService.getColumns(status);
   }
 
-  openBookingDetailsModal(event: Event, booking: Booking): void {
+  openBookingDetailsModal(event: Event, booking: Booking, user: User): void {
     this.dialog.open(BookingDetailsModalComponent, {
       width: '30rem',
-      data: booking,
+      data: [booking, user],
     });
   }
 }

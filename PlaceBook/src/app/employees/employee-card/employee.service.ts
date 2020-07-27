@@ -9,7 +9,7 @@ import { User } from '../../models/user';
 export class EmployeeService {
   constructor(private http: HttpClient) {}
 
-  changeRole(id: number, role: 'User' | 'HR' | 'Editor'): Observable<User> {
+  changeRole(id: number, role: string): Observable<User> {
     return this.http.put<User>(
       `https://placebookapp.herokuapp.com/users/${id}`,
       {
