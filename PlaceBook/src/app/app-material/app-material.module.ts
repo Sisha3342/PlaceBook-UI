@@ -17,6 +17,7 @@ import { MatMenuModule } from '@angular/material/menu';
 import { MatDialogModule } from '@angular/material/dialog';
 import { HttpClientModule } from '@angular/common/http';
 import { MatSelectModule } from '@angular/material/select';
+import { NgxMaterialTimepickerModule } from 'ngx-material-timepicker';
 
 @NgModule({
   exports: [
@@ -38,6 +39,7 @@ import { MatSelectModule } from '@angular/material/select';
     MatDialogModule,
     HttpClientModule,
     MatSelectModule,
+    NgxMaterialTimepickerModule,
   ],
   imports: [],
 })

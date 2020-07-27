@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import { MatDialogRef } from '@angular/material/dialog';
-import { Booking } from '../../models/booking';
 
 interface Country {
   value: string;

@@ -1,44 +1,57 @@
 <h2 mat-dialog-title>Add new office</h2>
 
 <div mat-dialog-content>
-    <div mat-dialog-content>
-        <form class="add-office">
-            <mat-form-field>
-                <mat-label>Country</mat-label>
+    <form class="add-office">
+        <mat-form-field>
+            <mat-label>Country</mat-label>
 
-                <input matInput
-                       placeholder="Country"
-                       value="Sushi">
-            </mat-form-field>
+            <input matInput
+                   placeholder="Country"
+                   value="Belarus">
+        </mat-form-field>
 
-            <mat-form-field>
-                <mat-label>City</mat-label>
-                <input matInput
-                       placeholder="Ex. Pizza"
-                       value="Sushi">
-            </mat-form-field>
+        <mat-form-field>
+            <mat-label>City</mat-label>
+            <input matInput
+                   placeholder="City"
+                   value="Minsk">
+        </mat-form-field>
 
-            <mat-form-field>
-                <mat-label>Address</mat-label>
-                <input matInput
-                       placeholder="Ex. Pizza"
-                       value="Sushi">
-            </mat-form-field>
-            <ul class="working-time">
-                <li class="label">From:</li>
-                <li>
+        <mat-form-field>
+            <mat-label>Address</mat-label>
+            <input matInput
+                   placeholder="Address"
+                   value="Kuprevicha, 3">
+        </mat-form-field>
 
-                </li>
+        <div class="working-time">
+            <mat-label>From</mat-label>
+            <input matInput
+                   placeholder="Min time "
+                   [ngxTimepicker]="min"
+                   max="''"
+                   readonly>
+            <ngx-material-timepicker #min></ngx-material-timepicker>
 
-                <li class="label">To:</li>
-                <li>
+        </div>
 
-                </li>
-            </ul>
-        </form>
 
-    </div>
-    <mat-dialog-actions align="end">
-        <button mat-button
-                mat-dialog-close>Close</button>
-    </mat-dialog-actions>
+
+        <div class="working-time">
+            <mat-label>To</mat-label>
+            <input matInput
+                   placeholder="Max time "
+                   [ngxTimepicker]="max"
+                   max="''"
+                   readonly>
+            <ngx-material-timepicker #max></ngx-material-timepicker>
+        </div>
+
+    </form>
+
+</div>
+
+<mat-dialog-actions align="end">
+    <button mat-button
+            mat-dialog-close>Close</button>
+</mat-dialog-actions>

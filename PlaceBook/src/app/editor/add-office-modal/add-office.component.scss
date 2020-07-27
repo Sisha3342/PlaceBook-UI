@@ -6,6 +6,8 @@ h2 {
   margin-top: 0.5rem;
   padding: 0.5rem 0;
   font-size: 0.875rem;
+  width: 20rem;
+  z-index: 1;
 }
 
 mat-form-field {
@@ -18,17 +20,10 @@ mat-form-field {
   overflow: hidden;
 }
 
-.working-time {
-  display: flex;
-  justify-content: space-between;
-  width: 15rem;
-  list-style-type: none;
-  padding: 0;
+.timepicker-overlay {
+  z-index: 1001;
 }
 
-.working-time li {
+.working-time {
   display: inline-block;
-}
-li mat-form-field {
-  width: 4em;
 }
