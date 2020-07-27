@@ -1,17 +1,11 @@
 <app-user-card></app-user-card>
 
-<button mat-raised-button color="primary" routerLink="/book">
-  Add booking
-</button>
-<button mat-raised-button color="primary" routerLink="/editor">Add map</button>
-
 <app-route-button
   *ngFor="let button of routeButtons"
   [name]="button.name"
   [routerLink]="button.route"
   [iconType]="button.iconType"
   [setType]="button.setType"
-  [isActive]="activeTabName === button.name"
-  (click)="changeActiveTab(button.name)"
+  [isActive]="isActive(button.route)"
 >
 </app-route-button>

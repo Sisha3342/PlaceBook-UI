@@ -1,16 +1,18 @@
-<div class="white-background">
-  <button
-    mat-raised-button
-    color="primary"
-    class="add-button"
-    routerLink="/book"
-  >
-    Add booking
-  </button>
+<div class="statistics-container">
+  <div class="add-booking-container">
+    <button mat-raised-button color="primary" routerLink="/book">
+      Add booking
+    </button>
+  </div>
 
   <div class="statistics-item">
     <div class="statistics-item-count all">51</div>
     <div class="text-bookings">All bookings</div>
+  </div>
+
+  <div class="statistics-item">
+    <div class="statistics-item-count active">25</div>
+    <div class="text-bookings">Active</div>
   </div>
 
   <div class="statistics-item">

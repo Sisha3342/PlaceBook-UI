@@ -26,7 +26,7 @@ import { HomeLayoutComponent } from './layouts/home/home-layout.component';
 import { LoginLayoutComponent } from './layouts/login/login-layout.component';
 import { AuthGuard } from './auth/auth.guard';
 import { AuthService } from './auth/auth.service';
-import { TableComponent } from './my-bookings/table/table.component';
+import { TableComponent } from './table/table.component';
 import { StatisticsBoxComponent } from './my-bookings/statistics-box/statistics-box.component';
 import { MapEditorComponent } from './map-editor/map-editor.component';
 import { GridsterModule } from 'angular-gridster2';
@@ -39,6 +39,8 @@ import { FloorPanelComponent } from './map-editor/floor-panel/floor-panel.compon
 import { BookingStatusComponent } from './booking-status/booking-status.component';
 import { RatePlaceModalComponent } from './my-bookings/rate-place-modal/rate-place-modal.component';
 import { RateComponent } from './my-bookings/rate-place-modal/rate/rate.component';
+import { EmployeesBookingsColumnService } from './employees-bookings/employees-bookings-column.service';
+import { MyBookingsColumnService } from './my-bookings/my-bookings-column.service';
 
 @NgModule({
   declarations: [
@@ -83,7 +85,14 @@ import { RateComponent } from './my-bookings/rate-place-modal/rate/rate.componen
     GridsterModule,
     OverlayModule,
   ],
-  providers: [MatSnackBar, Overlay, AuthGuard, AuthService],
+  providers: [
+    MatSnackBar,
+    Overlay,
+    AuthGuard,
+    AuthService,
+    EmployeesBookingsColumnService,
+    MyBookingsColumnService,
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
