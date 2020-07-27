@@ -1,6 +1,9 @@
-import { Component, OnInit, ViewEncapsulation } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Booking } from '../models/booking';
-import { MatTabChangeEvent } from '@angular/material/tabs';
+import { Column } from '../models/column';
+import { MyBookingsColumnService } from './my-bookings-column.service';
+import { BookingDetailsModalComponent } from '../booking-details-modal/booking-details-modal.component';
+import { MatDialog } from '@angular/material/dialog';
 import { MyBookingsService } from './my-bookings.service';
 import { AuthService } from '../auth/auth.service';
 
@@ -8,7 +11,7 @@ import { AuthService } from '../auth/auth.service';
   selector: 'app-my-bookings',
   templateUrl: './my-bookings.component.html',
   styleUrls: ['./my-bookings.component.scss'],
-  encapsulation: ViewEncapsulation.None,
+  providers: [MyBookingsColumnService],
 })
 export class MyBookingsComponent implements OnInit {
   displayedBookings: Booking[];
@@ -16,7 +19,9 @@ export class MyBookingsComponent implements OnInit {
 
   constructor(
     private myBookingsService: MyBookingsService,
-    private authService: AuthService
+    private authService: AuthService,
+    private columnService: MyBookingsColumnService,
+    public dialog: MatDialog
   ) {}
 
   ngOnInit(): void {
@@ -32,5 +37,16 @@ export class MyBookingsComponent implements OnInit {
       .subscribe((bookings: Booking[]) => {
         this.displayedBookings = bookings;
       });
+  }
+
+  getColumns(status: string): Column[] {
+    return this.columnService.getColumns(status);
+  }
+
+  openBookingDetailsModal(event: Event, booking: Booking): void {
+    this.dialog.open(BookingDetailsModalComponent, {
+      width: '30rem',
+      data: booking,
+    });
   }
 }

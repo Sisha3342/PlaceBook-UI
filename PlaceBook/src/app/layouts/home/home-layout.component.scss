@@ -5,10 +5,12 @@ mat-sidenav-container {
 
 mat-sidenav {
   width: 14rem;
-  border-top-right-radius: 3rem;
   box-shadow: 0 4px 23px rgba(0, 0, 0, 0.25);
 }
 
-mat-sidenav-content {
-  padding: 2rem 4rem;
+mat-sidenav-content div{
+  display: table;
+  width: calc(100% - 8rem);
+  height: 100%;
+  padding: 2rem 4rem 0 4rem;
 }

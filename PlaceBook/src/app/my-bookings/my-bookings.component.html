@@ -1,19 +1,34 @@
-<div class="statistics">
-  <app-statistics-box></app-statistics-box>
-</div>
-
 <div class="tab-group">
-  <mat-tab-group (focusChange)="setBookings($event.index)">
+  <mat-tab-group mat-stretch-tabs (focusChange)="setBookings($event.index)">
     <mat-tab label="Active" class="demo-tab-label">
-      <app-table [data]="displayedBookings" [status]="statuses[0]"></app-table>
+      <app-table
+        [data]="displayedBookings"
+        [status]="statuses[0]"
+        [columns]="getColumns('active')"
+        [openDetails]="openBookingDetailsModal"
+      ></app-table>
     </mat-tab>
 
     <mat-tab label="Completed">
-      <app-table [data]="displayedBookings" [status]="statuses[1]"></app-table>
+      <app-table
+        [data]="displayedBookings"
+        [status]="statuses[1]"
+        [columns]="getColumns('completed')"
+        [openDetails]="openBookingDetailsModal"
+      ></app-table>
     </mat-tab>
 
     <mat-tab label="Cancelled">
-      <app-table [data]="displayedBookings" [status]="statuses[2]"></app-table>
+      <app-table
+        [data]="displayedBookings"
+        [status]="statuses[2]"
+        [columns]="getColumns('cancelled')"
+        [openDetails]="openBookingDetailsModal"
+      ></app-table>
     </mat-tab>
   </mat-tab-group>
+</div>
+
+<div class="statistics">
+  <app-statistics-box></app-statistics-box>
 </div>

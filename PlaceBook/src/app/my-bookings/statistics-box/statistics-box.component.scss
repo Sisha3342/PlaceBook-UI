@@ -1,25 +1,25 @@
-.add-button {
-  width: 13rem;
+.statistics-container {
+  background: white;
+  border-radius: 2rem;
+  margin-left: 4rem;
+  float: left;
+  display: block;
+  padding: 2rem;
+  box-shadow: 0 4px 23px rgba(0, 0, 0, 0.25);
+}
+
+.statistics-container .add-booking-container button {
+  width: 100%;
   height: 4rem;
   border-radius: 1.5rem;
   font-weight: bold;
   font-size: 16px;
 }
 
-.white-background {
-  background: white;
+.statistics-container .statistics-item {
+  width: 6rem;
+  height: 6rem;
   border-radius: 2rem;
-  margin-left: 4rem;
-  float: left;
-  display: block;
-  padding: 1.5rem;
-  box-shadow: 0 4px 23px rgba(0, 0, 0, 0.25);
-}
-
-.statistics-item {
-  width: 7.5rem;
-  height: 7.5rem;
-  border-radius: 1.5rem;
   box-shadow: 0 4px 23px rgba(0, 0, 0, 0.25);
   background: white;
   margin: 2rem auto 0 auto;
@@ -27,48 +27,51 @@
   text-align: center;
 }
 
-.statistics-item .statistics-item-count {
+.statistics-container .statistics-item .statistics-item-count {
   font-size: 3rem;
   font-weight: normal;
   justify-content: center;
   align-items: center;
   position: relative;
-  top: 2rem;
+  top: 1.4rem;
 }
 
-.statistics-item .statistics-item-count.all {
+.statistics-container .statistics-item .statistics-item-count.all {
+  color: black;
+}
+
+.statistics-container .statistics-item .statistics-item-count.active {
   color: #673AB7;
 }
 
-.statistics-item .statistics-item-count.active {
-  color: #fff700;
-}
-
-.statistics-item .statistics-item-count.completed {
+.statistics-container .statistics-item .statistics-item-count.completed {
   color: #00C19F;
 }
 
-.statistics-item .statistics-item-count.cancelled {
+.statistics-container .statistics-item .statistics-item-count.cancelled {
   color: #F44336;
 }
 
 .statistics-item .text-bookings {
   font-size: 1rem;
-  margin-top: 3rem;
+  margin-top: 2.5rem;
 }
 
 @media (max-width: 1530px) {
-  .add-button {
-    display: block;
+  .statistics-container {
+    padding: 1rem;
   }
 
-  .statistics-item {
+  .statistics-container .statistics-item {
     display: inline-block;
-    margin: 2rem;
+    margin: 2rem 1rem 1rem 1rem;
   }
 
-  .add-button {
-    margin: auto;
-    width: 100%;
+  .statistics-container .add-booking-container {
+    padding: 0 1rem;
+  }
+
+  .statistics-container .add-booking-container button {
+    margin-top: 1rem;
   }
 }

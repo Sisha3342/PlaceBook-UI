@@ -1,0 +1,36 @@
+<button
+  mat-mini-fab
+  color="primary"
+  [disabled]="scope >= 2"
+  matTooltip="Zoom in"
+  matTooltipShowDelay="500"
+  matTooltipPosition="above"
+  (click)="increase()"
+>
+  <mat-icon>zoom_in</mat-icon>
+</button>
+
+<div class="zoom-percent">{{ scope | percent }}</div>
+
+<button
+  mat-mini-fab
+  color="primary"
+  matTooltip="Zoom out"
+  matTooltipShowDelay="500"
+  matTooltipPosition="above"
+  [disabled]="scope <= 0.25"
+  (click)="decrease()"
+>
+  <mat-icon>zoom_out</mat-icon>
+</button>
+
+<button
+  mat-mini-fab
+  color="primary"
+  matTooltip="Reset"
+  matTooltipShowDelay="500"
+  matTooltipPosition="above"
+  (click)="reset()"
+>
+  <mat-icon>youtube_searched_for</mat-icon>
+</button>

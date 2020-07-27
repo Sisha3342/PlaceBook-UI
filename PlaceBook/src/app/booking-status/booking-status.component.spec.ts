@@ -8,9 +8,8 @@ describe('BookingStatusComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ BookingStatusComponent ]
-    })
-    .compileComponents();
+      declarations: [BookingStatusComponent],
+    }).compileComponents();
   }));
 
   beforeEach(() => {
