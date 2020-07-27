@@ -23,6 +23,7 @@ export class SearchComponent implements OnInit {
 
   ngOnInit(): void {
     this.filteredUsers = this.myControl.valueChanges.pipe(
+      startWith(''),
       debounceTime(500),
       map((value) => this.filter(value))
     );

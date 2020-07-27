@@ -23,7 +23,7 @@ export class SearchService {
     {
       id: 1,
       surname: '',
-      name: 'Sidor Sidorov',
+      name: 'Sidor Sidorovf',
       image:
         'https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcSOiKAvPAHNVVf34rc06yJAI8u9U-RWbOGxNPaRkelU2FwkubUnFkh5qHTmvPlkfA98E37FCd6wYIUS_njo6YMhqDUC1Gqv&usqp=CAU',
       email: 'sidor@mail.by',
@@ -41,7 +41,7 @@ export class SearchService {
     {
       id: 1,
       surname: '',
-      name: 'Dart Weider',
+      name: 'Dart Weidera',
       image: 'https://www.niemanlab.org/images/Greg-Emerson-edit-2.jpg',
       email: 'dart@mail.by',
       role: 'editor',
@@ -49,7 +49,7 @@ export class SearchService {
     {
       id: 1,
       surname: '',
-      name: 'Sidor Sidorov',
+      name: 'Sidor Snudorov',
       image:
         'https://cdn.shopify.com/s/files/1/0045/5104/9304/t/27/assets/AC_ECOM_SITE_2020_REFRESH_1_INDEX_M2_THUMBS-V2-1.jpg?v=8913815134086573859',
       email: 'prosto@mail.by',
@@ -76,7 +76,7 @@ export class SearchService {
     {
       id: 1,
       surname: '',
-      name: 'Dart Weider',
+      name: 'Darett Weider',
       image:
         'https://i.pinimg.com/originals/c9/e9/70/c9e970b49e846bde04ef66a5c0229b53.jpg',
       email: 'weider@mail.by',
@@ -101,7 +101,7 @@ export class SearchService {
   //   });
   // }
   searchUsers(searchText: string): User[] {
-    // searchText.toLowerCase();
+    searchText = searchText.toLowerCase();
     return this.employees.filter(
       (em) => em.name.toLowerCase().indexOf(searchText) !== -1
     );

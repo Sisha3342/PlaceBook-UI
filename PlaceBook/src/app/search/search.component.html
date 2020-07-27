@@ -8,6 +8,7 @@
            [matAutocomplete]="auto"
            (keyup)='this.typeText.emit(this.myControl.value)'
            (ngModelChange)='this.typeText.emit(this.myControl.value)'
+           (click)='this.typeText.emit(this.myControl.value)'
            autofocus>
 
     <mat-autocomplete #auto="matAutocomplete">
