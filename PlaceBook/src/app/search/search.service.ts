@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { User } from '../models/user';
 import { Observable } from 'rxjs';
 import { HttpParams } from '@angular/common/http';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root',
@@ -26,12 +26,6 @@ export class SearchService {
       withCredentials: true,
     });
   }
-  // searchUsers(searchText: string): User[] {
-  //   searchText = searchText.toLowerCase();
-  //   return this.employees.filter(
-  //     (em) => em.name.toLowerCase().indexOf(searchText) !== -1
-  //   );
-  // }
 
   autocompleteUsers(searchText: string): string[] {
     return this.employees

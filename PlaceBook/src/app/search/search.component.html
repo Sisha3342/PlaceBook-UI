@@ -11,7 +11,8 @@
            (click)='this.typeText.emit(this.myControl.value)'
            autofocus>
 
-    <mat-autocomplete #auto="matAutocomplete">
+    <mat-autocomplete #auto="matAutocomplete"
+                      [displayWith]="onType()">
       <mat-option *ngFor="let option of (filteredUsers | async)"
                   [value]="option">
         {{ option }}

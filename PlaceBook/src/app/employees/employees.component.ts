@@ -31,15 +31,11 @@ export class EmployeesComponent implements OnInit {
     });
   }
 
-  // filterEmployees(searchText: string): void {
-  //   this.employees = this.searchService.searchUsers(searchText);
-  // }
-
   ngOnInit(): void {
-    // this.getAllEmployees().subscribe((data) => {
-    //   this.employees = data;
-    // });
-    // this.employees = this.searchService.employees;
+    this.getAllEmployees().subscribe((data) => {
+      this.employees = data;
+    });
+
     this.breakpoint = Math.floor(window.innerWidth / 470);
   }
 
