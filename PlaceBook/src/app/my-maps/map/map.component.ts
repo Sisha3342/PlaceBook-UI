@@ -21,6 +21,16 @@ export class MapComponent implements OnInit {
     };
   }
 
+  onSubmit(form: ngForm): void {
+    this.insertRecord(form);
+  }
+
+  insertRecord(form: ngForm): void {
+    this.service.postOffice(form.value).subscribe((res) => {
+      this.resetForm(form);
+    });
+  }
+
   ngOnInit(): void {
     this.resetForm();
   }

@@ -19,20 +19,20 @@ export class AddOfficeModalComponent {
     public service: MapService
   ) {}
 
-  openDialog(): void {
-    const dialogRef = this.dialog.open(AddOfficeModalComponent, {
-      data: {
-        id: this.office.id,
-        address: {
-          country: this.office.address.country,
-          city: this.office.address.city,
-          address: this.office.address.address,
-        },
-      },
-    });
+  // openDialog(): void {
+  //   const dialogRef = this.dialog.open(AddOfficeModalComponent, {
+  //     data: {
+  //       id: this.office.id,
+  //       address: {
+  //         country: this.office.address.country,
+  //         city: this.office.address.city,
+  //         address: this.office.address.address,
+  //       },
+  //     },
+  //   });
 
-    dialogRef.afterClosed().subscribe((result) => {});
-  }
+  //   dialogRef.afterClosed().subscribe((result) => {});
+  // }
 
   onNoClick(): void {
     this.dialogRef.close();
