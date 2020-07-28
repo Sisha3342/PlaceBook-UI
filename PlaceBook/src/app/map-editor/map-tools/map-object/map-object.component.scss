@@ -1,7 +1,7 @@
 .icon {
   display: block;
   margin: auto;
-  color: white;
+  color: var(--secondary-color);
   width: 1.7rem;
   height: 3rem;
 }
@@ -11,7 +11,7 @@
   width: 3rem;
   margin: 0.5rem;
   border-radius: 5px;
-  background-color: #3f51b5;
+  background-color: var(--primary-color);
   cursor: pointer;
 }
 
@@ -20,7 +20,7 @@
   width: 100%;
   margin: auto;
   background-color: #dad8d8;
-  color: #3f51b5;
+  color: var(--primary-color);
   position: relative;
   top: 20%;
   cursor: pointer;
@@ -32,8 +32,8 @@
 }
 
 .on-map-icon-background.disabled {
-  background-color: lightcoral;
-  color: white;
+  background-color: var(--delete-color);
+  color: var(--secondary-color);
 }
 
 .place-number {

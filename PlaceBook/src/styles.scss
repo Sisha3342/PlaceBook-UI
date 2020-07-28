@@ -5,3 +5,32 @@ body {
   height: 100%;
   margin: 0;
 }
+
+:root {
+  --primary-color: #3f51b5;
+  --secondary-color: white;
+
+  --active-booking-color: #673AB7;
+  --completed-booking-color: #00C19F;
+  --cancelled-booking-color: #F44336;
+
+  --delete-color: #F44336;
+  --accept-color: #00C19F;
+
+  --delete-button-color: #F44336;
+
+  --primary-border: 2px solid #dedede;
+  --primary-border-radius: 4rem;
+  --secondary-border-radius: 2rem;
+  --primary-border-width: 2px;
+
+  --primary-content-margin: 4rem;
+  --secondary-content-margin: 2rem;
+
+  --primary-content-padding: 2rem;
+  --secondary-content-padding: 1rem;
+
+  --primary-box-shadow: 0 4px 23px rgba(0, 0, 0, 0.25);
+
+  --primary-font-size: 16px
+}

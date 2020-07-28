@@ -1,7 +1,7 @@
 .user-card-container {
   margin-top: 1rem;
   background-color: #d4e8f1;
-  border-radius: 0 4rem 4rem 0;
+  border-radius: 0 var(--primary-border-radius) var(--primary-border-radius) 0;
   width: 11.5rem;
   padding: 0.5rem;
 }
@@ -31,10 +31,12 @@
   font-weight: bold;
   margin-bottom: 0.3rem;
   margin-left: 0.2rem;
-  font-size: 16px;
+  font-size: var(--primary-font-size);
 }
 
 .user-card-container button {
   line-height: 1.7rem;
-  border-radius: 1.5rem;
+  border-radius: var(--secondary-border-radius);
+  background-color: var(--primary-color);
+  color: var(--secondary-color);
 }
