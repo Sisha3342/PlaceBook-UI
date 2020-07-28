@@ -1,4 +1,4 @@
-import { MapService } from './../../my-maps/map/map.service';
+import { MapService } from './add-map.service';
 import { Component, OnInit } from '@angular/core';
 import { MatDialog, MatDialogRef } from '@angular/material/dialog';
 import { NgForm } from '@angular/forms';

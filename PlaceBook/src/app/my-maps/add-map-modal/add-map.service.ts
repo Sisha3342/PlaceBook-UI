@@ -1,6 +1,6 @@
 import { Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
-import { Office } from './../../models/office';
+import { Office } from '../../models/office';
 import { Injectable } from '@angular/core';
 
 @Injectable({

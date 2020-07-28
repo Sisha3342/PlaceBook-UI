@@ -1,4 +1,4 @@
-import { MapService } from './my-maps/map/map.service';
+import { MapService } from './my-maps/add-map-modal/add-map.service';
 import { BookingDetailsModalComponent } from './my-bookings/booking-details-modal/booking-details-modal.component';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
