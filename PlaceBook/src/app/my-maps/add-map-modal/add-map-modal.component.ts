@@ -1,9 +1,10 @@
 import { MapService } from './../../my-maps/map/map.service';
 import { Office } from './../../models/office';
-import { NgxMaterialTimepickerComponent } from 'ngx-material-timepicker';
+// import { NgxMaterialTimepickerComponent } from 'ngx-material-timepicker';
 import { Component } from '@angular/core';
 import { MatDialog, MatDialogRef } from '@angular/material/dialog';
 import { NgForm } from '@angular/forms';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-add-map-modal',
@@ -12,6 +13,8 @@ import { NgForm } from '@angular/forms';
 })
 export class AddMapModalComponent {
   office: Office;
+
+  warnMessage = 'Office map created';
 
   constructor(
     public dialogRef: MatDialogRef<AddMapModalComponent>,
@@ -31,6 +34,7 @@ export class AddMapModalComponent {
   }
   onSubmit(form: NgForm): void {
     this.insertRecord(form);
+    this.dialogRef.close();
   }
 
   insertRecord(form: NgForm): void {

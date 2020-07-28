@@ -48,7 +48,8 @@
                        [ngxTimepicker]="min"
                        min=""
                        [(ngModel)]="service.formData.worktimeStart"
-                       readonly>
+                       readonly
+                       #min>
             </div>
 
             <div class="work-time-field">
@@ -62,7 +63,9 @@
                        [ngxTimepicker]="max"
                        max=""
                        [(ngModel)]="service.formData.worktimeEnd"
-                       readonly>
+                       readonly
+                       #max
+                       [disabled]="!min">
             </div>
         </div>
     </form>
