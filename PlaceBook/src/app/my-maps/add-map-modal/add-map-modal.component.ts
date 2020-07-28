@@ -15,7 +15,7 @@ export class AddMapModalComponent implements OnInit {
     public service: MapService
   ) {}
 
-  resetForm(form?: NgForm): void {
+  resetForm(): void {
     this.service.formData = {
       id: null,
       country: '',
@@ -25,14 +25,15 @@ export class AddMapModalComponent implements OnInit {
       worktimeEnd: '',
     };
   }
+
   onSubmit(form: NgForm): void {
     this.insertRecord(form);
     this.dialogRef.close();
   }
 
   insertRecord(form: NgForm): void {
-    this.service.postOffice(form.value).subscribe((res) => {
-      this.resetForm(form);
+    this.service.postOffice(form.value).subscribe(() => {
+      this.resetForm();
     });
   }
 
