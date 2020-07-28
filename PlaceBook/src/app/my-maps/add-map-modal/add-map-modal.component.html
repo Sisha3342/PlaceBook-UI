@@ -44,6 +44,7 @@
                        [ngxTimepicker]="min"
                        [(ngModel)]="service.formData.worktimeStart"
                        readonly
+                       [disabled]="form.invalid"
                        #min>
             </div>
 
@@ -55,7 +56,7 @@
                        [(ngModel)]="service.formData.worktimeEnd"
                        readonly
                        #max
-                       [disableClick]="!min">
+                       [disabled]="form.invalid">
             </div>
         </div>
     </form>
