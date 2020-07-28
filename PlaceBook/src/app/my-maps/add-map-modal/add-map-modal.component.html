@@ -3,8 +3,8 @@
 <div mat-dialog-content>
 
     <form #form="ngForm"
-          (submit)="onSubmit()"
-          class="office-location-fields">
+          class="office-location-fields"
+          autocomplete="off">
         <mat-form-field>
             <mat-label>Country</mat-label>
             <input matInput
@@ -41,6 +41,7 @@
             <div class="work-time-field">
                 <ngx-material-timepicker-toggle [for]="toggleTimepicker"></ngx-material-timepicker-toggle>
                 <ngx-material-timepicker #toggleTimepicker
+                                         appendToInput="true"
                                          #min></ngx-material-timepicker>
                 <input matInput
                        placeholder="From "
@@ -53,6 +54,7 @@
                 <ngx-material-timepicker-toggle class="to"
                                                 [for]="toggleTimepicker"></ngx-material-timepicker-toggle>
                 <ngx-material-timepicker #toggleTimepicker
+                                         appendToInput="true"
                                          #max></ngx-material-timepicker>
                 <input matInput
                        placeholder="To "
@@ -68,6 +70,8 @@
     <button mat-button
             mat-dialog-close>Close</button>
     <button mat-button
+            color="primary"
             type="submit"
-            [disabled]="form.invalid">Add</button>
+            [disabled]="form.invalid"
+            (click)="onSubmit(form)">Add</button>
 </mat-dialog-actions>

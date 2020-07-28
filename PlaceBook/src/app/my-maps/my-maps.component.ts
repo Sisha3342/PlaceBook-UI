@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
-import { AddOfficeModalComponent } from '../editor/add-office-modal/add-office-modal.component';
+import { AddMapModalComponent } from './add-map-modal/add-map-modal.component';
 
 @Component({
   selector: 'app-my-maps',
@@ -11,7 +11,7 @@ export class MyMapsComponent {
   constructor(public dialog: MatDialog) {}
 
   addNewOffice(): void {
-    const dialogRef = this.dialog.open(AddOfficeModalComponent);
+    const dialogRef = this.dialog.open(AddMapModalComponent);
     dialogRef.afterClosed().subscribe((result) => {});
     const dialogConfig = new MatDialogConfig();
     dialogConfig.disableClose = true;

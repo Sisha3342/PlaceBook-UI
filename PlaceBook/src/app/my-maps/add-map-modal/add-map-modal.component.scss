@@ -26,12 +26,6 @@ mat-dialog-content {
   overflow: hidden;
 }
 
-button[type="submit"] {
-  background: #3c4eae;
-  color: white;
-  border-radius: 20px;
-}
-
 .work-time {
   display: flex;
   justify-content: space-between;
@@ -57,13 +51,13 @@ ngx-material-timepicker-toggle.to {
   right: 1.5rem;
 }
 
-// .cdk-overlay-backdrop-showing {
-//   z-index: 1000 !important;
-// }
+.cdk-overlay-backdrop-showing {
+  z-index: 1000 !important;
+}
 
-// .timepicker-overlay {
-//   z-index: 1000 !important;
-// }
-// .cdk-overlay-container {
-//   z-index: 500 !important;
-// }
+.timepicker-overlay {
+  z-index: 1000 !important;
+}
+.cdk-overlay-container {
+  z-index: 500 !important;
+}
