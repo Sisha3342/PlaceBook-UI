@@ -1,11 +1,13 @@
 <table>
   <tr>
     <td>
-      <mat-form-field appearance="fill" class="input-item">
+      <mat-form-field appearance="fill"
+                      class="input-item">
         <mat-label>Country</mat-label>
         <mat-select>
           <mat-option>None</mat-option>
-          <mat-option *ngFor="let country of countries" [value]="country">{{
+          <mat-option *ngFor="let country of countries"
+                      [value]="country">{{
             country
           }}</mat-option>
         </mat-select>
@@ -13,11 +15,13 @@
     </td>
 
     <td>
-      <mat-form-field appearance="fill" class="input-item">
+      <mat-form-field appearance="fill"
+                      class="input-item">
         <mat-label>City</mat-label>
         <mat-select>
           <mat-option>None</mat-option>
-          <mat-option *ngFor="let city of cities" [value]="city">{{
+          <mat-option *ngFor="let city of cities"
+                      [value]="city">{{
             city
           }}</mat-option>
         </mat-select>
@@ -25,11 +29,13 @@
     </td>
 
     <td>
-      <mat-form-field appearance="fill" class="input-item">
+      <mat-form-field appearance="fill"
+                      class="input-item">
         <mat-label>Address</mat-label>
         <mat-select>
           <mat-option>None</mat-option>
-          <mat-option *ngFor="let address of addresses" [value]="address">{{
+          <mat-option *ngFor="let address of addresses"
+                      [value]="address">{{
             address
           }}</mat-option>
         </mat-select>
@@ -38,7 +44,10 @@
 
     <td>
       <div class="add-map-container">
-        <button mat-raised-button color="primary" routerLink="/map">
+        <button mat-raised-button
+                color="primary"
+                (click)="addNewOffice()"
+                routerLink="/map">
           Add Map
         </button>
       </div>

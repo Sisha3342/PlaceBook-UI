@@ -14,7 +14,10 @@ export class MapService {
   postOffice(formData: Office): Observable<Office> {
     return this.http.post<Office>(
       `https://placebookapp.herokuapp.com/office/`,
-      formData
+      formData,
+      {
+        withCredentials: true,
+      }
     );
   }
 }

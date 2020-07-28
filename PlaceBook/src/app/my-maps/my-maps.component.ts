@@ -1,5 +1,4 @@
-import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
-import { AddMapModalComponent } from './add-map-modal/add-map-modal.component';
+import { MatDialog } from '@angular/material/dialog';
 import { Component, OnInit } from '@angular/core';
 import { Column } from '../models/column';
 import { MapList } from '../models/map';
@@ -68,13 +67,6 @@ export class MyMapsComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {}
-
-  addNewOffice(): void {
-    const dialogRef = this.dialog.open(AddMapModalComponent);
-    const dialogConfig = new MatDialogConfig();
-    dialogConfig.disableClose = true;
-    dialogConfig.autoFocus = true;
-  }
 
   setCountries(): void {
     this.mapService.getCountries().subscribe((countries: string[]) => {
