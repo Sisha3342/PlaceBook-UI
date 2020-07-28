@@ -34,3 +34,9 @@ body {
 
   --primary-font-size: 16px
 }
+
+.tab-container {
+  width: calc(100% - 8rem);
+  height: 100%;
+  padding: 2rem 4rem 0 4rem;
+}
