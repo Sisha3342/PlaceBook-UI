@@ -6,23 +6,26 @@
   <table class="booking-details">
     <tr>
       <td class="booking-details-label">Date:</td>
-      <td>{{ booking.date }}</td>
+      <td>{{ booking.timeStart }} - {{ booking.timeEnd }}</td>
     </tr>
     <tr>
       <td class="booking-details-label">Address:</td>
-      <td>{{ booking.country }}, {{ booking.city }}, {{ booking.address }}</td>
+      <td>
+        {{ booking.address.country }}, {{ booking.address.city }},
+        {{ booking.address.address }}
+      </td>
     </tr>
     <tr>
       <td class="booking-details-label">Place #:</td>
-      <td>{{ booking.place }}</td>
+      <td>{{ booking.placeNumber }}</td>
     </tr>
-    <tr *ngIf="booking.status === 'completed'">
+    <tr *ngIf="booking.status === 'COMPLETED'">
       <td class="booking-details-label">Feedback:</td>
-      <td>{{ booking.feedback }}</td>
+      <td>{{ booking.marks.feedback }}</td>
     </tr>
   </table>
 
-  <table class="booking-rate" *ngIf="booking.status === 'completed'">
+  <table class="booking-rate" *ngIf="booking.status === 'COMPLETED'">
     <tr>
       <td matTooltip="Light" [matTooltipPosition]="'above'">
         <i class="fa fa-lightbulb"></i>
@@ -41,11 +44,11 @@
       </td>
     </tr>
     <tr>
-      <td>{{ booking.rating.light }}</td>
-      <td>{{ booking.rating.air }}</td>
-      <td>{{ booking.rating.noise }}</td>
-      <td>{{ booking.rating.clean }}</td>
-      <td>{{ booking.rating.location }}</td>
+      <td>{{ booking.marks.markLightning }}</td>
+      <td>{{ booking.marks.markAir }}</td>
+      <td>{{ booking.marks.markVolume }}</td>
+      <td>{{ booking.marks.markCleaning }}</td>
+      <td>{{ booking.marks.markLocation }}</td>
     </tr>
   </table>
 </div>

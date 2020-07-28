@@ -1,18 +1,14 @@
+import { BookingMark } from './booking-mark';
+import { OfficeAddress } from './office-address';
+
 export interface Booking {
-  place: string;
-  logo?: string;
-  name?: string;
-  date: string;
-  country: string;
-  city: string;
-  address: string;
+  id: number;
+  placeNumber: string;
+  userName: string;
+  userSurname: string;
+  marks?: BookingMark;
+  address: OfficeAddress;
+  timeStart: string;
+  timeEnd: string;
   status: string;
-  feedback?: string;
-  rating?: {
-    light: number;
-    air: number;
-    noise: number;
-    clean: number;
-    location: number;
-  };
 }

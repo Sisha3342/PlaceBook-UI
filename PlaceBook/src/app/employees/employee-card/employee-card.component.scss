@@ -11,18 +11,12 @@
   text-align: center;
 }
 
-.user-photo-container {
+mat-card mat-card-content app-user-photo {
   margin: 1rem auto;
   border-radius: 50%;
   overflow: hidden;
   width: 8rem;
   height: 8rem;
-}
-
-.user-photo {
-  object-fit: contain;
-  width: auto;
-  height: 100%;
 }
 
 .user-name {
