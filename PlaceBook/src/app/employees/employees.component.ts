@@ -32,9 +32,9 @@ export class EmployeesComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    // this.getAllEmployees().subscribe((data) => {
-    //   this.employees = data;
-    // });
+    this.getAllEmployees().subscribe((data) => {
+      this.employees = data;
+    });
 
     this.breakpoint = Math.floor(window.innerWidth / 470);
   }
