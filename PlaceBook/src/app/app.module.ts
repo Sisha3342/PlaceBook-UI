@@ -43,6 +43,7 @@ import { RateComponent } from './my-bookings/rate-place-modal/rate/rate.componen
 import { EmployeesBookingsColumnService } from './employees-bookings/employees-bookings-column.service';
 import { MyBookingsColumnService } from './my-bookings/my-bookings-column.service';
 import { AddMapModalComponent } from './my-maps/add-map-modal/add-map-modal.component';
+import { UserPhotoComponent } from './user-photo/user-photo.component';
 
 @NgModule({
   declarations: [
@@ -77,6 +78,7 @@ import { AddMapModalComponent } from './my-maps/add-map-modal/add-map-modal.comp
     RateComponent,
     AddMapModalComponent,
     FloorPanelComponent,
+    UserPhotoComponent,
   ],
   imports: [
     BrowserModule,

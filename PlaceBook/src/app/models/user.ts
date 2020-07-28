@@ -4,5 +4,5 @@ export class User {
   surname: string;
   email: string;
   role: string;
-  image: string;
+  photoUrl: string;
 }

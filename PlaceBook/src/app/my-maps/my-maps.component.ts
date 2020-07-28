@@ -1,19 +1,45 @@
-import { Component } from '@angular/core';
 import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 import { AddMapModalComponent } from './add-map-modal/add-map-modal.component';
+import { Component, OnInit } from '@angular/core';
+import { MapService } from './map.service';
+import { Office } from './map-models/office';
 
 @Component({
   selector: 'app-my-maps',
   templateUrl: './my-maps.component.html',
   styleUrls: ['./my-maps.component.scss'],
 })
-export class MyMapsComponent {
-  constructor(public dialog: MatDialog) {}
+export class MyMapsComponent implements OnInit {
+  countries: string[];
+  cities: string[];
+  offices: Office[];
 
   addNewOffice(): void {
     const dialogRef = this.dialog.open(AddMapModalComponent);
     const dialogConfig = new MatDialogConfig();
     dialogConfig.disableClose = true;
     dialogConfig.autoFocus = true;
+  }
+
+  constructor(public dialog: MatDialog, private mapService: MapService) {}
+
+  ngOnInit(): void {}
+
+  setCountries(): void {
+    this.mapService.getCountries().subscribe((countries: string[]) => {
+      this.countries = countries;
+    });
+  }
+
+  setCities(country: string): void {
+    this.mapService.getCities(country).subscribe((cities: string[]) => {
+      this.cities = cities;
+    });
+  }
+
+  setOffices(country: string, city: string): void {
+    this.mapService.getOffices(country, city).subscribe((offices: Office[]) => {
+      this.offices = offices;
+    });
   }
 }

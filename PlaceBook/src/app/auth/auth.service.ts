@@ -3,12 +3,17 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { User } from '../models/user';
 import { Router } from '@angular/router';
+import { CookieService } from 'ngx-cookie-service';
 
 @Injectable({
   providedIn: 'root',
 })
 export class AuthService {
-  constructor(private router: Router, private http: HttpClient) {}
+  constructor(
+    private router: Router,
+    private http: HttpClient,
+    private cookieService: CookieService
+  ) {}
 
   get isLoggedIn(): boolean {
     return !!localStorage.getItem('user');
@@ -21,12 +26,16 @@ export class AuthService {
 
     return this.http.post<User>(
       'https://placebookapp.herokuapp.com/login',
-      formData
+      formData,
+      {
+        withCredentials: true,
+      }
     );
   }
 
   logout(): void {
     this.router.navigate(['/login']);
+    this.cookieService.deleteAll();
   }
 
   getCurrentUser(): User {
