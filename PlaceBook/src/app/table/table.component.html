@@ -8,19 +8,19 @@
       </th>
       <td mat-cell *matCellDef="let element">
         <div [ngSwitch]="column.type">
-          <span *ngSwitchCase="'text'">
-            {{ element[column.field] }}
+          <span *ngSwitchDefault>
+            {{ getProperty(element, column.field) }}
+          </span>
+
+          <span *ngSwitchCase="'date'">
+            {{ getProperty(element, column.field) | date: "longDate" }}
           </span>
 
           <span *ngSwitchCase="'place'">
             <span class="bookmark" [ngClass]="getBookmarkClass()">{{
               element[column.field]
             }}</span>
-            <button
-              mat-icon-button
-              aria-label="Example icon button with a vertical three dot icon"
-              class="edit-button"
-            >
+            <button mat-icon-button class="edit-button">
               <mat-icon>edit</mat-icon>
             </button>
           </span>
@@ -82,7 +82,7 @@
     <tr
       mat-row
       *matRowDef="let row; columns: getTableColumns()"
-      (click)="openDetails($event, row)"
+      (click)="openDetails($event, row, authService.getCurrentUser())"
     ></tr>
   </table>
 </div>

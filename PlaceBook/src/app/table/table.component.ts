@@ -3,6 +3,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { RatePlaceModalComponent } from '../my-bookings/rate-place-modal/rate-place-modal.component';
 import { Column } from '../models/column';
 import { Booking } from '../models/booking';
+import { AuthService } from '../auth/auth.service';
 
 @Component({
   selector: 'app-table',
@@ -16,7 +17,7 @@ export class TableComponent implements OnInit {
   @Input() openDetails;
   @Input() isViewRating: boolean;
 
-  constructor(public dialog: MatDialog) {}
+  constructor(public dialog: MatDialog, public authService: AuthService) {}
 
   ngOnInit(): void {}
 
@@ -43,5 +44,9 @@ export class TableComponent implements OnInit {
     this.dialog.open(RatePlaceModalComponent, {
       data: { isViewRating: this.isViewRating },
     });
+  }
+
+  getProperty(element, property: string) {
+    return eval('element.' + property);
   }
 }

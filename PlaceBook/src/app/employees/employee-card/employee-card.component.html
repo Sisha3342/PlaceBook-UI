@@ -8,27 +8,20 @@
     <mat-button-toggle-group
       #group="matButtonToggleGroup"
       [value]="employeeObject.role"
-      [ngSwitch]="employeeObject.role"
       (valueChange)="changeRole(group.value)"
     >
-      <mat-button-toggle
-        class="admin"
-        *ngSwitchCase="role.admin"
-        [value]="role.admin"
-      >
+      <mat-button-toggle [value]="role.user">
+        Employee
+      </mat-button-toggle>
+      <mat-button-toggle [value]="role.hr">
+        HR
+      </mat-button-toggle>
+      <mat-button-toggle [value]="role.editor">
+        Editor
+      </mat-button-toggle>
+      <mat-button-toggle [value]="role.admin">
         Admin
       </mat-button-toggle>
-      <ng-container *ngSwitchDefault>
-        <mat-button-toggle [value]="role.user">
-          Employee
-        </mat-button-toggle>
-        <mat-button-toggle [value]="role.hr">
-          HR
-        </mat-button-toggle>
-        <mat-button-toggle [value]="role.editor">
-          Editor
-        </mat-button-toggle>
-      </ng-container>
     </mat-button-toggle-group>
   </mat-card-content>
 </mat-card>
