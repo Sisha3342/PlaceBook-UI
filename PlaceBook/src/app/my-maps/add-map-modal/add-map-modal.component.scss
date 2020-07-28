@@ -17,9 +17,11 @@ mat-label {
   display: inline-block;
   font-weight: bold;
   white-space: nowrap;
-  margin-right: 5rem;
 }
 
+.work-time mat-label {
+  margin-right: 5rem;
+}
 mat-dialog-content {
   margin: 0;
   padding: 0 1rem;

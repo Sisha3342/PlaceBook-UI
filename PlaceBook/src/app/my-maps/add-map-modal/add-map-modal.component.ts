@@ -4,8 +4,6 @@ import { NgxMaterialTimepickerComponent } from 'ngx-material-timepicker';
 import { Component } from '@angular/core';
 import { MatDialog, MatDialogRef } from '@angular/material/dialog';
 import { NgForm } from '@angular/forms';
-// import { NgForm } from '@angular/forms';
-// import { MapComponent } from '../../my-maps/map/map.component';
 
 @Component({
   selector: 'app-add-map-modal',
@@ -24,11 +22,11 @@ export class AddMapModalComponent {
   resetForm(form?: NgForm): void {
     this.service.formData = {
       id: null,
-      address: {
-        country: '',
-        city: '',
-        address: '',
-      },
+      country: '',
+      city: '',
+      address: '',
+      worktimeStart: '00:00',
+      worktimeEnd: '00:00',
     };
   }
   onSubmit(form: NgForm): void {
