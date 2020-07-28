@@ -1,6 +1,6 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { MapsSelectorComponent } from './maps-selector.component';
+import { MapsSelectorComponent } from './maps-search.component';
 
 describe('MapsSelectorComponent', () => {
   let component: MapsSelectorComponent;

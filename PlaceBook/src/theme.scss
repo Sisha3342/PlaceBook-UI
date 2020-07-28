@@ -6,4 +6,8 @@ $custom-typography: mat-typography-config(
   $body-1: mat-typography-level(16px, 24px, 500)
 );
 
+.mat-form-field-appearance-fill .mat-form-field-flex {
+  background-color: transparent;
+}
+
 @include mat-core($custom-typography);

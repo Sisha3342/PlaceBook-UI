@@ -4,7 +4,7 @@ import { Column } from '../models/column';
 @Injectable({
   providedIn: 'root',
 })
-export class MyMapsService {
+export class MyMapsColumnService {
   constructor() {}
 
   columns: Column[] = [
@@ -31,20 +31,28 @@ export class MyMapsService {
   cancelColumn = {
     id: 'cancelButton',
     type: 'cancel',
-    width: '3rem',
+    width: '5%',
     tooltip: 'Delete map',
   };
 
-  editColumn = {
-    id: 'editButton',
-    type: 'edit',
-    width: '7rem',
+  editAddressColumn = {
+    id: 'editAddressButton',
+    type: 'editAddress',
+    width: '5%',
+    tooltip: 'Edit address',
+  };
+
+  editMapColumn = {
+    id: 'editMapButton',
+    type: 'editMap',
+    width: '5%',
     tooltip: 'Edit map',
   };
 
   getColumns(): Column[] {
     const columns = [...this.columns];
-    columns.push(this.editColumn);
+    columns.push(this.editAddressColumn);
+    columns.push(this.editMapColumn);
     columns.push(this.cancelColumn);
     return columns;
   }

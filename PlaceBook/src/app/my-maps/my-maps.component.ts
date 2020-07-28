@@ -1,16 +1,16 @@
 import { Component, OnInit } from '@angular/core';
 import { Column } from '../models/column';
 import { MapList } from '../models/map';
-import { MyMapsService } from './my-maps.service';
+import { MyMapsColumnService } from './my-maps-column.service';
 
 @Component({
   selector: 'app-my-maps',
   templateUrl: './my-maps.component.html',
   styleUrls: ['./my-maps.component.scss'],
-  providers: [MyMapsService],
+  providers: [MyMapsColumnService],
 })
 export class MyMapsComponent {
-  constructor(private columnMapService: MyMapsService) {}
+  constructor(private columnMapService: MyMapsColumnService) {}
   DATA: MapList[] = [
     {
       country: 'Belarus',

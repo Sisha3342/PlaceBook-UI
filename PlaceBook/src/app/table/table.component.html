@@ -29,7 +29,7 @@
             <img class="photo-logo" [src]="element[column.field]" />
           </span>
 
-          <span *ngSwitchCase="'edit'">
+          <span *ngSwitchCase="'editAddress'">
             <button
               mat-icon-button
               [matTooltip]="column.tooltip"
@@ -37,6 +37,17 @@
               class="icon-button"
             >
               <mat-icon>edit</mat-icon>
+            </button>
+          </span>
+
+          <span *ngSwitchCase="'editMap'">
+            <button
+              mat-icon-button
+              [matTooltip]="column.tooltip"
+              [matTooltipPosition]="'above'"
+              class="icon-button"
+            >
+              <mat-icon>edit_location</mat-icon>
             </button>
           </span>
 
