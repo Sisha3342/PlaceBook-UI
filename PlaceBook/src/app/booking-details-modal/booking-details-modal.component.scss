@@ -15,7 +15,7 @@ table.booking-details td {
   padding: 0.5rem 0;
   font-size: 0.875rem;
   vertical-align: top;
-  border-bottom: 1px solid #dedede;
+  border-bottom: var(--primary-border);
 }
 
 table.booking-details td.booking-details-label {
@@ -27,7 +27,7 @@ table.booking-rate {
   width: 100%;
   border-radius: 0.25rem;
   margin: 1rem 0;
-  border: 1px solid #dedede;
+  border: var(--primary-border);
   padding: 0.5rem;
 }
 

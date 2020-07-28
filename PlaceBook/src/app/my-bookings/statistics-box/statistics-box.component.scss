@@ -1,29 +1,28 @@
 .statistics-container {
-  background: white;
-  border-radius: 2rem;
-  margin-left: 4rem;
+  background: var(--secondary-color);
+  border-radius: var(--secondary-border-radius);
   float: left;
   display: block;
-  padding: 2rem;
-  box-shadow: 0 4px 23px rgba(0, 0, 0, 0.25);
+  padding: var(--primary-content-padding);
+  box-shadow: var(--primary-box-shadow);
 }
 
 .statistics-container .add-booking-container button {
   width: 100%;
   height: 4rem;
-  border-radius: 1.5rem;
+  border-radius: var(--secondary-border-radius);
   font-weight: bold;
-  font-size: 16px;
+  font-size: var(--primary-font-size);
 }
 
 .statistics-container .statistics-item {
   width: 6rem;
   height: 6rem;
-  border-radius: 2rem;
-  box-shadow: 0 4px 23px rgba(0, 0, 0, 0.25);
-  background: white;
-  margin: 2rem auto 0 auto;
-  padding: 1rem;
+  border-radius: var(--secondary-border-radius);
+  box-shadow: var(--primary-box-shadow);
+  background: var(--secondary-color);
+  margin: var(--secondary-content-margin) auto 0 auto;
+  padding: var(--secondary-content-padding);
   text-align: center;
 }
 
@@ -41,15 +40,15 @@
 }
 
 .statistics-container .statistics-item .statistics-item-count.active {
-  color: #673AB7;
+  color: var(--active-booking-color);
 }
 
 .statistics-container .statistics-item .statistics-item-count.completed {
-  color: #00C19F;
+  color: var(--completed-booking-color);
 }
 
 .statistics-container .statistics-item .statistics-item-count.cancelled {
-  color: #F44336;
+  color: var(--cancelled-booking-color);
 }
 
 .statistics-item .text-bookings {
