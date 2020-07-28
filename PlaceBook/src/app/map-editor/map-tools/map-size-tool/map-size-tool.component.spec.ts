@@ -1,19 +1,19 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { StatisticsBoxComponent } from './statistics-box.component';
+import { MapSizeToolComponent } from './map-size-tool.component';
 
-describe('StatisticsBoxComponent', () => {
-  let component: StatisticsBoxComponent;
-  let fixture: ComponentFixture<StatisticsBoxComponent>;
+describe('MapSizeToolComponent', () => {
+  let component: MapSizeToolComponent;
+  let fixture: ComponentFixture<MapSizeToolComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [StatisticsBoxComponent],
+      declarations: [MapSizeToolComponent],
     }).compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(StatisticsBoxComponent);
+    fixture = TestBed.createComponent(MapSizeToolComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

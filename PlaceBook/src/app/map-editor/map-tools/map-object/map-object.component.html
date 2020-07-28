@@ -1,0 +1,37 @@
+<div
+  draggable="true"
+  [matTooltip]="object.tooltip"
+  matTooltipShowDelay="500"
+  matTooltipPosition="above"
+  (dragstart)="editorService.dragStart($event, object)"
+  [ngClass]="{
+    'on-map-icon-background': isOnMap,
+    'icon-background': !isOnMap,
+    disabled: !object.isActive && object.hasOwnProperty('number')
+  }"
+>
+  <mat-icon
+    fontSet="fas"
+    [fontIcon]="object.icon"
+    [ngClass]="{ 'on-map-icon': isOnMap, icon: !isOnMap }"
+  >
+  </mat-icon>
+
+  <div
+    class="place-number"
+    *ngIf="object.hasOwnProperty('number') && isOnMap"
+    [style.font-size.rem]="getFontSize()"
+    [style.line-height.rem]="getFontSize()"
+  >
+    {{ object.number }}
+  </div>
+
+  <div
+    class="conf-room-capacity"
+    *ngIf="object.hasOwnProperty('capacity') && isOnMap"
+    [style.font-size.rem]="getFontSize()"
+    [style.line-height.rem]="getFontSize()"
+  >
+    {{ object.capacity }}
+  </div>
+</div>
