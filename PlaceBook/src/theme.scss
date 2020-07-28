@@ -6,10 +6,10 @@ $custom-typography: mat-typography-config(
   $body-1: mat-typography-level(16px, 24px, 500),
 );
 
-@include mat-core($custom-typography);
-
 @mixin cdk-overlay() {
   .cdk-overlay-container {
     z-index: 999;
   }
 }
+
+@include mat-core($custom-typography);
