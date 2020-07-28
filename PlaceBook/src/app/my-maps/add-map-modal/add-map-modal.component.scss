@@ -28,6 +28,16 @@ mat-dialog-content {
   overflow: hidden;
 }
 
+button[type="submit"] {
+  background: #3c4eae;
+  color: white;
+}
+
+button[type="submit"][disabled] {
+  color: #fff;
+  opacity: 50%;
+}
+
 .work-time {
   display: flex;
   justify-content: space-between;

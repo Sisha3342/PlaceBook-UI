@@ -52,7 +52,7 @@
             </div>
 
             <div class="work-time-field">
-                <ngx-material-timepicker-toggle [disabled]="min == ''"
+                <ngx-material-timepicker-toggle [disabled]="!min"
                                                 class="to"
                                                 [for]="toggleTimepicker"></ngx-material-timepicker-toggle>
                 <ngx-material-timepicker #toggleTimepicker
@@ -64,7 +64,7 @@
                        [(ngModel)]="service.formData.worktimeEnd"
                        readonly
                        #max
-                       [disableClick]="min == ''">
+                       [disableClick]="!min">
             </div>
         </div>
     </form>
