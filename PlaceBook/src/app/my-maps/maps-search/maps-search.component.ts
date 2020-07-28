@@ -24,7 +24,9 @@ export class MapsSearchComponent implements OnInit {
 
   constructor(public dialog: MatDialog) {}
   addNewOffice(): void {
-    const dialogRef = this.dialog.open(AddMapModalComponent);
+    const dialogRef = this.dialog.open(AddMapModalComponent, {
+      width: '30rem',
+    });
     const dialogConfig = new MatDialogConfig();
     dialogConfig.disableClose = true;
     dialogConfig.autoFocus = true;
