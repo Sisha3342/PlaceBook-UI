@@ -1,24 +1,20 @@
 <form>
-  <mat-form-field class="form-searh-field">
+  <mat-form-field>
     <input
       matInput
-      class="search-input"
       type="text"
       placeholder="Search by Employees"
       [formControl]="myControl"
       [matAutocomplete]="auto"
+      autofocus
     />
-
     <mat-autocomplete #auto="matAutocomplete">
       <mat-option
-        *ngFor="let option of filteredOptions | async"
-        [value]="option"
+        *ngFor="let option of filteredUsers | async"
+        [value]="option.name + ' ' + option.surname"
       >
-        {{ option }}
+        {{ option.name + " " + option.surname }}
       </mat-option>
     </mat-autocomplete>
   </mat-form-field>
-  <button mat-raised-button class="search-button" (click)="onClick()">
-    Search
-  </button>
 </form>

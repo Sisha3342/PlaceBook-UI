@@ -20,18 +20,4 @@ export class EmployeeService {
       }
     );
   }
-
-  getUsers(offset: number, limit: number, name?: string): Observable<User[]> {
-    let params = new HttpParams()
-      .set('offset', offset.toString())
-      .set('limit', limit.toString());
-    if (name) {
-      params = params.set('text', name);
-    }
-
-    return this.http.get<User[]>('https://placebookapp.herokuapp.com/users', {
-      params: params,
-      withCredentials: true,
-    });
-  }
 }

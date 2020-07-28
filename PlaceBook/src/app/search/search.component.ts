@@ -1,40 +1,42 @@
-import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { SearchService } from './search.service';
+import {
+  Component,
+  OnInit,
+  Input,
+  Output,
+  EventEmitter,
+  OnChanges,
+  SimpleChanges,
+} from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { Observable } from 'rxjs';
-import { map, startWith } from 'rxjs/operators';
-import { AppMaterialModule } from './../app-material/app-material.module';
+import { startWith, debounceTime, switchMap } from 'rxjs/operators';
+import { User } from '../models/user';
 
 @Component({
   selector: 'app-search',
   templateUrl: './search.component.html',
   styleUrls: ['./search.component.scss'],
 })
-export class SearchComponent implements OnInit {
+export class SearchComponent implements OnInit, OnChanges {
   myControl = new FormControl();
-  options: string[] = ['One', 'Two', 'Three', 'hhh78'];
 
-  filteredOptions: Observable<string[]>;
+  @Input() filteredUsers: Observable<User[]>;
+  @Output() filteredUsersChange = new EventEmitter<Observable<User[]>>();
 
-  @Output()
-  searchClicked = new EventEmitter<string>();
-
-  constructor() {}
+  constructor(private searchService: SearchService) {}
 
   ngOnInit(): void {
-    this.filteredOptions = this.myControl.valueChanges.pipe(
+    this.filteredUsers = this.myControl.valueChanges.pipe(
       startWith(''),
-      map((value) => this._filter(value))
+      debounceTime(500),
+      switchMap((value) => {
+        return this.searchService.searchUsers(0, 1000, value);
+      })
     );
   }
 
-  private _filter(value: string): string[] {
-    const filterValue = value.toLowerCase();
-    return this.options.filter((option) =>
-      option.toLowerCase().includes(filterValue)
-    );
-  }
-
-  onClick(): void {
-    this.searchClicked.emit(this.myControl.value);
+  ngOnChanges(changes: SimpleChanges) {
+    this.filteredUsersChange.emit(this.filteredUsers);
   }
 }

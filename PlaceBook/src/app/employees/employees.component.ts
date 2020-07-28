@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { User } from '../models/user';
-import { EmployeeService } from './employee-card/employee.service';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-employees',
@@ -9,23 +9,11 @@ import { EmployeeService } from './employee-card/employee.service';
 })
 export class EmployeesComponent implements OnInit {
   breakpoint = 0;
-  users: User[];
+  users: Observable<User[]>;
 
-  constructor(private employeeService: EmployeeService) {}
-
-  filterEmployees(searchText: string): void {
-    this.employeeService
-      .getUsers(0, 100, searchText)
-      .subscribe((users: User[]) => {
-        this.users = users;
-      });
-  }
+  constructor() {}
 
   ngOnInit(): void {
-    this.employeeService.getUsers(0, 100).subscribe((users: User[]) => {
-      this.users = users;
-    });
-
     this.breakpoint = Math.floor(window.innerWidth / 450);
   }
 
