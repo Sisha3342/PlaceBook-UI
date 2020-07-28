@@ -1,14 +1,34 @@
 <mat-card class="user-card">
   <mat-card-content class="user-card-content">
-    <div class="user-photo-container">
-      <img class="user-photo" src="{{ employeeObject.photo }}" />
-    </div>
-    <p class="user-name">{{ employeeObject.username }}</p>
+    <app-user-photo [imgSrc]="employeeObject.photoUrl"> </app-user-photo>
+    <p class="user-name">
+      {{ employeeObject.name + " " + employeeObject.surname }}
+    </p>
     <p class="user-email">{{ employeeObject.email }}</p>
-    <mat-button-toggle-group [(value)]="employeeObject.role">
-      <mat-button-toggle value="employee"> Employee </mat-button-toggle>
-      <mat-button-toggle value="hr"> HR </mat-button-toggle>
-      <mat-button-toggle value="editor"> Editor </mat-button-toggle>
+    <mat-button-toggle-group
+      #group="matButtonToggleGroup"
+      [value]="employeeObject.role"
+      [ngSwitch]="employeeObject.role"
+      (valueChange)="changeRole(group.value)"
+    >
+      <mat-button-toggle
+        class="admin"
+        *ngSwitchCase="role.admin"
+        [value]="role.admin"
+      >
+        Admin
+      </mat-button-toggle>
+      <ng-container *ngSwitchDefault>
+        <mat-button-toggle [value]="role.user">
+          Employee
+        </mat-button-toggle>
+        <mat-button-toggle [value]="role.hr">
+          HR
+        </mat-button-toggle>
+        <mat-button-toggle [value]="role.editor">
+          Editor
+        </mat-button-toggle>
+      </ng-container>
     </mat-button-toggle-group>
   </mat-card-content>
 </mat-card>

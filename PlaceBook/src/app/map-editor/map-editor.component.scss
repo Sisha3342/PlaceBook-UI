@@ -1,0 +1,40 @@
+.tools {
+  margin: 0 10% 2rem 0;
+  display: flex;
+  justify-content: center;
+}
+
+.tools .tools-container {
+  background: var(--secondary-color);
+  border-radius: var(--secondary-border-radius);
+  box-shadow: var(--primary-box-shadow);
+  padding: 0.5rem;
+  margin: 1rem;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.tools .tools-container .delimiter {
+  border-right: var(--primary-border);
+  margin: 0.5rem;
+}
+
+.my-grid {
+  width: 90%;
+  text-align: center;
+  height: calc(100% - 14rem);
+  display: inline-block;
+}
+
+app-floor-panel {
+  vertical-align: top;
+  width: 10%;
+  display: inline-block;
+  text-align: center;
+}
+
+app-zoom-tool {
+  display: flex;
+  align-items: center;
+}
+

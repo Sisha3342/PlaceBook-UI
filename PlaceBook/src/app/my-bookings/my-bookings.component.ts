@@ -1,9 +1,13 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Booking } from '../models/booking';
 import { Column } from '../models/column';
 import { MyBookingsColumnService } from './my-bookings-column.service';
 import { BookingDetailsModalComponent } from '../booking-details-modal/booking-details-modal.component';
 import { MatDialog } from '@angular/material/dialog';
+import { MyBookingsService } from './my-bookings.service';
+import { AuthService } from '../auth/auth.service';
+import { STATUS } from '../models/status';
+import { User } from '../models/user';
 
 @Component({
   selector: 'app-my-bookings',
@@ -11,187 +15,40 @@ import { MatDialog } from '@angular/material/dialog';
   styleUrls: ['./my-bookings.component.scss'],
   providers: [MyBookingsColumnService],
 })
-export class MyBookingsComponent {
-  DATA: Booking[] = [
-    {
-      place: '12A',
-      date: '12.02.2020',
-      country: 'Belarus',
-      city: 'Minsk',
-      address: 'Kuprevicha 3',
-      status: 'active',
-      feedback: '',
-      rating: {
-        light: 3.0,
-        air: 5.0,
-        noise: 2.4,
-        clean: 3.8,
-        location: 2.7,
-      },
-    },
-    {
-      place: '121A',
-      date: '12.02.2020',
-      country: 'Belarus',
-      city: 'Minsk',
-      address: 'Kuprevicha 3',
-      status: 'active',
-      feedback: 'Все хорошо',
-      rating: {
-        light: 3.0,
-        air: 5.0,
-        noise: 2.4,
-        clean: 3.8,
-        location: 2.7,
-      },
-    },
-    {
-      place: '12K',
-      date: '12.02.2020',
-      country: 'Belarus',
-      city: 'Minsk',
-      address: 'Kuprevicha 3',
-      status: 'completed',
-      feedback: 'Super',
-      rating: {
-        light: 3.0,
-        air: 5.0,
-        noise: 2.4,
-        clean: 3.8,
-        location: 2.7,
-      },
-    },
-    {
-      place: '12K',
-      date: '12.02.2020',
-      country: 'Belarus',
-      city: 'Minsk',
-      address: 'Kuprevicha 3',
-      status: 'cancelled',
-      feedback: '',
-      rating: {
-        light: 3.0,
-        air: 5.0,
-        noise: 2.4,
-        clean: 3.8,
-        location: 2.7,
-      },
-    },
-    {
-      place: '12A',
-      date: '12.02.2020',
-      country: 'Belarus',
-      city: 'Minsk',
-      address: 'Kuprevicha 3',
-      status: 'active',
-      feedback: 'Ok',
-      rating: {
-        light: 3.0,
-        air: 5.0,
-        noise: 2.4,
-        clean: 3.8,
-        location: 2.7,
-      },
-    },
-    {
-      place: '12K',
-      date: '12.02.2020',
-      country: 'Belarus',
-      city: 'Minsk',
-      address: 'Kuprevicha 3',
-      status: 'cancelled',
-      feedback: '',
-      rating: {
-        light: 3.0,
-        air: 5.0,
-        noise: 2.4,
-        clean: 3.8,
-        location: 2.7,
-      },
-    },
-    {
-      place: '12K',
-      date: '12.02.2020',
-      country: 'Belarus',
-      city: 'Minsk',
-      address: 'Kuprevicha 3',
-      status: 'completed',
-      feedback: '',
-      rating: {
-        light: 3.0,
-        air: 5.0,
-        noise: 2.4,
-        clean: 3.8,
-        location: 2.7,
-      },
-    },
-    {
-      place: '12K',
-      date: '12.02.2020',
-      country: 'Belarus',
-      city: 'Minsk',
-      address: 'Kuprevicha 3',
-      status: 'cancelled',
-      feedback: '',
-      rating: {
-        light: 3.0,
-        air: 5.0,
-        noise: 2.4,
-        clean: 3.8,
-        location: 2.7,
-      },
-    },
-    {
-      place: '12A',
-      date: '12.02.2020',
-      country: 'Belarus',
-      city: 'Minsk',
-      address: 'Kuprevicha 3',
-      status: 'active',
-      feedback: '',
-      rating: {
-        light: 3.0,
-        air: 5.0,
-        noise: 2.4,
-        clean: 3.8,
-        location: 2.7,
-      },
-    },
-    {
-      place: '12K',
-      date: '12.02.2020',
-      country: 'Belarus',
-      city: 'Minsk',
-      address: 'Kuprevicha 2',
-      status: 'completed',
-      feedback: '',
-      rating: {
-        light: 3.0,
-        air: 5.0,
-        noise: 2.4,
-        clean: 3.8,
-        location: 2.7,
-      },
-    },
-  ];
+export class MyBookingsComponent implements OnInit {
+  displayedBookings: Booking[];
+  status = STATUS;
 
   constructor(
+    private myBookingsService: MyBookingsService,
+    private authService: AuthService,
     private columnService: MyBookingsColumnService,
     public dialog: MatDialog
   ) {}
 
-  getData(status: string): Booking[] {
-    return this.DATA.filter((item) => item.status === status);
+  ngOnInit(): void {
+    this.setBookings('Active');
+  }
+
+  setBookings(statusLabel: string): void {
+    this.myBookingsService
+      .getBookings(
+        this.authService.getCurrentUser().id,
+        this.status[statusLabel.toLowerCase()]
+      )
+      .subscribe((bookings: Booking[]) => {
+        this.displayedBookings = bookings;
+      });
   }
 
   getColumns(status: string): Column[] {
     return this.columnService.getColumns(status);
   }
 
-  openBookingDetailsModal(event: Event, booking: Booking): void {
+  openBookingDetailsModal(event: Event, booking: Booking, user: User): void {
     this.dialog.open(BookingDetailsModalComponent, {
       width: '30rem',
-      data: booking,
+      data: [booking, user],
     });
   }
 }

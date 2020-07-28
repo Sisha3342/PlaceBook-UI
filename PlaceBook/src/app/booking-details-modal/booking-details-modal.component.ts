@@ -1,7 +1,8 @@
 import { Component, Inject } from '@angular/core';
-import { Employee } from '../models/employee';
 import { MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { Booking } from '../models/booking';
+import { User } from '../models/user';
+import { BookingDetailsService } from './booking-details.service';
 
 @Component({
   selector: 'app-booking-details-modal',
@@ -10,9 +11,15 @@ import { Booking } from '../models/booking';
 })
 export class BookingDetailsModalComponent {
   booking: Booking;
-  employee: Employee;
 
-  constructor(@Inject(MAT_DIALOG_DATA) public data: Booking) {
-    this.booking = this.data;
+  constructor(
+    @Inject(MAT_DIALOG_DATA) public data: [Booking, User],
+    private bookingDetailsService: BookingDetailsService
+  ) {
+    this.bookingDetailsService
+      .getBookingDetails(data[0].id, data[1].id)
+      .subscribe((booking: Booking) => {
+        this.booking = booking;
+      });
   }
 }

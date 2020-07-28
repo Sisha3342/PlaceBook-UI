@@ -1,0 +1,35 @@
+.action-tools-content {
+  padding: 0.5rem;
+}
+
+.action-tools-content mat-button-toggle-group {
+  border: var(--primary-border);
+  border-radius: var(--secondary-border-radius);
+  padding: 0;
+  box-shadow: none;
+}
+
+.action-tools-content button,
+.action-tools-content mat-button-toggle-group {
+  margin: 0.5rem;
+}
+
+.action-tools-content mat-form-field {
+  margin: 0 0.5rem;
+  width: 6rem;
+}
+
+.mat-button-toggle-checked.active {
+  background:var(--accept-color);
+  color: var(--secondary-color);
+}
+
+.mat-button-toggle-checked.disabled {
+  background: var(--delete-color);
+  color: var(--secondary-color);
+}
+
+.mat-mini-fab {
+  background-color: var(--delete-color);
+  color: var(--secondary-color);
+}

@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { AppMaterialModule } from '../../app-material/app-material.module';
+import { StatisticsService } from './statistics.service';
+import { AuthService } from '../../auth/auth.service';
+import { Statistics } from './statistics';
 
 @Component({
   selector: 'app-statistics-box',
@@ -7,7 +9,25 @@ import { AppMaterialModule } from '../../app-material/app-material.module';
   styleUrls: ['./statistics-box.component.scss'],
 })
 export class StatisticsBoxComponent implements OnInit {
-  constructor() {}
+  total: number;
+  active: number;
+  completed: number;
+  cancelled: number;
 
-  ngOnInit(): void {}
+  constructor(
+    private statisticsService: StatisticsService,
+    private authService: AuthService
+  ) {}
+
+  ngOnInit(): void {
+    this.statisticsService
+      .getStatistics(this.authService.getCurrentUser().id)
+      .subscribe((stats: Statistics) => {
+        this.active = stats.active ? stats.active : 0;
+        this.completed = stats.completed ? stats.cancelled : 0;
+        this.cancelled = stats.cancelled ? stats.cancelled : 0;
+
+        this.total = this.active + this.completed + this.cancelled;
+      });
+  }
 }

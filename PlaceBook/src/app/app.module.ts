@@ -5,7 +5,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { Overlay } from '@angular/cdk/overlay';
+import { Overlay, OverlayModule } from '@angular/cdk/overlay';
 import { LoginComponent } from './login/login.component';
 import { MyBookingsComponent } from './my-bookings/my-bookings.component';
 import { BookComponent } from './book/book.component';
@@ -28,6 +28,14 @@ import { AuthGuard } from './auth/auth.guard';
 import { AuthService } from './auth/auth.service';
 import { TableComponent } from './table/table.component';
 import { StatisticsBoxComponent } from './my-bookings/statistics-box/statistics-box.component';
+import { MapEditorComponent } from './map-editor/map-editor.component';
+import { GridsterModule } from 'angular-gridster2';
+import { MapComponent } from './map-editor/map/map.component';
+import { MapObjectComponent } from './map-editor/map-tools/map-object/map-object.component';
+import { ZoomToolComponent } from './map-editor/map-tools/zoom-tool/zoom-tool.component';
+import { MapSizeToolComponent } from './map-editor/map-tools/map-size-tool/map-size-tool.component';
+import { ActionToolsComponent } from './map-editor/action-tools/action-tools.component';
+import { FloorPanelComponent } from './map-editor/floor-panel/floor-panel.component';
 import { BookingStatusComponent } from './booking-status/booking-status.component';
 import { RatePlaceModalComponent } from './my-bookings/rate-place-modal/rate-place-modal.component';
 import { RateComponent } from './my-bookings/rate-place-modal/rate/rate.component';
@@ -35,6 +43,7 @@ import { EmployeesBookingsColumnService } from './employees-bookings/employees-b
 import { MyBookingsColumnService } from './my-bookings/my-bookings-column.service';
 import { MyMapsColumnService } from './my-maps/my-maps-column.service';
 import { MapsSearchComponent } from './my-maps/maps-search/maps-search.component';
+import { UserPhotoComponent } from './user-photo/user-photo.component';
 
 @NgModule({
   declarations: [
@@ -52,6 +61,12 @@ import { MapsSearchComponent } from './my-maps/maps-search/maps-search.component
     SidebarComponent,
     RouteButtonComponent,
     UserCardComponent,
+    MapEditorComponent,
+    MapComponent,
+    MapObjectComponent,
+    ZoomToolComponent,
+    MapSizeToolComponent,
+    ActionToolsComponent,
     TableComponent,
     StatisticsBoxComponent,
     SearchComponent,
@@ -62,6 +77,8 @@ import { MapsSearchComponent } from './my-maps/maps-search/maps-search.component
     RatePlaceModalComponent,
     RateComponent,
     MapsSearchComponent,
+    FloorPanelComponent,
+    UserPhotoComponent,
   ],
   imports: [
     BrowserModule,
@@ -70,6 +87,8 @@ import { MapsSearchComponent } from './my-maps/maps-search/maps-search.component
     FormsModule,
     ReactiveFormsModule,
     AppMaterialModule,
+    GridsterModule,
+    OverlayModule,
   ],
   providers: [
     MatSnackBar,
