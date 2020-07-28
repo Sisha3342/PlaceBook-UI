@@ -37,7 +37,7 @@
         <div class="work-time">
             <mat-label>Working time:</mat-label>
 
-            <div class="work-time-field">
+            <mat-form-field class="work-time-field">
                 <ngx-material-timepicker #min></ngx-material-timepicker>
                 <input matInput
                        placeholder="From "
@@ -46,9 +46,9 @@
                        readonly
                        [disabled]="form.invalid"
                        #min>
-            </div>
+            </mat-form-field>
 
-            <div class="work-time-field">
+            <mat-form-field class="work-time-field">
                 <ngx-material-timepicker #max></ngx-material-timepicker>
                 <input matInput
                        placeholder="To "
@@ -57,7 +57,7 @@
                        readonly
                        #max
                        [disabled]="form.invalid">
-            </div>
+            </mat-form-field>
         </div>
     </form>
 </div>
@@ -69,5 +69,6 @@
             color="primary"
             type="submit"
             [disabled]="form.invalid"
-            (click)="onSubmit(form)">Add</button>
+            (click)="onSubmit(form)"
+            routerLink="/map">Add</button>
 </mat-dialog-actions>
