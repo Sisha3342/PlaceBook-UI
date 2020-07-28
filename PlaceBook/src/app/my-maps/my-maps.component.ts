@@ -12,7 +12,6 @@ export class MyMapsComponent {
 
   addNewOffice(): void {
     const dialogRef = this.dialog.open(AddMapModalComponent);
-    dialogRef.afterClosed().subscribe((result) => {});
     const dialogConfig = new MatDialogConfig();
     dialogConfig.disableClose = true;
     dialogConfig.autoFocus = true;
