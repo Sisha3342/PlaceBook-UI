@@ -1,6 +1,6 @@
 import { MapService } from './../../my-maps/map/map.service';
 import { Office } from './../../models/office';
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { MatDialog, MatDialogRef } from '@angular/material/dialog';
 import { NgForm } from '@angular/forms';
 
@@ -9,7 +9,7 @@ import { NgForm } from '@angular/forms';
   templateUrl: './add-map-modal.component.html',
   styleUrls: ['./add-map-modal.component.scss'],
 })
-export class AddMapModalComponent {
+export class AddMapModalComponent implements OnInit {
   office: Office;
 
   warnMessage = 'Office map created';
@@ -26,8 +26,8 @@ export class AddMapModalComponent {
       country: '',
       city: '',
       address: '',
-      worktimeStart: '00:00',
-      worktimeEnd: '00:00',
+      worktimeStart: '',
+      worktimeEnd: '',
     };
   }
   onSubmit(form: NgForm): void {

@@ -46,14 +46,14 @@
                 <input matInput
                        placeholder="From "
                        [ngxTimepicker]="min"
-                       min=""
                        [(ngModel)]="service.formData.worktimeStart"
                        readonly
                        #min>
             </div>
 
             <div class="work-time-field">
-                <ngx-material-timepicker-toggle class="to"
+                <ngx-material-timepicker-toggle [disabled]="min == ''"
+                                                class="to"
                                                 [for]="toggleTimepicker"></ngx-material-timepicker-toggle>
                 <ngx-material-timepicker #toggleTimepicker
                                          appendToInput="true"
@@ -61,11 +61,10 @@
                 <input matInput
                        placeholder="To "
                        [ngxTimepicker]="max"
-                       max=""
                        [(ngModel)]="service.formData.worktimeEnd"
                        readonly
                        #max
-                       [disabled]="!min">
+                       [disableClick]="min == ''">
             </div>
         </div>
     </form>
