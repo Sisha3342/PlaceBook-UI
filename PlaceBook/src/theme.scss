@@ -7,3 +7,9 @@ $custom-typography: mat-typography-config(
 );
 
 @include mat-core($custom-typography);
+
+@mixin cdk-overlay() {
+  .cdk-overlay-container {
+    z-index: 999;
+  }
+}

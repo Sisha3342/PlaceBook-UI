@@ -1,5 +1,4 @@
 import { MapService } from './../../my-maps/map/map.service';
-import { Office } from './../../models/office';
 import { Component, OnInit } from '@angular/core';
 import { MatDialog, MatDialogRef } from '@angular/material/dialog';
 import { NgForm } from '@angular/forms';
@@ -10,10 +9,6 @@ import { NgForm } from '@angular/forms';
   styleUrls: ['./add-map-modal.component.scss'],
 })
 export class AddMapModalComponent implements OnInit {
-  office: Office;
-
-  warnMessage = 'Office map created';
-
   constructor(
     public dialogRef: MatDialogRef<AddMapModalComponent>,
     public dialog: MatDialog,

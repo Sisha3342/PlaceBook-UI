@@ -39,10 +39,8 @@
             <mat-label>Working time:</mat-label>
 
             <div class="work-time-field">
-                <ngx-material-timepicker-toggle [for]="toggleTimepicker"></ngx-material-timepicker-toggle>
-                <ngx-material-timepicker #toggleTimepicker
-                                         appendToInput="true"
-                                         #min></ngx-material-timepicker>
+
+                <ngx-material-timepicker #min></ngx-material-timepicker>
                 <input matInput
                        placeholder="From "
                        [ngxTimepicker]="min"
@@ -52,12 +50,7 @@
             </div>
 
             <div class="work-time-field">
-                <ngx-material-timepicker-toggle [disabled]="!min"
-                                                class="to"
-                                                [for]="toggleTimepicker"></ngx-material-timepicker-toggle>
-                <ngx-material-timepicker #toggleTimepicker
-                                         appendToInput="true"
-                                         #max></ngx-material-timepicker>
+                <ngx-material-timepicker #max></ngx-material-timepicker>
                 <input matInput
                        placeholder="To "
                        [ngxTimepicker]="max"

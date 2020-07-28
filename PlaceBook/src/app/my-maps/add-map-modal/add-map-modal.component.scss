@@ -6,7 +6,6 @@ h2 {
   margin-top: 0.5rem;
   padding: 0.5rem 0;
   font-size: 0.875rem;
-  z-index: 1;
 }
 
 mat-form-field {
@@ -15,7 +14,6 @@ mat-form-field {
 
 mat-label {
   display: inline-block;
-  font-weight: bold;
   white-space: nowrap;
 }
 
@@ -51,25 +49,4 @@ button[type="submit"][disabled] {
 
 .work-time-field:last-child {
   text-align: right;
-}
-
-ngx-material-timepicker-toggle {
-  position: absolute;
-  bottom: 0;
-  right: 4.3rem;
-  opacity: 50%;
-}
-ngx-material-timepicker-toggle.to {
-  right: 1.5rem;
-}
-
-.cdk-overlay-backdrop-showing {
-  z-index: 1000 !important;
-}
-
-.timepicker-overlay {
-  z-index: 1000 !important;
-}
-.cdk-overlay-container {
-  z-index: 500 !important;
 }

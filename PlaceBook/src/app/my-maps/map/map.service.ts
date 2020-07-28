@@ -12,7 +12,7 @@ export class MapService {
   constructor(private http: HttpClient) {}
 
   postOffice(formData: Office): Observable<Office> {
-    return this.http.put<Office>(
+    return this.http.post<Office>(
       `https://placebookapp.herokuapp.com/office/`,
       formData
     );
