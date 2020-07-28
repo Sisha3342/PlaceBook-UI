@@ -5,12 +5,12 @@
 }
 
 mat-card.mat-card:not([class*="mat-elevation-z"]) {
-  border: 2px solid #dedede;
-  box-shadow: 0 4px 23px rgba(0, 0, 0, 0.25);
+  border: var(--primary-border-width) solid #dedede;
+  box-shadow: var(--primary-box-shadow);
 }
 
 mat-card-content {
-  padding: 1rem;
+  padding: var(--secondary-content-padding);
   width: 20rem;
   margin: 10rem auto;
 }
@@ -27,7 +27,7 @@ mat-form-field {
 
 button#login-button {
   display: block;
-  border-radius: 20px;
+  border-radius: var(--primary-border-radius);
   background-color: #3f51b5;
   margin: 0 auto;
 }

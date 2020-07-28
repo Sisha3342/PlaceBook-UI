@@ -1,7 +1,7 @@
 .status {
   width: 6rem;
   color: white;
-  border-radius: 20px;
+  border-radius: var(--primary-border-radius);
   padding: 0.2rem;
   text-align: center;
   text-transform: capitalize;
