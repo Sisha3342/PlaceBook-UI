@@ -40,12 +40,8 @@ export class TableComponent implements OnInit {
 
   openRatePlaceDialog(event: Event): void {
     event.stopPropagation();
-<<<<<<< HEAD
-    this.dialog.open(RatePlaceModalComponent);
-=======
     this.dialog.open(RatePlaceModalComponent, {
       data: { isViewRating: this.isViewRating },
     });
->>>>>>> master
   }
 }
