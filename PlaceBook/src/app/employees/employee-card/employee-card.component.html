@@ -1,17 +1,9 @@
 <mat-card class="user-card">
   <mat-card-content class="user-card-content">
-<<<<<<< HEAD
-    <div class="user-photo-container">
-      <img class="user-photo"
-           src="{{ employeeObject.image }}" />
-    </div>
-    <p class="user-name">{{ employeeObject.name }}</p>
-=======
     <app-user-photo [imgSrc]="employeeObject.photoUrl"> </app-user-photo>
     <p class="user-name">
       {{ employeeObject.name + " " + employeeObject.surname }}
     </p>
->>>>>>> master
     <p class="user-email">{{ employeeObject.email }}</p>
     <mat-button-toggle-group
       #group="matButtonToggleGroup"

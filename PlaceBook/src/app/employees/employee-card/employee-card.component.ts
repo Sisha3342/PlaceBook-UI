@@ -1,12 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
-<<<<<<< HEAD
-
-import { User } from '../../models/user';
-=======
 import { EmployeeService } from './employee.service';
 import { User } from '../../models/user';
 import { ROLE } from '../../models/role';
->>>>>>> master
 
 @Component({
   selector: 'app-employee-card',
@@ -15,10 +10,7 @@ import { ROLE } from '../../models/role';
 })
 export class EmployeeCardComponent implements OnInit {
   employeeObject: User;
-<<<<<<< HEAD
-=======
   role = ROLE;
->>>>>>> master
 
   @Input()
   set employee(employeeObject: User) {
