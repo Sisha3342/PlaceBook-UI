@@ -1,5 +1,7 @@
 .user-photo {
-  max-width: 12rem;
-  max-height: 12rem;
+  position: relative;
+  left: -40%;
+  max-width: 16rem;
+  min-height: 8rem;
   object-fit: contain;
 }
