@@ -10,7 +10,7 @@
             <input matInput
                    placeholder="Country"
                    name="country"
-                   [(ngModel)]="service.formData.country"
+                   [(ngModel)]="formData.country"
                    required>
         </mat-form-field>
 
@@ -19,7 +19,7 @@
             <input matInput
                    placeholder="City"
                    name="city"
-                   [(ngModel)]="service.formData.city"
+                   [(ngModel)]="formData.city"
                    required>
         </mat-form-field>
 
@@ -29,7 +29,7 @@
             <input matInput
                    placeholder="Address"
                    name="address"
-                   [(ngModel)]="service.formData.address"
+                   [(ngModel)]="formData.address"
                    required>
         </mat-form-field>
 
@@ -42,10 +42,10 @@
                 <input matInput
                        placeholder="From "
                        [ngxTimepicker]="min"
-                       [(ngModel)]="service.formData.worktimeStart"
+                       name="worktimeStart"
+                       [(ngModel)]="formData.worktimeStart"
                        readonly
-                       [disabled]="form.invalid"
-                       #min>
+                       [disabled]="form.invalid">
             </mat-form-field>
 
             <mat-form-field class="work-time-field">
@@ -53,9 +53,9 @@
                 <input matInput
                        placeholder="To "
                        [ngxTimepicker]="max"
-                       [(ngModel)]="service.formData.worktimeEnd"
+                       name="worktimeEnd"
+                       [(ngModel)]="formData.worktimeEnd"
                        readonly
-                       #max
                        [disabled]="form.invalid">
             </mat-form-field>
         </div>

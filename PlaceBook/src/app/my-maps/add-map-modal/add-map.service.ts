@@ -7,8 +7,6 @@ import { Injectable } from '@angular/core';
   providedIn: 'root',
 })
 export class MapService {
-  formData: Office;
-
   constructor(private http: HttpClient) {}
 
   postOffice(formData: Office): Observable<Office> {
