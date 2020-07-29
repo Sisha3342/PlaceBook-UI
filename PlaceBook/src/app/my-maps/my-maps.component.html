@@ -1,7 +1,8 @@
-<app-maps-search>
-</app-maps-search>
-<div>
-  <app-table class="map-table"
-             [data]="getData()"
-             [columns]="getColumns()"></app-table>
+<div class="tab-container">
+  <app-maps-search></app-maps-search>
+  <div>
+    <app-table class="map-table"
+               [data]="getData()"
+               [columns]="getColumns()"></app-table>
+  </div>
 </div>

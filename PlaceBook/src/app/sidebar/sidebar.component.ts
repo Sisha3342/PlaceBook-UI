@@ -1,12 +1,14 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-
-type RouteButton = {
-  name: string;
-  route: string;
-  iconType: string;
-  setType: string;
-};
+import { AuthService } from '../auth/auth.service';
+import { ROLE } from '../models/role';
+import {
+  RouteButton,
+  myBookingsButton,
+  employeesBookingsButton,
+  employeesButton,
+  myMapsButton,
+} from './route-button/route-buttons';
 
 @Component({
   selector: 'app-sidebar',
@@ -14,33 +16,31 @@ type RouteButton = {
   styleUrls: ['./sidebar.component.scss'],
 })
 export class SidebarComponent implements OnInit {
-  routeButtons: RouteButton[] = [
-    {
-      name: 'My bookings',
-      route: '/my_bookings',
-      iconType: 'fa-list',
-      setType: 'fas',
-    },
-    {
-      name: 'Employees bookings',
-      route: '/employees_bookings',
-      iconType: 'fa-address-book',
-      setType: 'far',
-    },
-    {
-      name: 'Employees',
-      route: '/employees',
-      iconType: 'fa-user-friends',
-      setType: 'fas',
-    },
-    { name: 'My maps', route: '/my_maps', iconType: 'fa-map', setType: 'fas' },
-  ];
+  currentRole: string;
+  role = ROLE;
 
-  constructor(private router: Router) {}
+  constructor(private router: Router, private authService: AuthService) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.currentRole = this.authService.getCurrentUser().role;
+  }
 
   isActive(route): boolean {
     return route === this.router.url;
+  }
+
+  getRouteButtons(): RouteButton[] {
+    switch (this.currentRole) {
+      case this.role.user:
+        return [myBookingsButton];
+      case this.role.hr:
+        return [myBookingsButton, employeesBookingsButton];
+      case this.role.editor:
+        return [myBookingsButton, myMapsButton];
+      case this.role.admin:
+        return [myBookingsButton, employeesBookingsButton, employeesButton];
+      default:
+        return [];
+    }
   }
 }

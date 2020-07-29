@@ -32,6 +32,8 @@ export class SearchComponent implements OnInit, OnChanges {
       startWith(''),
       debounceTime(500),
       switchMap((value) => {
+        this.filteredUsersChange.emit(this.filteredUsers);
+
         return this.searchService.searchUsers(0, 1000, value);
       })
     );

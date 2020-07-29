@@ -14,32 +14,38 @@ export class MyBookingsColumnService {
     {
       id: 'place',
       label: 'Place No.',
-      field: 'place',
-      type: 'place',
+      field: 'placeNumber',
+      type: 'booking',
     },
     {
-      id: 'date',
-      label: 'Date',
-      field: 'date',
-      type: 'text',
+      id: 'dateStart',
+      label: 'Date start',
+      field: 'timeStart',
+      type: 'date',
+    },
+    {
+      id: 'dateEnd',
+      label: 'Date end',
+      field: 'timeEnd',
+      type: 'date',
     },
     {
       id: 'country',
       label: 'Country',
       field: 'country',
-      type: 'text',
+      type: 'address',
     },
     {
       id: 'city',
       label: 'City',
       field: 'city',
-      type: 'text',
+      type: 'address',
     },
     {
       id: 'address',
       label: 'Address',
       field: 'address',
-      type: 'text',
+      type: 'address',
     },
   ];
 
