@@ -12,6 +12,7 @@ import { NotFoundComponent } from './not-found/not-found.component';
 import { HomeLayoutComponent } from './layouts/home/home-layout.component';
 import { LoginLayoutComponent } from './layouts/login/login-layout.component';
 import { AuthGuard } from './auth/auth.guard';
+import { RoleGuard } from './roleGuards/role-guard.service';
 
 const routes: Routes = [
   {
@@ -22,10 +23,18 @@ const routes: Routes = [
       { path: '', redirectTo: '/my_bookings', pathMatch: 'full' },
       { path: 'my_bookings', component: MyBookingsComponent },
       { path: 'book', component: BookComponent },
-      { path: 'employees_bookings', component: EmployeesBookingsComponent },
-      { path: 'employees', component: EmployeesComponent },
-      { path: 'my_maps', component: MyMapsComponent },
-      { path: 'editor', component: EditorComponent },
+      {
+        path: 'employees_bookings',
+        component: EmployeesBookingsComponent,
+        canActivate: [RoleGuard],
+      },
+      {
+        path: 'employees',
+        component: EmployeesComponent,
+        canActivate: [RoleGuard],
+      },
+      { path: 'my_maps', component: MyMapsComponent, canActivate: [RoleGuard] },
+      { path: 'editor', component: EditorComponent, canActivate: [RoleGuard] },
     ],
   },
   {

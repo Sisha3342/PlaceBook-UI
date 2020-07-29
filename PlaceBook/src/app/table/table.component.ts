@@ -2,8 +2,8 @@ import { Component, Input, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { RatePlaceModalComponent } from '../my-bookings/rate-place-modal/rate-place-modal.component';
 import { Column } from '../models/column';
-import { Booking } from '../models/booking';
 import { AuthService } from '../auth/auth.service';
+import { Booking } from '../models/booking';
 
 @Component({
   selector: 'app-table',
@@ -11,7 +11,7 @@ import { AuthService } from '../auth/auth.service';
   styleUrls: ['./table.component.scss'],
 })
 export class TableComponent implements OnInit {
-  @Input() data: Booking[];
+  @Input() data;
   @Input() status: string;
   @Input() columns: Column[];
   @Input() openDetails;
