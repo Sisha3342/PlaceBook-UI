@@ -21,13 +21,13 @@ export class MyBookingsColumnService {
       id: 'dateStart',
       label: 'Date start',
       field: 'timeStart',
-      type: 'startDate',
+      type: 'date',
     },
     {
       id: 'dateEnd',
       label: 'Date end',
       field: 'timeEnd',
-      type: 'endDate',
+      type: 'date',
     },
     {
       id: 'country',

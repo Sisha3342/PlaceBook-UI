@@ -45,8 +45,4 @@ export class TableComponent implements OnInit {
       data: { isViewRating: this.isViewRating, booking: element },
     });
   }
-
-  getProperty(element, property: string) {
-    return eval('element.' + property);
-  }
 }
