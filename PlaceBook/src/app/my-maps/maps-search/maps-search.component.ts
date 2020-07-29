@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Office } from '../map-models/office';
+import { Office } from '../../models/office';
 import { MapSearchService } from './map-search.service';
 import { MatSelectChange } from '@angular/material/select';
 

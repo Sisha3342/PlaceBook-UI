@@ -1,12 +1,6 @@
-import {
-  Component,
-  ElementRef,
-  HostListener,
-  Input,
-  OnInit,
-} from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { MapObject } from '../../map-model/map-object';
-import { MapEditorService } from '../../map-editor.service';
+import { MapConfigurationService } from '../../map/map-configuration.service';
 
 @Component({
   selector: 'app-map-object',
@@ -19,7 +13,7 @@ export class MapObjectComponent implements OnInit {
   @Input() zoom: number;
   menuOpened = false;
 
-  constructor(public editorService: MapEditorService) {}
+  constructor(public editorService: MapConfigurationService) {}
 
   ngOnInit(): void {}
 
