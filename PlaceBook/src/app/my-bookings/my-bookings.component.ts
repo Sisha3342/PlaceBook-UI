@@ -27,7 +27,7 @@ export class MyBookingsComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.setBookings('Active');
+    this.setBookings(this.status.active);
   }
 
   setBookings(statusLabel: string): void {

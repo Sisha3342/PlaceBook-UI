@@ -20,15 +20,15 @@
 }
 
 .my-grid {
-  width: 90%;
+  width: 85%;
   text-align: center;
-  height: calc(100% - 14rem);
+  height: calc(100% - 12rem);
   display: inline-block;
 }
 
 app-floor-panel {
   vertical-align: top;
-  width: 10%;
+  width: 15%;
   display: inline-block;
   text-align: center;
 }
@@ -38,3 +38,6 @@ app-zoom-tool {
   align-items: center;
 }
 
+.tab-container {
+  height: calc(100% - 2rem);
+}

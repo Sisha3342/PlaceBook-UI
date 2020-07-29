@@ -19,13 +19,13 @@
       <td class="booking-details-label">Place #:</td>
       <td>{{ booking.placeNumber }}</td>
     </tr>
-    <tr *ngIf="booking.status === 'COMPLETED'">
+    <tr *ngIf="booking.status === status.completed">
       <td class="booking-details-label">Feedback:</td>
       <td>{{ booking.marks.feedback }}</td>
     </tr>
   </table>
 
-  <table class="booking-rate" *ngIf="booking.status === 'COMPLETED'">
+  <table class="booking-rate" *ngIf="booking.status === status.completed">
     <tr>
       <td matTooltip="Light" [matTooltipPosition]="'above'">
         <i class="fa fa-lightbulb"></i>

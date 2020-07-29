@@ -1,7 +1,7 @@
 <app-user-card></app-user-card>
 
 <app-route-button
-  *ngFor="let button of routeButtons"
+  *ngFor="let button of getRouteButtons()"
   [name]="button.name"
   [routerLink]="button.route"
   [iconType]="button.iconType"

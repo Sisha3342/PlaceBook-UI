@@ -3,6 +3,8 @@ import { MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { Booking } from '../models/booking';
 import { User } from '../models/user';
 import { BookingDetailsService } from './booking-details.service';
+import { STATUS } from '../models/status';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-booking-details-modal',
@@ -11,15 +13,24 @@ import { BookingDetailsService } from './booking-details.service';
 })
 export class BookingDetailsModalComponent {
   booking: Booking;
+  status = STATUS;
 
   constructor(
     @Inject(MAT_DIALOG_DATA) public data: [Booking, User],
-    private bookingDetailsService: BookingDetailsService
+    private bookingDetailsService: BookingDetailsService,
+    private snackbar: MatSnackBar
   ) {
     this.bookingDetailsService
       .getBookingDetails(data[0].id, data[1].id)
-      .subscribe((booking: Booking) => {
-        this.booking = booking;
-      });
+      .subscribe(
+        (booking: Booking) => {
+          this.booking = booking;
+        },
+        (error) => {
+          this.snackbar.open("Can't load booking info", 'Close', {
+            verticalPosition: 'top',
+          });
+        }
+      );
   }
 }

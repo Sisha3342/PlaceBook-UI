@@ -1,5 +1,5 @@
 export interface Statistics {
-  active: number;
-  completed: number;
-  cancelled: number;
+  ACTIVE: number;
+  COMPLETED: number;
+  CANCELED: number;
 }

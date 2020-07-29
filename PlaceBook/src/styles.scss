@@ -11,11 +11,11 @@ body {
   --secondary-color: white;
 
   --active-booking-color: #673AB7;
-  --completed-booking-color: #00C19F;
+  --completed-booking-color: #43a047;
   --cancelled-booking-color: #F44336;
 
   --delete-color: #F44336;
-  --accept-color: #00C19F;
+  --accept-color: #43a047;
 
   --delete-button-color: #F44336;
 
@@ -33,4 +33,23 @@ body {
   --primary-box-shadow: 0 4px 23px rgba(0, 0, 0, 0.25);
 
   --primary-font-size: 16px
+}
+
+.tab-container {
+  width: calc(100% - 8rem);
+  height: 100%;
+  padding: 2rem 4rem 0 4rem;
+}
+
+.mat-snack-bar-container {
+  background-color: var(--cancelled-booking-color);
+  color: white;
+}
+
+.mat-snack-bar-container.success {
+  background-color: var(--completed-booking-color);
+}
+
+.mat-simple-snackbar-action {
+  color: white;
 }

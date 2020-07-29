@@ -18,7 +18,7 @@ import { User } from '../models/user';
   templateUrl: './search.component.html',
   styleUrls: ['./search.component.scss'],
 })
-export class SearchComponent implements OnInit, OnChanges {
+export class SearchComponent implements OnInit {
   myControl = new FormControl();
 
   @Input() filteredUsers: Observable<User[]>;
@@ -31,12 +31,10 @@ export class SearchComponent implements OnInit, OnChanges {
       startWith(''),
       debounceTime(500),
       switchMap((value) => {
+        this.filteredUsersChange.emit(this.filteredUsers);
+
         return this.searchService.searchUsers(0, 1000, value);
       })
     );
-  }
-
-  ngOnChanges(changes: SimpleChanges) {
-    this.filteredUsersChange.emit(this.filteredUsers);
   }
 }
