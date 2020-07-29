@@ -39,10 +39,10 @@ export class TableComponent implements OnInit {
     event.stopPropagation();
   }
 
-  openRatePlaceDialog(event: Event): void {
+  openRatePlaceDialog(event: Event, element: Booking): void {
     event.stopPropagation();
     this.dialog.open(RatePlaceModalComponent, {
-      data: { isViewRating: this.isViewRating },
+      data: { isViewRating: this.isViewRating, booking: element },
     });
   }
 

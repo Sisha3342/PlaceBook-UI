@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-rate',
@@ -10,7 +10,8 @@ export class RateComponent implements OnInit {
   @Input() iconTooltip: string;
   @Input() disableRate: boolean;
 
-  public rate = 1;
+  @Input() rate;
+  @Output() rateChange = new EventEmitter<number>();
 
   constructor() {}
 
@@ -18,5 +19,7 @@ export class RateComponent implements OnInit {
 
   changeRate(i: number): void {
     this.rate = i;
+
+    this.rateChange.emit(this.rate);
   }
 }

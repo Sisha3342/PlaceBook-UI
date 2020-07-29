@@ -66,7 +66,7 @@
           <span *ngSwitchCase="'rate'">
             <button
               mat-icon-button
-              (click)="openRatePlaceDialog($event)"
+              (click)="openRatePlaceDialog($event, element)"
               [matTooltip]="column.tooltip"
               [matTooltipPosition]="'above'"
               class="icon-button"
