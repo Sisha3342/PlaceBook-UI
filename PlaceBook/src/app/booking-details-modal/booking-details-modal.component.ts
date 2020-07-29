@@ -24,8 +24,6 @@ export class BookingDetailsModalComponent {
       .getBookingDetails(data[0].id, data[1].id)
       .subscribe(
         (booking: Booking) => {
-          console.log(booking);
-
           this.booking = booking;
         },
         (error) => {

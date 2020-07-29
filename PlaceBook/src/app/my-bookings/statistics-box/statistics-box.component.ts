@@ -23,9 +23,9 @@ export class StatisticsBoxComponent implements OnInit {
     this.statisticsService
       .getStatistics(this.authService.getCurrentUser().id)
       .subscribe((stats: Statistics) => {
-        this.active = stats.ACTIVE ? stats.ACTIVE : 0;
-        this.completed = stats.COMPLETED ? stats.COMPLETED : 0;
-        this.cancelled = stats.CANCELED ? stats.CANCELED : 0;
+        this.active = stats.ACTIVE || 0;
+        this.completed = stats.COMPLETED || 0;
+        this.cancelled = stats.CANCELED || 0;
 
         this.total = this.active + this.completed + this.cancelled;
       });

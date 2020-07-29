@@ -8,15 +8,15 @@
       </th>
       <td mat-cell *matCellDef="let element">
         <div [ngSwitch]="column.type">
-          <span *ngSwitchDefault>
-            {{ getProperty(element, column.field) }}
+          <span *ngSwitchCase="'address'">
+            {{ element.address[column.field] }}
           </span>
 
           <span *ngSwitchCase="'date'">
-            {{ getProperty(element, column.field) | date: "longDate" }}
+            {{ element[column.field] | date: "longDate" }}
           </span>
 
-          <span *ngSwitchCase="'place'">
+          <span *ngSwitchCase="'booking'">
             <span class="bookmark" [ngClass]="getBookmarkClass()">{{
               element[column.field]
             }}</span>
