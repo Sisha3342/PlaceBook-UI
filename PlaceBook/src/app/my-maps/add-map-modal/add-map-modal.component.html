@@ -43,9 +43,10 @@
                        placeholder="From "
                        [ngxTimepicker]="min"
                        name="worktimeStart"
-                       [(ngModel)]="formData.worktimeStart"
+                       [ngModel]="formData.worktimeStart"
+                       [format]="24"
                        readonly
-                       [disabled]="form.invalid">
+                       required>
             </mat-form-field>
 
             <mat-form-field class="work-time-field">
@@ -54,9 +55,10 @@
                        placeholder="To "
                        [ngxTimepicker]="max"
                        name="worktimeEnd"
-                       [(ngModel)]="formData.worktimeEnd"
+                       [ngModel]="formData.worktimeEnd"
+                       [format]="24"
                        readonly
-                       [disabled]="form.invalid">
+                       required>
             </mat-form-field>
         </div>
     </form>
