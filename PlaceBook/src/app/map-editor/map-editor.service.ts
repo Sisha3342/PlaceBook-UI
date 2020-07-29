@@ -19,4 +19,13 @@ export class MapEditorService {
       }
     );
   }
+
+  getFloors(officeId: number): Observable<Floor[]> {
+    return this.http.get<Floor[]>(
+      `https://placebookapp.herokuapp.com/office/${officeId}/floors`,
+      {
+        withCredentials: true,
+      }
+    );
+  }
 }

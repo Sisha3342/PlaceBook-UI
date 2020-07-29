@@ -13,11 +13,14 @@ export class MapEditorComponent implements OnInit {
   objects = OBJECTS;
   floors = FLOORS;
   officeId = 21;
-  currentFloor = this.floors[0];
+  currentFloor: Floor;
 
   constructor(private mapEditorService: MapEditorService) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    // this.mapEditorService.getFloors(this.officeId).subscribe(floors => this.floors = floors);
+    this.currentFloor = this.floors[0];
+  }
 
   save(floors: Floor[]): void {
     this.mapEditorService.saveFloors(this.officeId, floors).subscribe();
