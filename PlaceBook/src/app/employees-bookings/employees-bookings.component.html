@@ -4,25 +4,26 @@
   <mat-tab-group mat-stretch-tabs>
     <mat-tab label="Active" class="demo-tab-label">
       <app-table
-        [data]="getData('active')"
-        [status]="'active'"
-        [columns]="getColumns('active')"
+        [data]="getData(status.active)"
+        [status]="status.active"
+        [columns]="getColumns(status.active)"
       ></app-table>
     </mat-tab>
 
     <mat-tab label="Completed">
       <app-table
-        [data]="getData('completed')"
-        [status]="'completed'"
-        [columns]="getColumns('completed')"
+        [data]="getData(status.completed)"
+        [status]="status.completed"
+        [columns]="getColumns(status.completed)"
+        [isViewRating]="true"
       ></app-table>
     </mat-tab>
 
     <mat-tab label="Cancelled">
       <app-table
-        [data]="getData('cancelled')"
-        [status]="'cancelled'"
-        [columns]="getColumns('cancelled')"
+        [data]="getData(status.cancelled)"
+        [status]="status.cancelled"
+        [columns]="getColumns(status.cancelled)"
       ></app-table>
     </mat-tab>
   </mat-tab-group>

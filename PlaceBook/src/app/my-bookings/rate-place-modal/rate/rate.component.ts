@@ -8,6 +8,7 @@ import { Component, Input, OnInit } from '@angular/core';
 export class RateComponent implements OnInit {
   @Input() icon: string;
   @Input() iconTooltip: string;
+  @Input() disableRate: boolean;
 
   public rate = 1;
 

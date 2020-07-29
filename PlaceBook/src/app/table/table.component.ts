@@ -14,13 +14,14 @@ export class TableComponent implements OnInit {
   @Input() status: string;
   @Input() columns: Column[];
   @Input() openDetails;
+  @Input() isViewRating: boolean;
 
   constructor(public dialog: MatDialog) {}
 
   ngOnInit(): void {}
 
   getBookmarkClass(): string {
-    return this.status;
+    return this.status.toLowerCase();
   }
 
   getTableColumns(): Array<string> {
@@ -39,6 +40,12 @@ export class TableComponent implements OnInit {
 
   openRatePlaceDialog(event: Event): void {
     event.stopPropagation();
+<<<<<<< HEAD
     this.dialog.open(RatePlaceModalComponent);
+=======
+    this.dialog.open(RatePlaceModalComponent, {
+      data: { isViewRating: this.isViewRating },
+    });
+>>>>>>> master
   }
 }

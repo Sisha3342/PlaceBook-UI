@@ -21,15 +21,9 @@ export class SearchService {
       .set('offset', offset.toString())
       .set('limit', limit.toString())
       .set('text', searchText);
-    return this.http.get<User[]>(`https://placebookapp.herokuapp.com/users`, {
-      params,
+    return this.http.get<User[]>('https://placebookapp.herokuapp.com/users', {
+      params: params,
       withCredentials: true,
     });
-  }
-
-  autocompleteUsers(searchText: string): string[] {
-    return this.employees
-      .filter((emStr) => emStr.name.indexOf(searchText) !== -1)
-      .map((em) => em.name);
   }
 }

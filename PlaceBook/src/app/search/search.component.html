@@ -1,4 +1,5 @@
 <form>
+<<<<<<< HEAD
   <mat-form-field class="form-searh-field">
     <input matInput
            class="search-input"
@@ -20,3 +21,24 @@
   </mat-form-field>
 
 </form>
+=======
+  <mat-form-field>
+    <input
+      matInput
+      type="text"
+      placeholder="Search by Employees"
+      [formControl]="myControl"
+      [matAutocomplete]="auto"
+      autofocus
+    />
+    <mat-autocomplete #auto="matAutocomplete">
+      <mat-option
+        *ngFor="let option of filteredUsers | async"
+        [value]="option.name + ' ' + option.surname"
+      >
+        {{ option.name + " " + option.surname }}
+      </mat-option>
+    </mat-autocomplete>
+  </mat-form-field>
+</form>
+>>>>>>> master

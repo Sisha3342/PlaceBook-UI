@@ -1,7 +1,10 @@
 import { SearchService } from './../search/search.service';
 import { Component, OnInit } from '@angular/core';
 import { User } from '../models/user';
+<<<<<<< HEAD
 import { HttpParams, HttpClient } from '@angular/common/http';
+=======
+>>>>>>> master
 import { Observable } from 'rxjs';
 
 @Component({
@@ -11,9 +14,11 @@ import { Observable } from 'rxjs';
 })
 export class EmployeesComponent implements OnInit {
   breakpoint = 0;
+  users: Observable<User[]>;
 
   employees: User[];
 
+<<<<<<< HEAD
   constructor(private searchService: SearchService, private http: HttpClient) {}
 
   getAllEmployees(): Observable<User[]> {
@@ -31,6 +36,8 @@ export class EmployeesComponent implements OnInit {
     });
   }
 
+=======
+>>>>>>> master
   ngOnInit(): void {
     this.getAllEmployees().subscribe((data) => {
       this.employees = data;

@@ -3,4 +3,6 @@ export interface Column {
   label?: string;
   field?: string;
   type: string;
+  width?: string;
+  tooltip?: string;
 }
