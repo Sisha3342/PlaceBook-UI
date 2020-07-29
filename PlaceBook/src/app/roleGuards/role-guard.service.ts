@@ -41,20 +41,18 @@ export class RoleGuard implements CanActivate {
         }
         break;
       case 'my_maps':
-        // if (this.currentRole === this.role.editor) {
-        return true;
-      // }
-      // break;
+        if (this.currentRole === this.role.editor) {
+          return true;
+        }
+        break;
       case 'editor':
-        // if (this.currentRole === this.role.editor) {
-        return true;
-      // }
-      // break;
-      default:
-        return true;
+        if (this.currentRole === this.role.editor) {
+          return true;
+        }
+        break;
     }
 
     this.router.navigate(['**']);
-    return true;
+    return false;
   }
 }

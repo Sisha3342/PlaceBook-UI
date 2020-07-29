@@ -9,7 +9,7 @@ import {
 } from '@angular/core';
 import { GridsterItem } from 'angular-gridster2';
 import { Safe } from '../map-model/safe';
-import { FloorConfig } from '../floor-model/floor-config';
+import { Floor } from '../../models/floor';
 import { MapObjectComponent } from '../map-tools/map-object/map-object.component';
 import { MapConfigurationService } from './map-configuration.service';
 
@@ -20,8 +20,8 @@ import { MapConfigurationService } from './map-configuration.service';
 })
 export class MapComponent implements OnInit, OnChanges {
   options: Safe = this.editorService.getDefaultOptions(this);
-  @Input() config: FloorConfig;
-  @Output() configChange = new EventEmitter<FloorConfig>();
+  @Input() config: Floor;
+  @Output() configChange = new EventEmitter<Floor>();
 
   initCellHeight: number;
   initCellWidth: number;
