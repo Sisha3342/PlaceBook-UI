@@ -66,28 +66,11 @@ export class MyMapsComponent implements OnInit {
 
   ngOnInit(): void {}
 
-  setCountries(): void {
-    this.mapService.getCountries().subscribe((countries: string[]) => {
-      this.countries = countries;
-    });
-  }
-
   getData(): MapList[] {
     return this.DATA;
   }
 
-  setCities(country: string): void {
-    this.mapService.getCities(country).subscribe((cities: string[]) => {
-      this.cities = cities;
-    });
-  }
-
   getColumns(): Column[] {
     return this.columnMapService.getColumns();
-  }
-  setOffices(country: string, city: string): void {
-    this.mapService.getOffices(country, city).subscribe((offices: Office[]) => {
-      this.offices = offices;
-    });
   }
 }

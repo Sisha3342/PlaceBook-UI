@@ -5,4 +5,5 @@ export interface Office {
   address: OfficeAddress;
   worktimeStart: string;
   worktimeEnd: string;
+  deleted: boolean;
 }

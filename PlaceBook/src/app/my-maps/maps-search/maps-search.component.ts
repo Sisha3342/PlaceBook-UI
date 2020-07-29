@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Office } from '../map-models/office';
+import { MapSearchService } from './map-search.service';
+import { MatSelectChange } from '@angular/material/select';
 
 @Component({
   selector: 'app-maps-search',
@@ -6,21 +9,50 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./maps-search.component.scss'],
 })
 export class MapsSearchComponent implements OnInit {
-  countries: string[] = ['Belarus', 'Russia', 'Poland', 'USA'];
+  countries: string[];
+  cities: string[];
+  offices: Office[];
 
-  cities: string[] = [
-    'Minsk',
-    'Grodno',
-    'Moscow',
-    'Krakow',
-    'Kalifornia',
-    'Colorado',
-    'New York',
-  ];
+  constructor(private mapSearchService: MapSearchService) {}
 
-  addresses: string[] = ['Kuprevicha 3', 'Kletskova 13'];
+  ngOnInit(): void {
+    this.setCountries();
+  }
 
-  constructor() {}
+  setCountries(): void {
+    this.mapSearchService.getCountries().subscribe((countries: string[]) => {
+      this.countries = countries;
+    });
+  }
 
-  ngOnInit(): void {}
+  setCities(country: string): void {
+    this.resetCities();
+    this.resetOffices();
+
+    if (country !== undefined) {
+      this.mapSearchService.getCities(country).subscribe((cities: string[]) => {
+        this.cities = cities;
+      });
+    }
+  }
+
+  setOffices(country: string, city: string): void {
+    this.resetOffices();
+
+    if (country !== undefined && city !== undefined) {
+      this.mapSearchService
+        .getOffices(country, city)
+        .subscribe((offices: Office[]) => {
+          this.offices = offices;
+        });
+    }
+  }
+
+  resetCities(): void {
+    this.cities = [];
+  }
+
+  resetOffices(): void {
+    this.offices = [];
+  }
 }
