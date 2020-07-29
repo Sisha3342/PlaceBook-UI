@@ -21,7 +21,7 @@ export class SearchService {
       .set('offset', offset.toString())
       .set('limit', limit.toString())
       .set('text', searchText);
-    return this.http.get<User[]>('https://placebookapp.herokuapp.com/users', {
+    return this.http.get<User[]>(`https://placebookapp.herokuapp.com/users`, {
       params: params,
       withCredentials: true,
     });

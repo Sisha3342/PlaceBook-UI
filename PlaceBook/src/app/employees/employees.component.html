@@ -1,19 +1,9 @@
-<<<<<<< HEAD
-<app-search (typeText)="filterEmployees($event)"></app-search>
+<app-search [(filteredUsers)]="users"></app-search>
 <mat-grid-list id="user-list"
                [cols]="breakpoint"
                (window:resize)="onResize($event)">
   <mat-grid-tile id="card-tile"
-                 *ngFor="let employee of employees">
-=======
-<app-search [(filteredUsers)]="users"></app-search>
-<mat-grid-list
-  id="user-list"
-  [cols]="breakpoint"
-  (window:resize)="onResize($event)"
->
-  <mat-grid-tile id="card-tile" *ngFor="let employee of users | async">
->>>>>>> master
+                 *ngFor="let employee of users | async">
     <app-employee-card [employee]="employee"></app-employee-card>
   </mat-grid-tile>
 </mat-grid-list>
