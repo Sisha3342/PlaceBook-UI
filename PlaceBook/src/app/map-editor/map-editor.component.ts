@@ -2,6 +2,7 @@ import { Component, Input, OnInit } from '@angular/core';
 import { OBJECTS } from './map-model/objects';
 import { FLOORS } from './floor-model/floors';
 import { Floor } from '../models/floor';
+import { MapEditorService } from './map-editor.service';
 
 @Component({
   selector: 'app-map-editor',
@@ -11,14 +12,14 @@ import { Floor } from '../models/floor';
 export class MapEditorComponent implements OnInit {
   objects = OBJECTS;
   floors = FLOORS;
-  @Input() officeId: number;
+  officeId = 21;
   currentFloor = this.floors[0];
 
-  constructor() {
-    this.officeId = 21;
-  }
+  constructor(private mapEditorService: MapEditorService) {}
 
   ngOnInit(): void {}
 
-  save(floors: Floor[]): void {}
+  save(floors: Floor[]): void {
+    this.mapEditorService.saveFloors(this.officeId, floors).subscribe();
+  }
 }

@@ -11,8 +11,12 @@ export class MapEditorService {
   constructor(private http: HttpClient) {}
 
   saveFloors(officeId: number, floors: Floor[]): Observable<Office> {
-    this.http.post<Office>(
-      `https://placebookapp.herokuapp.com/office/${officeId}/configuration`
+    return this.http.post<Office>(
+      `https://placebookapp.herokuapp.com/office/${officeId}/configuration`,
+      floors,
+      {
+        withCredentials: true,
+      }
     );
   }
 }
