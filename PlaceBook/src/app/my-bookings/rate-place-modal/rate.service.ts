@@ -13,7 +13,7 @@ export class RateService {
     bookingId: number,
     bookingMark: BookingMark
   ): Observable<BookingMark> {
-    return this.http.put<BookingMark>(
+    return this.http.post<BookingMark>(
       `https://placebookapp.herokuapp.com/booking/${bookingId}/mark`,
       bookingMark,
       {

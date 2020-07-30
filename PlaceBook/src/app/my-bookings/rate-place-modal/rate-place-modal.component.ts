@@ -15,7 +15,7 @@ export class RatePlaceModalComponent {
     markVolume: 1,
     markCleaning: 1,
     markLocation: 1,
-    feedback: '',
+    feedBack: '',
   };
 
   constructor(
@@ -24,10 +24,14 @@ export class RatePlaceModalComponent {
   ) {}
 
   changeFeedback($event: KeyboardEvent): void {
-    this.bookingMark.feedback = ($event.target as HTMLInputElement).value;
+    this.bookingMark.feedBack = ($event.target as HTMLInputElement).value;
   }
 
   ratePlace(): void {
-    this.rateService.ratePlace(this.data.booking.id, this.bookingMark);
+    this.rateService
+      .ratePlace(this.data.booking.id, this.bookingMark)
+      .subscribe((mark) => {
+        this.bookingMark = mark;
+      });
   }
 }

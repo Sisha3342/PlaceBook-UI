@@ -11,7 +11,7 @@ export class BookingDetailsService {
 
   getBookingDetails(bookingId: number, userId: number): Observable<Booking> {
     return this.http.get<Booking>(
-      `https://placebookapp.herokuapp.com/user${userId}/booking/${bookingId}/info`,
+      `https://placebookapp.herokuapp.com/user/${userId}/booking/${bookingId}/info`,
       {
         withCredentials: true,
       }
