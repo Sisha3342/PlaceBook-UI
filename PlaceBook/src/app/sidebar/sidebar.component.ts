@@ -33,7 +33,12 @@ export class SidebarComponent implements OnInit {
       iconType: 'fa-user-friends',
       setType: 'fas',
     },
-    { name: 'My maps', route: '/my_maps', iconType: 'fa-map', setType: 'fas' },
+    {
+      name: 'My maps',
+      route: '/my_maps',
+      iconType: 'fa-map',
+      setType: 'fas',
+    },
   ];
 
   constructor(private router: Router) {}

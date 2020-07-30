@@ -20,6 +20,8 @@ export class MapsSearchComponent implements OnInit {
 
   addresses: string[] = ['Kuprevicha 3', 'Kletskova 13'];
 
+  floors: string[] = ['1', '2', '3', '4'];
+
   constructor() {}
 
   ngOnInit(): void {}
