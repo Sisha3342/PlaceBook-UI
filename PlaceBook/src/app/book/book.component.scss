@@ -9,7 +9,8 @@
 
 .place-info {
   background: white;
-  border-radius: 0 var(--secondary-border-radius) var(--secondary-border-radius) 0;
+  border-radius: 0 var(--secondary-border-radius) var(--secondary-border-radius)
+    0;
   float: right;
   box-shadow: var(--primary-box-shadow);
   width: 30%;
@@ -20,7 +21,7 @@ mat-form-field {
   margin-right: 12px;
 }
 
-.date-item{
+.date-item {
   width: 10rem;
   padding-left: 1.5rem;
   padding-top: 1rem;
@@ -48,7 +49,8 @@ mat-form-field {
 
 .place-info {
   background: white;
-  border-radius: 0 var(--secondary-border-radius) var(--secondary-border-radius) 0;
+  border-radius: 0 var(--secondary-border-radius) var(--secondary-border-radius)
+    0;
   float: right;
   box-shadow: var(--primary-box-shadow);
   width: 30%;
@@ -59,10 +61,15 @@ mat-form-field {
   margin-right: 12px;
 }
 
-.date-item{
+.date-item {
   width: 10rem;
   padding-left: 1.5rem;
   padding-top: 1rem;
+}
+
+.end {
+  display: flex;
+  justify-content: right;
 }
 
 .book-button,
@@ -76,3 +83,8 @@ mat-form-field {
 //.close-button {
 //  float: right;
 //}
+
+app-rating {
+  display: flex;
+  margin: 1rem;
+}

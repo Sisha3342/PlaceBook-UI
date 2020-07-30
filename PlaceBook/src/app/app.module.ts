@@ -45,6 +45,7 @@ import { MyMapsColumnService } from './my-maps/my-maps-column.service';
 import { MapsSearchComponent } from './my-maps/maps-search/maps-search.component';
 import { UserPhotoComponent } from './user-photo/user-photo.component';
 import { PlaceInfoComponent } from './book/place-info/place-info.component';
+import { RatingComponent } from './rating/rating.component';
 
 @NgModule({
   declarations: [
@@ -81,6 +82,7 @@ import { PlaceInfoComponent } from './book/place-info/place-info.component';
     FloorPanelComponent,
     UserPhotoComponent,
     PlaceInfoComponent,
+    RatingComponent,
   ],
   imports: [
     BrowserModule,
