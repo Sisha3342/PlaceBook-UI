@@ -30,6 +30,8 @@ export class RatePlaceModalComponent {
   ratePlace(): void {
     this.rateService
       .ratePlace(this.data.booking.id, this.bookingMark)
-      .subscribe();
+      .subscribe((mark) => {
+        this.bookingMark = mark;
+      });
   }
 }

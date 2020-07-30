@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { Office } from '../map-models/office';
+import { Office } from '../../models/office';
 
 @Injectable({
   providedIn: 'root',

@@ -6,18 +6,12 @@ import {
   EventEmitter,
   OnChanges,
   SimpleChanges,
-  ViewChildren,
-  ElementRef,
-  ViewContainerRef,
 } from '@angular/core';
 import { GridsterItem } from 'angular-gridster2';
-import { MapEditorService } from '../map-editor.service';
 import { Safe } from '../map-model/safe';
-import { FloorConfig } from '../floor-model/floor-config';
-import { Overlay, OverlayConfig } from '@angular/cdk/overlay';
-import { ActionToolsComponent } from '../action-tools/action-tools.component';
-import { ComponentPortal } from '@angular/cdk/portal';
+import { Floor } from '../../models/floor';
 import { MapObjectComponent } from '../map-tools/map-object/map-object.component';
+import { MapConfigurationService } from './map-configuration.service';
 
 @Component({
   selector: 'app-map',
@@ -26,14 +20,14 @@ import { MapObjectComponent } from '../map-tools/map-object/map-object.component
 })
 export class MapComponent implements OnInit, OnChanges {
   options: Safe = this.editorService.getDefaultOptions(this);
-  @Input() config: FloorConfig;
-  @Output() configChange = new EventEmitter<FloorConfig>();
+  @Input() config: Floor;
+  @Output() configChange = new EventEmitter<Floor>();
 
   initCellHeight: number;
   initCellWidth: number;
   zoom = 1;
 
-  constructor(private editorService: MapEditorService) {
+  constructor(private editorService: MapConfigurationService) {
     this.options = this.editorService.getDefaultOptions(this);
   }
 
