@@ -1,9 +1,17 @@
 .user-photo {
-  position: relative;
-  left: -20%;
-  max-width: 200%;
-  min-height: 8rem;
-  min-width: 8rem;
-  max-height: 200%;
-  object-fit: cover;
+  width: auto;
+  height: 100%;
+  align-self: start;
+}
+
+.portrait {
+  width: 100%;
+  height: auto;
+}
+
+.user-photo-wrapper {
+  display: flex;
+  justify-content: center;
+  height: 100%;
+  width: 100%;
 }
