@@ -19,7 +19,12 @@
         <td class="booking-details-label">Place #:</td>
         <td>{{ booking.placeInfo }}</td>
       </tr>
-      <tr *ngIf="booking.status === status.completed">
+      <tr
+        *ngIf="
+          booking.status === status.completed &&
+          booking.marks.markLightning !== null
+        "
+      >
         <td class="booking-details-label">Feedback:</td>
         <td>{{ booking.marks.feedBack }}</td>
       </tr>
