@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Statistics } from './statistics';
+import { Statistics } from '../../models/statistics';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { StatisticsService } from './statistics.service';
 import { AuthService } from '../../auth/auth.service';
-import { Statistics } from './statistics';
+import { Statistics } from '../../models/statistics';
 
 @Component({
   selector: 'app-statistics-box',
