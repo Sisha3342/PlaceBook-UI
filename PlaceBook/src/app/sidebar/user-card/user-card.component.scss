@@ -35,6 +35,7 @@
   font-size: var(--primary-font-size);
   width: 100%;
   overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .user-card-container button {
