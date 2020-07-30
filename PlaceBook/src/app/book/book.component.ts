@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 
 @Component({
@@ -8,6 +8,8 @@ import { MatDatepickerModule } from '@angular/material/datepicker';
   providers: [MatDatepickerModule],
 })
 export class BookComponent implements OnInit {
+  @Input() showFloor: boolean;
+
   constructor() {}
 
   ngOnInit(): void {}

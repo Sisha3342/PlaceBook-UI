@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-maps-search',
@@ -6,6 +6,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./maps-search.component.scss'],
 })
 export class MapsSearchComponent implements OnInit {
+  @Input() showFloor: boolean;
+
   countries: string[] = ['Belarus', 'Russia', 'Poland', 'USA'];
 
   cities: string[] = [

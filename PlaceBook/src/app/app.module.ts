@@ -42,7 +42,7 @@ import { RateComponent } from './my-bookings/rate-place-modal/rate/rate.componen
 import { EmployeesBookingsColumnService } from './employees-bookings/employees-bookings-column.service';
 import { MyBookingsColumnService } from './my-bookings/my-bookings-column.service';
 import { MyMapsColumnService } from './my-maps/my-maps-column.service';
-import { MapsSearchComponent } from './my-maps/maps-search/maps-search.component';
+import { MapsSearchComponent } from './maps-search/maps-search.component';
 import { UserPhotoComponent } from './user-photo/user-photo.component';
 import { PlaceInfoComponent } from './book/place-info/place-info.component';
 

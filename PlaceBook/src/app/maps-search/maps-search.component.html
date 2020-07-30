@@ -36,16 +36,16 @@
       </mat-form-field>
     </td>
 
-    <!--    <td>-->
-    <!--      <mat-form-field appearance="fill" class="input-item">-->
-    <!--        <mat-label>Floor</mat-label>-->
-    <!--        <mat-select>-->
-    <!--          <mat-option>None</mat-option>-->
-    <!--          <mat-option *ngFor="let floor of floors" [value]="floor">{{-->
-    <!--            floor-->
-    <!--            }}</mat-option>-->
-    <!--        </mat-select>-->
-    <!--      </mat-form-field>-->
-    <!--    </td>-->
+    <td *ngIf="showFloor">
+      <mat-form-field appearance="fill" class="input-item">
+        <mat-label>Floor</mat-label>
+        <mat-select>
+          <mat-option>None</mat-option>
+          <mat-option *ngFor="let floor of floors" [value]="floor">{{
+            floor
+          }}</mat-option>
+        </mat-select>
+      </mat-form-field>
+    </td>
   </tr>
 </table>

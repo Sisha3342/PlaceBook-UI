@@ -1,19 +1,19 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { MapsSelectorComponent } from './maps-search.component';
+import { MapsSearchComponent } from './maps-search.component';
 
-describe('MapsSelectorComponent', () => {
-  let component: MapsSelectorComponent;
-  let fixture: ComponentFixture<MapsSelectorComponent>;
+describe('MapsSearchComponent', () => {
+  let component: MapsSearchComponent;
+  let fixture: ComponentFixture<MapsSearchComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [MapsSelectorComponent],
+      declarations: [MapsSearchComponent],
     }).compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(MapsSelectorComponent);
+    fixture = TestBed.createComponent(MapsSearchComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
