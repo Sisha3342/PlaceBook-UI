@@ -29,6 +29,7 @@
   </div>
 
   <app-floor-panel
+    (saveFloors)="save($event)"
     [(floors)]="floors"
     [(currentFloor)]="currentFloor"
   ></app-floor-panel>
