@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { FloorConfig } from '../floor-model/floor-config';
+import { Floor } from '../../models/floor';
 
 @Injectable({
   providedIn: 'root',
@@ -7,15 +7,22 @@ import { FloorConfig } from '../floor-model/floor-config';
 export class FloorService {
   constructor() {}
 
-  delete(floors: FloorConfig[], index: number): void {
+  delete(floors: Floor[], index: number): void {
     floors.splice(index, 1);
   }
 
-  getNewFloor(width: number, height: number): FloorConfig {
+  getNewFloor(width: number, height: number, floorNumber: number): Floor {
     return {
+      floorNumber: floorNumber,
       height: height,
       width: width,
       dashboard: [],
     };
+  }
+
+  resetFloorNumbers(floors: Floor[]): void {
+    for (let i = 0; i < floors.length; i++) {
+      floors[i].floorNumber = i + 1;
+    }
   }
 }

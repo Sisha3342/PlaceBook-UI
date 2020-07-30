@@ -1,9 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Column } from '../models/column';
-import { MapList } from '../models/map';
 import { MyMapsColumnService } from './my-maps-column.service';
 import { MapService } from './map.service';
-import { Office } from './map-models/office';
+import { Office } from '../models/office';
 
 @Component({
   selector: 'app-my-maps',
@@ -12,50 +11,39 @@ import { Office } from './map-models/office';
   providers: [MyMapsColumnService],
 })
 export class MyMapsComponent implements OnInit {
-  countries: string[];
-  cities: string[];
-  offices: Office[];
-
-  DATA: MapList[] = [
+  DATA: Office[] = [
     {
-      country: 'Belarus',
-      city: 'Minsk',
-      address: 'Kuprevicha 3',
+      id: 1,
+      address: {
+        country: 'Belarus',
+        city: 'Minsk',
+        address: 'Kuprevicha 3',
+      },
+      worktimeStart: '123',
+      worktimeEnd: '321',
+      deleted: false,
     },
     {
-      country: 'Belarus',
-      city: 'Minsk',
-      address: 'Kuprevicha 3',
+      id: 2,
+      address: {
+        country: 'Belarus',
+        city: 'Minsk',
+        address: 'Kuprevicha 11',
+      },
+      worktimeStart: '123',
+      worktimeEnd: '321',
+      deleted: false,
     },
     {
-      country: 'Belarus',
-      city: 'Minsk',
-      address: 'Kuprevicha 3',
-    },
-    {
-      country: 'Belarus',
-      city: 'Minsk',
-      address: 'Kuprevicha 3',
-    },
-    {
-      country: 'Belarus',
-      city: 'Minsk',
-      address: 'Kuprevicha 3',
-    },
-    {
-      country: 'Belarus',
-      city: 'Minsk',
-      address: 'Kuprevicha 3',
-    },
-    {
-      country: 'Belarus',
-      city: 'Minsk',
-      address: 'Kuprevicha 3',
-    },
-    {
-      country: 'Belarus',
-      city: 'Minsk',
-      address: 'Kuprevicha 3',
+      id: 3,
+      address: {
+        country: 'Belarus',
+        city: 'Grodno',
+        address: 'Kuprevicha 321',
+      },
+      worktimeStart: '123',
+      worktimeEnd: '321',
+      deleted: false,
     },
   ];
 
@@ -66,28 +54,11 @@ export class MyMapsComponent implements OnInit {
 
   ngOnInit(): void {}
 
-  setCountries(): void {
-    this.mapService.getCountries().subscribe((countries: string[]) => {
-      this.countries = countries;
-    });
-  }
-
-  getData(): MapList[] {
+  getData(): Office[] {
     return this.DATA;
-  }
-
-  setCities(country: string): void {
-    this.mapService.getCities(country).subscribe((cities: string[]) => {
-      this.cities = cities;
-    });
   }
 
   getColumns(): Column[] {
     return this.columnMapService.getColumns();
-  }
-  setOffices(country: string, city: string): void {
-    this.mapService.getOffices(country, city).subscribe((offices: Office[]) => {
-      this.offices = offices;
-    });
   }
 }

@@ -2,6 +2,7 @@ import { Component, Input, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { RatePlaceModalComponent } from '../my-bookings/rate-place-modal/rate-place-modal.component';
 import { Column } from '../models/column';
+import { AuthService } from '../auth/auth.service';
 import { Booking } from '../models/booking';
 
 @Component({
@@ -10,13 +11,13 @@ import { Booking } from '../models/booking';
   styleUrls: ['./table.component.scss'],
 })
 export class TableComponent implements OnInit {
-  @Input() data: Booking[];
+  @Input() data;
   @Input() status: string;
   @Input() columns: Column[];
   @Input() openDetails;
   @Input() isViewRating: boolean;
 
-  constructor(public dialog: MatDialog) {}
+  constructor(public dialog: MatDialog, public authService: AuthService) {}
 
   ngOnInit(): void {}
 
@@ -38,10 +39,10 @@ export class TableComponent implements OnInit {
     event.stopPropagation();
   }
 
-  openRatePlaceDialog(event: Event): void {
+  openRatePlaceDialog(event: Event, element: Booking): void {
     event.stopPropagation();
     this.dialog.open(RatePlaceModalComponent, {
-      data: { isViewRating: this.isViewRating },
+      data: { isViewRating: this.isViewRating, booking: element },
     });
   }
 }

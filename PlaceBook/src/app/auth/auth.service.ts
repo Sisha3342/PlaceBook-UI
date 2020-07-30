@@ -36,6 +36,7 @@ export class AuthService {
   logout(): void {
     this.router.navigate(['/login']);
     this.cookieService.deleteAll();
+    localStorage.removeItem('user');
   }
 
   getCurrentUser(): User {

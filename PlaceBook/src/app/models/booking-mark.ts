@@ -4,5 +4,5 @@ export interface BookingMark {
   markVolume: number;
   markCleaning: number;
   markLocation: number;
-  feedback: number;
+  feedback: string;
 }

@@ -30,7 +30,7 @@ export class EmployeeCardComponent implements OnInit {
       this.employeeService
         .changeRole(this.employeeObject.id, role)
         .subscribe((user: User) => {
-          this.employeeObject.role = role;
+          this.employeeObject.role = user.role;
         });
     }
   }

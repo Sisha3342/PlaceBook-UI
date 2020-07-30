@@ -2,32 +2,41 @@
 
 <div mat-dialog-content>
   <app-rate
+    [(rate)]="bookingMark.markLightning"
     [icon]="'fa-lightbulb'"
     [iconTooltip]="'Light'"
     [disableRate]="data.isViewRating"
   ></app-rate>
   <app-rate
+    [(rate)]="bookingMark.markAir"
     [icon]="'fa-wind'"
     [iconTooltip]="'Fresh air'"
     [disableRate]="data.isViewRating"
   ></app-rate>
   <app-rate
+    [(rate)]="bookingMark.markVolume"
     [icon]="'fa-volume-up'"
     [iconTooltip]="'Noise'"
     [disableRate]="data.isViewRating"
   ></app-rate>
   <app-rate
+    [(rate)]="bookingMark.markCleaning"
     [icon]="'fa-hand-sparkles'"
     [iconTooltip]="'Сleanliness'"
     [disableRate]="data.isViewRating"
   ></app-rate>
   <app-rate
+    [(rate)]="bookingMark.markLocation"
     [icon]="'fa-map-marker-alt'"
     [iconTooltip]="'Location'"
     [disableRate]="data.isViewRating"
   ></app-rate>
 
-  <mat-form-field class="feedback-field" *ngIf="!data.isViewRating">
+  <mat-form-field
+    class="feedback-field"
+    *ngIf="!data.isViewRating"
+    (keyup)="changeFeedback($event)"
+  >
     <input matInput placeholder="Feedback" />
   </mat-form-field>
 
@@ -42,10 +51,10 @@
     *ngIf="!data.isViewRating"
     mat-button
     mat-flat-button
+    mat-dialog-close
     cdkFocusInitial
-    type="submit"
-    color="primary"
     class="submit-button"
+    (click)="ratePlace()"
   >
     Submit
   </button>

@@ -1,5 +1,5 @@
 import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
-import { FloorConfig } from '../floor-model/floor-config';
+import { Floor } from '../../models/floor';
 import { FloorService } from './floor.service';
 
 @Component({
@@ -11,8 +11,9 @@ export class FloorPanelComponent implements OnInit {
   @Input() floors;
   @Input() currentFloor;
 
-  @Output() floorsChange = new EventEmitter<FloorConfig[]>();
-  @Output() currentFloorChange = new EventEmitter<FloorConfig>();
+  @Output() floorsChange = new EventEmitter<Floor[]>();
+  @Output() currentFloorChange = new EventEmitter<Floor>();
+  @Output() saveFloors = new EventEmitter<Floor[]>();
 
   initWidth = 10;
   initHeight = 10;
@@ -24,7 +25,8 @@ export class FloorPanelComponent implements OnInit {
   addEmptyFloor(): void {
     const newFloor = this.floorService.getNewFloor(
       this.initWidth,
-      this.initHeight
+      this.initHeight,
+      this.floors.length + 1
     );
 
     this.floors = [...this.floors, newFloor];
@@ -42,6 +44,8 @@ export class FloorPanelComponent implements OnInit {
       this.changeCurrentFloor(index);
     }
 
+    this.floorService.resetFloorNumbers(this.floors);
+
     this.floorsChange.emit(this.floors);
   }
 
@@ -49,5 +53,9 @@ export class FloorPanelComponent implements OnInit {
     this.currentFloor = this.floors[index];
 
     this.currentFloorChange.emit(this.currentFloor);
+  }
+
+  save(): void {
+    this.saveFloors.emit(this.floors);
   }
 }

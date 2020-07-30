@@ -1,5 +1,9 @@
 <div class="floor-panel">
   <div class="floor-panel-container">
+    <button mat-mini-fab (click)="save()">
+      <mat-icon>save</mat-icon>
+    </button>
+
     <div *ngFor="let floor of floors; let i = index">
       <button
         mat-mini-fab
@@ -19,7 +23,7 @@
       </button>
     </div>
 
-    <button mat-mini-fab color="primary" (click)="addEmptyFloor()">
+    <button mat-mini-fab (click)="addEmptyFloor()">
       <mat-icon>add</mat-icon>
     </button>
   </div>
