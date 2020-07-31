@@ -5,6 +5,16 @@
     <form #form="ngForm"
           class="office-location-fields"
           autocomplete="off">
+
+        <mat-form-field>
+            <mat-label>Office ID</mat-label>
+            <input matInput
+                   placeholder="Office ID"
+                   name="officeId"
+                   [(ngModel)]="formData.id"
+                   readonly>
+        </mat-form-field>
+
         <mat-form-field>
             <mat-label>Country</mat-label>
             <input matInput
@@ -22,7 +32,6 @@
                    [(ngModel)]="formData.address.city"
                    required>
         </mat-form-field>
-
 
         <mat-form-field>
             <mat-label>Address</mat-label>

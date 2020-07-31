@@ -40,7 +40,6 @@ export class EditMapAddressModalComponent implements OnInit {
   insertRecord(form: NgForm): void {
     this.service.postOffice(form.value).subscribe(() => {
       this.resetForm();
-
       this.dialogRef.close();
     });
   }
