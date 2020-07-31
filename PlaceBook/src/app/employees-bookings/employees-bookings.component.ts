@@ -4,6 +4,8 @@ import { Column } from '../models/column';
 import { EmployeesBookingsColumnService } from './employees-bookings-column.service';
 import { STATUS } from '../models/status';
 import { EmployeesBookingsService } from './employees-bookings.service';
+import { BookingDetailsModalComponent } from '../booking-details-modal/booking-details-modal.component';
+import { MatDialog } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-employees-bookings',
@@ -17,7 +19,8 @@ export class EmployeesBookingsComponent {
 
   constructor(
     private columnService: EmployeesBookingsColumnService,
-    private employeesBookingsService: EmployeesBookingsService
+    private employeesBookingsService: EmployeesBookingsService,
+    public dialog: MatDialog
   ) {
     this.setBookings(this.status.active);
   }
@@ -32,5 +35,12 @@ export class EmployeesBookingsComponent {
 
   getColumns(status: string): Column[] {
     return this.columnService.getColumns(status);
+  }
+
+  openBookingDetailsModal(event: Event, booking: Booking): void {
+    this.dialog.open(BookingDetailsModalComponent, {
+      width: '30rem',
+      data: booking,
+    });
   }
 }
