@@ -21,11 +21,14 @@ export class AddMapModalComponent implements OnInit {
   resetForm(): void {
     this.formData = {
       id: null,
-      country: '',
-      city: '',
-      address: '',
+      address: {
+        country: '',
+        city: '',
+        address: '',
+      },
       worktimeStart: '',
       worktimeEnd: '',
+      deleted: false,
     };
   }
 
