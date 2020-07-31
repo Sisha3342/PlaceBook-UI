@@ -1,13 +1,11 @@
 import { MatDialog } from '@angular/material/dialog';
-import { AddMapModalComponent } from '../add-map-modal/add-map-modal.component';
-import { Component, OnInit, Output, EventEmitter } from '@angular/core';
-import { Office } from '../../models/office';
 import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
-import { Office } from '../models/office';
 import { MapSearchService } from './map-search.service';
-import { OfficeAddress } from '../../models/office-address';
 import { FloorRequestConfig } from '../models/floor-request-config';
 import { MatSelect } from '@angular/material/select';
+import { Office } from '../models/office';
+import { OfficeAddress } from '../models/office-address';
+import { AddMapModalComponent } from '../my-maps/add-map-modal/add-map-modal.component';
 
 @Component({
   selector: 'app-maps-search',
