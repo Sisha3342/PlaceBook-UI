@@ -1,17 +1,13 @@
 <form>
   <mat-form-field>
-    <input
-      matInput
-      type="text"
-      placeholder="Search by Employees"
-      [formControl]="myControl"
-      [matAutocomplete]="auto"
-    />
+    <input matInput
+           type="text"
+           placeholder="Search by Employees"
+           [formControl]="myControl"
+           [matAutocomplete]="auto">
     <mat-autocomplete #auto="matAutocomplete">
-      <mat-option
-        *ngFor="let option of filteredUsers | async"
-        [value]="option.name + ' ' + option.surname"
-      >
+      <mat-option *ngFor="let option of filteredUsers | async | slice : 0 : 3"
+                  [value]="option.name + ' ' + option.surname">
         {{ option.name + " " + option.surname }}
       </mat-option>
     </mat-autocomplete>

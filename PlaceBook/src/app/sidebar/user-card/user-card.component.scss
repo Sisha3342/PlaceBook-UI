@@ -4,6 +4,7 @@
   border-radius: 0 var(--primary-border-radius) var(--primary-border-radius) 0;
   width: 11.5rem;
   padding: 0.5rem;
+  overflow: hidden;
 }
 
 .user-card-container app-user-photo {
@@ -32,6 +33,9 @@
   margin-bottom: 0.3rem;
   margin-left: 0.2rem;
   font-size: var(--primary-font-size);
+  width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .user-card-container button {
