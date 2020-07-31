@@ -5,11 +5,10 @@ import { BookingDetailsService } from './booking-details.service';
 import { STATUS } from '../models/status';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { BookingDetails } from '../models/booking-details';
-import { AuthService } from '../auth/auth.service';
 
 @Component({
   selector: 'app-booking-details-modal',
-  templateUrl: 'booking-details-modal.component.html',
+  templateUrl: './booking-details-modal.component.html',
   styleUrls: ['./booking-details-modal.component.scss'],
 })
 export class BookingDetailsModalComponent {
@@ -19,8 +18,7 @@ export class BookingDetailsModalComponent {
   constructor(
     @Inject(MAT_DIALOG_DATA) public data: Booking,
     private bookingDetailsService: BookingDetailsService,
-    private snackbar: MatSnackBar,
-    private authService: AuthService
+    private snackbar: MatSnackBar
   ) {
     this.bookingDetailsService
       .getBookingDetails(data.id, data.userId)

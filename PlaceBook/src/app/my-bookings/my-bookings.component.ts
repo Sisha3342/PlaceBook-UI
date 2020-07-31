@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Booking } from '../models/booking';
 import { Column } from '../models/column';
 import { MyBookingsColumnService } from './my-bookings-column.service';
-import { BookingDetailsModalComponent } from '../my-bookings/booking-details-modal/booking-details-modal.component';
+import { BookingDetailsModalComponent } from '../booking-details-modal/booking-details-modal.component';
 import { MatDialog } from '@angular/material/dialog';
 import { MyBookingsService } from './my-bookings.service';
 import { AuthService } from '../auth/auth.service';
