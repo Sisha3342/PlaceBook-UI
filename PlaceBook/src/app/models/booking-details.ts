@@ -1,10 +1,14 @@
 import { OfficeAddress } from './office-address';
+import { BookingMark } from './booking-mark';
 
-export interface Booking {
+export interface BookingDetails {
   id: number;
-  placeNumber: string;
+  placeInfo: string;
+  userId: number;
   userName: string;
   userSurname: string;
+  photoUrl: string;
+  marks: BookingMark;
   address: OfficeAddress;
   timeStart: string;
   timeEnd: string;

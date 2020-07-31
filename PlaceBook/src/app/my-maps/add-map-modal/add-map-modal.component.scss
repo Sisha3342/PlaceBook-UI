@@ -1,0 +1,48 @@
+h2 {
+  font-weight: bold;
+}
+
+.office-location-fields {
+  margin-top: 0.5rem;
+  padding: 0.5rem 0;
+  font-size: 0.875rem;
+}
+
+mat-form-field {
+  display: block;
+}
+
+.work-time-field {
+  display: inline-block;
+  width: 4rem;
+}
+
+mat-label {
+  display: inline-block;
+  white-space: nowrap;
+}
+
+.work-time p {
+  margin: 1rem 5rem 0 0;
+}
+
+mat-dialog-content {
+  margin: 0;
+  padding: 0 1rem;
+  overflow: hidden;
+}
+
+button[type="submit"] {
+  background: #3c4eae;
+  color: white;
+}
+
+button[type="submit"][disabled] {
+  color: #fff;
+  opacity: 50%;
+}
+
+.work-time {
+  display: flex;
+  justify-content: space-between;
+}
