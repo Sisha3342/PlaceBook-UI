@@ -37,6 +37,7 @@ export class MyBookingsComponent implements OnInit {
         this.status[statusLabel.toLowerCase()]
       )
       .subscribe((bookings: Booking[]) => {
+        console.log(bookings);
         this.displayedBookings = bookings;
       });
   }
@@ -45,7 +46,7 @@ export class MyBookingsComponent implements OnInit {
     return this.columnService.getColumns(status);
   }
 
-  openBookingDetailsModal(event: Event, booking: Booking, user: User): void {
+  openBookingDetailsModal(event: Event, booking: Booking): void {
     this.dialog.open(BookingDetailsModalComponent, {
       width: '30rem',
       data: booking,

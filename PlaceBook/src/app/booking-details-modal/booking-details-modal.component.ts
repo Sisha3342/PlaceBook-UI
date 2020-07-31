@@ -4,8 +4,8 @@ import { Booking } from '../models/booking';
 import { BookingDetailsService } from './booking-details.service';
 import { STATUS } from '../models/status';
 import { MatSnackBar } from '@angular/material/snack-bar';
-import { AuthService } from '../auth/auth.service';
 import { BookingDetails } from '../models/booking-details';
+import { AuthService } from '../auth/auth.service';
 
 @Component({
   selector: 'app-booking-details-modal',
@@ -22,17 +22,17 @@ export class BookingDetailsModalComponent {
     private snackbar: MatSnackBar,
     private authService: AuthService
   ) {
-    const userId = this.authService.getCurrentUser().id;
-
-    this.bookingDetailsService.getBookingDetails(data.id, userId).subscribe(
-      (booking: BookingDetails) => {
-        this.booking = booking;
-      },
-      (error) => {
-        this.snackbar.open("Can't load booking info", 'Close', {
-          verticalPosition: 'top',
-        });
-      }
-    );
+    this.bookingDetailsService
+      .getBookingDetails(data.id, data.userId)
+      .subscribe(
+        (booking: BookingDetails) => {
+          this.booking = booking;
+        },
+        (error) => {
+          this.snackbar.open("Can't load booking info", 'Close', {
+            verticalPosition: 'top',
+          });
+        }
+      );
   }
 }

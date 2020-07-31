@@ -8,7 +8,7 @@ export interface BookingDetails {
   userName: string;
   userSurname: string;
   photoUrl: string;
-  marks: BookingMark;
+  markSubmitDto: BookingMark;
   address: OfficeAddress;
   timeStart: string;
   timeEnd: string;

@@ -8,7 +8,6 @@ import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
 export class RateComponent implements OnInit {
   @Input() icon: string;
   @Input() iconTooltip: string;
-  @Input() disableRate: boolean;
 
   @Input() rate;
   @Output() rateChange = new EventEmitter<number>();

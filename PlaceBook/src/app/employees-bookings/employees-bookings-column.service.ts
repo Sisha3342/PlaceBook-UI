@@ -14,13 +14,13 @@ export class EmployeesBookingsColumnService {
     {
       id: 'place',
       label: 'Place No.',
-      field: 'place',
-      type: 'place',
+      field: 'placeNumber',
+      type: 'booking',
     },
     {
       id: 'logo',
       label: 'Photo',
-      field: 'logo',
+      field: 'photoUrl',
       type: 'logo',
     },
     {
@@ -30,10 +30,10 @@ export class EmployeesBookingsColumnService {
       type: 'text',
     },
     {
-      id: 'date',
-      label: 'Date',
-      field: 'date',
-      type: 'text',
+      id: 'dateStart',
+      label: 'Date start',
+      field: 'timeStart',
+      type: 'date',
     },
     {
       id: 'country',

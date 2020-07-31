@@ -2,10 +2,13 @@
   <app-search></app-search>
 
   <div class="tab-group">
-    <mat-tab-group mat-stretch-tabs>
+    <mat-tab-group
+      mat-stretch-tabs
+      (focusChange)="setBookings($event.tab.textLabel)"
+    >
       <mat-tab label="Active" class="demo-tab-label">
         <app-table
-          [data]="getData(status.active)"
+          [data]="displayedBookings"
           [status]="status.active"
           [columns]="getColumns(status.active)"
         ></app-table>
@@ -13,16 +16,15 @@
 
       <mat-tab label="Completed">
         <app-table
-          [data]="getData(status.completed)"
+          [data]="displayedBookings"
           [status]="status.completed"
           [columns]="getColumns(status.completed)"
-          [isViewRating]="true"
         ></app-table>
       </mat-tab>
 
       <mat-tab label="Cancelled">
         <app-table
-          [data]="getData(status.cancelled)"
+          [data]="displayedBookings"
           [status]="status.cancelled"
           [columns]="getColumns(status.cancelled)"
         ></app-table>
