@@ -4,15 +4,12 @@
     class="selectors"
     (changeFloor)="changeCurrentFloor($event)"
   ></app-maps-search>
-  <!--  <app-search></app-search>-->
-  <div class="map-background">
-    <div class="wrapper">
-      <div class="map-grid">
-        <app-map-booking [currentFloor]="currentFloor"></app-map-booking>
-      </div>
-      <div class="place-info">
-        <app-place-info></app-place-info>
-      </div>
+  <div class="booking-container">
+    <div class="map-grid">
+      <app-map-booking [currentFloor]="currentFloor"></app-map-booking>
+    </div>
+    <div class="place-info">
+      <app-place-info></app-place-info>
     </div>
   </div>
 </div>

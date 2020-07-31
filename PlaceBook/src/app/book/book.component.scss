@@ -1,34 +1,35 @@
-.map-background {
+.booking-container {
   background: white;
   width: 100%;
-  height: 100%;
-  display: inline-flex;
-  margin-bottom: 1rem;
-  //margin-top: var(--secondary-content-margin); ;
+  height: calc(100% - 9rem);
   box-shadow: var(--primary-box-shadow);
-  //border-radius: var(--secondary-border-radius);
 }
 
-//.wrapper {
-//  display: flex;
-//  //width: 100%;
-//}
+.booking-container .map-grid {
+  display: inline-block;
+  width: calc(100% - 22rem);
+  position: relative;
+}
+
+.booking-container .place-info {
+  width: 22rem;
+  height: 100%;
+  float: right;
+  display: inline-block;
+  position: relative;
+}
+
 
 .place-info {
   background: white;
-  //border-radius: 0 var(--secondary-border-radius) var(--secondary-border-radius)
-  //  0;
   float: right;
   box-shadow: var(--primary-box-shadow);
-  //flex: 0 0 23rem;
-  //display: inline-flex;
-  //display: table-cell;
-  width: 22.5rem;
-  height: 38rem;
 }
 
 .booking-screen {
-  margin: var(--secondary-content-margin);
+  width: calc(100% - 8rem);
+  padding: 0 4rem;
+  height: 100%;
 }
 
 mat-form-field {
@@ -39,18 +40,4 @@ mat-form-field {
   width: 10rem;
   padding-left: 1.5rem;
   padding-top: 1rem;
-}
-
-//.end {
-//  display: flex;
-//  justify-content: right;
-//}
-
-.map-grid {
-  //display: flex;
-  width: 65rem;
-  //height: 90%;
-  //text-align: center;
-  height: calc(100% - 2rem);
-  display: inline-flex;
 }
