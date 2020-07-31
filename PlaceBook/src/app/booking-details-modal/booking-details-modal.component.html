@@ -51,6 +51,10 @@
       <td>{{ booking.marks.markLocation }}</td>
     </tr>
   </table>
+  <app-rating
+    [book]="this.booking"
+    *ngIf="booking.status === 'COMPLETED'"
+  ></app-rating>
 </div>
 
 <mat-dialog-actions align="end">

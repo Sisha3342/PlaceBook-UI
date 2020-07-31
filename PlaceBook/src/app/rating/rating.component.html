@@ -1,0 +1,26 @@
+<table class="booking-rate">
+  <tr>
+    <td matTooltip="Light" [matTooltipPosition]="'above'">
+      <i class="fa fa-lightbulb"> </i>
+    </td>
+    <td matTooltip="Fresh air" [matTooltipPosition]="'above'">
+      <i class="fas fa-wind"> </i>
+    </td>
+    <td matTooltip="Noise" [matTooltipPosition]="'above'">
+      <i class="fas fa-volume-up"> </i>
+    </td>
+    <td matTooltip="Сleanliness" [matTooltipPosition]="'above'">
+      <i class="fas fa-hand-sparkles"> </i>
+    </td>
+    <td matTooltip="Location" [matTooltipPosition]="'above'">
+      <i class="fas fa-map-marker-alt"> </i>
+    </td>
+  </tr>
+  <tr>
+    <td>{{ booking.marks.markLightning }}</td>
+    <td>{{ booking.marks.markAir }}</td>
+    <td>{{ booking.marks.markVolume }}</td>
+    <td>{{ booking.marks.markCleaning }}</td>
+    <td>{{ booking.marks.markLocation }}</td>
+  </tr>
+</table>

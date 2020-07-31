@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Place } from '../../models/place-info';
+import { Booking } from '../../models/booking';
 
 @Component({
   selector: 'app-place-info',
@@ -19,6 +20,29 @@ export class PlaceInfoComponent implements OnInit {
       userName: 'Sasha001',
     },
   ];
+
+  bookingObj: Booking = {
+    id: null,
+    placeNumber: '',
+    userName: '',
+    userSurname: '',
+    marks: {
+      markLightning: 0,
+      markAir: 0,
+      markVolume: 0,
+      markCleaning: 0,
+      markLocation: 0,
+      feedback: '',
+    },
+    address: {
+      country: '',
+      city: '',
+      address: '',
+    },
+    timeStart: '',
+    timeEnd: '',
+    status: '',
+  };
 
   constructor() {}
 

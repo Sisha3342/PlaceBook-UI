@@ -19,9 +19,32 @@ tr.mat-row, tr.mat-footer-row {
   flex-wrap: wrap;
 }
 
-//mat-form-field {
-//  margin-right: 12px;
-//}
+.end {
+  display: flex;
+  justify-content: right;
+}
+
+app-rating {
+  display: flex;
+  margin: 1rem;
+}
+
+.text-place{
+  margin-left: 1rem;
+  color: #787878;
+}
+
+.place-info{
+//border: 1px solid #787878;
+  margin-top: 2rem;
+}
+
+.place-header {
+  margin: 1rem;
+  text-align: center;
+  color: #787878;
+  font-size: 1.4rem;
+}
 
 .date-item{
   width: 9rem;
@@ -32,9 +55,14 @@ tr.mat-row, tr.mat-footer-row {
 
 .book-button,
 .close-button {
-  margin: 1rem;
+  margin: 2rem 1rem 1rem 1rem;
   width: 6rem;
   height: 3rem;
   font-size: 1.1rem;
+  //float: right;
 }
+
+//.end {
+//  margin-top: 1rem;
+//}
 

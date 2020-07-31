@@ -46,6 +46,7 @@ import { MapsSearchComponent } from './maps-search/maps-search.component';
 import { UserPhotoComponent } from './user-photo/user-photo.component';
 import { PlaceInfoComponent } from './book/place-info/place-info.component';
 import { MapBookingComponent } from './map-booking/map-booking.component';
+import { RatingComponent } from './rating/rating.component';
 
 @NgModule({
   declarations: [
@@ -83,6 +84,7 @@ import { MapBookingComponent } from './map-booking/map-booking.component';
     UserPhotoComponent,
     PlaceInfoComponent,
     MapBookingComponent,
+    RatingComponent,
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,25 @@
+table.booking-rate {
+  width: 100%;
+  border-radius: 0.25rem;
+  //margin: 1rem 0;
+  border: var(--primary-border);
+  padding: 0.5rem;
+}
+
+table.booking-rate td {
+  text-align: center;
+}
+
+table.booking-rate td svg {
+  font-size: 1.875rem;
+  color: #3f51b5;
+}
+
+table.booking-rate td {
+  text-align: center;
+}
+
+table.booking-rate td svg {
+  font-size: 2rem;
+  color: #3f51b5;
+}
