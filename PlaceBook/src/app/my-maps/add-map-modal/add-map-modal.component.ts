@@ -1,8 +1,8 @@
-import { MapService } from './add-map.service';
 import { Component, OnInit } from '@angular/core';
 import { MatDialog, MatDialogRef } from '@angular/material/dialog';
 import { NgForm } from '@angular/forms';
 import { Office } from 'src/app/models/office';
+import { MapService } from '../map.service';
 
 @Component({
   selector: 'app-add-map-modal',

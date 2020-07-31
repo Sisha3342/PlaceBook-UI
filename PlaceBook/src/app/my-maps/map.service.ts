@@ -10,6 +10,16 @@ import { Office } from '../models/office';
 export class MapService {
   constructor(private http: HttpClient) {}
 
+  postOffice(formData: Office): Observable<Office> {
+    return this.http.post<Office>(
+      'https://placebookapp.herokuapp.com/office',
+      formData,
+      {
+        withCredentials: true,
+      }
+    );
+  }
+
   getOffices(officeAddress: OfficeAddress): Observable<Office[]> {
     if (officeAddress.country === undefined) {
       return this.http.get<Office[]>(

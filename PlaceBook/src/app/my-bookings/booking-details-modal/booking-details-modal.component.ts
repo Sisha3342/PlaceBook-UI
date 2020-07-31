@@ -33,7 +33,7 @@ export class BookingDetailsModalComponent {
         this.booking = booking;
       },
       (error) => {
-        this.snackbar.open("Can't load booking info", 'Close', {
+        this.snackbar.open(`Can't load booking info`, 'Close', {
           verticalPosition: 'top',
         });
       }
