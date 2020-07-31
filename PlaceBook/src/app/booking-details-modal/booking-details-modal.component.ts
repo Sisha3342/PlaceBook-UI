@@ -1,10 +1,11 @@
 import { Component, Inject } from '@angular/core';
 import { MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { Booking } from '../models/booking';
-import { User } from '../models/user';
 import { BookingDetailsService } from './booking-details.service';
 import { STATUS } from '../models/status';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { AuthService } from '../auth/auth.service';
+import { BookingDetails } from '../models/booking-details';
 
 @Component({
   selector: 'app-booking-details-modal',
@@ -12,25 +13,26 @@ import { MatSnackBar } from '@angular/material/snack-bar';
   styleUrls: ['./booking-details-modal.component.scss'],
 })
 export class BookingDetailsModalComponent {
-  booking: Booking;
+  booking: BookingDetails;
   status = STATUS;
 
   constructor(
-    @Inject(MAT_DIALOG_DATA) public data: [Booking, User],
+    @Inject(MAT_DIALOG_DATA) public data: Booking,
     private bookingDetailsService: BookingDetailsService,
-    private snackbar: MatSnackBar
+    private snackbar: MatSnackBar,
+    private authService: AuthService
   ) {
-    this.bookingDetailsService
-      .getBookingDetails(data[0].id, data[1].id)
-      .subscribe(
-        (booking: Booking) => {
-          this.booking = booking;
-        },
-        (error) => {
-          this.snackbar.open("Can't load booking info", 'Close', {
-            verticalPosition: 'top',
-          });
-        }
-      );
+    const userId = this.authService.getCurrentUser().id;
+
+    this.bookingDetailsService.getBookingDetails(data.id, userId).subscribe(
+      (booking: BookingDetails) => {
+        this.booking = booking;
+      },
+      (error) => {
+        this.snackbar.open("Can't load booking info", 'Close', {
+          verticalPosition: 'top',
+        });
+      }
+    );
   }
 }

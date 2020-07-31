@@ -82,7 +82,7 @@
     <tr
       mat-row
       *matRowDef="let row; columns: getTableColumns()"
-      (click)="openDetails($event, row, authService.getCurrentUser())"
+      (click)="openDetails($event, row)"
     ></tr>
   </table>
 </div>
