@@ -1,19 +1,19 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { AddOfficeModalComponent } from './add-office-modal.component';
+import { AddMapModalComponent } from './add-map-modal.component';
 
 describe('AddOfficeModalComponent', () => {
-  let component: AddOfficeModalComponent;
-  let fixture: ComponentFixture<AddOfficeModalComponent>;
+  let component: AddMapModalComponent;
+  let fixture: ComponentFixture<AddMapModalComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [AddOfficeModalComponent],
+      declarations: [AddMapModalComponent],
     }).compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(AddOfficeModalComponent);
+    fixture = TestBed.createComponent(AddMapModalComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

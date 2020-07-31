@@ -1,11 +1,14 @@
+import { BookingDetailsService } from './../../booking-details-modal/booking-details.service';
 import { Component, Inject } from '@angular/core';
+import { User } from '../../models/user';
+import { Booking } from '../../models/booking';
 import { MAT_DIALOG_DATA } from '@angular/material/dialog';
-import { Booking } from '../models/booking';
-import { BookingDetailsService } from './booking-details.service';
-import { STATUS } from '../models/status';
+
+import { STATUS } from '../../models/status';
 import { MatSnackBar } from '@angular/material/snack-bar';
-import { AuthService } from '../auth/auth.service';
-import { BookingDetails } from '../models/booking-details';
+
+import { BookingDetails } from '../../models/booking-details';
+import { AuthService } from 'src/app/auth/auth.service';
 
 @Component({
   selector: 'app-booking-details-modal',
@@ -13,6 +16,7 @@ import { BookingDetails } from '../models/booking-details';
   styleUrls: ['./booking-details-modal.component.scss'],
 })
 export class BookingDetailsModalComponent {
+  employee: User;
   booking: BookingDetails;
   status = STATUS;
 

@@ -1,3 +1,5 @@
+import { MatDialog } from '@angular/material/dialog';
+import { AddMapModalComponent } from '../add-map-modal/add-map-modal.component';
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { Office } from '../../models/office';
 import { MapSearchService } from './map-search.service';
@@ -14,10 +16,19 @@ export class MapsSearchComponent implements OnInit {
   offices: Office[];
   @Output() searchEvent = new EventEmitter<OfficeAddress>();
 
-  constructor(private mapSearchService: MapSearchService) {}
+  constructor(
+    private mapSearchService: MapSearchService,
+    public dialog: MatDialog
+  ) {}
 
   ngOnInit(): void {
     this.setCountries();
+  }
+
+  addNewOffice(): void {
+    this.dialog.open(AddMapModalComponent, {
+      width: '30rem',
+    });
   }
 
   setCountries(): void {
