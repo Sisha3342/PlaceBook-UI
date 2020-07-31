@@ -1,0 +1,29 @@
+h2 {
+  font-weight: bold;
+}
+
+.office-location-fields {
+  margin-top: 0.5rem;
+  padding: 0.5rem 0;
+  font-size: 0.875rem;
+}
+
+mat-form-field {
+  display: block;
+}
+
+mat-label {
+  display: inline-block;
+  white-space: nowrap;
+}
+
+mat-dialog-content {
+  margin: 0;
+  padding: 0 1rem;
+  overflow: hidden;
+}
+
+button[type="submit"] {
+  background: #3c4eae;
+  color: white;
+}
