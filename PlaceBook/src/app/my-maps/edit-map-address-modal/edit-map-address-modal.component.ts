@@ -16,7 +16,7 @@ export class EditMapAddressModalComponent implements OnInit {
   constructor(
     public dialogRef: MatDialogRef<AddMapModalComponent>,
     public dialog: MatDialog,
-    public service: MapService
+    public mapService: MapService
   ) {}
 
   resetForm(): void {
@@ -34,18 +34,18 @@ export class EditMapAddressModalComponent implements OnInit {
   }
 
   onUpdateOfficeModal(): void {
-    this.resetForm();
+    // this.mapService.
   }
 
   updateRecord(form: NgForm): void {
-    this.service.postOffice(form.value).subscribe(() => {
+    this.mapService.postOffice(form.value).subscribe(() => {
       this.resetForm();
       this.dialogRef.close();
     });
   }
 
   ngOnInit(): void {
-    this.resetForm();
+    // this.mapService.getOffice(officeId: number)
   }
 
   onNoClick(): void {

@@ -8,35 +8,32 @@ import { Observable } from 'rxjs';
   providedIn: 'root',
 })
 export class MapService {
+  urlOffice = 'https://placebookapp.herokuapp.com/office';
+
   constructor(private http: HttpClient) {}
 
   postOffice(formData: Office): Observable<Office> {
-    return this.http.post<Office>(
-      'https://placebookapp.herokuapp.com/office',
-      formData,
-      {
-        withCredentials: true,
-      }
-    );
+    return this.http.post<Office>(this.urlOffice, formData, {
+      withCredentials: true,
+    });
   }
 
   getOffice(officeId: number): Observable<Office> {
-    return this.http.get<Office>(
-      `https://placebookapp.herokuapp.com/office/${officeId}`,
-      {
-        withCredentials: true,
-      }
-    );
+    return this.http.get<Office>(this.urlOffice + `/${officeId}`, {
+      withCredentials: true,
+    });
   }
 
   updateOffice(formData: Office): Observable<Office> {
-    return this.http.put<Office>(
-      'https://placebookapp.herokuapp.com/office',
-      formData,
-      {
-        withCredentials: true,
-      }
-    );
+    return this.http.put<Office>(this.urlOffice, formData, {
+      withCredentials: true,
+    });
+  }
+
+  deleteOffice(officeId: number): Observable<Office> {
+    return this.http.delete<Office>(this.urlOffice + `/${officeId}`, {
+      withCredentials: true,
+    });
   }
 
   getAllOffices(officeAddress: OfficeAddress): Observable<Office[]> {

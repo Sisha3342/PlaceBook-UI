@@ -3,6 +3,7 @@ import { MatDialog, MatDialogRef } from '@angular/material/dialog';
 import { NgForm } from '@angular/forms';
 import { Office } from 'src/app/models/office';
 import { MapService } from '../map.service';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-add-map-modal',
@@ -11,8 +12,11 @@ import { MapService } from '../map.service';
 })
 export class AddMapModalComponent implements OnInit {
   formData: Office;
+  okMessage = 'Operation is OK';
+  warnMessage = 'Operation failed';
 
   constructor(
+    private snackbar: MatSnackBar,
     public dialogRef: MatDialogRef<AddMapModalComponent>,
     public dialog: MatDialog,
     public service: MapService
@@ -32,15 +36,23 @@ export class AddMapModalComponent implements OnInit {
     };
   }
 
-  onAddOfficeModal(form: NgForm): void {
+  onSubmitAddOfficeModal(form: NgForm): void {
     this.insertRecord(form);
   }
 
   insertRecord(form: NgForm): void {
-    this.service.postOffice(form.value).subscribe(() => {
-      this.resetForm();
-      this.dialogRef.close();
-    });
+    this.service.postOffice(form.value).subscribe(
+      (res) => {
+        this.resetForm();
+        this.dialogRef.close();
+      },
+      (error) => {
+        this.snackbar.open(this.warnMessage, 'Close', {
+          verticalPosition: 'top',
+          duration: 2000,
+        });
+      }
+    );
   }
 
   ngOnInit(): void {
