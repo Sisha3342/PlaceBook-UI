@@ -17,7 +17,7 @@ export class EmployeesBookingsComponent {
 
   constructor(private columnService: EmployeesBookingsColumnService) {}
 
-  getData(status: string) {
+  getData(status: string): Booking[] {
     return this.DATA.filter((item) => item.status === status);
   }
 

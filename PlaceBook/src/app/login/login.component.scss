@@ -4,12 +4,12 @@
   margin: 10rem 0;
 }
 
-mat-card.mat-card:not([class*="mat-elevation-z"]) {
+.authentication.mat-card:not([class*="mat-elevation-z"]) {
   border: var(--primary-border-width) solid #dedede;
   box-shadow: var(--primary-box-shadow);
 }
 
-mat-card-content {
+.auth-form {
   padding: var(--secondary-content-padding);
   width: 20rem;
   margin: 10rem auto;
@@ -21,11 +21,11 @@ mat-card-content {
   margin: 1rem auto;
 }
 
-mat-form-field {
+.login-field {
   display: block;
 }
 
-button#login-button {
+.submit-button {
   display: block;
   border-radius: var(--primary-border-radius);
   background-color: #3f51b5;

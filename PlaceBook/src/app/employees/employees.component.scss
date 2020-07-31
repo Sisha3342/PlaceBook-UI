@@ -1,17 +1,17 @@
-app-search {
+.search {
   width: 100%;
   min-width: 20rem;
 }
-app-employees {
+.tab-container {
   display: inline-block;
   min-width: 20rem;
 }
 
-app-employee-card {
+.user-card {
   position: relative;
   width: 80%;
 }
 
-mat-grid-list {
+.user-grid-list {
   min-width: 20rem;
 }
