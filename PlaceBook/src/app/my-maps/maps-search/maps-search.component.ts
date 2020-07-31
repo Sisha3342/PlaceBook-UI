@@ -1,9 +1,9 @@
-import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { AddMapModalComponent } from '../add-map-modal/add-map-modal.component';
-import { Office } from '../map-models/office';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { Office } from '../../models/office';
 import { MapSearchService } from './map-search.service';
-import { MatSelectChange } from '@angular/material/select';
+import { OfficeAddress } from '../../models/office-address';
 
 @Component({
   selector: 'app-maps-search',
@@ -14,6 +14,7 @@ export class MapsSearchComponent implements OnInit {
   countries: string[];
   cities: string[];
   offices: Office[];
+  @Output() searchEvent = new EventEmitter<OfficeAddress>();
 
   constructor(
     private mapSearchService: MapSearchService,
@@ -43,6 +44,12 @@ export class MapsSearchComponent implements OnInit {
     if (country !== undefined) {
       this.mapSearchService.getCities(country).subscribe((cities: string[]) => {
         this.cities = cities;
+
+        this.searchEvent.emit({
+          country: country,
+          city: undefined,
+          address: undefined,
+        });
       });
     }
   }
@@ -55,6 +62,12 @@ export class MapsSearchComponent implements OnInit {
         .getOffices(country, city)
         .subscribe((offices: Office[]) => {
           this.offices = offices;
+
+          this.searchEvent.emit({
+            country: country,
+            city: city,
+            address: undefined,
+          });
         });
     }
   }

@@ -1,1 +1,7 @@
-<img class="user-photo" [src]="imgSrc" (error)="imgSrc = altImgSrc" />
+<div class="user-photo-wrapper">
+     <img class="user-photo"
+          [src]="imgSrc"
+          (error)="imgSrc = altImgSrc"
+          (load)="handleImageLoad($event)"
+          [class.portrait]="width < height">
+</div>

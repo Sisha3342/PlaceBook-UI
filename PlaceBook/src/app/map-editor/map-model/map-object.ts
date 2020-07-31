@@ -1,6 +1,6 @@
 export interface MapObject {
   type: string;
-  isActive: boolean;
+  active: boolean;
   icon: string;
   tooltip: string;
   number?: number;

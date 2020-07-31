@@ -1,10 +1,9 @@
-import { Time } from '@angular/common';
+import { OfficeAddress } from './office-address';
 
-export class Office {
+export interface Office {
   id: number;
-  address: string;
-  city: string;
-  country: string;
+  address: OfficeAddress;
   worktimeStart: string;
   worktimeEnd: string;
+  deleted: boolean;
 }
