@@ -37,7 +37,6 @@ export class MyBookingsComponent implements OnInit {
         this.status[statusLabel.toLowerCase()]
       )
       .subscribe((bookings: Booking[]) => {
-        console.log(bookings);
         this.displayedBookings = bookings;
       });
   }

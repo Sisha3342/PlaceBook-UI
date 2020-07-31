@@ -26,7 +26,13 @@ export class EmployeesBookingsColumnService {
     {
       id: 'name',
       label: 'Employee',
-      field: 'name',
+      field: 'userName',
+      type: 'text',
+    },
+    {
+      id: 'surname',
+      label: 'Employee',
+      field: 'userSurname',
       type: 'text',
     },
     {
@@ -36,22 +42,28 @@ export class EmployeesBookingsColumnService {
       type: 'date',
     },
     {
+      id: 'dateEnd',
+      label: 'Date end',
+      field: 'timeEnd',
+      type: 'date',
+    },
+    {
       id: 'country',
       label: 'Country',
       field: 'country',
-      type: 'text',
+      type: 'address',
     },
     {
       id: 'city',
       label: 'City',
       field: 'city',
-      type: 'text',
+      type: 'address',
     },
     {
       id: 'address',
       label: 'Address',
       field: 'address',
-      type: 'text',
+      type: 'address',
     },
   ];
 
