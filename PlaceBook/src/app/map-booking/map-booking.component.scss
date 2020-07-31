@@ -1,0 +1,20 @@
+.my-grid {
+  width: 60%;
+  //height: 90%;
+  text-align: center;
+  //height: calc(100% - 7rem);
+  display: inline-flex;
+}
+
+.zoom-container {
+  background: var(--secondary-color);
+  border-radius: var(--secondary-border-radius);
+  box-shadow: var(--primary-box-shadow);
+  padding: 0.5rem;
+  //margin-: 1rem;
+  //display: inline-block;
+  width: 5%;
+  //height: 10%;
+  //float: top;
+  flex-wrap: wrap;
+}

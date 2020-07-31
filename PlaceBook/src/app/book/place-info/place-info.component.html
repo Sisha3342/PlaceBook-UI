@@ -1,15 +1,18 @@
-<!--<table>-->
-<!--&lt;!&ndash;  <ng-container *ngFor="let group of DATA">&ndash;&gt;-->
-<!--&lt;!&ndash;    <th><td>{{group.date}}</td></th>&ndash;&gt;-->
-<!--&lt;!&ndash;    <th>{{group.userName}}</th>&ndash;&gt;-->
-<!--&lt;!&ndash;  </ng-container>&ndash;&gt;-->
-<!--  <tr *ngFor = "let row of DATA">-->
-<!--    <td *ngFor = "let column of headers">-->
-<!--      {{row[column]}}-->
-<!--    </td>-->
-<!--    <mat-divider></mat-divider>-->
-<!--  </tr>-->
-<!--</table>-->
+<div class="date-field">
+  <mat-form-field color="accent" appearance="fill" class="date-item">
+    <mat-label>Book from</mat-label>
+    <input matInput [matDatepicker]="picker1" />
+    <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
+    <mat-datepicker #picker1></mat-datepicker>
+  </mat-form-field>
+
+  <mat-form-field color="accent" appearance="fill" class="date-item">
+    <mat-label>Book to</mat-label>
+    <input matInput [matDatepicker]="picker2" />
+    <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
+    <mat-datepicker #picker2 color="primary"></mat-datepicker>
+  </mat-form-field>
+</div>
 
 <table mat-table [dataSource]="DATA" class="mat-elevation-z8">
   <ng-container matColumnDef="date">
@@ -22,3 +25,19 @@
 
   <tr mat-row *matRowDef="let row; columns: headers"></tr>
 </table>
+
+<div align="end">
+  <button mat-raised-button class="close-button" mat-dialog-close>
+    Cancel
+  </button>
+
+  <button
+    mat-raised-button
+    color="primary"
+    routerLink="/my_bookings"
+    class="book-button"
+    cdkFocusInitial
+  >
+    Book
+  </button>
+</div>

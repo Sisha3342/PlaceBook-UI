@@ -1,5 +1,8 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { MatDatepickerModule } from '@angular/material/datepicker';
+import { Floor } from '../models/floor';
+import { FloorsConverterService } from '../map-editor/floors-converter.service';
+import { FloorRequestConfig } from '../models/floor-request-config';
 
 @Component({
   selector: 'app-book',
@@ -9,8 +12,19 @@ import { MatDatepickerModule } from '@angular/material/datepicker';
 })
 export class BookComponent implements OnInit {
   @Input() showFloor: boolean;
+  currentFloor: Floor;
 
-  constructor() {}
+  constructor(private floorsConverterService: FloorsConverterService) {}
 
   ngOnInit(): void {}
+
+  changeCurrentFloor(floorRequestConfig: FloorRequestConfig): void {
+    if (floorRequestConfig !== undefined) {
+      this.currentFloor = this.floorsConverterService.convertFromRequest(
+        floorRequestConfig
+      );
+    } else {
+      this.currentFloor = undefined;
+    }
+  }
 }

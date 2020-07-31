@@ -21,6 +21,7 @@ import { MapConfigurationService } from './map-configuration.service';
 export class MapComponent implements OnInit, OnChanges {
   options: Safe = this.editorService.getDefaultOptions(this);
   @Input() config: Floor;
+  @Input() edit: boolean;
   @Output() configChange = new EventEmitter<Floor>();
 
   initCellHeight: number;
@@ -29,6 +30,11 @@ export class MapComponent implements OnInit, OnChanges {
 
   constructor(private editorService: MapConfigurationService) {
     this.options = this.editorService.getDefaultOptions(this);
+    if (!this.edit) {
+      this.options.enableEmptyCellDrop = false;
+      this.options.draggable = { enabled: false };
+      this.options.resizable = { enabled: false };
+    }
   }
 
   ngOnInit(): void {
@@ -37,6 +43,14 @@ export class MapComponent implements OnInit, OnChanges {
   }
 
   ngOnChanges(changes: SimpleChanges): void {
+    if (this.config === undefined && !this.edit) {
+      this.config = {
+        floorNumber: 0,
+        width: 10,
+        height: 10,
+        dashboard: [],
+      };
+    }
     if (this.options.api) {
       this.changeHeight(this.config.height);
       this.changeWidth(this.config.width);

@@ -1,6 +1,8 @@
-import { Component, Input, OnInit } from '@angular/core';
-import { Office } from '../../models/office';
+import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
+import { Office } from '../models/office';
 import { MapSearchService } from './map-search.service';
+import { FloorRequestConfig } from '../models/floor-request-config';
+import { MatSelect } from '@angular/material/select';
 
 @Component({
   selector: 'app-maps-search',
@@ -9,26 +11,28 @@ import { MapSearchService } from './map-search.service';
 })
 export class MapsSearchComponent implements OnInit {
   @Input() showFloor: boolean;
+  @Output() changeFloor = new EventEmitter<FloorRequestConfig>();
 
   countries: string[];
   cities: string[];
   offices: Office[];
-  floors: string[] = ['1', '2', '3', '4'];
+  floors: FloorRequestConfig[];
 
   constructor(private mapSearchService: MapSearchService) {}
 
   ngOnInit(): void {
     this.setCountries();
   }
+
   setCountries(): void {
     this.mapSearchService.getCountries().subscribe((countries: string[]) => {
       this.countries = countries;
     });
   }
-  setCities(country: string): void {
-    this.resetCities();
-    this.resetOffices();
 
+  setCities(country: string, select: MatSelect): void {
+    this.resetCities();
+    select.value = undefined;
     if (country !== undefined) {
       this.mapSearchService.getCities(country).subscribe((cities: string[]) => {
         this.cities = cities;
@@ -38,7 +42,6 @@ export class MapsSearchComponent implements OnInit {
 
   setOffices(country: string, city: string): void {
     this.resetOffices();
-
     if (country !== undefined && city !== undefined) {
       this.mapSearchService
         .getOffices(country, city)
@@ -48,11 +51,30 @@ export class MapsSearchComponent implements OnInit {
     }
   }
 
+  setFloors(office: Office): void {
+    this.resetFloors();
+
+    if (office !== undefined) {
+      this.mapSearchService
+        .getFloors(office.id)
+        .subscribe((floors: FloorRequestConfig[]) => {
+          this.floors = floors;
+        });
+    }
+  }
+
   resetCities(): void {
     this.cities = [];
+    this.resetOffices();
   }
 
   resetOffices(): void {
     this.offices = [];
+    this.resetFloors();
+  }
+
+  resetFloors(): void {
+    this.changeFloor.emit(undefined);
+    this.floors = [];
   }
 }

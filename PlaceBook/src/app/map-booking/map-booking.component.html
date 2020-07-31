@@ -1,0 +1,6 @@
+<div class="my-grid">
+  <app-map [edit]="false" #map [(config)]="currentFloor"></app-map>
+</div>
+<div class="zoom-container">
+  <app-zoom-tool (scopeEvent)="map.changeScope($event)"></app-zoom-tool>
+</div>
