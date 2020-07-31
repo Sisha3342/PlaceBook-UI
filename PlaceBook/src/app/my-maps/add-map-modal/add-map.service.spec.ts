@@ -1,13 +1,13 @@
 import { TestBed } from '@angular/core/testing';
 
-import { OfficeService } from './office.service';
+import { MapService } from './add-map.service';
 
-describe('OfficeService', () => {
-  let service: OfficeService;
+describe('MapService', () => {
+  let service: MapService;
 
   beforeEach(() => {
     TestBed.configureTestingModule({});
-    service = TestBed.inject(OfficeService);
+    service = TestBed.inject(MapService);
   });
 
   it('should be created', () => {

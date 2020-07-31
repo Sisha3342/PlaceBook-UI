@@ -1,3 +1,4 @@
+import { MatDialog } from '@angular/material/dialog';
 import { Component, OnInit } from '@angular/core';
 import { Column } from '../models/column';
 import { MyMapsColumnService } from './my-maps-column.service';
@@ -16,7 +17,8 @@ export class MyMapsComponent implements OnInit {
 
   constructor(
     private mapService: MapService,
-    private columnMapService: MyMapsColumnService
+    private columnMapService: MyMapsColumnService,
+    public dialog: MatDialog
   ) {}
 
   ngOnInit(): void {

@@ -1,4 +1,5 @@
-import { BookingDetailsModalComponent } from './booking-details-modal/booking-details-modal.component';
+import { MapService } from './my-maps/add-map-modal/add-map.service';
+import { BookingDetailsModalComponent } from './my-bookings/booking-details-modal/booking-details-modal.component';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -41,6 +42,7 @@ import { RatePlaceModalComponent } from './my-bookings/rate-place-modal/rate-pla
 import { RateComponent } from './my-bookings/rate-place-modal/rate/rate.component';
 import { EmployeesBookingsColumnService } from './employees-bookings/employees-bookings-column.service';
 import { MyBookingsColumnService } from './my-bookings/my-bookings-column.service';
+import { AddMapModalComponent } from './my-maps/add-map-modal/add-map-modal.component';
 import { MyMapsColumnService } from './my-maps/my-maps-column.service';
 import { MapsSearchComponent } from './my-maps/maps-search/maps-search.component';
 import { UserPhotoComponent } from './user-photo/user-photo.component';
@@ -76,6 +78,7 @@ import { UserPhotoComponent } from './user-photo/user-photo.component';
     BookingStatusComponent,
     RatePlaceModalComponent,
     RateComponent,
+    AddMapModalComponent,
     MapsSearchComponent,
     FloorPanelComponent,
     UserPhotoComponent,
@@ -97,6 +100,7 @@ import { UserPhotoComponent } from './user-photo/user-photo.component';
     AuthService,
     EmployeesBookingsColumnService,
     MyBookingsColumnService,
+    MapService,
     MyMapsColumnService,
   ],
   bootstrap: [AppComponent],
