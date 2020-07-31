@@ -4,6 +4,7 @@ import { RatePlaceModalComponent } from '../my-bookings/rate-place-modal/rate-pl
 import { Column } from '../models/column';
 import { AuthService } from '../auth/auth.service';
 import { Booking } from '../models/booking';
+import { BookingDetailsModalComponent } from '../my-bookings/booking-details-modal/booking-details-modal.component';
 
 @Component({
   selector: 'app-table',
@@ -14,7 +15,7 @@ export class TableComponent implements OnInit {
   @Input() data;
   @Input() status: string;
   @Input() columns: Column[];
-  @Input() openDetails;
+  @Input() openDetails: any;
   @Input() isViewRating: boolean;
 
   constructor(public dialog: MatDialog, public authService: AuthService) {}

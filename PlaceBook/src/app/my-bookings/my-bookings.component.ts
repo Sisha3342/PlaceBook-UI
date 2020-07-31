@@ -7,7 +7,6 @@ import { MatDialog } from '@angular/material/dialog';
 import { MyBookingsService } from './my-bookings.service';
 import { AuthService } from '../auth/auth.service';
 import { STATUS } from '../models/status';
-import { User } from '../models/user';
 
 @Component({
   selector: 'app-my-bookings',
@@ -45,7 +44,7 @@ export class MyBookingsComponent implements OnInit {
     return this.columnService.getColumns(status);
   }
 
-  openBookingDetailsModal(event: Event, booking: Booking, user: User): void {
+  openBookingDetailsModal(booking: Booking): void {
     this.dialog.open(BookingDetailsModalComponent, {
       width: '30rem',
       data: booking,

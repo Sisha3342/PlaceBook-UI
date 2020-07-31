@@ -1,3 +1,4 @@
+import { EditMapAddressModalComponent } from './my-maps/edit-map-address-modal/edit-map-address-modal.component';
 import { BookingDetailsModalComponent } from './my-bookings/booking-details-modal/booking-details-modal.component';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
@@ -46,8 +47,6 @@ import { MyMapsColumnService } from './my-maps/my-maps-column.service';
 import { MapsSearchComponent } from './my-maps/maps-search/maps-search.component';
 import { UserPhotoComponent } from './user-photo/user-photo.component';
 import { MapService } from './my-maps/map.service';
-import { EditMapAddressComponent } from './edit-map-address/edit-map-address.component';
-import { EditMapAddressModalComponent } from './edit-map-address-modal/edit-map-address-modal.component';
 
 @NgModule({
   declarations: [
@@ -84,7 +83,6 @@ import { EditMapAddressModalComponent } from './edit-map-address-modal/edit-map-
     MapsSearchComponent,
     FloorPanelComponent,
     UserPhotoComponent,
-    EditMapAddressComponent,
     EditMapAddressModalComponent,
   ],
   imports: [

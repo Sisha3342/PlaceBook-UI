@@ -38,4 +38,6 @@ export class MyMapsComponent implements OnInit {
   getColumns(): Column[] {
     return this.columnMapService.getColumns();
   }
+
+  openEditAddressModal(): void {}
 }

@@ -32,7 +32,7 @@ export class AddMapModalComponent implements OnInit {
     };
   }
 
-  onSubmit(form: NgForm): void {
+  onSubmitAddOfficeModal(form: NgForm): void {
     this.insertRecord(form);
   }
 
