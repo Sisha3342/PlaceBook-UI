@@ -23,31 +23,7 @@ h2 {
   overflow: hidden;
 }
 
-mat-dialog-content {
-  margin: 0;
-  padding: 0 1rem;
-  overflow: hidden;
-}
-.work-time-field {
-  display: inline-block;
-  width: 4rem;
-}
-
-.work-time {
-  display: flex;
-  justify-content: space-between;
-}
-
-.work-time p {
-  margin: 1rem 5rem 0 0;
-}
-
 button[type="submit"] {
   background: #3c4eae;
   color: white;
-}
-
-button[type="submit"][disabled] {
-  color: #fff;
-  opacity: 50%;
 }

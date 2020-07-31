@@ -1,4 +1,4 @@
-<h2 mat-dialog-title>Edit office address</h2>
+<h2 mat-dialog-title>Delete office address</h2>
 
 <div mat-dialog-content
      class="dialog-content">
@@ -22,7 +22,7 @@
                    placeholder="Country"
                    name="country"
                    [(ngModel)]="formData.address.country"
-                   required>
+                   readonly>
         </mat-form-field>
 
         <mat-form-field class="office-field">
@@ -31,7 +31,7 @@
                    placeholder="City"
                    name="city"
                    [(ngModel)]="formData.address.city"
-                   required>
+                   readonly>
         </mat-form-field>
 
         <mat-form-field class="office-field">
@@ -40,7 +40,7 @@
                    placeholder="Address"
                    name="address"
                    [(ngModel)]="formData.address.address"
-                   required>
+                   readonly>
         </mat-form-field>
 
         <mat-dialog-actions align="end">
@@ -49,6 +49,6 @@
             <button mat-button
                     color="primary"
                     type="submit"
-                    (click)="onUpdateOfficeModal()"
-                    routerLink="/map">Update office</button>
+                    routerLink="/map"
+                    (click)="onDeleteOfficeModal()">Delete office</button>
         </mat-dialog-actions>

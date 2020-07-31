@@ -8,16 +8,20 @@ h2 {
   font-size: 0.875rem;
 }
 
-mat-form-field {
+.office-field {
   display: block;
 }
 
-mat-label {
+.mat-form-field-flex {
+  border: none;
+}
+
+.field-label {
   display: inline-block;
   white-space: nowrap;
 }
 
-mat-dialog-content {
+.dialog-content {
   margin: 0;
   padding: 0 1rem;
   overflow: hidden;

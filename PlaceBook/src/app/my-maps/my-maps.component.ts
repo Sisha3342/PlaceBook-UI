@@ -5,6 +5,8 @@ import { MyMapsColumnService } from './my-maps-column.service';
 import { MapService } from './map.service';
 import { Office } from '../models/office';
 import { OfficeAddress } from '../models/office-address';
+import { EditMapAddressModalComponent } from './edit-map-address-modal/edit-map-address-modal.component';
+import { DeleteMapAddressModalComponent } from './delete-map-address-modal/delete-map-address-modal.component';
 
 @Component({
   selector: 'app-my-maps',
@@ -29,15 +31,25 @@ export class MyMapsComponent implements OnInit {
     });
   }
 
+  editOfficeAddress(): void {
+    this.dialog.open(EditMapAddressModalComponent, {
+      width: '30rem',
+    });
+  }
+
+  deleteOfficeAddress(): void {
+    this.dialog.open(DeleteMapAddressModalComponent, {
+      width: '30rem',
+    });
+  }
+
   setDisplayedOffices(officeAddress: OfficeAddress): void {
     this.mapService
-      .getOffices(officeAddress)
+      .getAllOffices(officeAddress)
       .subscribe((offices) => (this.displayedOffices = offices));
   }
 
   getColumns(): Column[] {
     return this.columnMapService.getColumns();
   }
-
-  openEditAddressModal(): void {}
 }

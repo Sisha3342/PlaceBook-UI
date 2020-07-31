@@ -5,8 +5,8 @@
     <form #form="ngForm"
           class="office-location-fields"
           autocomplete="off">
-        <mat-form-field>
-            <mat-label>Country</mat-label>
+        <mat-form-field class="office-field">
+            <mat-label class="field-label">Country</mat-label>
             <input matInput
                    placeholder="Country"
                    name="country"
@@ -14,8 +14,8 @@
                    required>
         </mat-form-field>
 
-        <mat-form-field>
-            <mat-label>City</mat-label>
+        <mat-form-field class="office-field">
+            <mat-label class="field-label">City</mat-label>
             <input matInput
                    placeholder="City"
                    name="city"
@@ -23,9 +23,8 @@
                    required>
         </mat-form-field>
 
-
-        <mat-form-field>
-            <mat-label>Address</mat-label>
+        <mat-form-field class="office-field">
+            <mat-label class="field-label">Address</mat-label>
             <input matInput
                    placeholder="Address"
                    name="address"
@@ -36,7 +35,6 @@
 
         <div class="work-time">
             <p>Working time:</p>
-
             <mat-form-field class="work-time-field">
                 <ngx-material-timepicker #min></ngx-material-timepicker>
                 <input matInput
@@ -71,6 +69,6 @@
             color="primary"
             type="submit"
             [disabled]="form.invalid"
-            (click)="onSubmitAddOfficeModal(form)"
+            (click)="onAddOfficeModal(form)"
             routerLink="/map">Add</button>
 </mat-dialog-actions>

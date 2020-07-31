@@ -31,6 +31,8 @@ export class MapsSearchComponent implements OnInit {
     });
   }
 
+  deleteOffice(officeId: number): void {}
+
   setCountries(): void {
     this.mapSearchService.getCountries().subscribe((countries: string[]) => {
       this.countries = countries;

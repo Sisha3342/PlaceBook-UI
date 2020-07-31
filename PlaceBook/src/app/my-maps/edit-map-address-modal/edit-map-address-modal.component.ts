@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { MatDialogRef, MatDialog } from '@angular/material/dialog';
 import { MapService } from '../map.service';
 import { AddMapModalComponent } from '../add-map-modal/add-map-modal.component';
@@ -23,21 +23,21 @@ export class EditMapAddressModalComponent implements OnInit {
     this.formData = {
       id: null,
       address: {
-        country: '',
-        city: '',
-        address: '',
+        country: undefined,
+        city: undefined,
+        address: undefined,
       },
-      worktimeStart: '',
-      worktimeEnd: '',
+      worktimeStart: undefined,
+      worktimeEnd: undefined,
       deleted: false,
     };
   }
 
-  onSubmitEditOffice(form: NgForm): void {
-    this.insertRecord(form);
+  onUpdateOfficeModal(): void {
+    this.resetForm();
   }
 
-  insertRecord(form: NgForm): void {
+  updateRecord(form: NgForm): void {
     this.service.postOffice(form.value).subscribe(() => {
       this.resetForm();
       this.dialogRef.close();

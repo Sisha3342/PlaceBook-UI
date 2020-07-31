@@ -1,8 +1,8 @@
+import { Office } from '.././models/office';
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { OfficeAddress } from '../models/office-address';
 import { Observable } from 'rxjs';
-import { Office } from '../models/office';
 
 @Injectable({
   providedIn: 'root',
@@ -20,7 +20,26 @@ export class MapService {
     );
   }
 
-  getOffices(officeAddress: OfficeAddress): Observable<Office[]> {
+  getOffice(officeId: number): Observable<Office> {
+    return this.http.get<Office>(
+      `https://placebookapp.herokuapp.com/office/${officeId}`,
+      {
+        withCredentials: true,
+      }
+    );
+  }
+
+  updateOffice(formData: Office): Observable<Office> {
+    return this.http.put<Office>(
+      'https://placebookapp.herokuapp.com/office',
+      formData,
+      {
+        withCredentials: true,
+      }
+    );
+  }
+
+  getAllOffices(officeAddress: OfficeAddress): Observable<Office[]> {
     if (officeAddress.country === undefined) {
       return this.http.get<Office[]>(
         'https://placebookapp.herokuapp.com/offices',

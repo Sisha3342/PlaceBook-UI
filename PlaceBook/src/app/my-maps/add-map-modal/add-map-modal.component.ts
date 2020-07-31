@@ -22,17 +22,17 @@ export class AddMapModalComponent implements OnInit {
     this.formData = {
       id: null,
       address: {
-        country: '',
-        city: '',
-        address: '',
+        country: undefined,
+        city: undefined,
+        address: undefined,
       },
-      worktimeStart: '',
-      worktimeEnd: '',
+      worktimeStart: undefined,
+      worktimeEnd: undefined,
       deleted: false,
     };
   }
 
-  onSubmitAddOfficeModal(form: NgForm): void {
+  onAddOfficeModal(form: NgForm): void {
     this.insertRecord(form);
   }
 

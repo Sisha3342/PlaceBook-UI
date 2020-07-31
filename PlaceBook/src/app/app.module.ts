@@ -47,6 +47,7 @@ import { MyMapsColumnService } from './my-maps/my-maps-column.service';
 import { MapsSearchComponent } from './my-maps/maps-search/maps-search.component';
 import { UserPhotoComponent } from './user-photo/user-photo.component';
 import { MapService } from './my-maps/map.service';
+import { DeleteMapAddressModalComponent } from './my-maps/delete-map-address-modal/delete-map-address-modal.component';
 
 @NgModule({
   declarations: [
@@ -84,6 +85,7 @@ import { MapService } from './my-maps/map.service';
     FloorPanelComponent,
     UserPhotoComponent,
     EditMapAddressModalComponent,
+    DeleteMapAddressModalComponent,
   ],
   imports: [
     BrowserModule,
