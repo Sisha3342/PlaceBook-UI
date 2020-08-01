@@ -1,9 +1,14 @@
-import { Component, OnInit, Input } from '@angular/core';
-import { MatDialogRef, MatDialog } from '@angular/material/dialog';
+import { Component, OnInit, Input, Inject } from '@angular/core';
+import {
+  MatDialogRef,
+  MatDialog,
+  MAT_DIALOG_DATA,
+} from '@angular/material/dialog';
 import { MapService } from '../map.service';
 import { AddMapModalComponent } from '../add-map-modal/add-map-modal.component';
 import { Office } from 'src/app/models/office';
 import { NgForm } from '@angular/forms';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-edit-map-address-modal',
@@ -11,16 +16,19 @@ import { NgForm } from '@angular/forms';
   styleUrls: ['./edit-map-address-modal.component.scss'],
 })
 export class EditMapAddressModalComponent implements OnInit {
-  formData: Office;
+  okMessage = 'Operation is OK';
+  warnMessage = 'Operation failed';
 
   constructor(
+    private snackbar: MatSnackBar,
     public dialogRef: MatDialogRef<AddMapModalComponent>,
     public dialog: MatDialog,
-    public mapService: MapService
+    public mapService: MapService,
+    @Inject(MAT_DIALOG_DATA) public data: Office
   ) {}
 
   resetForm(): void {
-    this.formData = {
+    this.data = {
       id: null,
       address: {
         country: undefined,
@@ -33,23 +41,22 @@ export class EditMapAddressModalComponent implements OnInit {
     };
   }
 
-  onUpdateOfficeModal(form: NgForm): void {
-    this.mapService.updateOffice(form.value).subscribe(() => {
-      this.resetForm();
-      this.dialogRef.close();
-    });
+  onUpdateOffice(form: NgForm): void {
+    this.mapService.updateOffice(form.value).subscribe(
+      () => {
+        this.resetForm();
+        this.dialogRef.close();
+      },
+      (error) => {
+        this.snackbar.open(this.warnMessage, 'Close', {
+          verticalPosition: 'top',
+          duration: 2000,
+        });
+      }
+    );
   }
 
-  updateRecord(form: NgForm): void {
-    // this.mapService.postOffice(form.value).subscribe(() => {
-    //   this.resetForm();
-    //   this.dialogRef.close();
-    // });
-  }
-
-  ngOnInit(): void {
-    // this.mapService.getOffice(officeId: number)
-  }
+  ngOnInit(): void {}
 
   onNoClick(): void {
     this.dialogRef.close();

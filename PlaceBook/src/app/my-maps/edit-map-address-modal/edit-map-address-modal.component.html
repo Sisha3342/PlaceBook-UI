@@ -11,8 +11,8 @@
             <mat-label class="field-label">Office ID</mat-label>
             <input matInput
                    placeholder="Office ID"
-                   name="officeId"
-                   [(ngModel)]="formData.id"
+                   name="id"
+                   [(ngModel)]="data.id"
                    readonly>
         </mat-form-field>
 
@@ -21,7 +21,7 @@
             <input matInput
                    placeholder="Country"
                    name="country"
-                   [(ngModel)]="formData.address.country"
+                   [(ngModel)]="data.address.country"
                    required>
         </mat-form-field>
 
@@ -30,7 +30,7 @@
             <input matInput
                    placeholder="City"
                    name="city"
-                   [(ngModel)]="formData.address.city"
+                   [(ngModel)]="data.address.city"
                    required>
         </mat-form-field>
 
@@ -39,15 +39,43 @@
             <input matInput
                    placeholder="Address"
                    name="address"
-                   [(ngModel)]="formData.address.address"
+                   [(ngModel)]="data.address.address"
                    required>
         </mat-form-field>
+        <div class="work-time">
+            <p>Working time:</p>
+            <mat-form-field class="work-time-field">
+                <ngx-material-timepicker #min></ngx-material-timepicker>
+                <input matInput
+                       placeholder="From "
+                       [ngxTimepicker]="min"
+                       name="worktimeStart"
+                       [ngModel]="data.worktimeStart"
+                       [format]="24"
+                       readonly
+                       required>
+            </mat-form-field>
 
-        <mat-dialog-actions align="end">
-            <button mat-button
-                    mat-dialog-close>Close</button>
-            <button mat-button
-                    color="primary"
-                    type="submit"
-                    (click)="onUpdateOfficeModal()">Update office</button>
-        </mat-dialog-actions>
+            <mat-form-field class="work-time-field">
+                <ngx-material-timepicker #max></ngx-material-timepicker>
+                <input matInput
+                       placeholder="To "
+                       [ngxTimepicker]="max"
+                       name="worktimeEnd"
+                       [ngModel]="data.worktimeEnd"
+                       [format]="24"
+                       readonly
+                       required>
+            </mat-form-field>
+        </div>
+    </form>
+</div>
+
+<mat-dialog-actions align="end">
+    <button mat-button
+            mat-dialog-close>Close</button>
+    <button mat-button
+            color="primary"
+            type="submit"
+            (click)="onUpdateOffice(form)">Update office</button>
+</mat-dialog-actions>

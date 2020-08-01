@@ -11,7 +11,7 @@ import { MatSnackBar } from '@angular/material/snack-bar';
   styleUrls: ['./add-map-modal.component.scss'],
 })
 export class AddMapModalComponent implements OnInit {
-  formData: Office;
+  data: Office;
   okMessage = 'Operation is OK';
   warnMessage = 'Operation failed';
 
@@ -23,7 +23,7 @@ export class AddMapModalComponent implements OnInit {
   ) {}
 
   resetForm(): void {
-    this.formData = {
+    this.data = {
       id: null,
       address: {
         country: undefined,

@@ -11,8 +11,8 @@
             <mat-label class="field-label">Office ID</mat-label>
             <input matInput
                    placeholder="Office ID"
-                   name="officeId"
-                   [(ngModel)]="formData.id"
+                   name="id"
+                   [(ngModel)]="data.id"
                    readonly>
         </mat-form-field>
 
@@ -21,7 +21,7 @@
             <input matInput
                    placeholder="Country"
                    name="country"
-                   [(ngModel)]="formData.address.country"
+                   [(ngModel)]="data.address.country"
                    readonly>
         </mat-form-field>
 
@@ -30,7 +30,7 @@
             <input matInput
                    placeholder="City"
                    name="city"
-                   [(ngModel)]="formData.address.city"
+                   [(ngModel)]="data.address.city"
                    readonly>
         </mat-form-field>
 
@@ -39,7 +39,7 @@
             <input matInput
                    placeholder="Address"
                    name="address"
-                   [(ngModel)]="formData.address.address"
+                   [(ngModel)]="data.address.address"
                    readonly>
         </mat-form-field>
 
@@ -49,5 +49,5 @@
             <button mat-button
                     color="primary"
                     type="submit"
-                    (click)="onDeleteOfficeModal()">Delete office</button>
+                    (click)="onDeleteOffice(data.id)">Delete office</button>
         </mat-dialog-actions>

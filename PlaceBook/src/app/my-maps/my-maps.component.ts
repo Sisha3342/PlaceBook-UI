@@ -1,9 +1,9 @@
+import { Office } from './../models/office';
 import { MatDialog } from '@angular/material/dialog';
 import { Component, OnInit } from '@angular/core';
 import { Column } from '../models/column';
 import { MyMapsColumnService } from './my-maps-column.service';
 import { MapService } from './map.service';
-import { Office } from '../models/office';
 import { OfficeAddress } from '../models/office-address';
 import { EditMapAddressModalComponent } from './edit-map-address-modal/edit-map-address-modal.component';
 import { DeleteMapAddressModalComponent } from './delete-map-address-modal/delete-map-address-modal.component';
@@ -32,14 +32,18 @@ export class MyMapsComponent implements OnInit {
   }
 
   editOfficeAddress(): void {
+    const fakeOfficeObj: Office = this.displayedOffices[7];
     this.dialog.open(EditMapAddressModalComponent, {
       width: '30rem',
+      data: fakeOfficeObj,
     });
   }
 
   deleteOfficeAddress(): void {
+    const fakeOfficeObj: Office = this.displayedOffices[7];
     this.dialog.open(DeleteMapAddressModalComponent, {
       width: '30rem',
+      data: fakeOfficeObj,
     });
   }
 

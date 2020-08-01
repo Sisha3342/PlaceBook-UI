@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, EventEmitter } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { RatePlaceModalComponent } from '../my-bookings/rate-place-modal/rate-place-modal.component';
 import { Column } from '../models/column';
@@ -23,18 +23,6 @@ export class TableComponent implements OnInit {
   constructor(public dialog: MatDialog, public authService: AuthService) {}
 
   ngOnInit(): void {}
-
-  editOfficeAddress(): void {
-    this.dialog.open(EditMapAddressModalComponent, {
-      width: '30rem',
-    });
-  }
-
-  deleteOfficeAddress(): void {
-    this.dialog.open(DeleteMapAddressModalComponent, {
-      width: '30rem',
-    });
-  }
 
   getBookmarkClass(): string {
     return this.status.toLowerCase();

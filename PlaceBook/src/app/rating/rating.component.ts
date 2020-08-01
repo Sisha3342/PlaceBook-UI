@@ -1,5 +1,5 @@
 import { Component, OnInit, Inject, Input } from '@angular/core';
-import { Booking } from '../models/booking';
+import { BookingDetails } from '../models/booking-details';
 
 @Component({
   selector: 'app-rating',
@@ -7,16 +7,16 @@ import { Booking } from '../models/booking';
   styleUrls: ['./rating.component.scss'],
 })
 export class RatingComponent implements OnInit {
-  booking: Booking;
+  booking: BookingDetails;
 
   constructor() {}
 
   @Input()
-  set book(bookingObj: Booking) {
+  set book(bookingObj: BookingDetails) {
     this.booking = bookingObj;
   }
 
-  get book(): Booking {
+  get book(): BookingDetails {
     return this.booking;
   }
 
