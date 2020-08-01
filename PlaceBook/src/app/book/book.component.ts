@@ -18,6 +18,7 @@ import { Place } from '../models/place';
 })
 export class BookComponent implements OnInit {
   @Input() showFloor: boolean;
+  userId = this.authService.getCurrentUser().id;
   currentFloor: Floor;
   currentPlace: Place;
   currentOffice: Office;
@@ -70,16 +71,12 @@ export class BookComponent implements OnInit {
   }
 
   addBooking(): void {
-    // this.bookService
-    //   .book(
-    //     this.authService.getCurrentUser().id,
-    //     this.dateRange,
-    //     this.currentPlace.number,
-    //     this.currentFloor.floorNumber,
-    //     this.currentOffice.id
-    //   )
-    //   .subscribe(() => {
-    //     this.router.navigate(['/my_bookings']);
-    //   });
+    this.bookService
+      .book(this.userId, this.currentPlace.placeId, this.dateRange)
+      .subscribe(() => {
+        this.router.navigate(['/my_bookings']);
+      });
   }
+
+  subscribe(): void {}
 }

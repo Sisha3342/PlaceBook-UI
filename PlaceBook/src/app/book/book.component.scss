@@ -11,7 +11,7 @@
   position: relative;
 }
 
-.booking-container .place-info {
+.booking-container .place-panel {
   width: 22rem;
   height: 100%;
   float: right;
@@ -20,7 +20,7 @@
 }
 
 
-.place-info {
+.place-panel {
   background: white;
   float: right;
   box-shadow: var(--primary-box-shadow);

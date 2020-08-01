@@ -11,28 +11,6 @@ import { Place } from '../models/place';
 export class BookService {
   constructor(private http: HttpClient) {}
 
-  book(
-    userId: number,
-    dateRange: FormGroup,
-    placeNumber: number,
-    floorNumber: number,
-    officeId: number
-  ): Observable<Booking> {
-    return this.http.post<Booking>(
-      `https://placebookapp.herokuapp.com/user/${userId}/booking`,
-      {
-        timeStart: dateRange.value.start,
-        timeEnd: dateRange.value.end,
-        placeNumber: placeNumber,
-        floorNumber: floorNumber,
-        officeId: officeId,
-      },
-      {
-        withCredentials: true,
-      }
-    );
-  }
-
   getPlaces(floorId: number, dateRange: FormGroup): Observable<Place[]> {
     return this.http.get<Place[]>(
       `https://placebookapp.herokuapp.com/floor/${floorId}/places`,
@@ -44,4 +22,24 @@ export class BookService {
       }
     );
   }
+
+  book(
+    userId: number,
+    placeId: number,
+    dateRange: FormGroup
+  ): Observable<Booking> {
+    return this.http.post<Booking>(
+      `https://placebookapp.herokuapp.com/user/${userId}/booking`,
+      {
+        placeId: placeId,
+        timeStart: dateRange.value.start,
+        timeEnd: dateRange.value.end,
+      },
+      {
+        withCredentials: true,
+      }
+    );
+  }
+
+  subscribe(placeId: number) {}
 }
