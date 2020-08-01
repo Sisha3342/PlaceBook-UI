@@ -25,7 +25,7 @@ export class MapService {
   }
 
   updateOffice(formData: Office): Observable<Office> {
-    return this.http.put<Office>(this.urlOffice, formData, {
+    return this.http.put<Office>(this.urlOffice + `/${formData.id}`, formData, {
       withCredentials: true,
     });
   }

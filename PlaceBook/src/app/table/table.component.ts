@@ -5,6 +5,8 @@ import { Column } from '../models/column';
 import { AuthService } from '../auth/auth.service';
 import { Booking } from '../models/booking';
 import { BookingDetailsModalComponent } from '../my-bookings/booking-details-modal/booking-details-modal.component';
+import { EditMapAddressModalComponent } from '../my-maps/edit-map-address-modal/edit-map-address-modal.component';
+import { DeleteMapAddressModalComponent } from '../my-maps/delete-map-address-modal/delete-map-address-modal.component';
 
 @Component({
   selector: 'app-table',
@@ -21,6 +23,18 @@ export class TableComponent implements OnInit {
   constructor(public dialog: MatDialog, public authService: AuthService) {}
 
   ngOnInit(): void {}
+
+  editOfficeAddress(): void {
+    this.dialog.open(EditMapAddressModalComponent, {
+      width: '30rem',
+    });
+  }
+
+  deleteOfficeAddress(): void {
+    this.dialog.open(DeleteMapAddressModalComponent, {
+      width: '30rem',
+    });
+  }
 
   getBookmarkClass(): string {
     return this.status.toLowerCase();

@@ -33,15 +33,18 @@ export class EditMapAddressModalComponent implements OnInit {
     };
   }
 
-  onUpdateOfficeModal(): void {
-    // this.mapService.
-  }
-
-  updateRecord(form: NgForm): void {
-    this.mapService.postOffice(form.value).subscribe(() => {
+  onUpdateOfficeModal(form: NgForm): void {
+    this.mapService.updateOffice(form.value).subscribe(() => {
       this.resetForm();
       this.dialogRef.close();
     });
+  }
+
+  updateRecord(form: NgForm): void {
+    // this.mapService.postOffice(form.value).subscribe(() => {
+    //   this.resetForm();
+    //   this.dialogRef.close();
+    // });
   }
 
   ngOnInit(): void {
