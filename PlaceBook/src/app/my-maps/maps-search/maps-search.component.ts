@@ -14,6 +14,7 @@ export class MapsSearchComponent implements OnInit {
   countries: string[];
   cities: string[];
   offices: Office[];
+  floors: string[] = ['1', '2', '3', '4'];
   @Output() searchEvent = new EventEmitter<OfficeAddress>();
 
   constructor(

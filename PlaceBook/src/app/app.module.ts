@@ -48,6 +48,8 @@ import { MapsSearchComponent } from './my-maps/maps-search/maps-search.component
 import { UserPhotoComponent } from './user-photo/user-photo.component';
 import { MapService } from './my-maps/map.service';
 import { DeleteMapAddressModalComponent } from './my-maps/delete-map-address-modal/delete-map-address-modal.component';
+import { PlaceInfoComponent } from './book/place-info/place-info.component';
+import { RatingComponent } from './rating/rating.component';
 
 @NgModule({
   declarations: [
@@ -86,6 +88,8 @@ import { DeleteMapAddressModalComponent } from './my-maps/delete-map-address-mod
     UserPhotoComponent,
     EditMapAddressModalComponent,
     DeleteMapAddressModalComponent,
+    PlaceInfoComponent,
+    RatingComponent,
   ],
   imports: [
     BrowserModule,

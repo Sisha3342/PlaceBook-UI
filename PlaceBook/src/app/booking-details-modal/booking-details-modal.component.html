@@ -1,0 +1,34 @@
+<h2 mat-dialog-title>Booking details</h2>
+
+<app-booking-status [status]="booking.status"></app-booking-status>
+
+<div mat-dialog-content>
+  <table class="booking-details">
+    <tr>
+      <td class="booking-details-label">Date:</td>
+      <td>{{ booking.timeStart }} - {{ booking.timeEnd }}</td>
+    </tr>
+    <tr>
+      <td class="booking-details-label">Address:</td>
+      <td>
+        {{ booking.address.country }}, {{ booking.address.city }},
+        {{ booking.address.address }}
+      </td>
+    </tr>
+    <tr>
+      <td class="booking-details-label">Place #:</td>
+      <td>{{ booking.placeNumber }}</td>
+    </tr>
+    <tr *ngIf="booking.status === 'COMPLETED'">
+      <td class="booking-details-label">Feedback:</td>
+      <td>{{ booking.marks.feedback }}</td>
+    </tr>
+  </table>
+  <app-rating [book]="this.booking"
+              *ngIf="booking.status === 'COMPLETED'"></app-rating>
+</div>
+
+<mat-dialog-actions align="end">
+  <button mat-button
+          mat-dialog-close>Close</button>
+</mat-dialog-actions>

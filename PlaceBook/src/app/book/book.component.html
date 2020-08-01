@@ -1,1 +1,47 @@
-<p>book works!</p>
+<app-maps-search></app-maps-search>
+<app-search></app-search>
+<div class="map-background">
+  <div class="place-info">
+    <div class="date-field">
+      <mat-form-field color="accent"
+                      appearance="fill"
+                      class="date-item">
+        <mat-label>Book from</mat-label>
+        <input matInput
+               [matDatepicker]="picker1" />
+        <mat-datepicker-toggle matSuffix
+                               [for]="picker1"></mat-datepicker-toggle>
+        <mat-datepicker #picker1></mat-datepicker>
+      </mat-form-field>
+
+      <mat-form-field color="accent"
+                      appearance="fill"
+                      class="date-item">
+        <mat-label>Book to</mat-label>
+        <input matInput
+               [matDatepicker]="picker2" />
+        <mat-datepicker-toggle matSuffix
+                               [for]="picker2"></mat-datepicker-toggle>
+        <mat-datepicker #picker2
+                        color="primary"></mat-datepicker>
+      </mat-form-field>
+    </div>
+
+    <app-place-info></app-place-info>
+
+    <app-rating [book]="bookingObj"></app-rating>
+
+    <div align="end">
+      <button mat-raised-button
+              class="close-button"
+              mat-dialog-close> Cancel </button>
+
+      <button mat-raised-button
+              color="primary"
+              routerLink="/my_bookings"
+              class="book-button"
+              cdkFocusInitial> Book </button>
+    </div>
+
+  </div>
+</div>
