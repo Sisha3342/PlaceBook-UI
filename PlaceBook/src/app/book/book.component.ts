@@ -43,4 +43,6 @@ export class BookComponent implements OnInit {
   getPlaceInfo(item: MapObject): void {
     this.currentPlace = item;
   }
+
+  addBooking(): void {}
 }
