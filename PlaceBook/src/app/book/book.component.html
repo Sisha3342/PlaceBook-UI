@@ -10,10 +10,11 @@
       <app-map-booking
         (showPlaceInfo)="getPlaceInfo($event)"
         [currentFloor]="currentFloor"
+        [places]="places"
       ></app-map-booking>
     </div>
     <div class="place-info">
-      <app-date-range (dateChange)="dateRange = $event"></app-date-range>
+      <app-date-range (dateChange)="changeDateRange($event)"></app-date-range>
       <app-place-info *ngIf="currentPlace !== undefined"></app-place-info>
       <div align="end" class="button-group">
         <button mat-raised-button mat-dialog-close>

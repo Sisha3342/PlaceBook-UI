@@ -1,8 +1,9 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { FormGroup } from '@angular/forms';
 import { Observable } from 'rxjs';
 import { Booking } from '../models/booking';
+import { Place } from '../models/place';
 
 @Injectable({
   providedIn: 'root',
@@ -27,6 +28,18 @@ export class BookService {
         officeId: officeId,
       },
       {
+        withCredentials: true,
+      }
+    );
+  }
+
+  getPlaces(floorId: number, dateRange: FormGroup): Observable<Place[]> {
+    return this.http.get<Place[]>(
+      `https://placebookapp.herokuapp.com/floor/${floorId}/places`,
+      {
+        params: new HttpParams()
+          .set('timeStart', dateRange.value.start.toISOString())
+          .set('timeEnd', dateRange.value.end.toISOString()),
         withCredentials: true,
       }
     );

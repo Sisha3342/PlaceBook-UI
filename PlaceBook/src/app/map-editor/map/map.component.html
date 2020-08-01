@@ -22,7 +22,8 @@
             [object]="item.data"
             [zoom]="zoom"
             [isOnMap]="true"
-            (click)="getPlaceInfo(item.data)"
+            (click)="getPlaceInfo(object.place)"
+            [neighborPlaces]="places"
           ></app-map-object>
         </gridster-item>
         <ng-template

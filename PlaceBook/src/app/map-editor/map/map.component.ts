@@ -13,6 +13,7 @@ import { Floor } from '../../models/floor';
 import { MapObjectComponent } from '../map-tools/map-object/map-object.component';
 import { MapConfigurationService } from './map-configuration.service';
 import { MapObject } from '../map-model/map-object';
+import { Place } from '../../models/place';
 
 @Component({
   selector: 'app-map',
@@ -20,16 +21,16 @@ import { MapObject } from '../map-model/map-object';
   styleUrls: ['./map.component.scss'],
 })
 export class MapComponent implements OnInit, OnChanges {
-  options: Safe = this.editorService.getDefaultOptions(this);
   @Input() config: Floor;
-  @Input() edit: boolean;
-  @Output() configChange = new EventEmitter<Floor>();
-
-  @Output() showPlaceInfo = new EventEmitter<MapObject>();
-
+  options: Safe = this.editorService.getDefaultOptions(this);
   initCellHeight: number;
   initCellWidth: number;
   zoom = 1;
+
+  @Input() edit: boolean;
+  @Input() places: Place[];
+  @Output() configChange = new EventEmitter<Floor>();
+  @Output() showPlaceInfo = new EventEmitter<Place>();
 
   constructor(private editorService: MapConfigurationService) {
     this.options = this.editorService.getDefaultOptions(this);
@@ -97,9 +98,9 @@ export class MapComponent implements OnInit, OnChanges {
     return false;
   }
 
-  getPlaceInfo(item: MapObject): void {
-    if (item.hasOwnProperty('number') && !this.edit) {
-      this.showPlaceInfo.emit(item);
+  getPlaceInfo(place: Place): void {
+    if (!this.edit && place !== undefined) {
+      this.showPlaceInfo.emit(place);
     }
   }
 }
