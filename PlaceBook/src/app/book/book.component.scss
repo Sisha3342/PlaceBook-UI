@@ -42,6 +42,18 @@ mat-form-field {
   padding-top: 1rem;
 }
 
-.booking-screen .booking-container .place-info .date-field {
+.booking-screen .booking-container .place-info app-date-range {
   width: 100%;
+}
+
+.button-group {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+}
+
+.button-group button {
+  margin: 2rem 1rem 1rem 1rem;
+  width: 6rem;
+  height: 3rem;
 }

@@ -49,6 +49,7 @@ import { UserPhotoComponent } from './user-photo/user-photo.component';
 import { PlaceInfoComponent } from './book/place-info/place-info.component';
 import { MapBookingComponent } from './map-booking/map-booking.component';
 import { RatingComponent } from './rating/rating.component';
+import { DateRangeComponent } from './book/date-range/date-range.component';
 
 @NgModule({
   declarations: [
@@ -88,6 +89,7 @@ import { RatingComponent } from './rating/rating.component';
     PlaceInfoComponent,
     MapBookingComponent,
     RatingComponent,
+    DateRangeComponent,
   ],
   imports: [
     BrowserModule,
