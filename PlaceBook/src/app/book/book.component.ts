@@ -6,6 +6,9 @@ import { FloorRequestConfig } from '../models/floor-request-config';
 import { MapObject } from '../map-editor/map-model/map-object';
 import { Office } from '../models/office';
 import { FormGroup } from '@angular/forms';
+import { BookService } from './book.service';
+import { AuthService } from '../auth/auth.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-book',
@@ -20,7 +23,12 @@ export class BookComponent implements OnInit {
   currentOffice: Office;
   dateRange: FormGroup;
 
-  constructor(private floorsConverterService: FloorsConverterService) {}
+  constructor(
+    private floorsConverterService: FloorsConverterService,
+    private bookService: BookService,
+    private authService: AuthService,
+    private router: Router
+  ) {}
 
   ngOnInit(): void {}
 
@@ -44,5 +52,19 @@ export class BookComponent implements OnInit {
     this.currentPlace = item;
   }
 
-  addBooking(): void {}
+  addBooking(): void {
+    console.log('123');
+
+    this.bookService
+      .book(
+        this.authService.getCurrentUser().id,
+        this.dateRange,
+        this.currentPlace.number,
+        this.currentFloor.floorNumber,
+        this.currentOffice.id
+      )
+      .subscribe(() => {
+        this.router.navigate(['/my_bookings']);
+      });
+  }
 }
