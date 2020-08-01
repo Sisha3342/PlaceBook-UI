@@ -15,7 +15,11 @@
     </div>
     <div class="place-info">
       <app-date-range (dateChange)="changeDateRange($event)"></app-date-range>
-      <app-place-info *ngIf="currentPlace !== undefined"></app-place-info>
+      <app-place-info
+        *ngIf="currentPlace !== undefined"
+        [place]="currentPlace"
+        [dateRange]="dateRange"
+      ></app-place-info>
       <div align="end" class="button-group">
         <button mat-raised-button mat-dialog-close>
           Cancel

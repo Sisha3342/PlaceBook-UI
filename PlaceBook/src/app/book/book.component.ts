@@ -42,9 +42,8 @@ export class BookComponent implements OnInit {
       this.setPlaces(this.currentFloor.id, this.dateRange);
     } else {
       this.currentFloor = undefined;
+      this.currentPlace = undefined;
     }
-
-    this.currentPlace = undefined;
   }
 
   changeCurrentOffice(office: Office): void {
@@ -66,6 +65,7 @@ export class BookComponent implements OnInit {
   setPlaces(floorId: number, dateRange: FormGroup): void {
     this.bookService.getPlaces(floorId, dateRange).subscribe((places) => {
       this.places = places;
+      this.currentPlace = undefined;
     });
   }
 

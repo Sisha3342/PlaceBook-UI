@@ -8,7 +8,7 @@
     'on-map-icon-background': isOnMap,
     'icon-background': !isOnMap,
     disabled: !object.active && object.hasOwnProperty('number'),
-    free: !(place === undefined || place.occupied)
+    free: !(place === undefined || place.occupied || !object.active)
   }"
 >
   <mat-icon

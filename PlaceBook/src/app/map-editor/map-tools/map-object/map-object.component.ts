@@ -25,9 +25,7 @@ export class MapObjectComponent implements OnInit, OnChanges {
 
   constructor(public editorService: MapConfigurationService) {}
 
-  ngOnInit(): void {
-    // this.place = this.findPlace(this.neighborPlaces, this.object.number);
-  }
+  ngOnInit(): void {}
 
   ngOnChanges(changes: SimpleChanges) {
     this.place = this.findPlace(this.neighborPlaces, this.object.number);
@@ -36,8 +34,6 @@ export class MapObjectComponent implements OnInit, OnChanges {
   findPlace(places: Place[], placeNumber: number): Place {
     if (!(placeNumber === undefined || places === undefined)) {
       return places.find((place) => {
-        console.log(place.placeNumber);
-        console.log(placeNumber);
         return place.placeNumber === placeNumber;
       });
     }

@@ -1,17 +1,28 @@
 <div class="place-info-container">
   <div class="place-info">
-    <p class="place-header">Place Info</p>
+    <p class="place-header">Place №{{ place.placeNumber }} Info</p>
     <p class="text-place">Place Rating</p>
-    <app-rating [book]="bookingObj"></app-rating>
-
-    <p class="text-place">Booked by:</p>
-    <table mat-table [dataSource]="DATA" class="mat-elevation-z8">
+    <app-rating
+      *ngIf="placeRating !== undefined"
+      [rating]="placeRating"
+    ></app-rating>
+    <table
+      *ngIf="place.occupied && currentBookings !== undefined"
+      mat-table
+      [dataSource]="currentBookings"
+      class="mat-elevation-z8"
+    >
+      <p class="text-place">Booked by:</p>
       <ng-container matColumnDef="date">
-        <td mat-cell *matCellDef="let element">{{ element.date }}</td>
+        <td mat-cell *matCellDef="let element">
+          {{ element.timeStart }} - {{ element.timeEnd }}
+        </td>
       </ng-container>
 
-      <ng-container matColumnDef="userName">
-        <td mat-cell *matCellDef="let element">{{ element.userName }}</td>
+      <ng-container matColumnDef="name">
+        <td mat-cell *matCellDef="let element">
+          {{ element.userName }} {{ element.userSurname }}
+        </td>
       </ng-container>
 
       <tr mat-row *matRowDef="let row; columns: headers"></tr>

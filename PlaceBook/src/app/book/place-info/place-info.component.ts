@@ -1,50 +1,39 @@
-import { Component, OnInit } from '@angular/core';
-import { Place } from '../../models/place-info';
-import { Booking } from '../../models/booking';
+import {
+  Component,
+  Input,
+  OnChanges,
+  OnInit,
+  SimpleChanges,
+} from '@angular/core';
+import { Place } from '../../models/place';
+import { BookingMark } from '../../models/booking-mark';
+import { PlaceInfoService } from './place-info.service';
+import { PlaceCurrentBooking } from '../../models/place-current-booking';
+import { FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-place-info',
   templateUrl: './place-info.component.html',
   styleUrls: ['./place-info.component.scss'],
 })
-export class PlaceInfoComponent implements OnInit {
-  headers = ['date', 'userName'];
+export class PlaceInfoComponent implements OnInit, OnChanges {
+  headers = ['date', 'name'];
+  @Input() place: Place;
+  @Input() dateRange: FormGroup;
+  placeRating: BookingMark;
+  currentBookings: PlaceCurrentBooking[];
 
-  DATA: Place[] = [
-    {
-      date: '13.02.2020-12.03.2015',
-      userName: 'Maks Lappo',
-    },
-    {
-      date: '14.05.2020',
-      userName: 'Sasha001',
-    },
-  ];
+  constructor(private placeService: PlaceInfoService) {}
 
-  bookingObj: Booking = {
-    id: null,
-    placeNumber: '',
-    userName: '',
-    userSurname: '',
-    marks: {
-      markLightning: 0,
-      markAir: 0,
-      markVolume: 0,
-      markCleaning: 0,
-      markLocation: 0,
-      feedBack: '',
-    },
-    address: {
-      country: '',
-      city: '',
-      address: '',
-    },
-    timeStart: '',
-    timeEnd: '',
-    status: '',
-  };
+  ngOnInit(): void {
+    this.placeService
+      .getPlaceRating(this.place.placeId)
+      .subscribe((rating) => (this.placeRating = rating));
+  }
 
-  constructor() {}
-
-  ngOnInit(): void {}
+  ngOnChanges(changes: SimpleChanges) {
+    this.placeService
+      .getCurrentBookings(this.place.placeId, this.dateRange)
+      .subscribe((bookings) => (this.currentBookings = bookings));
+  }
 }

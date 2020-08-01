@@ -12,7 +12,6 @@ import { Safe } from '../map-model/safe';
 import { Floor } from '../../models/floor';
 import { MapObjectComponent } from '../map-tools/map-object/map-object.component';
 import { MapConfigurationService } from './map-configuration.service';
-import { MapObject } from '../map-model/map-object';
 import { Place } from '../../models/place';
 
 @Component({
@@ -98,9 +97,9 @@ export class MapComponent implements OnInit, OnChanges {
     return false;
   }
 
-  getPlaceInfo(place: Place): void {
-    if (!this.edit && place !== undefined) {
-      this.showPlaceInfo.emit(place);
+  getPlaceInfo(object: MapObjectComponent): void {
+    if (!this.edit && object.object.active && object.place !== undefined) {
+      this.showPlaceInfo.emit(object.place);
     }
   }
 }

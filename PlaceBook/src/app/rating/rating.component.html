@@ -1,4 +1,4 @@
-<table class="booking-rate">
+<table class="booking-rate" *ngIf="rate.markLightning !== null">
   <tr>
     <td matTooltip="Light" [matTooltipPosition]="'above'">
       <i class="fa fa-lightbulb"> </i>
@@ -17,10 +17,11 @@
     </td>
   </tr>
   <tr>
-    <td>{{ booking.marks.markLightning }}</td>
-    <td>{{ booking.marks.markAir }}</td>
-    <td>{{ booking.marks.markVolume }}</td>
-    <td>{{ booking.marks.markCleaning }}</td>
-    <td>{{ booking.marks.markLocation }}</td>
+    <td>{{ rate.markLightning }}</td>
+    <td>{{ rate.markAir }}</td>
+    <td>{{ rate.markVolume }}</td>
+    <td>{{ rate.markCleaning }}</td>
+    <td>{{ rate.markLocation }}</td>
   </tr>
 </table>
+<p *ngIf="rate.markLightning === null">No rating yet</p>
