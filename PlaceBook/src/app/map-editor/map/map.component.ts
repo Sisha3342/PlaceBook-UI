@@ -12,6 +12,7 @@ import { Safe } from '../map-model/safe';
 import { Floor } from '../../models/floor';
 import { MapObjectComponent } from '../map-tools/map-object/map-object.component';
 import { MapConfigurationService } from './map-configuration.service';
+import { MapObject } from '../map-model/map-object';
 
 @Component({
   selector: 'app-map',
@@ -23,6 +24,8 @@ export class MapComponent implements OnInit, OnChanges {
   @Input() config: Floor;
   @Input() edit: boolean;
   @Output() configChange = new EventEmitter<Floor>();
+
+  @Output() showPlaceInfo = new EventEmitter<MapObject>();
 
   initCellHeight: number;
   initCellWidth: number;
@@ -92,5 +95,11 @@ export class MapComponent implements OnInit, OnChanges {
   openMenu(object: MapObjectComponent): boolean {
     object.menuOpened = true;
     return false;
+  }
+
+  getPlaceInfo(item: MapObject): void {
+    if (item.hasOwnProperty('number') && !this.edit) {
+      this.showPlaceInfo.emit(item);
+    }
   }
 }

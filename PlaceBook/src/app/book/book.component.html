@@ -6,7 +6,10 @@
   ></app-maps-search>
   <div class="booking-container">
     <div class="map-grid">
-      <app-map-booking [currentFloor]="currentFloor"></app-map-booking>
+      <app-map-booking
+        (showPlaceInfo)="getPlaceInfo($event)"
+        [currentFloor]="currentFloor"
+      ></app-map-booking>
     </div>
     <div class="place-info">
       <app-place-info></app-place-info>

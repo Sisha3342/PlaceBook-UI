@@ -3,6 +3,7 @@ import { MatDatepickerModule } from '@angular/material/datepicker';
 import { Floor } from '../models/floor';
 import { FloorsConverterService } from '../map-editor/floors-converter.service';
 import { FloorRequestConfig } from '../models/floor-request-config';
+import { MapObject } from '../map-editor/map-model/map-object';
 
 @Component({
   selector: 'app-book',
@@ -13,6 +14,7 @@ import { FloorRequestConfig } from '../models/floor-request-config';
 export class BookComponent implements OnInit {
   @Input() showFloor: boolean;
   currentFloor: Floor;
+  currentPlace: MapObject;
 
   constructor(private floorsConverterService: FloorsConverterService) {}
 
@@ -26,5 +28,10 @@ export class BookComponent implements OnInit {
     } else {
       this.currentFloor = undefined;
     }
+  }
+
+  getPlaceInfo(item: MapObject): void {
+    console.log(item);
+    this.currentPlace = item;
   }
 }

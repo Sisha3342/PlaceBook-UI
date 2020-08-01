@@ -1,5 +1,10 @@
 <div class="my-grid">
-  <app-map [edit]="false" #map [(config)]="currentFloor"></app-map>
+  <app-map
+    [edit]="false"
+    #map
+    [(config)]="currentFloor"
+    (showPlaceInfo)="getPlaceInfo($event)"
+  ></app-map>
 </div>
 
 <div class="zoom-container">
