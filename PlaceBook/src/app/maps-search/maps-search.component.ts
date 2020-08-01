@@ -15,6 +15,7 @@ import { AddMapModalComponent } from '../my-maps/add-map-modal/add-map-modal.com
 export class MapsSearchComponent implements OnInit {
   @Input() showFloor: boolean;
   @Output() changeFloor = new EventEmitter<FloorRequestConfig>();
+  @Output() changeOffice = new EventEmitter<Office>();
 
   countries: string[];
   cities: string[];
@@ -78,6 +79,7 @@ export class MapsSearchComponent implements OnInit {
   }
 
   setFloors(office: Office): void {
+    this.changeOffice.emit(office);
     this.resetFloors();
 
     if (office !== undefined) {
@@ -95,6 +97,7 @@ export class MapsSearchComponent implements OnInit {
   }
 
   resetOffices(): void {
+    this.changeOffice.emit(undefined);
     this.offices = [];
     this.resetFloors();
   }

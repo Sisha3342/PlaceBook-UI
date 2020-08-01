@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Place } from '../../models/place-info';
 import { Booking } from '../../models/booking';
-import { FormControl, FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-place-info',
@@ -10,16 +9,6 @@ import { FormControl, FormGroup } from '@angular/forms';
 })
 export class PlaceInfoComponent implements OnInit {
   headers = ['date', 'userName'];
-
-  bookingDate = {
-    start: new Date(),
-    end: new Date(),
-  };
-
-  range = new FormGroup({
-    start: new FormControl(),
-    end: new FormControl(),
-  });
 
   DATA: Place[] = [
     {
@@ -57,8 +46,5 @@ export class PlaceInfoComponent implements OnInit {
 
   constructor() {}
 
-  ngOnInit(): void {
-    this.bookingDate.start.setDate(new Date().getDate() + 1);
-    this.bookingDate.end.setDate(new Date().getDate() + 1);
-  }
+  ngOnInit(): void {}
 }
