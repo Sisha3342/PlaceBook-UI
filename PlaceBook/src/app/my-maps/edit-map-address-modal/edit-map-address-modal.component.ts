@@ -45,7 +45,7 @@ export class EditMapAddressModalComponent implements OnInit {
     this.mapService.updateOffice(form.value).subscribe(
       () => {
         this.resetForm();
-        this.snackbar.open('Office address updated', 'Close', {
+        this.snackbar.open(this.okMessage, 'Close', {
           verticalPosition: 'top',
           duration: 2000,
         });
@@ -60,7 +60,12 @@ export class EditMapAddressModalComponent implements OnInit {
     );
   }
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    const arrStart = this.data.worktimeStart.split(':');
+    this.data.worktimeStart = [arrStart[0], arrStart[1]].join(':');
+    const arrEnd = this.data.worktimeEnd.split(':');
+    this.data.worktimeEnd = [arrEnd[0], arrEnd[1]].join(':');
+  }
 
   onNoClick(): void {
     this.dialogRef.close();
