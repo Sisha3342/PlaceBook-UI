@@ -61,7 +61,7 @@
             <button mat-icon-button
                     class="close-button icon-button"
                     [matTooltip]="column.tooltip"
-                    (click)="cancelBooking($event)"
+                    (click)="openDelete($event, element)"
                     [matTooltipPosition]="'above'">
               <mat-icon>delete</mat-icon>
             </button>

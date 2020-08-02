@@ -38,11 +38,10 @@ export class MyMapsComponent implements OnInit {
     });
   }
 
-  deleteOfficeAddress(): void {
-    const fakeOfficeObj: Office = this.displayedOffices[7];
+  deleteOfficeAddress(event: Event, element: Office): void {
     this.dialog.open(DeleteMapAddressModalComponent, {
       width: '30rem',
-      data: fakeOfficeObj,
+      data: element,
     });
   }
 
