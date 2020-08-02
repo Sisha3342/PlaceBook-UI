@@ -8,15 +8,6 @@
           autocomplete="off">
 
         <mat-form-field class="office-field">
-            <mat-label class="field-label">Office ID</mat-label>
-            <input matInput
-                   placeholder="Office ID"
-                   name="id"
-                   [(ngModel)]="data.id"
-                   readonly>
-        </mat-form-field>
-
-        <mat-form-field class="office-field">
             <mat-label class="field-label">Country</mat-label>
             <input matInput
                    placeholder="Country"
@@ -42,6 +33,7 @@
                    [(ngModel)]="data.address.address"
                    required>
         </mat-form-field>
+
         <div class="work-time">
             <p>Working time:</p>
             <mat-form-field class="work-time-field">

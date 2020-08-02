@@ -31,17 +31,17 @@ export class MyMapsComponent implements OnInit {
     });
   }
 
-  editOfficeAddress(event: Event, element: Office): void {
+  editOfficeAddress(event: Event, data: Office): void {
     this.dialog.open(EditMapAddressModalComponent, {
       width: '30rem',
-      data: element,
+      data: data,
     });
   }
 
-  deleteOfficeAddress(event: Event, element: Office): void {
+  deleteOfficeAddress(event: Event, data: Office): void {
     this.dialog.open(DeleteMapAddressModalComponent, {
       width: '30rem',
-      data: element,
+      data: data,
     });
   }
 
