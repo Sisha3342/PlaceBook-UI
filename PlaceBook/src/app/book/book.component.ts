@@ -7,8 +7,8 @@ import { Office } from '../models/office';
 import { FormGroup } from '@angular/forms';
 import { BookService } from './book.service';
 import { AuthService } from '../auth/auth.service';
-import { Router } from '@angular/router';
 import { Place } from '../models/place';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-book',
@@ -29,7 +29,7 @@ export class BookComponent implements OnInit {
     private floorsConverterService: FloorsConverterService,
     private bookService: BookService,
     private authService: AuthService,
-    private router: Router
+    private snackbar: MatSnackBar
   ) {}
 
   ngOnInit(): void {}
@@ -74,10 +74,11 @@ export class BookComponent implements OnInit {
     this.bookService
       .book(this.userId, this.currentPlace.placeId, this.dateRange)
       .subscribe(() => {
-        this.currentPlace.occupied = true;
-        this.currentPlace = undefined;
+        this.snackbar.open('Successful book', 'Close', {
+          verticalPosition: 'top',
+          panelClass: 'success',
+        });
+        this.setPlaces(this.currentFloor.id, this.dateRange);
       });
   }
-
-  subscribe(): void {}
 }
