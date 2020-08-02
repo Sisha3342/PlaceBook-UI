@@ -74,7 +74,8 @@ export class BookComponent implements OnInit {
     this.bookService
       .book(this.userId, this.currentPlace.placeId, this.dateRange)
       .subscribe(() => {
-        this.router.navigate(['/my_bookings']);
+        this.currentPlace.occupied = true;
+        this.currentPlace = undefined;
       });
   }
 

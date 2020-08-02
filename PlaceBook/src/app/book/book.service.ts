@@ -31,7 +31,7 @@ export class BookService {
     return this.http.post<Booking>(
       `https://placebookapp.herokuapp.com/user/${userId}/booking`,
       {
-        placeId: placeId,
+        placeId,
         timeStart: dateRange.value.start,
         timeEnd: dateRange.value.end,
       },
@@ -41,5 +41,5 @@ export class BookService {
     );
   }
 
-  subscribe(placeId: number) {}
+  subscribe(placeId: number): void {}
 }
