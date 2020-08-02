@@ -30,19 +30,21 @@ export class MapComponent implements OnInit, OnChanges {
   @Input() places: Place[];
   @Output() configChange = new EventEmitter<Floor>();
   @Output() showPlaceInfo = new EventEmitter<Place>();
+  @Input() selectedPlace: Place;
 
   constructor(private editorService: MapConfigurationService) {
     this.options = this.editorService.getDefaultOptions(this);
-    if (!this.edit) {
-      this.options.enableEmptyCellDrop = false;
-      this.options.draggable = { enabled: false };
-      this.options.resizable = { enabled: false };
-    }
   }
 
   ngOnInit(): void {
     this.initCellWidth = this.options.fixedColWidth;
     this.initCellHeight = this.options.fixedRowHeight;
+
+    if (!this.edit) {
+      this.options.enableEmptyCellDrop = false;
+      this.options.draggable = { enabled: false };
+      this.options.resizable = { enabled: false };
+    }
   }
 
   ngOnChanges(changes: SimpleChanges): void {

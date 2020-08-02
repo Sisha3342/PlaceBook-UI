@@ -8,6 +8,7 @@
   <div class="booking-container">
     <div class="map-grid">
       <app-map-booking
+        [currentPlace]="currentPlace"
         (showPlaceInfo)="getPlaceInfo($event)"
         [currentFloor]="currentFloor"
         [places]="places"

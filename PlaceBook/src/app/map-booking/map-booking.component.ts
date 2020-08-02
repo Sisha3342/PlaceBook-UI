@@ -1,6 +1,5 @@
 import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
 import { Floor } from '../models/floor';
-import { MapObject } from '../map-editor/map-model/map-object';
 import { Place } from '../models/place';
 
 @Component({
@@ -10,6 +9,7 @@ import { Place } from '../models/place';
 })
 export class MapBookingComponent implements OnInit {
   @Input() currentFloor: Floor;
+  @Input() currentPlace: Place;
   @Output() showPlaceInfo = new EventEmitter<Place>();
   @Input() places: Place[];
 

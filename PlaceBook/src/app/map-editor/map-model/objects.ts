@@ -37,13 +37,13 @@ export const OBJECTS: MapObject[] = [
   },
   {
     type: 'door',
-    active: false,
+    active: true,
     icon: 'fa-door-closed',
     tooltip: 'Door',
   },
   {
     type: 'window',
-    active: false,
+    active: true,
     icon: 'fa-border-all',
     tooltip: 'Window',
   },

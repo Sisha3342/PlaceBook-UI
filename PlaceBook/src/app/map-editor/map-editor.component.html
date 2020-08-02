@@ -1,4 +1,4 @@
-<div class="tab-container">
+<div class="tab-container" *ngIf="currentFloor; else spinner">
   <div class="tools">
     <div class="tools-container">
       <ng-container *ngFor="let object of objects">
@@ -22,10 +22,7 @@
   </div>
 
   <div class="my-grid">
-    <app-map
-      #map
-      [(config)]="currentFloor ? currentFloor : floors[0]"
-    ></app-map>
+    <app-map [edit]="true" #map [(config)]="currentFloor"></app-map>
   </div>
 
   <app-floor-panel
@@ -34,3 +31,6 @@
     [(currentFloor)]="currentFloor"
   ></app-floor-panel>
 </div>
+<ng-template #spinner>
+  <app-spinner></app-spinner>
+</ng-template>

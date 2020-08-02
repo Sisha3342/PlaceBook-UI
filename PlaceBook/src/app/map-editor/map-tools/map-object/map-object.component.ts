@@ -18,7 +18,9 @@ export class MapObjectComponent implements OnInit, OnChanges {
   @Input() object: MapObject;
   @Input() isOnMap;
   @Input() zoom: number;
+  @Input() isEditMode = false;
   menuOpened = false;
+  @Input() selected;
 
   @Input() neighborPlaces: Place[];
   place: Place;
@@ -27,7 +29,7 @@ export class MapObjectComponent implements OnInit, OnChanges {
 
   ngOnInit(): void {}
 
-  ngOnChanges(changes: SimpleChanges) {
+  ngOnChanges(changes: SimpleChanges): void {
     this.place = this.findPlace(this.neighborPlaces, this.object.number);
   }
 

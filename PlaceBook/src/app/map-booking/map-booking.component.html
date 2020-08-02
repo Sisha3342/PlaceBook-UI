@@ -1,6 +1,7 @@
 <div class="my-grid">
   <app-map
     [edit]="false"
+    [selectedPlace]="currentPlace"
     #map
     [(config)]="currentFloor"
     (showPlaceInfo)="getPlaceInfo($event)"

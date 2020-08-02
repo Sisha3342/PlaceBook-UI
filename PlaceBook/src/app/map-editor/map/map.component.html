@@ -19,11 +19,15 @@
         >
           <app-map-object
             #object
+            [selected]="
+              selectedPlace && selectedPlace.placeNumber === item.data.number
+            "
             [object]="item.data"
             [zoom]="zoom"
             [isOnMap]="true"
             (click)="getPlaceInfo(object)"
             [neighborPlaces]="places"
+            [isEditMode]="edit"
           ></app-map-object>
         </gridster-item>
         <ng-template

@@ -50,6 +50,8 @@ import { PlaceInfoComponent } from './book/place-info/place-info.component';
 import { MapBookingComponent } from './map-booking/map-booking.component';
 import { RatingComponent } from './rating/rating.component';
 import { DateRangeComponent } from './book/date-range/date-range.component';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { SpinnerComponent } from './spinner/spinner.component';
 
 @NgModule({
   declarations: [
@@ -90,6 +92,7 @@ import { DateRangeComponent } from './book/date-range/date-range.component';
     MapBookingComponent,
     RatingComponent,
     DateRangeComponent,
+    SpinnerComponent,
   ],
   imports: [
     BrowserModule,
@@ -100,6 +103,7 @@ import { DateRangeComponent } from './book/date-range/date-range.component';
     AppMaterialModule,
     GridsterModule,
     OverlayModule,
+    MatProgressSpinnerModule,
   ],
   providers: [
     MatSnackBar,
