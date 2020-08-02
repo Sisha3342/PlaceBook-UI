@@ -22,10 +22,6 @@
         [dateRange]="dateRange"
       ></app-place-info>
       <div align="end" class="button-group" *ngIf="currentPlace !== undefined">
-        <!--        <button mat-raised-button mat-dialog-close>-->
-        <!--          Cancel-->
-        <!--        </button>-->
-
         <button
           *ngIf="!currentPlace.occupied"
           mat-raised-button
@@ -34,15 +30,6 @@
           (click)="addBooking()"
         >
           Book
-        </button>
-        <button
-          *ngIf="currentPlace.occupied"
-          mat-raised-button
-          color="primary"
-          cdkFocusInitial
-          (click)="subscribe()"
-        >
-          Subscribe
         </button>
       </div>
     </div>

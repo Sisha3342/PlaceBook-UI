@@ -15,7 +15,8 @@
       <p class="text-place">Booked by:</p>
       <ng-container matColumnDef="date">
         <td mat-cell *matCellDef="let element">
-          {{ element.timeStart }} - {{ element.timeEnd }}
+          {{ element.timeStart | date: "longDate" }} -
+          {{ element.timeEnd | date: "longDate" }}
         </td>
       </ng-container>
 

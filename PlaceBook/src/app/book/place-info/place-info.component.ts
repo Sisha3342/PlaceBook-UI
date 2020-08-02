@@ -31,9 +31,13 @@ export class PlaceInfoComponent implements OnInit, OnChanges {
       .subscribe((rating) => (this.placeRating = rating));
   }
 
-  ngOnChanges(changes: SimpleChanges) {
+  ngOnChanges(changes: SimpleChanges): void {
     this.placeService
       .getCurrentBookings(this.place.placeId, this.dateRange)
       .subscribe((bookings) => (this.currentBookings = bookings));
+
+    this.placeService
+      .getPlaceRating(this.place.placeId)
+      .subscribe((rating) => (this.placeRating = rating));
   }
 }
