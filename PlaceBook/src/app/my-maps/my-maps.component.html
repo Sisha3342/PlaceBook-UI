@@ -3,17 +3,19 @@
   <div>
     <app-table class="map-table"
                [data]="displayedOffices"
-               [columns]="getColumns()">
+               [columns]="getColumns()"
+               [openEdit]="editOfficeAddress"></app-table>
 
 
-    </app-table>
+
+
   </div>
 
 
 
 
 
-  <button (click)="editOfficeAddress()">Edit address</button>
+
   <button (click)="deleteOfficeAddress()">Delete address</button>
 
 

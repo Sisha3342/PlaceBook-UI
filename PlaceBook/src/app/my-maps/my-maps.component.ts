@@ -31,11 +31,10 @@ export class MyMapsComponent implements OnInit {
     });
   }
 
-  editOfficeAddress(): void {
-    const fakeOfficeObj: Office = this.displayedOffices[7];
+  editOfficeAddress(event: Event, element: Office): void {
     this.dialog.open(EditMapAddressModalComponent, {
       width: '30rem',
-      data: fakeOfficeObj,
+      data: element,
     });
   }
 

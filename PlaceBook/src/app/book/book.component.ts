@@ -14,14 +14,6 @@ export class BookComponent implements OnInit {
     placeNumber: '',
     userName: '',
     userSurname: '',
-    // marks: {
-    //   markLightning: 0,
-    //   markAir: 0,
-    //   markVolume: 0,
-    //   markCleaning: 0,
-    //   markLocation: 0,
-    //   feedback: '',
-    // },
     address: {
       country: '',
       city: '',

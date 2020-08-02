@@ -7,6 +7,7 @@ import { Booking } from '../models/booking';
 import { BookingDetailsModalComponent } from '../my-bookings/booking-details-modal/booking-details-modal.component';
 import { EditMapAddressModalComponent } from '../my-maps/edit-map-address-modal/edit-map-address-modal.component';
 import { DeleteMapAddressModalComponent } from '../my-maps/delete-map-address-modal/delete-map-address-modal.component';
+import { Office } from '../models/office';
 
 @Component({
   selector: 'app-table',
@@ -17,8 +18,9 @@ export class TableComponent implements OnInit {
   @Input() data;
   @Input() status: string;
   @Input() columns: Column[];
-  @Input() openDetails: any;
+  @Input() openDetails;
   @Input() isViewRating: boolean;
+  @Input() openEdit;
 
   constructor(public dialog: MatDialog, public authService: AuthService) {}
 
