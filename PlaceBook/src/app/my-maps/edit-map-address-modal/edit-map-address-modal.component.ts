@@ -45,6 +45,10 @@ export class EditMapAddressModalComponent implements OnInit {
     this.mapService.updateOffice(form.value).subscribe(
       () => {
         this.resetForm();
+        this.snackbar.open('Office address updated', 'Close', {
+          verticalPosition: 'top',
+          duration: 2000,
+        });
         this.dialogRef.close();
       },
       (error) => {

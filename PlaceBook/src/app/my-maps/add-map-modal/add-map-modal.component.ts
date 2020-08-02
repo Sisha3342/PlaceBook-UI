@@ -44,6 +44,10 @@ export class AddMapModalComponent implements OnInit {
     this.service.postOffice(form.value).subscribe(
       (res) => {
         this.resetForm();
+        this.snackbar.open('Office address added', 'Close', {
+          verticalPosition: 'top',
+          duration: 2000,
+        });
         this.dialogRef.close();
       },
       (error) => {

@@ -44,6 +44,10 @@ export class DeleteMapAddressModalComponent implements OnInit {
     this.mapService.deleteOffice(this.data.id).subscribe(
       () => {
         this.resetForm();
+        this.snackbar.open('Office address deleted', 'Close', {
+          verticalPosition: 'top',
+          duration: 2000,
+        });
         this.dialogRef.close();
       },
       (error) => {
