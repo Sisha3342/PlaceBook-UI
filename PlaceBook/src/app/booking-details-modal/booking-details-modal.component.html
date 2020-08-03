@@ -22,11 +22,11 @@
       <tr
         *ngIf="
           booking.status === status.completed &&
-          booking.marks.markLightning !== null
+          booking.markSubmitDto.markLightning !== null
         "
       >
         <td class="booking-details-label">Feedback:</td>
-        <td>{{ booking.marks.feedBack }}</td>
+        <td>{{ booking.markSubmitDto.feedBack }}</td>
       </tr>
     </table>
 
@@ -34,7 +34,7 @@
       class="booking-rate"
       *ngIf="
         booking.status === status.completed &&
-        booking.marks.markLightning !== null
+        booking.markSubmitDto.markLightning !== null
       "
     >
       <tr>
@@ -55,11 +55,11 @@
         </td>
       </tr>
       <tr>
-        <td>{{ booking.marks.markLightning }}</td>
-        <td>{{ booking.marks.markAir }}</td>
-        <td>{{ booking.marks.markVolume }}</td>
-        <td>{{ booking.marks.markCleaning }}</td>
-        <td>{{ booking.marks.markLocation }}</td>
+        <td>{{ booking.markSubmitDto.markLightning }}</td>
+        <td>{{ booking.markSubmitDto.markAir }}</td>
+        <td>{{ booking.markSubmitDto.markVolume }}</td>
+        <td>{{ booking.markSubmitDto.markCleaning }}</td>
+        <td>{{ booking.markSubmitDto.markLocation }}</td>
       </tr>
     </table>
   </div>

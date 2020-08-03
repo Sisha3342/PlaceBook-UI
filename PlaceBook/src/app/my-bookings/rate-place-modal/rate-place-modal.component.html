@@ -5,50 +5,38 @@
     [(rate)]="bookingMark.markLightning"
     [icon]="'fa-lightbulb'"
     [iconTooltip]="'Light'"
-    [disableRate]="data.isViewRating"
   ></app-rate>
   <app-rate
     [(rate)]="bookingMark.markAir"
     [icon]="'fa-wind'"
     [iconTooltip]="'Fresh air'"
-    [disableRate]="data.isViewRating"
   ></app-rate>
   <app-rate
     [(rate)]="bookingMark.markVolume"
     [icon]="'fa-volume-up'"
     [iconTooltip]="'Noise'"
-    [disableRate]="data.isViewRating"
   ></app-rate>
   <app-rate
     [(rate)]="bookingMark.markCleaning"
     [icon]="'fa-hand-sparkles'"
     [iconTooltip]="'Сleanliness'"
-    [disableRate]="data.isViewRating"
   ></app-rate>
   <app-rate
     [(rate)]="bookingMark.markLocation"
     [icon]="'fa-map-marker-alt'"
     [iconTooltip]="'Location'"
-    [disableRate]="data.isViewRating"
   ></app-rate>
 
-  <mat-form-field
-    class="feedback-field"
-    *ngIf="!data.isViewRating"
-    (keyup)="changeFeedback($event)"
-  >
+  <mat-form-field class="feedback-field" (keyup)="changeFeedback($event)">
     <input matInput placeholder="Feedback" />
   </mat-form-field>
 
-  <div *ngIf="data.isViewRating">
-    <p>Feedback:</p>
-  </div>
+  <p>Feedback:</p>
 </div>
 
 <div mat-dialog-actions align="end">
   <button mat-button mat-dialog-close class="close-button">Close</button>
   <button
-    *ngIf="!data.isViewRating"
     mat-button
     mat-flat-button
     mat-dialog-close
