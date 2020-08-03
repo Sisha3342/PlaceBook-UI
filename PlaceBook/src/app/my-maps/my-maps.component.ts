@@ -1,3 +1,4 @@
+import { DeleteOfficeAddressComponent } from '././delete-office-address/delete-office-address.component';
 import { MatDialog } from '@angular/material/dialog';
 import { Component, OnInit } from '@angular/core';
 import { Column } from '../models/column';
@@ -26,6 +27,14 @@ export class MyMapsComponent implements OnInit {
       country: undefined,
       city: undefined,
       address: undefined,
+    });
+  }
+
+  deleteOfficeAddress(event: Event, data: Office): void {
+    event.stopPropagation();
+    this.dialog.open(DeleteOfficeAddressComponent, {
+      width: '30rem',
+      data: data,
     });
   }
 

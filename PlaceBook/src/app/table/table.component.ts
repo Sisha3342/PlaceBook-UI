@@ -17,6 +17,7 @@ export class TableComponent implements OnInit {
   @Input() columns: Column[];
   @Input() openDetails;
   @Input() isViewRating: boolean;
+  @Input() openDelete;
 
   constructor(public dialog: MatDialog, public authService: AuthService) {}
 
