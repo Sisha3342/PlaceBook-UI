@@ -8,7 +8,26 @@ import { Office } from '../models/office';
   providedIn: 'root',
 })
 export class MapService {
+  urlOffice = 'https://placebookapp.herokuapp.com/office';
+
   constructor(private http: HttpClient) {}
+
+  updateOffice(formData: any): Observable<Office> {
+    const requestBody = {
+      address: formData.address,
+      city: formData.city,
+      country: formData.country,
+      worktimeStart: formData.worktimeStart + ':00',
+      worktimeEnd: formData.worktimeEnd + ':00',
+    };
+    return this.http.put<Office>(
+      this.urlOffice + `/${formData.id}`,
+      requestBody,
+      {
+        withCredentials: true,
+      }
+    );
+  }
 
   getOffices(officeAddress: OfficeAddress): Observable<Office[]> {
     if (officeAddress.country === undefined) {

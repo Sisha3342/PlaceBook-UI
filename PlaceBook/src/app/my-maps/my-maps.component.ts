@@ -5,6 +5,7 @@ import { MyMapsColumnService } from './my-maps-column.service';
 import { MapService } from './map.service';
 import { Office } from '../models/office';
 import { OfficeAddress } from '../models/office-address';
+import { EditMapAddressComponent } from './edit-map-address/edit-map-address.component';
 
 @Component({
   selector: 'app-my-maps',
@@ -26,6 +27,13 @@ export class MyMapsComponent implements OnInit {
       country: undefined,
       city: undefined,
       address: undefined,
+    });
+  }
+
+  editOfficeAddress(event: Event, data: Office): void {
+    this.dialog.open(EditMapAddressComponent, {
+      width: '30rem',
+      data: data,
     });
   }
 

@@ -52,6 +52,7 @@ import { RatingComponent } from './rating/rating.component';
 import { DateRangeComponent } from './book/date-range/date-range.component';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { SpinnerComponent } from './spinner/spinner.component';
+import { EditMapAddressComponent } from '././my-maps/edit-map-address/edit-map-address.component';
 
 @NgModule({
   declarations: [
@@ -93,6 +94,7 @@ import { SpinnerComponent } from './spinner/spinner.component';
     RatingComponent,
     DateRangeComponent,
     SpinnerComponent,
+    EditMapAddressComponent,
   ],
   imports: [
     BrowserModule,
