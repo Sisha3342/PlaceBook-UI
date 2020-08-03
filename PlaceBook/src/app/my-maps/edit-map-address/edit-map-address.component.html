@@ -1,4 +1,7 @@
-<h2 mat-dialog-title>Edit office address</h2>
+<h2 mat-dialog-title
+    *ngIf="isEdit == true">Edit office address</h2>
+<h2 mat-dialog-title
+    *ngIf="isEdit == false">Add new office</h2>
 
 <div mat-dialog-content
      class="dialog-content">
@@ -7,7 +10,7 @@
           class="office-location-fields"
           autocomplete="off">
 
-        <mat-form-field class="office-field">
+        <mat-form-field class="office-field id">
             <mat-label class="field-label">Office ID</mat-label>
             <input matInput
                    placeholder="Office ID"
@@ -53,7 +56,6 @@
                        name="worktimeStart"
                        [ngModel]="data.worktimeStart"
                        [format]="24"
-                       readonly
                        required>
             </mat-form-field>
 
@@ -65,7 +67,6 @@
                        name="worktimeEnd"
                        [ngModel]="data.worktimeEnd"
                        [format]="24"
-                       readonly
                        required>
             </mat-form-field>
         </div>
@@ -75,8 +76,15 @@
 <mat-dialog-actions align="end">
     <button mat-button
             mat-dialog-close>Close</button>
-    <button mat-button
+    <button *ngIf="isEdit == true"
+            mat-button
             color="primary"
             type="submit"
             (click)="onUpdateOffice($event,form)">Update office</button>
+    <button *ngIf="isEdit == false"
+            mat-button
+            color="primary"
+            type="submit"
+            [disabled]="form.invalid"
+            (click)="onSubmit($event,form)"> Add </button>
 </mat-dialog-actions>
