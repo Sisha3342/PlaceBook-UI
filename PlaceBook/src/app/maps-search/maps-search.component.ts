@@ -5,7 +5,6 @@ import { FloorRequestConfig } from '../models/floor-request-config';
 import { MatSelect } from '@angular/material/select';
 import { Office } from '../models/office';
 import { OfficeAddress } from '../models/office-address';
-import { EditMapAddressComponent } from '../my-maps/edit-map-address/edit-map-address.component';
 
 @Component({
   selector: 'app-maps-search',
@@ -30,23 +29,6 @@ export class MapsSearchComponent implements OnInit {
 
   ngOnInit(): void {
     this.setCountries();
-  }
-
-  addNewOffice(): void {
-    this.dialog.open(EditMapAddressComponent, {
-      width: '30rem',
-      data: {
-        id: null,
-        address: {
-          country: '',
-          city: '',
-          address: '',
-        },
-        worktimeStart: '',
-        worktimeEnd: '',
-        deleted: false,
-      },
-    });
   }
 
   setCountries(): void {

@@ -5,7 +5,7 @@ import {
   MAT_DIALOG_DATA,
 } from '@angular/material/dialog';
 import { MapService } from '../map.service';
-import { AddMapModalComponent } from '../add-map-modal/add-map-modal.component';
+
 import { Office } from 'src/app/models/office';
 import { NgForm } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
@@ -23,7 +23,7 @@ export class EditMapAddressComponent implements OnInit {
 
   constructor(
     private snackbar: MatSnackBar,
-    public dialogRef: MatDialogRef<AddMapModalComponent>,
+    public dialogRef: MatDialogRef<EditMapAddressComponent>,
     public dialog: MatDialog,
     public mapService: MapService,
     @Inject(MAT_DIALOG_DATA) public data: Office,
