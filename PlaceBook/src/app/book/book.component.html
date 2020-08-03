@@ -23,11 +23,20 @@
       ></app-place-info>
       <div align="end" class="button-group" *ngIf="currentPlace">
         <button
-          *ngIf="!currentPlace.occupied"
+          *ngIf="!currentPlace.occupied; else subscribeButton"
           mat-raised-button
           color="primary"
           cdkFocusInitial
           (click)="addBooking()"
+        >
+          Book
+        </button>
+        <button
+          #subscribeButton
+          mat-raised-button
+          color="primary"
+          cdkFocusInitial
+          (click)="subscribe()"
         >
           Book
         </button>

@@ -85,4 +85,8 @@ export class BookComponent implements OnInit {
         this.route.navigate(['/my_bookings']);
       });
   }
+
+  subscribe(): void {
+    this.bookService.subscribe(this.currentPlace.placeId).subscribe();
+  }
 }
