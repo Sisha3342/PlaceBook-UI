@@ -46,6 +46,10 @@ export class DeleteOfficeAddressComponent implements OnInit {
       () => {
         this.resetForm();
         this.dialogRef.close();
+        this.snackbar.open(this.okMessage, 'Close', {
+          verticalPosition: 'top',
+          duration: 2000,
+        });
       },
       (error) => {
         this.snackbar.open(this.warnMessage, 'Close', {

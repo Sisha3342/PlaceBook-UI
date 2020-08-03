@@ -32,7 +32,7 @@ export class MyMapsComponent implements OnInit {
 
   deleteOfficeAddress(event: Event, data: Office): void {
     event.stopPropagation();
-    this.dialog.open(DeleteOfficeAddressComponent, {
+    const dialogRef = this.dialog.open(DeleteOfficeAddressComponent, {
       width: '30rem',
       data: data,
     });
