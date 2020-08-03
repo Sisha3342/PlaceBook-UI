@@ -2,7 +2,7 @@
   <mat-button-toggle-group
     appearance="legacy"
     [(value)]="object.active"
-    *ngIf="object.number !== undefined"
+    *ngIf="object.number"
   >
     <mat-button-toggle
       [value]="true"
@@ -34,7 +34,7 @@
     <mat-icon>delete</mat-icon>
   </button>
 
-  <mat-form-field *ngIf="object.number !== undefined">
+  <mat-form-field *ngIf="object.number">
     <mat-label>Place #</mat-label>
     <input matInput type="text" [(ngModel)]="object.number" />
   </mat-form-field>

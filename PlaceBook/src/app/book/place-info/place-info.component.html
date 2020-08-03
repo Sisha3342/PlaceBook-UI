@@ -2,12 +2,9 @@
   <div class="place-info">
     <p class="place-header">Place №{{ place.placeNumber }} Info</p>
     <p class="text-place">Place Rating</p>
-    <app-rating
-      *ngIf="placeRating !== undefined"
-      [rating]="placeRating"
-    ></app-rating>
+    <app-rating *ngIf="placeRating" [rating]="placeRating"></app-rating>
     <table
-      *ngIf="place.occupied && currentBookings !== undefined"
+      *ngIf="place.occupied && currentBookings"
       mat-table
       [dataSource]="currentBookings"
       class="mat-elevation-z8"

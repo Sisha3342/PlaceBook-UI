@@ -3,6 +3,6 @@ export interface MapObject {
   active: boolean;
   icon: string;
   tooltip: string;
-  number?: number;
+  number?: string;
   capacity?: number;
 }

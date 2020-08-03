@@ -36,7 +36,7 @@ export class DateRangeComponent implements OnInit, AfterViewInit {
     this.dateChange.emit(this.range);
   }
 
-  ngAfterViewInit() {
+  ngAfterViewInit(): void {
     this.dateRangeChange();
   }
 }

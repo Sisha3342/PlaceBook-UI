@@ -35,7 +35,7 @@ export class BookComponent implements OnInit {
   ngOnInit(): void {}
 
   changeCurrentFloor(floorRequestConfig: FloorRequestConfig): void {
-    if (floorRequestConfig !== undefined) {
+    if (floorRequestConfig) {
       this.currentFloor = this.floorsConverterService.convertFromRequest(
         floorRequestConfig
       );
@@ -54,7 +54,7 @@ export class BookComponent implements OnInit {
   changeDateRange(dateRange: FormGroup): void {
     this.dateRange = dateRange;
 
-    if (this.currentFloor !== undefined) {
+    if (this.currentFloor) {
       this.setPlaces(this.currentFloor.id, this.dateRange);
     }
   }

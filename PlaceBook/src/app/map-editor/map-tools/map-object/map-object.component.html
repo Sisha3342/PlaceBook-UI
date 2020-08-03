@@ -14,10 +14,7 @@
     class="object-content"
     [ngClass]="{
       disabled: !object.active,
-      occupied:
-        !isEditMode &&
-        isOnMap &&
-        (place?.occupied || object.number === undefined)
+      occupied: !isEditMode && isOnMap && (place?.occupied || !object.number)
     }"
   >
     <mat-icon
@@ -29,7 +26,7 @@
 
     <div
       class="place-number"
-      *ngIf="object.number !== undefined && isOnMap"
+      *ngIf="object.number && isOnMap"
       [style.font-size.rem]="getFontSize()"
       [style.line-height.rem]="getFontSize()"
     >
