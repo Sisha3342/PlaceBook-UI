@@ -44,8 +44,14 @@ import { EmployeesBookingsColumnService } from './employees-bookings/employees-b
 import { MyBookingsColumnService } from './my-bookings/my-bookings-column.service';
 import { AddMapModalComponent } from './my-maps/add-map-modal/add-map-modal.component';
 import { MyMapsColumnService } from './my-maps/my-maps-column.service';
-import { MapsSearchComponent } from './my-maps/maps-search/maps-search.component';
+import { MapsSearchComponent } from './maps-search/maps-search.component';
 import { UserPhotoComponent } from './user-photo/user-photo.component';
+import { PlaceInfoComponent } from './book/place-info/place-info.component';
+import { MapBookingComponent } from './map-booking/map-booking.component';
+import { RatingComponent } from './rating/rating.component';
+import { DateRangeComponent } from './book/date-range/date-range.component';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { SpinnerComponent } from './spinner/spinner.component';
 
 @NgModule({
   declarations: [
@@ -82,6 +88,11 @@ import { UserPhotoComponent } from './user-photo/user-photo.component';
     MapsSearchComponent,
     FloorPanelComponent,
     UserPhotoComponent,
+    PlaceInfoComponent,
+    MapBookingComponent,
+    RatingComponent,
+    DateRangeComponent,
+    SpinnerComponent,
   ],
   imports: [
     BrowserModule,
@@ -92,6 +103,7 @@ import { UserPhotoComponent } from './user-photo/user-photo.component';
     AppMaterialModule,
     GridsterModule,
     OverlayModule,
+    MatProgressSpinnerModule,
   ],
   providers: [
     MatSnackBar,

@@ -5,7 +5,7 @@
         <mat-label>Country</mat-label>
         <mat-select
           #countrySelect="matSelect"
-          (selectionChange)="setCities($event.value)"
+          (selectionChange)="setCities($event.value, selectCity)"
         >
           <mat-option>None</mat-option>
           <mat-option *ngFor="let country of countries" [value]="country">{{
@@ -19,6 +19,7 @@
       <mat-form-field appearance="fill" class="input-item">
         <mat-label>City</mat-label>
         <mat-select
+          #selectCity="matSelect"
           (selectionChange)="setOffices(countrySelect.value, $event.value)"
         >
           <mat-option>None</mat-option>
@@ -32,18 +33,28 @@
     <td>
       <mat-form-field appearance="fill" class="input-item">
         <mat-label>Address</mat-label>
-        <mat-select>
+        <mat-select (selectionChange)="setFloors($event.value)">
           <mat-option>None</mat-option>
-          <mat-option
-            *ngFor="let office of offices"
-            [value]="office.address.address"
-            >{{ office.address.address }}</mat-option
-          >
+          <mat-option *ngFor="let office of offices" [value]="office">{{
+            office.address.address
+          }}</mat-option>
         </mat-select>
       </mat-form-field>
     </td>
 
-    <td>
+    <td *ngIf="showFloor">
+      <mat-form-field appearance="fill" class="input-item">
+        <mat-label>Floor</mat-label>
+        <mat-select (selectionChange)="changeFloor.emit($event.value)">
+          <mat-option>None</mat-option>
+          <mat-option *ngFor="let floor of floors" [value]="floor">{{
+            floor.floorNumber
+          }}</mat-option>
+        </mat-select>
+      </mat-form-field>
+    </td>
+
+    <td *ngIf="!showFloor">
       <div class="add-map-container">
         <button mat-raised-button color="primary" (click)="addNewOffice()">
           Add Map

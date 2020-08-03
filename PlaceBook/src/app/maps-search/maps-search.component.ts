@@ -1,9 +1,11 @@
 import { MatDialog } from '@angular/material/dialog';
-import { AddMapModalComponent } from '../add-map-modal/add-map-modal.component';
-import { Component, OnInit, Output, EventEmitter } from '@angular/core';
-import { Office } from '../../models/office';
+import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
 import { MapSearchService } from './map-search.service';
-import { OfficeAddress } from '../../models/office-address';
+import { FloorRequestConfig } from '../models/floor-request-config';
+import { MatSelect } from '@angular/material/select';
+import { Office } from '../models/office';
+import { OfficeAddress } from '../models/office-address';
+import { AddMapModalComponent } from '../my-maps/add-map-modal/add-map-modal.component';
 
 @Component({
   selector: 'app-maps-search',
@@ -11,10 +13,15 @@ import { OfficeAddress } from '../../models/office-address';
   styleUrls: ['./maps-search.component.scss'],
 })
 export class MapsSearchComponent implements OnInit {
+  @Input() showFloor: boolean;
+  @Output() changeFloor = new EventEmitter<FloorRequestConfig>();
+  @Output() changeOffice = new EventEmitter<Office>();
+
   countries: string[];
   cities: string[];
   offices: Office[];
   @Output() searchEvent = new EventEmitter<OfficeAddress>();
+  floors: FloorRequestConfig[];
 
   constructor(
     private mapSearchService: MapSearchService,
@@ -37,16 +44,15 @@ export class MapsSearchComponent implements OnInit {
     });
   }
 
-  setCities(country: string): void {
+  setCities(country: string, select: MatSelect): void {
     this.resetCities();
-    this.resetOffices();
-
+    select.value = undefined;
     if (country !== undefined) {
       this.mapSearchService.getCities(country).subscribe((cities: string[]) => {
         this.cities = cities;
 
         this.searchEvent.emit({
-          country: country,
+          country,
           city: undefined,
           address: undefined,
         });
@@ -64,19 +70,40 @@ export class MapsSearchComponent implements OnInit {
           this.offices = offices;
 
           this.searchEvent.emit({
-            country: country,
-            city: city,
+            country,
+            city,
             address: undefined,
           });
         });
     }
   }
 
+  setFloors(office: Office): void {
+    this.changeOffice.emit(office);
+    this.resetFloors();
+
+    if (office !== undefined) {
+      this.mapSearchService
+        .getFloors(office.id)
+        .subscribe((floors: FloorRequestConfig[]) => {
+          this.floors = floors;
+        });
+    }
+  }
+
   resetCities(): void {
     this.cities = [];
+    this.resetOffices();
   }
 
   resetOffices(): void {
+    this.changeOffice.emit(undefined);
     this.offices = [];
+    this.resetFloors();
+  }
+
+  resetFloors(): void {
+    this.changeFloor.emit(undefined);
+    this.floors = [];
   }
 }

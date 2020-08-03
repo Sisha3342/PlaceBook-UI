@@ -10,6 +10,7 @@ export class FloorsConverterService {
 
   convertToRequest(floor: Floor): FloorRequestConfig {
     return {
+      id: floor.id,
       floorNumber: floor.floorNumber,
       height: floor.height,
       width: floor.width,
@@ -19,6 +20,7 @@ export class FloorsConverterService {
 
   convertFromRequest(floorRequest: FloorRequestConfig): Floor {
     return {
+      id: floorRequest.id,
       floorNumber: floorRequest.floorNumber,
       height: floorRequest.height,
       width: floorRequest.width,

@@ -1,4 +1,5 @@
 import { OfficeAddress } from './office-address';
+import { BookingMark } from './booking-mark';
 
 export interface Booking {
   id: number;
@@ -11,4 +12,5 @@ export interface Booking {
   timeStart: string;
   timeEnd: string;
   status: string;
+  marks?: BookingMark;
 }

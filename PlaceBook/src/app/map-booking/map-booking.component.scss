@@ -1,0 +1,21 @@
+.my-grid {
+  //text-align: center;
+  height: calc(100vh - 9rem);
+}
+
+.zoom-container {
+  background: var(--secondary-color);
+  border-radius: var(--secondary-border-radius);
+  padding: 0.5rem;
+  width: 3.5rem;
+  text-align: center;
+  opacity: 0.5;
+  float: right;
+  position: absolute;
+  left: 1rem;
+  bottom: 1rem;
+}
+
+.zoom-container:hover {
+  opacity: 1;
+}

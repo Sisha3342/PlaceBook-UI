@@ -15,7 +15,7 @@ export class ActionToolsComponent implements OnInit {
 
   ngOnInit(): void {}
 
-  delete() {
+  delete(): void {
     this.deleteEvent.emit();
   }
 }

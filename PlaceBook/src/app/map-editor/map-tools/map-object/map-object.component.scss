@@ -31,9 +31,19 @@
   height: 100%;
 }
 
-.on-map-icon-background.disabled {
-  background-color: var(--delete-color);
-  color: var(--secondary-color);
+.selected {
+  background-color: var(--accept-color);
+  color: white;
+}
+
+.object-content{
+  &.disabled {
+    color: var(--delete-color);
+    opacity: 0.5;
+  }
+  &.occupied {
+    opacity: 0.5;
+  }
 }
 
 .place-number {
@@ -50,3 +60,6 @@
   font-weight: bold;
 }
 
+.object-content {
+  height: 100%;
+}

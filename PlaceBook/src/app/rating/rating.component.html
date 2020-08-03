@@ -1,0 +1,27 @@
+<table class="booking-rate" *ngIf="rate.markLightning !== null">
+  <tr>
+    <td matTooltip="Light" [matTooltipPosition]="'above'">
+      <i class="fa fa-lightbulb"> </i>
+    </td>
+    <td matTooltip="Fresh air" [matTooltipPosition]="'above'">
+      <i class="fas fa-wind"> </i>
+    </td>
+    <td matTooltip="Noise" [matTooltipPosition]="'above'">
+      <i class="fas fa-volume-up"> </i>
+    </td>
+    <td matTooltip="Сleanliness" [matTooltipPosition]="'above'">
+      <i class="fas fa-hand-sparkles"> </i>
+    </td>
+    <td matTooltip="Location" [matTooltipPosition]="'above'">
+      <i class="fas fa-map-marker-alt"> </i>
+    </td>
+  </tr>
+  <tr>
+    <td>{{ rate.markLightning | number: "1.1-1" }}</td>
+    <td>{{ rate.markAir | number: "1.1-1" }}</td>
+    <td>{{ rate.markVolume | number: "1.1-1" }}</td>
+    <td>{{ rate.markCleaning | number: "1.1-1" }}</td>
+    <td>{{ rate.markLocation | number: "1.1-1" }}</td>
+  </tr>
+</table>
+<p *ngIf="rate.markLightning === null">No rating yet</p>

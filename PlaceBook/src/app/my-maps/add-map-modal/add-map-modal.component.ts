@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { MatDialog, MatDialogRef } from '@angular/material/dialog';
 import { NgForm } from '@angular/forms';
 import { Office } from 'src/app/models/office';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-add-map-modal',
@@ -15,7 +16,8 @@ export class AddMapModalComponent implements OnInit {
   constructor(
     public dialogRef: MatDialogRef<AddMapModalComponent>,
     public dialog: MatDialog,
-    public service: MapService
+    public service: MapService,
+    private route: Router
   ) {}
 
   resetForm(): void {
@@ -37,18 +39,15 @@ export class AddMapModalComponent implements OnInit {
   }
 
   insertRecord(form: NgForm): void {
-    this.service.postOffice(form.value).subscribe(() => {
+    this.service.postOffice(form.value).subscribe((office) => {
       this.resetForm();
 
       this.dialogRef.close();
+      this.route.navigate(['editor', { officeId: office.id.toString() }]);
     });
   }
 
   ngOnInit(): void {
     this.resetForm();
-  }
-
-  onNoClick(): void {
-    this.dialogRef.close();
   }
 }
