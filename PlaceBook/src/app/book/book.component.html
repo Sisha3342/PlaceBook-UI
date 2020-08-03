@@ -15,12 +15,16 @@
       ></app-map-booking>
     </div>
     <div class="place-panel">
-      <app-date-range (dateChange)="changeDateRange($event)"></app-date-range>
-      <app-place-info
-        *ngIf="currentPlace !== undefined"
-        [place]="currentPlace"
-        [dateRange]="dateRange"
-      ></app-place-info>
+      <div class="date-item">
+        <app-date-range (dateChange)="changeDateRange($event)"></app-date-range>
+      </div>
+      <div class="place">
+        <app-place-info
+          *ngIf="currentPlace !== undefined"
+          [place]="currentPlace"
+          [dateRange]="dateRange"
+        ></app-place-info>
+      </div>
       <div align="end" class="button-group" *ngIf="currentPlace !== undefined">
         <button
           *ngIf="!currentPlace.occupied"
