@@ -7,31 +7,39 @@
   [ngClass]="{
     'on-map-icon-background': isOnMap,
     'icon-background': !isOnMap,
-    disabled: !object.isActive && object.hasOwnProperty('number')
+    selected: selected
   }"
 >
-  <mat-icon
-    fontSet="fas"
-    [fontIcon]="object.icon"
-    [ngClass]="{ 'on-map-icon': isOnMap, icon: !isOnMap }"
-  >
-  </mat-icon>
-
   <div
-    class="place-number"
-    *ngIf="object.hasOwnProperty('number') && isOnMap"
-    [style.font-size.rem]="getFontSize()"
-    [style.line-height.rem]="getFontSize()"
+    class="object-content"
+    [ngClass]="{
+      disabled: !object.active,
+      occupied: !isEditMode && isOnMap && (place?.occupied || !object.number)
+    }"
   >
-    {{ object.number }}
-  </div>
+    <mat-icon
+      fontSet="fas"
+      [fontIcon]="object.icon"
+      [ngClass]="{ 'on-map-icon': isOnMap, icon: !isOnMap }"
+    >
+    </mat-icon>
 
-  <div
-    class="conf-room-capacity"
-    *ngIf="object.hasOwnProperty('capacity') && isOnMap"
-    [style.font-size.rem]="getFontSize()"
-    [style.line-height.rem]="getFontSize()"
-  >
-    {{ object.capacity }}
+    <div
+      class="place-number"
+      *ngIf="object.number && isOnMap"
+      [style.font-size.rem]="getFontSize()"
+      [style.line-height.rem]="getFontSize()"
+    >
+      {{ object.number }}
+    </div>
+
+    <div
+      class="conf-room-capacity"
+      *ngIf="object.capacity && isOnMap"
+      [style.font-size.rem]="getFontSize()"
+      [style.line-height.rem]="getFontSize()"
+    >
+      {{ object.capacity }}
+    </div>
   </div>
 </div>

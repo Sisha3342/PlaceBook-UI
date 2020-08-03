@@ -1,6 +1,6 @@
 import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
 import { MapObject } from '../map-model/map-object';
-import { FloorConfig } from '../floor-model/floor-config';
+import { Floor } from '../../models/floor';
 
 @Component({
   selector: 'app-action-tools',
@@ -15,7 +15,7 @@ export class ActionToolsComponent implements OnInit {
 
   ngOnInit(): void {}
 
-  delete() {
+  delete(): void {
     this.deleteEvent.emit();
   }
 }

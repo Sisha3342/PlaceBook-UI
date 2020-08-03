@@ -1,29 +1,29 @@
 import { Component, Inject } from '@angular/core';
 import { MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { Booking } from '../models/booking';
-import { User } from '../models/user';
 import { BookingDetailsService } from './booking-details.service';
 import { STATUS } from '../models/status';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { BookingDetails } from '../models/booking-details';
 
 @Component({
   selector: 'app-booking-details-modal',
-  templateUrl: 'booking-details-modal.component.html',
+  templateUrl: './booking-details-modal.component.html',
   styleUrls: ['./booking-details-modal.component.scss'],
 })
 export class BookingDetailsModalComponent {
-  booking: Booking;
+  booking: BookingDetails;
   status = STATUS;
 
   constructor(
-    @Inject(MAT_DIALOG_DATA) public data: [Booking, User],
+    @Inject(MAT_DIALOG_DATA) public data: Booking,
     private bookingDetailsService: BookingDetailsService,
     private snackbar: MatSnackBar
   ) {
     this.bookingDetailsService
-      .getBookingDetails(data[0].id, data[1].id)
+      .getBookingDetails(data.id, data.userId)
       .subscribe(
-        (booking: Booking) => {
+        (booking: BookingDetails) => {
           this.booking = booking;
         },
         (error) => {

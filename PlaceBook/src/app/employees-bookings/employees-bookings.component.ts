@@ -3,6 +3,9 @@ import { Booking } from '../models/booking';
 import { Column } from '../models/column';
 import { EmployeesBookingsColumnService } from './employees-bookings-column.service';
 import { STATUS } from '../models/status';
+import { EmployeesBookingsService } from './employees-bookings.service';
+import { BookingDetailsModalComponent } from '../booking-details-modal/booking-details-modal.component';
+import { MatDialog } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-employees-bookings',
@@ -11,130 +14,33 @@ import { STATUS } from '../models/status';
   providers: [EmployeesBookingsColumnService],
 })
 export class EmployeesBookingsComponent {
+  displayedBookings: Booking[];
   status = STATUS;
 
-  DATA: Booking[] = [
-    // {
-    //   place: '12A',
-    //   logo:
-    //     'https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcSOiKAvPAHNVVf34rc06yJAI8u9U-RWbOGxNPaRkelU2FwkubUnFkh5qHTmvPlkfA98E37FCd6wYIUS_njo6YMhqDUC1Gqv&usqp=CAU',
-    //   name: 'Vova Vovich',
-    //   date: '12.02.2020',
-    //   address: {
-    //     country: 'Belarus',
-    //     city: 'Minsk',
-    //     address: 'Kuprevicha 3',
-    //   },
-    //   status: 'ACTIVE',
-    // },
-    // {
-    //   place: '121A',
-    //   logo:
-    //     'https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcSOiKAvPAHNVVf34rc06yJAI8u9U-RWbOGxNPaRkelU2FwkubUnFkh5qHTmvPlkfA98E37FCd6wYIUS_njo6YMhqDUC1Gqv&usqp=CAU',
-    //   name: 'Vova Vovich',
-    //   date: '12.02.2020',
-    //   country: 'Belarus',
-    //   city: 'Minsk',
-    //   address: 'Kuprevicha 3',
-    //   status: 'active',
-    // },
-    // {
-    //   place: '12K',
-    //   logo:
-    //     'https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcSOiKAvPAHNVVf34rc06yJAI8u9U-RWbOGxNPaRkelU2FwkubUnFkh5qHTmvPlkfA98E37FCd6wYIUS_njo6YMhqDUC1Gqv&usqp=CAU',
-    //   name: 'Vova Vovich',
-    //   date: '12.02.2020',
-    //   country: 'Belarus',
-    //   city: 'Minsk',
-    //   address: 'Kuprevicha 3',
-    //   status: 'completed',
-    // },
-    // {
-    //   place: '12K',
-    //   logo:
-    //     'https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcSOiKAvPAHNVVf34rc06yJAI8u9U-RWbOGxNPaRkelU2FwkubUnFkh5qHTmvPlkfA98E37FCd6wYIUS_njo6YMhqDUC1Gqv&usqp=CAU',
-    //   name: 'Vova Vovich',
-    //   date: '12.02.2020',
-    //   country: 'Belarus',
-    //   city: 'Minsk',
-    //   address: 'Kuprevicha 3',
-    //   status: 'cancelled',
-    // },
-    // {
-    //   place: '12A',
-    //   logo:
-    //     'https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcSOiKAvPAHNVVf34rc06yJAI8u9U-RWbOGxNPaRkelU2FwkubUnFkh5qHTmvPlkfA98E37FCd6wYIUS_njo6YMhqDUC1Gqv&usqp=CAU',
-    //   name: 'Vova Vovich',
-    //   date: '12.02.2020',
-    //   country: 'Belarus',
-    //   city: 'Minsk',
-    //   address: 'Kuprevicha 3',
-    //   status: 'active',
-    // },
-    // {
-    //   place: '12K',
-    //   logo:
-    //     'https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcSOiKAvPAHNVVf34rc06yJAI8u9U-RWbOGxNPaRkelU2FwkubUnFkh5qHTmvPlkfA98E37FCd6wYIUS_njo6YMhqDUC1Gqv&usqp=CAU',
-    //   name: 'Vova Vovich',
-    //   date: '12.02.2020',
-    //   country: 'Belarus',
-    //   city: 'Minsk',
-    //   address: 'Kuprevicha 3',
-    //   status: 'cancelled',
-    // },
-    // {
-    //   place: '12K',
-    //   logo:
-    //     'https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcSOiKAvPAHNVVf34rc06yJAI8u9U-RWbOGxNPaRkelU2FwkubUnFkh5qHTmvPlkfA98E37FCd6wYIUS_njo6YMhqDUC1Gqv&usqp=CAU',
-    //   name: 'Vova Vovich',
-    //   date: '12.02.2020',
-    //   country: 'Belarus',
-    //   city: 'Minsk',
-    //   address: 'Kuprevicha 3',
-    //   status: 'completed',
-    // },
-    // {
-    //   place: '12K',
-    //   logo:
-    //     'https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcSOiKAvPAHNVVf34rc06yJAI8u9U-RWbOGxNPaRkelU2FwkubUnFkh5qHTmvPlkfA98E37FCd6wYIUS_njo6YMhqDUC1Gqv&usqp=CAU',
-    //   name: 'Vova Vovich',
-    //   date: '12.02.2020',
-    //   country: 'Belarus',
-    //   city: 'Minsk',
-    //   address: 'Kuprevicha 3',
-    //   status: 'cancelled',
-    // },
-    // {
-    //   place: '12A',
-    //   logo:
-    //     'https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcSOiKAvPAHNVVf34rc06yJAI8u9U-RWbOGxNPaRkelU2FwkubUnFkh5qHTmvPlkfA98E37FCd6wYIUS_njo6YMhqDUC1Gqv&usqp=CAU',
-    //   name: 'Vova Vovich',
-    //   date: '12.02.2020',
-    //   country: 'Belarus',
-    //   city: 'Minsk',
-    //   address: 'Kuprevicha 3',
-    //   status: 'active',
-    // },
-    // {
-    //   place: '12K',
-    //   logo:
-    //     'https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcSOiKAvPAHNVVf34rc06yJAI8u9U-RWbOGxNPaRkelU2FwkubUnFkh5qHTmvPlkfA98E37FCd6wYIUS_njo6YMhqDUC1Gqv&usqp=CAU',
-    //   name: 'Vova Vovich',
-    //   date: '12.02.2020',
-    //   country: 'Belarus',
-    //   city: 'Minsk',
-    //   address: 'Kuprevicha 3',
-    //   status: 'completed',
-    // },
-  ];
+  constructor(
+    private columnService: EmployeesBookingsColumnService,
+    private employeesBookingsService: EmployeesBookingsService,
+    public dialog: MatDialog
+  ) {
+    this.setBookings(this.status.active);
+  }
 
-  constructor(private columnService: EmployeesBookingsColumnService) {}
-
-  getData(status: string) {
-    return this.DATA.filter((item) => item.status === status);
+  setBookings(statusLabel: string): void {
+    this.employeesBookingsService
+      .getBookings(this.status[statusLabel.toLowerCase()])
+      .subscribe((bookings) => {
+        this.displayedBookings = bookings;
+      });
   }
 
   getColumns(status: string): Column[] {
     return this.columnService.getColumns(status);
+  }
+
+  openBookingDetailsModal(event: Event, booking: Booking): void {
+    this.dialog.open(BookingDetailsModalComponent, {
+      width: '30rem',
+      data: booking,
+    });
   }
 }

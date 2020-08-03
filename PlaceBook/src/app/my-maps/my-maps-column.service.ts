@@ -12,19 +12,19 @@ export class MyMapsColumnService {
       id: 'country',
       label: 'Country',
       field: 'country',
-      type: 'text',
+      type: 'address',
     },
     {
       id: 'city',
       label: 'City',
       field: 'city',
-      type: 'text',
+      type: 'address',
     },
     {
       id: 'address',
       label: 'Address',
       field: 'address',
-      type: 'text',
+      type: 'address',
     },
   ];
 

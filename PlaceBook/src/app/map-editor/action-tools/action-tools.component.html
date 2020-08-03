@@ -1,8 +1,8 @@
 <div class="action-tools-content">
   <mat-button-toggle-group
     appearance="legacy"
-    [(value)]="object.isActive"
-    *ngIf="object.hasOwnProperty('number')"
+    [(value)]="object.active"
+    *ngIf="object.number"
   >
     <mat-button-toggle
       [value]="true"
@@ -34,12 +34,12 @@
     <mat-icon>delete</mat-icon>
   </button>
 
-  <mat-form-field *ngIf="object.hasOwnProperty('number')">
+  <mat-form-field *ngIf="object.number">
     <mat-label>Place #</mat-label>
     <input matInput type="text" [(ngModel)]="object.number" />
   </mat-form-field>
 
-  <mat-form-field *ngIf="object.hasOwnProperty('capacity')">
+  <mat-form-field *ngIf="object.capacity">
     <mat-label>Capacity</mat-label>
     <input matInput type="number" [(ngModel)]="object.capacity" [min]="1" />
   </mat-form-field>

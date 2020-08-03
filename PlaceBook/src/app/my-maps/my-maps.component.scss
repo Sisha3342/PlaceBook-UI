@@ -1,9 +1,31 @@
+button {
+  background: #3c4eae;
+  color: white;
+}
+
 .map-table {
   margin-top: 1rem;
   width: 100%;
   background: white;
   display: inline-block;
   box-shadow: 0 4px 23px rgba(0, 0, 0, 0.25);
+}
+
+.add-map-container {
+  display: inline-block;
+  width: 20%;
+}
+
+
+button {
+  width: 10rem;
+  float: right;
+  height: 3.5rem;
+  margin-bottom: 1.2rem;
+  border-radius: 1rem;
+  font-weight: bold;
+  display: inline-block;
+  font-size: 16px;
 }
 
 .tab-container {

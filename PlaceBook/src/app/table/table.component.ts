@@ -4,6 +4,7 @@ import { RatePlaceModalComponent } from '../my-bookings/rate-place-modal/rate-pl
 import { Column } from '../models/column';
 import { AuthService } from '../auth/auth.service';
 import { Booking } from '../models/booking';
+import { Floor } from '../models/floor';
 
 @Component({
   selector: 'app-table',
@@ -31,8 +32,8 @@ export class TableComponent implements OnInit {
     });
   }
 
-  cancelBooking(event: Event): void {
-    event.stopPropagation();
+  cancel(element: any): void {
+    console.log(element);
   }
 
   editBooking(event: Event): void {

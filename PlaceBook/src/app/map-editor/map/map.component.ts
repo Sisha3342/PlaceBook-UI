@@ -6,18 +6,13 @@ import {
   EventEmitter,
   OnChanges,
   SimpleChanges,
-  ViewChildren,
-  ElementRef,
-  ViewContainerRef,
 } from '@angular/core';
 import { GridsterItem } from 'angular-gridster2';
-import { MapEditorService } from '../map-editor.service';
 import { Safe } from '../map-model/safe';
-import { FloorConfig } from '../floor-model/floor-config';
-import { Overlay, OverlayConfig } from '@angular/cdk/overlay';
-import { ActionToolsComponent } from '../action-tools/action-tools.component';
-import { ComponentPortal } from '@angular/cdk/portal';
+import { Floor } from '../../models/floor';
 import { MapObjectComponent } from '../map-tools/map-object/map-object.component';
+import { MapConfigurationService } from './map-configuration.service';
+import { Place } from '../../models/place';
 
 @Component({
   selector: 'app-map',
@@ -25,24 +20,42 @@ import { MapObjectComponent } from '../map-tools/map-object/map-object.component
   styleUrls: ['./map.component.scss'],
 })
 export class MapComponent implements OnInit, OnChanges {
+  @Input() config: Floor;
   options: Safe = this.editorService.getDefaultOptions(this);
-  @Input() config: FloorConfig;
-  @Output() configChange = new EventEmitter<FloorConfig>();
-
   initCellHeight: number;
   initCellWidth: number;
   zoom = 1;
 
-  constructor(private editorService: MapEditorService) {
+  @Input() edit: boolean;
+  @Input() places: Place[];
+  @Output() configChange = new EventEmitter<Floor>();
+  @Output() showPlaceInfo = new EventEmitter<Place>();
+  @Input() selectedPlace: Place;
+
+  constructor(private editorService: MapConfigurationService) {
     this.options = this.editorService.getDefaultOptions(this);
   }
 
   ngOnInit(): void {
     this.initCellWidth = this.options.fixedColWidth;
     this.initCellHeight = this.options.fixedRowHeight;
+
+    if (!this.edit) {
+      this.options.enableEmptyCellDrop = false;
+      this.options.draggable = { enabled: false };
+      this.options.resizable = { enabled: false };
+    }
   }
 
   ngOnChanges(changes: SimpleChanges): void {
+    if (this.config === undefined && !this.edit) {
+      this.config = {
+        floorNumber: 0,
+        width: 10,
+        height: 10,
+        dashboard: [],
+      };
+    }
     if (this.options.api) {
       this.changeHeight(this.config.height);
       this.changeWidth(this.config.width);
@@ -84,5 +97,11 @@ export class MapComponent implements OnInit, OnChanges {
   openMenu(object: MapObjectComponent): boolean {
     object.menuOpened = true;
     return false;
+  }
+
+  getPlaceInfo(object: MapObjectComponent): void {
+    if (!this.edit && object.object.active && object.place !== undefined) {
+      this.showPlaceInfo.emit(object.place);
+    }
   }
 }

@@ -1,9 +1,10 @@
+import { MatDialog } from '@angular/material/dialog';
 import { Component, OnInit } from '@angular/core';
 import { Column } from '../models/column';
-import { MapList } from '../models/map';
 import { MyMapsColumnService } from './my-maps-column.service';
 import { MapService } from './map.service';
-import { Office } from './map-models/office';
+import { Office } from '../models/office';
+import { OfficeAddress } from '../models/office-address';
 
 @Component({
   selector: 'app-my-maps',
@@ -12,62 +13,26 @@ import { Office } from './map-models/office';
   providers: [MyMapsColumnService],
 })
 export class MyMapsComponent implements OnInit {
-  countries: string[];
-  cities: string[];
-  offices: Office[];
-
-  DATA: MapList[] = [
-    {
-      country: 'Belarus',
-      city: 'Minsk',
-      address: 'Kuprevicha 3',
-    },
-    {
-      country: 'Belarus',
-      city: 'Minsk',
-      address: 'Kuprevicha 3',
-    },
-    {
-      country: 'Belarus',
-      city: 'Minsk',
-      address: 'Kuprevicha 3',
-    },
-    {
-      country: 'Belarus',
-      city: 'Minsk',
-      address: 'Kuprevicha 3',
-    },
-    {
-      country: 'Belarus',
-      city: 'Minsk',
-      address: 'Kuprevicha 3',
-    },
-    {
-      country: 'Belarus',
-      city: 'Minsk',
-      address: 'Kuprevicha 3',
-    },
-    {
-      country: 'Belarus',
-      city: 'Minsk',
-      address: 'Kuprevicha 3',
-    },
-    {
-      country: 'Belarus',
-      city: 'Minsk',
-      address: 'Kuprevicha 3',
-    },
-  ];
+  displayedOffices: Office[];
 
   constructor(
     private mapService: MapService,
-    private columnMapService: MyMapsColumnService
+    private columnMapService: MyMapsColumnService,
+    public dialog: MatDialog
   ) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.setDisplayedOffices({
+      country: undefined,
+      city: undefined,
+      address: undefined,
+    });
+  }
 
-  getData(): MapList[] {
-    return this.DATA;
+  setDisplayedOffices(officeAddress: OfficeAddress): void {
+    this.mapService
+      .getOffices(officeAddress)
+      .subscribe((offices) => (this.displayedOffices = offices));
   }
 
   getColumns(): Column[] {

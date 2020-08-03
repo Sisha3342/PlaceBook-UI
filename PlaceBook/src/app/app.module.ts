@@ -1,3 +1,4 @@
+import { MapService } from './my-maps/add-map-modal/add-map.service';
 import { BookingDetailsModalComponent } from './booking-details-modal/booking-details-modal.component';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
@@ -41,9 +42,16 @@ import { RatePlaceModalComponent } from './my-bookings/rate-place-modal/rate-pla
 import { RateComponent } from './my-bookings/rate-place-modal/rate/rate.component';
 import { EmployeesBookingsColumnService } from './employees-bookings/employees-bookings-column.service';
 import { MyBookingsColumnService } from './my-bookings/my-bookings-column.service';
+import { AddMapModalComponent } from './my-maps/add-map-modal/add-map-modal.component';
 import { MyMapsColumnService } from './my-maps/my-maps-column.service';
-import { MapsSearchComponent } from './my-maps/maps-search/maps-search.component';
+import { MapsSearchComponent } from './maps-search/maps-search.component';
 import { UserPhotoComponent } from './user-photo/user-photo.component';
+import { PlaceInfoComponent } from './book/place-info/place-info.component';
+import { MapBookingComponent } from './map-booking/map-booking.component';
+import { RatingComponent } from './rating/rating.component';
+import { DateRangeComponent } from './book/date-range/date-range.component';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { SpinnerComponent } from './spinner/spinner.component';
 
 @NgModule({
   declarations: [
@@ -76,9 +84,15 @@ import { UserPhotoComponent } from './user-photo/user-photo.component';
     BookingStatusComponent,
     RatePlaceModalComponent,
     RateComponent,
+    AddMapModalComponent,
     MapsSearchComponent,
     FloorPanelComponent,
     UserPhotoComponent,
+    PlaceInfoComponent,
+    MapBookingComponent,
+    RatingComponent,
+    DateRangeComponent,
+    SpinnerComponent,
   ],
   imports: [
     BrowserModule,
@@ -89,6 +103,7 @@ import { UserPhotoComponent } from './user-photo/user-photo.component';
     AppMaterialModule,
     GridsterModule,
     OverlayModule,
+    MatProgressSpinnerModule,
   ],
   providers: [
     MatSnackBar,
@@ -97,6 +112,7 @@ import { UserPhotoComponent } from './user-photo/user-photo.component';
     AuthService,
     EmployeesBookingsColumnService,
     MyBookingsColumnService,
+    MapService,
     MyMapsColumnService,
   ],
   bootstrap: [AppComponent],

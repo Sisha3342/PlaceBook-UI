@@ -45,10 +45,10 @@ export class MyBookingsComponent implements OnInit {
     return this.columnService.getColumns(status);
   }
 
-  openBookingDetailsModal(event: Event, booking: Booking, user: User): void {
+  openBookingDetailsModal(event: Event, booking: Booking): void {
     this.dialog.open(BookingDetailsModalComponent, {
       width: '30rem',
-      data: [booking, user],
+      data: booking,
     });
   }
 }

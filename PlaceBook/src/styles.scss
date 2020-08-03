@@ -10,14 +10,19 @@ body {
   --primary-color: #3f51b5;
   --secondary-color: white;
 
-  --active-booking-color: #673AB7;
-  --completed-booking-color: #43a047;
-  --cancelled-booking-color: #F44336;
+  --completed-booking-color: #00c19f;
+  --cancelled-booking-color: #f44336;
 
-  --delete-color: #F44336;
+  --delete-color: #f44336;
+  --accept-color: #00c19f;
+  --active-booking-color: #673ab7;
+  --completed-booking-color: #43a047;
+  --cancelled-booking-color: #f44336;
+
+  --delete-color: #f44336;
   --accept-color: #43a047;
 
-  --delete-button-color: #F44336;
+  --delete-button-color: #f44336;
 
   --primary-border: 2px solid #dedede;
   --primary-border-radius: 4rem;
@@ -32,7 +37,7 @@ body {
 
   --primary-box-shadow: 0 4px 23px rgba(0, 0, 0, 0.25);
 
-  --primary-font-size: 16px
+  --primary-font-size: 16px;
 }
 
 .tab-container {
