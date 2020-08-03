@@ -25,7 +25,7 @@ export class MapEditorComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.route.queryParams.subscribe((params) => {
+    this.route.params.subscribe((params) => {
       this.officeId = params.officeId;
 
       this.mapEditorService.getFloors(this.officeId).subscribe((floors) => {

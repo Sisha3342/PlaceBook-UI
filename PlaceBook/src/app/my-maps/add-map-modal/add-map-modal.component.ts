@@ -43,7 +43,7 @@ export class AddMapModalComponent implements OnInit {
       this.resetForm();
 
       this.dialogRef.close();
-      this.route.navigate(['/editor', office.id]);
+      this.route.navigate(['editor', { officeId: office.id.toString() }]);
     });
   }
 

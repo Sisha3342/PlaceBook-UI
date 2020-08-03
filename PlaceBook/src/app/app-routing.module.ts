@@ -35,7 +35,7 @@ const routes: Routes = [
       },
       { path: 'my_maps', component: MyMapsComponent, canActivate: [RoleGuard] },
       {
-        path: 'editor/:officeId',
+        path: 'editor',
         component: EditorComponent,
         canActivate: [RoleGuard],
       },
