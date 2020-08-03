@@ -3,6 +3,8 @@ import { OBJECTS } from './map-model/objects';
 import { Floor } from '../models/floor';
 import { MapEditorService } from './map-editor.service';
 import { FloorsConverterService } from './floors-converter.service';
+import { ActivatedRoute, Router } from '@angular/router';
+import { FloorService } from './floor-panel/floor.service';
 
 @Component({
   selector: 'app-map-editor',
@@ -17,16 +19,26 @@ export class MapEditorComponent implements OnInit {
 
   constructor(
     private mapEditorService: MapEditorService,
-    private floorConverter: FloorsConverterService
+    private floorConverter: FloorsConverterService,
+    private route: ActivatedRoute,
+    private floorService: FloorService
   ) {}
 
   ngOnInit(): void {
-    this.mapEditorService.getFloors(this.officeId).subscribe((floors) => {
-      this.floors = floors.map<Floor>((floor) =>
-        this.floorConverter.convertFromRequest(floor)
-      );
+    this.route.queryParams.subscribe((params) => {
+      this.officeId = params.officeId;
 
-      this.currentFloor = this.floors[0];
+      this.mapEditorService.getFloors(this.officeId).subscribe((floors) => {
+        this.floors = floors.map<Floor>((floor) =>
+          this.floorConverter.convertFromRequest(floor)
+        );
+
+        if (!floors.length) {
+          this.floors = [this.floorService.getNewFloor(10, 10, 1)];
+        }
+
+        this.currentFloor = this.floors[0];
+      });
     });
   }
 
