@@ -9,6 +9,7 @@ import { BookService } from './book.service';
 import { AuthService } from '../auth/auth.service';
 import { Place } from '../models/place';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-book',
@@ -29,7 +30,8 @@ export class BookComponent implements OnInit {
     private floorsConverterService: FloorsConverterService,
     private bookService: BookService,
     private authService: AuthService,
-    private snackbar: MatSnackBar
+    private snackbar: MatSnackBar,
+    private route: Router
   ) {}
 
   ngOnInit(): void {}
@@ -79,6 +81,8 @@ export class BookComponent implements OnInit {
           panelClass: 'success',
         });
         this.setPlaces(this.currentFloor.id, this.dateRange);
+
+        this.route.navigate(['/my_bookings']);
       });
   }
 }
