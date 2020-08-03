@@ -5,7 +5,6 @@ import { FloorRequestConfig } from '../models/floor-request-config';
 import { MatSelect } from '@angular/material/select';
 import { Office } from '../models/office';
 import { OfficeAddress } from '../models/office-address';
-import { AddMapModalComponent } from '../my-maps/add-map-modal/add-map-modal.component';
 
 @Component({
   selector: 'app-maps-search',
@@ -30,12 +29,6 @@ export class MapsSearchComponent implements OnInit {
 
   ngOnInit(): void {
     this.setCountries();
-  }
-
-  addNewOffice(): void {
-    this.dialog.open(AddMapModalComponent, {
-      width: '30rem',
-    });
   }
 
   setCountries(): void {
