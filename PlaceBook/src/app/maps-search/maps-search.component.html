@@ -53,5 +53,13 @@
         </mat-select>
       </mat-form-field>
     </td>
+
+    <td *ngIf="!showFloor">
+      <div class="add-map-container">
+        <button mat-raised-button color="primary" (click)="addNewOffice()">
+          Add Map
+        </button>
+      </div>
+    </td>
   </tr>
 </table>

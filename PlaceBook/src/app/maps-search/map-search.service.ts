@@ -2,7 +2,6 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Office } from '../models/office';
-import { Floor } from '../models/floor';
 import { FloorRequestConfig } from '../models/floor-request-config';
 
 @Injectable({

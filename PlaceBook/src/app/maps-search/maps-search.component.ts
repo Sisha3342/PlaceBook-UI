@@ -52,7 +52,7 @@ export class MapsSearchComponent implements OnInit {
         this.cities = cities;
 
         this.searchEvent.emit({
-          country: country,
+          country,
           city: undefined,
           address: undefined,
         });
@@ -70,8 +70,8 @@ export class MapsSearchComponent implements OnInit {
           this.offices = offices;
 
           this.searchEvent.emit({
-            country: country,
-            city: city,
+            country,
+            city,
             address: undefined,
           });
         });

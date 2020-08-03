@@ -33,7 +33,7 @@ export class MapObjectComponent implements OnInit, OnChanges {
     this.place = this.findPlace(this.neighborPlaces, this.object.number);
   }
 
-  findPlace(places: Place[], placeNumber: number): Place {
+  findPlace(places: Place[], placeNumber: string): Place {
     if (!(placeNumber === undefined || places === undefined)) {
       return places.find((place) => {
         return place.placeNumber === placeNumber;

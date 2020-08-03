@@ -17,11 +17,11 @@
     </td>
   </tr>
   <tr>
-    <td>{{ rate.markLightning }}</td>
-    <td>{{ rate.markAir }}</td>
-    <td>{{ rate.markVolume }}</td>
-    <td>{{ rate.markCleaning }}</td>
-    <td>{{ rate.markLocation }}</td>
+    <td>{{ rate.markLightning.toFixed(1) }}</td>
+    <td>{{ rate.markAir.toFixed(1) }}</td>
+    <td>{{ rate.markVolume.toFixed(1) }}</td>
+    <td>{{ rate.markCleaning.toFixed(1) }}</td>
+    <td>{{ rate.markLocation.toFixed(1) }}</td>
   </tr>
 </table>
 <p *ngIf="rate.markLightning === null">No rating yet</p>
