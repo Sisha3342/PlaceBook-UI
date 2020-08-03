@@ -14,7 +14,7 @@ import { FloorService } from './floor-panel/floor.service';
 export class MapEditorComponent implements OnInit {
   objects = OBJECTS;
   floors: Floor[];
-  officeId = 21;
+  officeId: number;
   currentFloor: Floor;
 
   constructor(
