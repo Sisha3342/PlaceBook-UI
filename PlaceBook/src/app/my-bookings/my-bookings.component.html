@@ -14,7 +14,7 @@
           [status]="status.active"
           [columns]="getColumns(status.active)"
           [openDetails]="openBookingDetailsModal"
-          [deleteCallback]="openCancelDialog.bind(this)"
+          (openDelete)="openCancelDialog($event)"
         ></app-table>
       </mat-tab>
 
