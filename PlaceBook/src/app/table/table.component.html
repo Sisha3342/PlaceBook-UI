@@ -60,7 +60,7 @@
               mat-icon-button
               class="close-button icon-button"
               [matTooltip]="column.tooltip"
-              (click)="cancel(element)"
+              (click)="deleteRow($event, element)"
               [matTooltipPosition]="'above'"
             >
               <mat-icon>close</mat-icon>

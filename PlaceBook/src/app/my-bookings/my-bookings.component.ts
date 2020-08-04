@@ -7,7 +7,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { MyBookingsService } from './my-bookings.service';
 import { AuthService } from '../auth/auth.service';
 import { STATUS } from '../models/status';
-import { User } from '../models/user';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-my-bookings',
@@ -23,7 +23,8 @@ export class MyBookingsComponent implements OnInit {
     private myBookingsService: MyBookingsService,
     private authService: AuthService,
     private columnService: MyBookingsColumnService,
-    public dialog: MatDialog
+    public dialog: MatDialog,
+    private snackbar: MatSnackBar
   ) {}
 
   ngOnInit(): void {
@@ -50,5 +51,20 @@ export class MyBookingsComponent implements OnInit {
       width: '30rem',
       data: booking,
     });
+  }
+
+  deleteBooking(booking: Booking): void {
+    this.myBookingsService
+      .deleteBooking(booking.id)
+      .subscribe((removedBooking) => {
+        this.snackbar.open('Booking was deleted', 'Close', {
+          verticalPosition: 'top',
+          panelClass: 'success',
+          duration: 3000,
+        });
+
+        booking = removedBooking;
+        this.displayedBookings = [].concat(this.displayedBookings);
+      });
   }
 }

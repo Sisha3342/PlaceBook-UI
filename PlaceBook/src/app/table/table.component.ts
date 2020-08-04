@@ -4,7 +4,6 @@ import { RatePlaceModalComponent } from '../my-bookings/rate-place-modal/rate-pl
 import { Column } from '../models/column';
 import { AuthService } from '../auth/auth.service';
 import { Booking } from '../models/booking';
-import { Floor } from '../models/floor';
 
 @Component({
   selector: 'app-table',
@@ -17,6 +16,7 @@ export class TableComponent implements OnInit {
   @Input() columns: Column[];
   @Input() openDetails;
   @Input() isViewRating: boolean;
+  @Input() deleteCallback: (element: any) => void;
 
   constructor(public dialog: MatDialog, public authService: AuthService) {}
 
@@ -32,8 +32,10 @@ export class TableComponent implements OnInit {
     });
   }
 
-  cancel(element: any): void {
-    console.log(element);
+  deleteRow($event: MouseEvent, element: any): void {
+    $event.stopPropagation();
+
+    this.deleteCallback(element);
   }
 
   editBooking(event: Event): void {

@@ -14,6 +14,7 @@
           [status]="status.active"
           [columns]="getColumns(status.active)"
           [openDetails]="openBookingDetailsModal"
+          [deleteCallback]="deleteBooking.bind(this)"
         ></app-table>
       </mat-tab>
 
