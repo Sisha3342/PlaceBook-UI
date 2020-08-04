@@ -6,6 +6,7 @@ import { MyMapsColumnService } from './my-maps-column.service';
 import { MapService } from './map.service';
 import { Office } from '../models/office';
 import { OfficeAddress } from '../models/office-address';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-my-maps',
@@ -19,7 +20,8 @@ export class MyMapsComponent implements OnInit {
   constructor(
     private mapService: MapService,
     private columnMapService: MyMapsColumnService,
-    public dialog: MatDialog
+    public dialog: MatDialog,
+    private route: Router
   ) {}
 
   ngOnInit(): void {
@@ -53,5 +55,9 @@ export class MyMapsComponent implements OnInit {
 
   getColumns(): Column[] {
     return this.columnMapService.getColumns();
+  }
+
+  editMap(office: Office): void {
+    this.route.navigate(['editor', { officeId: office.id.toString() }]);
   }
 }

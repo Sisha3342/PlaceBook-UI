@@ -4,6 +4,7 @@ import { RatePlaceModalComponent } from '../my-bookings/rate-place-modal/rate-pl
 import { Column } from '../models/column';
 import { AuthService } from '../auth/auth.service';
 import { Booking } from '../models/booking';
+import { Office } from '../models/office';
 
 @Component({
   selector: 'app-table',
@@ -17,6 +18,7 @@ export class TableComponent implements OnInit {
   @Input() openDetails;
   @Input() isViewRating: boolean;
   @Output() openDelete = new EventEmitter();
+  @Output() openEditMap = new EventEmitter<Office>();
 
   constructor(public dialog: MatDialog, public authService: AuthService) {}
 
@@ -32,12 +34,14 @@ export class TableComponent implements OnInit {
     });
   }
 
-  cancel(element: any): void {
-    console.log(element);
-  }
-
   editBooking(event: Event): void {
     event.stopPropagation();
+  }
+
+  editMap(event: MouseEvent, element: Office): void {
+    event.stopPropagation();
+
+    this.openEditMap.emit(element);
   }
 
   openRatePlaceDialog(event: Event, element: Booking): void {
