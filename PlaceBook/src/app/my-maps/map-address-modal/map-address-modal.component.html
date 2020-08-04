@@ -76,7 +76,7 @@
 <mat-dialog-actions align="end">
     <button mat-button
             mat-dialog-close>Close</button>
-    <button *ngIf="isEdit == true"
+    <button *ngIf="isEdit"
             mat-button
             color="primary"
             type="submit"
@@ -85,6 +85,6 @@
             mat-button
             color="primary"
             type="submit"
-            [disabled]="form.invalid"
+            [disabled]="form.invalid || min.time > max.time"
             (click)="onSubmit($event,form)"> Add </button>
 </mat-dialog-actions>
