@@ -35,7 +35,7 @@ export class MapEditorComponent implements OnInit {
     this.route.params.subscribe((params) => {
       this.officeId = params.officeId;
 
-      if (localStorage.getItem(`floorsConfig_${this.officeId}`)) {
+      if (this.restoreService.getOffice(this.officeId)) {
         this.openDialog();
       } else {
         this.setFloors(this.officeId);
@@ -50,12 +50,12 @@ export class MapEditorComponent implements OnInit {
 
     dialogRef.afterClosed().subscribe((flag) => {
       if (flag) {
-        this.floors = this.restoreService.getFloors(this.officeId);
+        this.floors = this.restoreService.getOffice(this.officeId);
         this.currentFloor = this.floors[0];
       } else {
         this.setFloors(this.officeId);
 
-        this.restoreService.deleteFloors(this.officeId);
+        this.restoreService.deleteOffice(this.officeId);
       }
     });
   }
@@ -82,11 +82,11 @@ export class MapEditorComponent implements OnInit {
         duration: 3000,
       });
 
-      this.restoreService.deleteFloors(this.officeId);
+      this.restoreService.deleteOffice(this.officeId);
     });
   }
 
   saveLatestChanges(): void {
-    this.restoreService.saveChanges(this.floors, this.officeId);
+    this.restoreService.saveOffice(this.floors, this.officeId);
   }
 }

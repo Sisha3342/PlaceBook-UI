@@ -7,11 +7,11 @@ import { Floor } from '../../models/floor';
 export class RestoreService {
   constructor() {}
 
-  getFloors(officeId: number): Floor[] {
+  getOffice(officeId: number): Floor[] {
     return JSON.parse(localStorage.getItem(this.getKey(officeId)));
   }
 
-  deleteFloors(officeId: number): void {
+  deleteOffice(officeId: number): void {
     localStorage.removeItem(this.getKey(officeId));
   }
 
@@ -19,7 +19,7 @@ export class RestoreService {
     return `floorsConfig_${officeId}`;
   }
 
-  saveChanges(floors: Floor[], officeId: number): void {
+  saveOffice(floors: Floor[], officeId: number): void {
     localStorage.setItem(this.getKey(officeId), JSON.stringify(floors));
   }
 }
