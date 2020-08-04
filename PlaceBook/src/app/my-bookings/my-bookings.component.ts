@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { Booking } from '../models/booking';
 import { Column } from '../models/column';
 import { MyBookingsColumnService } from './my-bookings-column.service';
@@ -8,6 +8,8 @@ import { MyBookingsService } from './my-bookings.service';
 import { AuthService } from '../auth/auth.service';
 import { STATUS } from '../models/status';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { CancelBookingModalComponent } from './cancel-booking-modal/cancel-booking-modal.component';
+import { StatisticsBoxComponent } from './statistics-box/statistics-box.component';
 
 @Component({
   selector: 'app-my-bookings',
@@ -18,6 +20,7 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 export class MyBookingsComponent implements OnInit {
   displayedBookings: Booking[];
   status = STATUS;
+  @ViewChild('stats') stats: StatisticsBoxComponent;
 
   constructor(
     private myBookingsService: MyBookingsService,
@@ -53,6 +56,18 @@ export class MyBookingsComponent implements OnInit {
     });
   }
 
+  openCancelDialog(booking: Booking): void {
+    const dialogRef = this.dialog.open(CancelBookingModalComponent, {
+      width: '25rem',
+    });
+
+    dialogRef.afterClosed().subscribe((cancel) => {
+      if (cancel) {
+        this.deleteBooking(booking);
+      }
+    });
+  }
+
   deleteBooking(booking: Booking): void {
     this.myBookingsService
       .deleteBooking(booking.id)
@@ -63,8 +78,8 @@ export class MyBookingsComponent implements OnInit {
           duration: 3000,
         });
 
-        booking = removedBooking;
-        this.displayedBookings = [].concat(this.displayedBookings);
+        this.setBookings(this.status.active);
+        this.stats.setStatistics();
       });
   }
 }
