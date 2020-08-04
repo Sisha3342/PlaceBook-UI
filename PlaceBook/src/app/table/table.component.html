@@ -46,7 +46,8 @@
             <button mat-icon-button
                     [matTooltip]="column.tooltip"
                     [matTooltipPosition]="'above'"
-                    class="icon-button">
+                    class="icon-button"
+                    (click)="edit($event, element)">
               <mat-icon>edit</mat-icon>
             </button>
           </span>

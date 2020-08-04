@@ -30,10 +30,17 @@ export class MyMapsComponent implements OnInit {
     });
   }
 
-  editOfficeAddress(event: Event, data: Office): void {
-    this.dialog.open(EditMapAddressComponent, {
+  editOfficeAddress(data: Office): void {
+    const dialogRef = this.dialog.open(EditMapAddressComponent, {
       width: '30rem',
       data: data,
+    });
+    dialogRef.afterClosed().subscribe(() => {
+      this.setDisplayedOffices({
+        country: undefined,
+        city: undefined,
+        address: undefined,
+      });
     });
   }
 

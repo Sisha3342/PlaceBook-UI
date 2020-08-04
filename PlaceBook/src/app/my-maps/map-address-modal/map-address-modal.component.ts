@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, Inject } from '@angular/core';
+import { Component, OnInit, Inject } from '@angular/core';
 import {
   MatDialogRef,
   MatDialog,
@@ -17,8 +17,6 @@ import { Router } from '@angular/router';
   styleUrls: ['./map-address-modal.component.scss'],
 })
 export class EditMapAddressComponent implements OnInit {
-  okMessage = 'Operation is OK';
-  warnMessage = 'Operation failed';
   isEdit: boolean;
 
   constructor(
@@ -64,7 +62,7 @@ export class EditMapAddressComponent implements OnInit {
     this.mapService.updateOffice(form.value).subscribe(
       () => {
         this.resetForm();
-        this.snackbar.open(this.okMessage, 'Close', {
+        this.snackbar.open('Office address was succesfully added', 'Close', {
           verticalPosition: 'top',
           duration: 2000,
           panelClass: 'success',
@@ -72,7 +70,7 @@ export class EditMapAddressComponent implements OnInit {
         this.dialogRef.close();
       },
       (error) => {
-        this.snackbar.open(this.warnMessage, 'Close', {
+        this.snackbar.open('Office was not added', 'Close', {
           verticalPosition: 'top',
           duration: 2000,
         });

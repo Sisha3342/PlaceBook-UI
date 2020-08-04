@@ -11,6 +11,6 @@
     <app-table class="map-table"
                [data]="displayedOffices"
                [columns]="getColumns()"
-               [openEdit]="editOfficeAddress"></app-table>
+               (openEdit)="editOfficeAddress($event)"></app-table>
   </div>
 </div>
