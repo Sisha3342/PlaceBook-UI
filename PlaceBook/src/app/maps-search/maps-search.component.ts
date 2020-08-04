@@ -5,7 +5,7 @@ import { FloorRequestConfig } from '../models/floor-request-config';
 import { MatSelect } from '@angular/material/select';
 import { Office } from '../models/office';
 import { OfficeAddress } from '../models/office-address';
-import { EditMapAddressComponent } from '../my-maps/edit-map-address/edit-map-address.component';
+import { EditMapAddressComponent } from '.././my-maps/map-address-modal/map-address-modal.component';
 
 @Component({
   selector: 'app-maps-search',

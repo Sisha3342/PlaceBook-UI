@@ -41,7 +41,6 @@ import { RatePlaceModalComponent } from './my-bookings/rate-place-modal/rate-pla
 import { RateComponent } from './my-bookings/rate-place-modal/rate/rate.component';
 import { EmployeesBookingsColumnService } from './employees-bookings/employees-bookings-column.service';
 import { MyBookingsColumnService } from './my-bookings/my-bookings-column.service';
-
 import { MyMapsColumnService } from './my-maps/my-maps-column.service';
 import { MapsSearchComponent } from './maps-search/maps-search.component';
 import { UserPhotoComponent } from './user-photo/user-photo.component';
@@ -51,7 +50,7 @@ import { RatingComponent } from './rating/rating.component';
 import { DateRangeComponent } from './book/date-range/date-range.component';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { SpinnerComponent } from './spinner/spinner.component';
-import { EditMapAddressComponent } from '././my-maps/edit-map-address/edit-map-address.component';
+import { EditMapAddressComponent } from '././my-maps/map-address-modal/map-address-modal.component';
 
 @NgModule({
   declarations: [
@@ -84,7 +83,6 @@ import { EditMapAddressComponent } from '././my-maps/edit-map-address/edit-map-a
     BookingStatusComponent,
     RatePlaceModalComponent,
     RateComponent,
-
     MapsSearchComponent,
     FloorPanelComponent,
     UserPhotoComponent,

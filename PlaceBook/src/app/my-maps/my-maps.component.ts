@@ -5,7 +5,7 @@ import { MyMapsColumnService } from './my-maps-column.service';
 import { MapService } from './map.service';
 import { Office } from '../models/office';
 import { OfficeAddress } from '../models/office-address';
-import { EditMapAddressComponent } from './edit-map-address/edit-map-address.component';
+import { EditMapAddressComponent } from './map-address-modal/map-address-modal.component';
 
 @Component({
   selector: 'app-my-maps',

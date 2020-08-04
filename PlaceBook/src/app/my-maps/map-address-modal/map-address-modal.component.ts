@@ -12,9 +12,9 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
 
 @Component({
-  selector: 'app-edit-map-address',
-  templateUrl: './edit-map-address.component.html',
-  styleUrls: ['./edit-map-address.component.scss'],
+  selector: 'app-map-address-modal',
+  templateUrl: './map-address-modal.component.html',
+  styleUrls: ['./map-address-modal.component.scss'],
 })
 export class EditMapAddressComponent implements OnInit {
   okMessage = 'Operation is OK';
