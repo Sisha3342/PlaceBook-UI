@@ -67,6 +67,7 @@
                        name="worktimeEnd"
                        [ngModel]="data.worktimeEnd"
                        [format]="24"
+                       [ngClass]="min.time < max.time ? '' : 'error'"
                        required>
             </mat-form-field>
         </div>
