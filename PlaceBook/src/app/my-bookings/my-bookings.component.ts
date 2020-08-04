@@ -18,6 +18,7 @@ import { User } from '../models/user';
 export class MyBookingsComponent implements OnInit {
   displayedBookings: Booking[];
   status = STATUS;
+  showSpinner = true;
 
   constructor(
     private myBookingsService: MyBookingsService,
@@ -39,6 +40,13 @@ export class MyBookingsComponent implements OnInit {
       .subscribe((bookings: Booking[]) => {
         this.displayedBookings = bookings;
       });
+
+    this.myBookingsService
+      .getBookings(
+        this.authService.getCurrentUser().id,
+        this.status[statusLabel.toLowerCase()]
+      )
+      .subscribe(() => (this.showSpinner = false));
   }
 
   getColumns(status: string): Column[] {

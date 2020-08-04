@@ -1,4 +1,5 @@
 <mat-card class="user-card">
+  <app-spinner *ngIf="showSpinner"></app-spinner>
   <mat-card-content class="user-card-content">
     <app-user-photo [imgSrc]="employeeObject.photoUrl"> </app-user-photo>
     <p class="user-name">

@@ -19,6 +19,7 @@ export class BookingDetailsModalComponent {
   employee: User;
   booking: BookingDetails;
   status = STATUS;
+  showSpinner = true;
 
   constructor(
     @Inject(MAT_DIALOG_DATA) public data: Booking,
@@ -38,5 +39,9 @@ export class BookingDetailsModalComponent {
         });
       }
     );
+
+    this.bookingDetailsService
+      .getBookingDetails(data.id, userId)
+      .subscribe(() => (this.showSpinner = false));
   }
 }

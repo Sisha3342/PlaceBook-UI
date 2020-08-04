@@ -22,6 +22,7 @@ export class PlaceInfoComponent implements OnInit, OnChanges {
   @Input() dateRange: FormGroup;
   placeRating: BookingMark;
   currentBookings: PlaceCurrentBooking[];
+  showSpinner = true;
 
   constructor(private placeService: PlaceInfoService) {}
 
@@ -37,7 +38,15 @@ export class PlaceInfoComponent implements OnInit, OnChanges {
       .subscribe((bookings) => (this.currentBookings = bookings));
 
     this.placeService
+      .getCurrentBookings(this.place.placeId, this.dateRange)
+      .subscribe(() => (this.showSpinner = false));
+
+    this.placeService
       .getPlaceRating(this.place.placeId)
       .subscribe((rating) => (this.placeRating = rating));
+
+    this.placeService
+      .getPlaceRating(this.place.placeId)
+      .subscribe(() => (this.showSpinner = false));
   }
 }

@@ -11,6 +11,7 @@ import { ROLE } from '../../models/role';
 export class EmployeeCardComponent implements OnInit {
   employeeObject: User;
   role = ROLE;
+  showSpinner = true;
 
   @Input()
   set employee(employeeObject: User) {
@@ -33,5 +34,8 @@ export class EmployeeCardComponent implements OnInit {
           this.employeeObject.role = user.role;
         });
     }
+    this.employeeService
+      .changeRole(this.employeeObject.id, role)
+      .subscribe(() => (this.showSpinner = false));
   }
 }

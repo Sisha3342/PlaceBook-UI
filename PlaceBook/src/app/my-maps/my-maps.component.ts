@@ -14,6 +14,7 @@ import { OfficeAddress } from '../models/office-address';
 })
 export class MyMapsComponent implements OnInit {
   displayedOffices: Office[];
+  showSpinner = true;
 
   constructor(
     private mapService: MapService,
@@ -33,6 +34,10 @@ export class MyMapsComponent implements OnInit {
     this.mapService
       .getOffices(officeAddress)
       .subscribe((offices) => (this.displayedOffices = offices));
+
+    this.mapService
+      .getOffices(officeAddress)
+      .subscribe(() => (this.showSpinner = false));
   }
 
   getColumns(): Column[] {

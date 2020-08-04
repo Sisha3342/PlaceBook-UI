@@ -3,7 +3,9 @@
     <app-statistics-box></app-statistics-box>
   </div>
 
+  <!--  <app-spinner *ngIf="showSpinner"></app-spinner>-->
   <div class="tab-group">
+    <app-spinner *ngIf="showSpinner"></app-spinner>
     <mat-tab-group
       mat-stretch-tabs
       (focusChange)="setBookings($event.tab.textLabel)"

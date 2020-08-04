@@ -1,4 +1,5 @@
 <h2 mat-dialog-title>Booking details</h2>
+<app-spinner *ngIf="showSpinner"></app-spinner>
 <ng-container *ngIf="booking !== undefined">
   <app-booking-status [status]="booking.status"></app-booking-status>
 
