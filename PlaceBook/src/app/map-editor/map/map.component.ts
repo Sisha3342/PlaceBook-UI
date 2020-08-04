@@ -13,6 +13,7 @@ import { Floor } from '../../models/floor';
 import { MapObjectComponent } from '../map-tools/map-object/map-object.component';
 import { MapConfigurationService } from './map-configuration.service';
 import { Place } from '../../models/place';
+import { MapObject } from '../map-model/map-object';
 
 @Component({
   selector: 'app-map',
@@ -48,7 +49,7 @@ export class MapComponent implements OnInit, OnChanges {
   }
 
   ngOnChanges(changes: SimpleChanges): void {
-    if (this.config === undefined && !this.edit) {
+    if (!this.config && !this.edit) {
       this.config = {
         floorNumber: 0,
         width: 10,
@@ -97,6 +98,11 @@ export class MapComponent implements OnInit, OnChanges {
   openMenu(object: MapObjectComponent): boolean {
     object.menuOpened = true;
     return false;
+  }
+
+  closeMenu(object: MapObjectComponent): void {
+    object.menuOpened = false;
+    this.configChange.emit(this.config);
   }
 
   getPlaceInfo(object: MapObjectComponent): void {

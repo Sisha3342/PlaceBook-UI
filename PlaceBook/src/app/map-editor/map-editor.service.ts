@@ -3,7 +3,7 @@ import { Floor } from '../models/floor';
 import { Observable } from 'rxjs';
 import { Office } from '../models/office';
 import { HttpClient } from '@angular/common/http';
-import { FloorsConverterService } from './floors-converter.service';
+import { FloorsConverterService } from './floor-converter/floors-converter.service';
 import { FloorRequestConfig } from '../models/floor-request-config';
 
 @Injectable({
