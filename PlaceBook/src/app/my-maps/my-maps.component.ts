@@ -36,6 +36,14 @@ export class MyMapsComponent implements OnInit {
       width: '30rem',
       data: data,
     });
+
+    dialogRef.afterClosed().subscribe((res) => {
+      this.setDisplayedOffices({
+        country: undefined,
+        city: undefined,
+        address: undefined,
+      });
+    });
   }
 
   setDisplayedOffices(officeAddress: OfficeAddress): void {
