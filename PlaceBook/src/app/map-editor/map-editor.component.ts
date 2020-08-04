@@ -43,7 +43,9 @@ export class MapEditorComponent implements OnInit {
   }
 
   save(floors: Floor[]): void {
-    this.mapEditorService.saveFloors(this.officeId, floors).subscribe();
+    this.mapEditorService.saveFloors(this.officeId, floors).subscribe(() => {
+      localStorage.removeItem('floorsConfig');
+    });
   }
 
   saveLatestChanges(): void {

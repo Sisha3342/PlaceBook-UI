@@ -28,7 +28,7 @@ export class MapEditorService {
   }
 
   saveChanges(floors: Floor[]): void {
-    localStorage.setItem('config', JSON.stringify(floors));
+    localStorage.setItem('floorsConfig', JSON.stringify(floors));
   }
 
   getFloors(officeId: number): Observable<FloorRequestConfig[]> {

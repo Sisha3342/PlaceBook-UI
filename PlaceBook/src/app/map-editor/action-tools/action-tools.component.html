@@ -2,7 +2,7 @@
   <mat-button-toggle-group
     appearance="legacy"
     [(value)]="object.active"
-    *ngIf="object.number"
+    *ngIf="object.hasOwnProperty('number')"
   >
     <mat-button-toggle
       [value]="true"
