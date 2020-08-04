@@ -34,7 +34,7 @@
     <mat-icon>delete</mat-icon>
   </button>
 
-  <mat-form-field *ngIf="object.number">
+  <mat-form-field *ngIf="object.hasOwnProperty('number')">
     <mat-label>Place #</mat-label>
     <input matInput type="text" [(ngModel)]="object.number" />
   </mat-form-field>
@@ -43,4 +43,23 @@
     <mat-label>Capacity</mat-label>
     <input matInput type="number" [(ngModel)]="object.capacity" [min]="1" />
   </mat-form-field>
+
+  <mat-button-toggle-group
+    *ngIf="shouldHasBorder()"
+    appearance="legacy"
+    [(value)]="object.border"
+  >
+    <mat-button-toggle [value]="border.top">
+      {{ border.top }}
+    </mat-button-toggle>
+    <mat-button-toggle [value]="border.right">
+      {{ border.right }}
+    </mat-button-toggle>
+    <mat-button-toggle [value]="border.bottom">
+      {{ border.bottom }}
+    </mat-button-toggle>
+    <mat-button-toggle [value]="border.left">
+      {{ border.left }}
+    </mat-button-toggle>
+  </mat-button-toggle-group>
 </div>
