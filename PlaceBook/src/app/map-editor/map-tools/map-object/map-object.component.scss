@@ -16,6 +16,8 @@
 }
 
 .on-map-icon-background {
+  box-sizing: border-box;
+  border: 0.5rem solid transparent;
   height: 100%;
   width: 100%;
   margin: auto;
@@ -33,6 +35,7 @@
 
 .selected {
   background-color: var(--accept-color);
+  color: white;
 }
 
 .object-content{

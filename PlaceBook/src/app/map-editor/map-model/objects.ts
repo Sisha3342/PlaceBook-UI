@@ -1,4 +1,7 @@
 import { MapObject } from './map-object';
+import { BORDER } from './BORDER';
+
+const border = BORDER;
 
 export const OBJECTS: MapObject[] = [
   {
@@ -6,21 +9,21 @@ export const OBJECTS: MapObject[] = [
     active: true,
     icon: 'fa-desktop',
     tooltip: 'Working desk',
-    number: 0,
+    number: '0',
   },
   {
     type: 'constant',
     active: true,
     icon: 'fa-id-badge',
     tooltip: 'Constant desk',
-    number: 0,
+    number: '0',
   },
   {
     type: 'meetingRoom',
     active: true,
     icon: 'fa-chalkboard-teacher',
     tooltip: 'Meeting room',
-    number: 0,
+    number: '0',
     capacity: 1,
   },
   {
@@ -40,11 +43,13 @@ export const OBJECTS: MapObject[] = [
     active: true,
     icon: 'fa-door-closed',
     tooltip: 'Door',
+    border: undefined,
   },
   {
     type: 'window',
     active: true,
     icon: 'fa-border-all',
     tooltip: 'Window',
+    border: undefined,
   },
 ];

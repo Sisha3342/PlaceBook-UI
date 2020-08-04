@@ -1,6 +1,6 @@
 <div class="tab-container">
   <div class="statistics">
-    <app-statistics-box></app-statistics-box>
+    <app-statistics-box #stats></app-statistics-box>
   </div>
 
   <!--  <app-spinner *ngIf="showSpinner"></app-spinner>-->
@@ -16,6 +16,7 @@
           [status]="status.active"
           [columns]="getColumns(status.active)"
           [openDetails]="openBookingDetailsModal"
+          (openDelete)="openCancelDialog($event)"
         ></app-table>
       </mat-tab>
 
@@ -25,7 +26,6 @@
           [status]="status.completed"
           [columns]="getColumns(status.completed)"
           [openDetails]="openBookingDetailsModal"
-          [isViewRating]="false"
         ></app-table>
       </mat-tab>
 

@@ -33,7 +33,7 @@ export class MapObjectComponent implements OnInit, OnChanges {
     this.place = this.findPlace(this.neighborPlaces, this.object.number);
   }
 
-  findPlace(places: Place[], placeNumber: number): Place {
+  findPlace(places: Place[], placeNumber: string): Place {
     if (!(placeNumber === undefined || places === undefined)) {
       return places.find((place) => {
         return place.placeNumber === placeNumber;
@@ -45,5 +45,15 @@ export class MapObjectComponent implements OnInit, OnChanges {
 
   getFontSize(): number {
     return this.zoom > 0.25 ? 1.2 * this.zoom : 0;
+  }
+
+  getBorder(object: MapObject, isOnMap: boolean): any {
+    if (object.border && ['window', 'door'].includes(object.type) && isOnMap) {
+      return {
+        [`border-${object.border}`]: '0.5rem solid var(--primary-color)',
+      };
+    }
+
+    return {};
   }
 }

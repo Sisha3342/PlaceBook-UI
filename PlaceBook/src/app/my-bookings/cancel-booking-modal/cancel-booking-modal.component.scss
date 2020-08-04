@@ -1,0 +1,13 @@
+h2 {
+  font-weight: bold;
+}
+
+.mat-dialog-content {
+  margin: 0;
+  padding: 0 1rem;
+  overflow: hidden;
+}
+.mat-dialog-actions .mat-button {
+  background-color: var(--primary-color);
+  color: var(--secondary-color);
+}

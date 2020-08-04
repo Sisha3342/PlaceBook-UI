@@ -5,7 +5,6 @@ import { FloorRequestConfig } from '../models/floor-request-config';
 import { MatSelect } from '@angular/material/select';
 import { Office } from '../models/office';
 import { OfficeAddress } from '../models/office-address';
-import { AddMapModalComponent } from '../my-maps/add-map-modal/add-map-modal.component';
 
 @Component({
   selector: 'app-maps-search',
@@ -32,12 +31,6 @@ export class MapsSearchComponent implements OnInit {
     this.setCountries();
   }
 
-  addNewOffice(): void {
-    this.dialog.open(AddMapModalComponent, {
-      width: '30rem',
-    });
-  }
-
   setCountries(): void {
     this.mapSearchService.getCountries().subscribe((countries: string[]) => {
       this.countries = countries;
@@ -52,7 +45,7 @@ export class MapsSearchComponent implements OnInit {
         this.cities = cities;
 
         this.searchEvent.emit({
-          country: country,
+          country,
           city: undefined,
           address: undefined,
         });
@@ -70,8 +63,8 @@ export class MapsSearchComponent implements OnInit {
           this.offices = offices;
 
           this.searchEvent.emit({
-            country: country,
-            city: city,
+            country,
+            city,
             address: undefined,
           });
         });

@@ -8,8 +8,15 @@ import { Office } from '../models/office';
   providedIn: 'root',
 })
 export class MapService {
+  urlOffice = 'https://placebookapp.herokuapp.com/office';
+
   constructor(private http: HttpClient) {}
 
+  deleteOffice(officeId: number): Observable<Office> {
+    return this.http.delete<Office>(this.urlOffice + `/${officeId}`, {
+      withCredentials: true,
+    });
+  }
   getOffices(officeAddress: OfficeAddress): Observable<Office[]> {
     if (officeAddress.country === undefined) {
       return this.http.get<Office[]>(

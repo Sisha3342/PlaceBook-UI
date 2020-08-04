@@ -1,7 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { Floor } from '../models/floor';
-import { FloorsConverterService } from '../map-editor/floors-converter.service';
+import { FloorsConverterService } from '../map-editor/floor-converter/floors-converter.service';
 import { FloorRequestConfig } from '../models/floor-request-config';
 import { Office } from '../models/office';
 import { FormGroup } from '@angular/forms';
@@ -9,6 +9,7 @@ import { BookService } from './book.service';
 import { AuthService } from '../auth/auth.service';
 import { Place } from '../models/place';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-book',
@@ -29,13 +30,14 @@ export class BookComponent implements OnInit {
     private floorsConverterService: FloorsConverterService,
     private bookService: BookService,
     private authService: AuthService,
-    private snackbar: MatSnackBar
+    private snackbar: MatSnackBar,
+    private route: Router
   ) {}
 
   ngOnInit(): void {}
 
   changeCurrentFloor(floorRequestConfig: FloorRequestConfig): void {
-    if (floorRequestConfig !== undefined) {
+    if (floorRequestConfig) {
       this.currentFloor = this.floorsConverterService.convertFromRequest(
         floorRequestConfig
       );
@@ -54,7 +56,7 @@ export class BookComponent implements OnInit {
   changeDateRange(dateRange: FormGroup): void {
     this.dateRange = dateRange;
 
-    if (this.currentFloor !== undefined) {
+    if (this.currentFloor) {
       this.setPlaces(this.currentFloor.id, this.dateRange);
     }
   }
@@ -79,6 +81,12 @@ export class BookComponent implements OnInit {
           panelClass: 'success',
         });
         this.setPlaces(this.currentFloor.id, this.dateRange);
+
+        this.route.navigate(['/my_bookings']);
       });
+  }
+
+  subscribe(): void {
+    this.bookService.subscribe(this.currentPlace.placeId).subscribe();
   }
 }

@@ -1,5 +1,5 @@
 export interface Place {
   placeId: number;
-  placeNumber: number;
+  placeNumber: string;
   occupied: boolean;
 }
