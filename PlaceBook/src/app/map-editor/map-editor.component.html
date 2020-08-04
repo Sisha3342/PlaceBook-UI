@@ -22,12 +22,18 @@
   </div>
 
   <div class="my-grid">
-    <app-map [edit]="true" #map [(config)]="currentFloor"></app-map>
+    <app-map
+      [edit]="true"
+      #map
+      [(config)]="currentFloor"
+      (configChange)="saveLatestChanges()"
+    ></app-map>
   </div>
 
   <app-floor-panel
     (saveFloors)="save($event)"
     [(floors)]="floors"
+    (floorsChange)="saveLatestChanges()"
     [(currentFloor)]="currentFloor"
   ></app-floor-panel>
 </div>

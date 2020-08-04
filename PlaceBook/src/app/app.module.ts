@@ -51,6 +51,7 @@ import { DateRangeComponent } from './book/date-range/date-range.component';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { SpinnerComponent } from './spinner/spinner.component';
 import { DeleteOfficeAddressComponent } from './my-maps/delete-office-address/delete-office-address.component';
+import { RestoreDialogComponent } from './map-editor/restore-dialog/restore-dialog.component';
 
 @NgModule({
   declarations: [
@@ -92,6 +93,7 @@ import { DeleteOfficeAddressComponent } from './my-maps/delete-office-address/de
     DateRangeComponent,
     SpinnerComponent,
     DeleteOfficeAddressComponent,
+    RestoreDialogComponent,
   ],
   imports: [
     BrowserModule,
