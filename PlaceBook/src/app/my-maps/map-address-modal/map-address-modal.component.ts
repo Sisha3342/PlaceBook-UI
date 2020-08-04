@@ -67,6 +67,7 @@ export class EditMapAddressComponent implements OnInit {
         this.snackbar.open(this.okMessage, 'Close', {
           verticalPosition: 'top',
           duration: 2000,
+          panelClass: 'success',
         });
         this.dialogRef.close();
       },
