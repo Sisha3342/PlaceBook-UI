@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { RatePlaceModalComponent } from '../my-bookings/rate-place-modal/rate-place-modal.component';
 import { Column } from '../models/column';
@@ -16,7 +16,7 @@ export class TableComponent implements OnInit {
   @Input() columns: Column[];
   @Input() openDetails;
   @Input() isViewRating: boolean;
-  @Input() deleteCallback: (element: any) => void;
+  @Output() openDelete = new EventEmitter();
 
   constructor(public dialog: MatDialog, public authService: AuthService) {}
 
@@ -32,10 +32,8 @@ export class TableComponent implements OnInit {
     });
   }
 
-  deleteRow($event: MouseEvent, element: any): void {
-    $event.stopPropagation();
-
-    this.deleteCallback(element);
+  cancel(element: any): void {
+    console.log(element);
   }
 
   editBooking(event: Event): void {
@@ -47,5 +45,11 @@ export class TableComponent implements OnInit {
     this.dialog.open(RatePlaceModalComponent, {
       data: { isViewRating: this.isViewRating, booking: element },
     });
+  }
+
+  delete(event, element): void {
+    event.stopPropagation();
+
+    this.openDelete.emit(element);
   }
 }
