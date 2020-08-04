@@ -7,6 +7,6 @@
 }
 
 .mat-dialog-actions .mat-button {
-  border: var(--primary-border);
-  border-radius: var(--primary-border-radius);
+  background-color: var(--primary-color);
+  color: var(--secondary-color);
 }

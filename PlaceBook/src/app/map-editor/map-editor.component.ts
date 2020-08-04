@@ -8,6 +8,7 @@ import { FloorService } from './floor-panel/floor.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { MatDialog } from '@angular/material/dialog';
 import { RestoreDialogComponent } from './restore-dialog/restore-dialog.component';
+import { RestoreService } from './restore-dialog/restore.service';
 
 @Component({
   selector: 'app-map-editor',
@@ -22,6 +23,7 @@ export class MapEditorComponent implements OnInit {
 
   constructor(
     private mapEditorService: MapEditorService,
+    private restoreService: RestoreService,
     private floorConverter: FloorsConverterService,
     private route: ActivatedRoute,
     private floorService: FloorService,
@@ -47,16 +49,13 @@ export class MapEditorComponent implements OnInit {
     });
 
     dialogRef.afterClosed().subscribe((flag) => {
-      console.log(flag);
-
       if (flag) {
-        this.floors = JSON.parse(
-          localStorage.getItem(`floorsConfig_${this.officeId}`)
-        );
+        this.floors = this.restoreService.getFloors(this.officeId);
         this.currentFloor = this.floors[0];
       } else {
         this.setFloors(this.officeId);
-        localStorage.removeItem(`floorsConfig_${this.officeId}`);
+
+        this.restoreService.deleteFloors(this.officeId);
       }
     });
   }
@@ -80,13 +79,14 @@ export class MapEditorComponent implements OnInit {
       this.snackbar.open('Map was saved', 'Close', {
         verticalPosition: 'top',
         panelClass: 'success',
+        duration: 3000,
       });
 
-      localStorage.removeItem(`floorsConfig_${this.officeId}`);
+      this.restoreService.deleteFloors(this.officeId);
     });
   }
 
   saveLatestChanges(): void {
-    this.mapEditorService.saveChanges(this.floors, this.officeId);
+    this.restoreService.saveChanges(this.floors, this.officeId);
   }
 }
