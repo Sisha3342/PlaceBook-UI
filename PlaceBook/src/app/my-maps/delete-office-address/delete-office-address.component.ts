@@ -25,30 +25,16 @@ export class DeleteOfficeAddressComponent implements OnInit {
     @Inject(MAT_DIALOG_DATA) public data: Office
   ) {}
 
-  resetForm(): void {
-    this.data = {
-      id: null,
-      address: {
-        country: undefined,
-        city: undefined,
-        address: undefined,
-      },
-      worktimeStart: undefined,
-      worktimeEnd: undefined,
-      deleted: false,
-    };
-  }
-
   ngOnInit(): void {}
 
-  onDeleteOffice(id: number): void {
+  deleteOffice(): void {
     this.mapService.deleteOffice(this.data.id).subscribe(
       () => {
-        this.resetForm();
         this.dialogRef.close();
         this.snackbar.open(this.okMessage, 'Close', {
           verticalPosition: 'top',
           duration: 2000,
+          panelClass: 'success',
         });
       },
       (error) => {
