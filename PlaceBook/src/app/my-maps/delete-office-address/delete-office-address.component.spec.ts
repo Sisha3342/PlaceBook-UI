@@ -8,9 +8,8 @@ describe('DeleteOfficeAddressComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ DeleteOfficeAddressComponent ]
-    })
-    .compileComponents();
+      declarations: [DeleteOfficeAddressComponent],
+    }).compileComponents();
   }));
 
   beforeEach(() => {

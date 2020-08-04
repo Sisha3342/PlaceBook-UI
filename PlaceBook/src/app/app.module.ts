@@ -52,6 +52,7 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { SpinnerComponent } from './spinner/spinner.component';
 import { DeleteOfficeAddressComponent } from './my-maps/delete-office-address/delete-office-address.component';
 import { RestoreDialogComponent } from './map-editor/restore-dialog/restore-dialog.component';
+import { CancelBookingModalComponent } from './my-bookings/cancel-booking-modal/cancel-booking-modal.component';
 
 @NgModule({
   declarations: [
@@ -94,6 +95,7 @@ import { RestoreDialogComponent } from './map-editor/restore-dialog/restore-dial
     SpinnerComponent,
     DeleteOfficeAddressComponent,
     RestoreDialogComponent,
+    CancelBookingModalComponent,
   ],
   imports: [
     BrowserModule,

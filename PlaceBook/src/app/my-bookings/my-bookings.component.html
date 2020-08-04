@@ -1,6 +1,6 @@
 <div class="tab-container">
   <div class="statistics">
-    <app-statistics-box></app-statistics-box>
+    <app-statistics-box #stats></app-statistics-box>
   </div>
 
   <div class="tab-group">
@@ -14,6 +14,7 @@
           [status]="status.active"
           [columns]="getColumns(status.active)"
           [openDetails]="openBookingDetailsModal"
+          (openDelete)="openCancelDialog($event)"
         ></app-table>
       </mat-tab>
 
