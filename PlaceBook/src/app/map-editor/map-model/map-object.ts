@@ -5,4 +5,5 @@ export interface MapObject {
   tooltip: string;
   number?: string;
   capacity?: number;
+  border?: string;
 }

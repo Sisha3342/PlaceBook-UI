@@ -1,0 +1,12 @@
+.restore-dialog {
+  text-align: center;
+}
+
+.mat-dialog-actions {
+  display: block;
+}
+
+.mat-dialog-actions .mat-button {
+  background-color: var(--primary-color);
+  color: var(--secondary-color);
+}

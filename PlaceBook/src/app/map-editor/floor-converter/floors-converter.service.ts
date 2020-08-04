@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
-import { FloorRequestConfig } from '../models/floor-request-config';
-import { Floor } from '../models/floor';
+import { FloorRequestConfig } from '../../models/floor-request-config';
+import { Floor } from '../../models/floor';
 
 @Injectable({
   providedIn: 'root',

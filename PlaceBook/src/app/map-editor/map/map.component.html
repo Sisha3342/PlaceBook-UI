@@ -35,7 +35,7 @@
           *ngIf="edit"
           cdkConnectedOverlayBackdropClass="drop"
           [cdkConnectedOverlayHasBackdrop]="true"
-          (backdropClick)="object.menuOpened = false"
+          (backdropClick)="closeMenu(object)"
           [cdkConnectedOverlayOrigin]="trigger"
           [cdkConnectedOverlayOpen]="object.menuOpened"
         >

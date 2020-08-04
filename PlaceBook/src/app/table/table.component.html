@@ -50,6 +50,7 @@
               [matTooltip]="column.tooltip"
               [matTooltipPosition]="'above'"
               class="icon-button"
+              (click)="editMap($event, element)"
             >
               <mat-icon>edit_location</mat-icon>
             </button>
@@ -60,8 +61,8 @@
               mat-icon-button
               class="close-button icon-button"
               [matTooltip]="column.tooltip"
-              (click)="cancel(element)"
               [matTooltipPosition]="'above'"
+              (click)="delete($event, element)"
             >
               <mat-icon>close</mat-icon>
             </button>

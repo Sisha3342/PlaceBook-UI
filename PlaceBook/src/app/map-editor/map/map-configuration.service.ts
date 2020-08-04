@@ -8,6 +8,7 @@ import {
 } from 'angular-gridster2';
 import { MapObject } from '../map-model/map-object';
 import { Safe } from '../map-model/safe';
+import { GridsterItemComponentInterface } from 'angular-gridster2/lib/gridsterItem.interface';
 
 @Injectable({
   providedIn: 'root',
@@ -73,6 +74,7 @@ export class MapConfigurationService {
       emptyCellContextMenuCallback: emptyCellClick.bind(map),
       emptyCellDropCallback: emptyCellClick.bind(map),
       emptyCellDragCallback: emptyCellClick.bind(map),
+      itemChangeCallback: itemChange.bind(map),
       disableScrollHorizontal: true,
       disableScrollVertical: true,
     };
@@ -117,5 +119,9 @@ function emptyCellClick(event: DragEvent, item: GridsterItem): void {
   item.data = JSON.parse(event.dataTransfer.getData('json')) as MapObject;
   this.config.dashboard.push(item);
 
+  this.configChange.emit(this.config);
+}
+
+function itemChange(): void {
   this.configChange.emit(this.config);
 }
