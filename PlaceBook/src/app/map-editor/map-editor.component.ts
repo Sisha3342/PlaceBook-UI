@@ -19,7 +19,6 @@ export class MapEditorComponent implements OnInit {
   floors: Floor[];
   officeId: number;
   currentFloor: Floor;
-  fromLocalStorage: boolean;
 
   constructor(
     private mapEditorService: MapEditorService,
