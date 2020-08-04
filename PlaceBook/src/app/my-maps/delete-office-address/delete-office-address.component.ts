@@ -14,9 +14,6 @@ import { MatSnackBar } from '@angular/material/snack-bar';
   styleUrls: ['./delete-office-address.component.scss'],
 })
 export class DeleteOfficeAddressComponent implements OnInit {
-  okMessage = 'Operation is OK';
-  warnMessage = 'Operation failed';
-
   constructor(
     private snackbar: MatSnackBar,
     public dialogRef: MatDialogRef<DeleteOfficeAddressComponent>,
@@ -30,15 +27,15 @@ export class DeleteOfficeAddressComponent implements OnInit {
   deleteOffice(): void {
     this.mapService.deleteOffice(this.data.id).subscribe(
       () => {
-        this.dialogRef.close();
-        this.snackbar.open(this.okMessage, 'Close', {
+        this.snackbar.open('Office was successfully removed', 'Close', {
           verticalPosition: 'top',
           duration: 2000,
           panelClass: 'success',
         });
+        this.dialogRef.close();
       },
-      (error) => {
-        this.snackbar.open(this.warnMessage, 'Close', {
+      () => {
+        this.snackbar.open('Office was not removed', 'Close', {
           verticalPosition: 'top',
           duration: 2000,
         });

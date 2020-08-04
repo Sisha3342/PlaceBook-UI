@@ -1,10 +1,9 @@
-import { Component, Input, OnInit } from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { RatePlaceModalComponent } from '../my-bookings/rate-place-modal/rate-place-modal.component';
 import { Column } from '../models/column';
 import { AuthService } from '../auth/auth.service';
 import { Booking } from '../models/booking';
-import { Floor } from '../models/floor';
 
 @Component({
   selector: 'app-table',
@@ -17,7 +16,7 @@ export class TableComponent implements OnInit {
   @Input() columns: Column[];
   @Input() openDetails;
   @Input() isViewRating: boolean;
-  @Input() openDelete;
+  @Output() openDelete = new EventEmitter();
 
   constructor(public dialog: MatDialog, public authService: AuthService) {}
 
@@ -46,5 +45,11 @@ export class TableComponent implements OnInit {
     this.dialog.open(RatePlaceModalComponent, {
       data: { isViewRating: this.isViewRating, booking: element },
     });
+  }
+
+  delete(event, element): void {
+    event.stopPropagation();
+
+    this.openDelete.emit(element);
   }
 }

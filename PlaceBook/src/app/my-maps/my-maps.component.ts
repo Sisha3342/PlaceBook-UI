@@ -30,14 +30,13 @@ export class MyMapsComponent implements OnInit {
     });
   }
 
-  deleteOfficeAddress(event: Event, data: Office): void {
-    event.stopPropagation();
+  deleteOfficeAddress(data: Office): void {
     const dialogRef = this.dialog.open(DeleteOfficeAddressComponent, {
       width: '30rem',
       data: data,
     });
 
-    dialogRef.afterClosed().subscribe((res) => {
+    dialogRef.afterClosed().subscribe(() => {
       this.setDisplayedOffices({
         country: undefined,
         city: undefined,
@@ -46,7 +45,7 @@ export class MyMapsComponent implements OnInit {
     });
   }
 
-  setDisplayedOffices(officeAddress: OfficeAddress): void {
+  setDisplayedOffices(officeAddress?: OfficeAddress): void {
     this.mapService
       .getOffices(officeAddress)
       .subscribe((offices) => (this.displayedOffices = offices));
