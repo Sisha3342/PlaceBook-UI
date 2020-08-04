@@ -1,7 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { Floor } from '../models/floor';
-import { FloorsConverterService } from '../map-editor/floors-converter.service';
+import { FloorsConverterService } from '../map-editor/floor-converter/floors-converter.service';
 import { FloorRequestConfig } from '../models/floor-request-config';
 import { Office } from '../models/office';
 import { FormGroup } from '@angular/forms';

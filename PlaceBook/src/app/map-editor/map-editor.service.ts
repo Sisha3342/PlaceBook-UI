@@ -3,7 +3,7 @@ import { Floor } from '../models/floor';
 import { Observable } from 'rxjs';
 import { Office } from '../models/office';
 import { HttpClient } from '@angular/common/http';
-import { FloorsConverterService } from './floors-converter.service';
+import { FloorsConverterService } from './floor-converter/floors-converter.service';
 import { FloorRequestConfig } from '../models/floor-request-config';
 
 @Injectable({
@@ -27,8 +27,8 @@ export class MapEditorService {
     );
   }
 
-  saveChanges(floors: Floor[]): void {
-    localStorage.setItem('floorsConfig', JSON.stringify(floors));
+  saveChanges(floors: Floor[], officeId: number): void {
+    localStorage.setItem(`floorsConfig_${officeId}`, JSON.stringify(floors));
   }
 
   getFloors(officeId: number): Observable<FloorRequestConfig[]> {
