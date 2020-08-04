@@ -1,9 +1,9 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { OBJECTS } from './map-model/objects';
 import { Floor } from '../models/floor';
 import { MapEditorService } from './map-editor.service';
 import { FloorsConverterService } from './floors-converter.service';
-import { ActivatedRoute, Router } from '@angular/router';
+import { ActivatedRoute } from '@angular/router';
 import { FloorService } from './floor-panel/floor.service';
 
 @Component({
@@ -14,7 +14,7 @@ import { FloorService } from './floor-panel/floor.service';
 export class MapEditorComponent implements OnInit {
   objects = OBJECTS;
   floors: Floor[];
-  officeId = 21;
+  officeId: number;
   currentFloor: Floor;
 
   constructor(
@@ -44,5 +44,9 @@ export class MapEditorComponent implements OnInit {
 
   save(floors: Floor[]): void {
     this.mapEditorService.saveFloors(this.officeId, floors).subscribe();
+  }
+
+  saveLatestChanges(): void {
+    this.mapEditorService.saveChanges(this.floors);
   }
 }

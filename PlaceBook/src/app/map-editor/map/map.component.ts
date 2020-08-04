@@ -48,7 +48,7 @@ export class MapComponent implements OnInit, OnChanges {
   }
 
   ngOnChanges(changes: SimpleChanges): void {
-    if (this.config === undefined && !this.edit) {
+    if (!this.config && !this.edit) {
       this.config = {
         floorNumber: 0,
         width: 10,

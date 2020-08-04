@@ -27,6 +27,10 @@ export class MapEditorService {
     );
   }
 
+  saveChanges(floors: Floor[]): void {
+    localStorage.setItem('config', JSON.stringify(floors));
+  }
+
   getFloors(officeId: number): Observable<FloorRequestConfig[]> {
     return this.http.get<FloorRequestConfig[]>(
       `https://placebookapp.herokuapp.com/office/${officeId}/floors`,
