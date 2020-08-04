@@ -5,6 +5,7 @@ import { MapEditorService } from './map-editor.service';
 import { FloorsConverterService } from './floors-converter.service';
 import { ActivatedRoute } from '@angular/router';
 import { FloorService } from './floor-panel/floor.service';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-map-editor',
@@ -21,7 +22,8 @@ export class MapEditorComponent implements OnInit {
     private mapEditorService: MapEditorService,
     private floorConverter: FloorsConverterService,
     private route: ActivatedRoute,
-    private floorService: FloorService
+    private floorService: FloorService,
+    private snackbar: MatSnackBar
   ) {}
 
   ngOnInit(): void {
@@ -44,6 +46,11 @@ export class MapEditorComponent implements OnInit {
 
   save(floors: Floor[]): void {
     this.mapEditorService.saveFloors(this.officeId, floors).subscribe(() => {
+      this.snackbar.open('Map was saved', 'Close', {
+        verticalPosition: 'top',
+        panelClass: 'success',
+      });
+
       localStorage.removeItem('floorsConfig');
     });
   }
