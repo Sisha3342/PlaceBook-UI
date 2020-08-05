@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { RatePlaceModalComponent } from '../my-bookings/rate-place-modal/rate-place-modal.component';
 import { Column } from '../models/column';
@@ -16,6 +16,7 @@ export class TableComponent implements OnInit {
   @Input() columns: Column[];
   @Input() openDetails;
   @Input() isViewRating: boolean;
+  @Output() openEdit = new EventEmitter();
   @Output() openDelete = new EventEmitter();
   @Output() openEditMap = new EventEmitter<Office>();
 
@@ -31,6 +32,20 @@ export class TableComponent implements OnInit {
     return this.columns.map((column) => {
       return column.id;
     });
+  }
+
+  edit(event, element): void {
+    event.stopPropagation();
+
+    this.openEdit.emit(element);
+  }
+
+  cancel(element: any): void {
+    console.log(element);
+  }
+
+  editBooking(event: Event): void {
+    event.stopPropagation();
   }
 
   editMap(event: MouseEvent, element: Office): void {

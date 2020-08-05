@@ -1,4 +1,4 @@
-import { DeleteOfficeAddressComponent } from '././delete-office-address/delete-office-address.component';
+import { DeleteOfficeAddressComponent } from './delete-office-address/delete-office-address.component';
 import { MatDialog } from '@angular/material/dialog';
 import { Component, OnInit } from '@angular/core';
 import { Column } from '../models/column';
@@ -6,7 +6,7 @@ import { MyMapsColumnService } from './my-maps-column.service';
 import { MapService } from './map.service';
 import { Office } from '../models/office';
 import { OfficeAddress } from '../models/office-address';
-import { Router } from '@angular/router';
+import { EditMapAddressComponent } from './map-address-modal/map-address-modal.component';
 
 @Component({
   selector: 'app-my-maps',
@@ -20,8 +20,7 @@ export class MyMapsComponent implements OnInit {
   constructor(
     private mapService: MapService,
     private columnMapService: MyMapsColumnService,
-    public dialog: MatDialog,
-    private route: Router
+    public dialog: MatDialog
   ) {}
 
   ngOnInit(): void {
@@ -31,6 +30,22 @@ export class MyMapsComponent implements OnInit {
       address: undefined,
     });
   }
+
+  editOfficeAddress(data: Office): void {
+    let dialogRef = this.dialog.open(EditMapAddressComponent, {
+      width: '30rem',
+      data: data,
+    });
+    dialogRef.afterClosed().subscribe(() => {
+      this.setDisplayedOffices({
+        country: undefined,
+        city: undefined,
+        address: undefined,
+      });
+    });
+  }
+
+  editMap(e) {}
 
   deleteOfficeAddress(data: Office): void {
     const dialogRef = this.dialog.open(DeleteOfficeAddressComponent, { data });
@@ -44,7 +59,7 @@ export class MyMapsComponent implements OnInit {
     });
   }
 
-  setDisplayedOffices(officeAddress?: OfficeAddress): void {
+  setDisplayedOffices(officeAddress: OfficeAddress): void {
     this.mapService
       .getOffices(officeAddress)
       .subscribe((offices) => (this.displayedOffices = offices));
@@ -52,9 +67,5 @@ export class MyMapsComponent implements OnInit {
 
   getColumns(): Column[] {
     return this.columnMapService.getColumns();
-  }
-
-  editMap(office: Office): void {
-    this.route.navigate(['editor', { officeId: office.id.toString() }]);
   }
 }

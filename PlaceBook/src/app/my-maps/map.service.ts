@@ -12,6 +12,40 @@ export class MapService {
 
   constructor(private http: HttpClient) {}
 
+  postOffice(formData: any): Observable<Office> {
+    const requestBody = {
+      address: formData.address,
+      city: formData.city,
+      country: formData.country,
+      worktimeStart: formData.worktimeStart + ':00',
+      worktimeEnd: formData.worktimeEnd + ':00',
+    };
+    return this.http.post<Office>(
+      'https://placebookapp.herokuapp.com/office',
+      requestBody,
+      {
+        withCredentials: true,
+      }
+    );
+  }
+
+  updateOffice(formData: any): Observable<Office> {
+    const requestBody = {
+      address: formData.address,
+      city: formData.city,
+      country: formData.country,
+      worktimeStart: formData.worktimeStart + ':00',
+      worktimeEnd: formData.worktimeEnd + ':00',
+    };
+    return this.http.put<Office>(
+      this.urlOffice + `/${formData.id}`,
+      requestBody,
+      {
+        withCredentials: true,
+      }
+    );
+  }
+
   deleteOffice(officeId: number): Observable<Office> {
     return this.http.delete<Office>(this.urlOffice + `/${officeId}`, {
       withCredentials: true,
