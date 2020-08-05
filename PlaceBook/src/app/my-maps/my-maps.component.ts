@@ -1,3 +1,4 @@
+import { DeleteOfficeAddressComponent } from './delete-office-address/delete-office-address.component';
 import { MatDialog } from '@angular/material/dialog';
 import { Component, OnInit } from '@angular/core';
 import { Column } from '../models/column';
@@ -31,10 +32,27 @@ export class MyMapsComponent implements OnInit {
   }
 
   editOfficeAddress(data: Office): void {
-    const dialogRef = this.dialog.open(EditMapAddressComponent, {
+    let dialogRef = this.dialog.open(EditMapAddressComponent, {
       width: '30rem',
       data: data,
     });
+    dialogRef.afterClosed().subscribe(() => {
+      this.setDisplayedOffices({
+        country: undefined,
+        city: undefined,
+        address: undefined,
+      });
+    });
+  }
+
+  editMap(e) {}
+
+  deleteOfficeAddress(data: Office): void {
+    const dialogRef = this.dialog.open(DeleteOfficeAddressComponent, {
+      width: '30rem',
+      data: data,
+    });
+
     dialogRef.afterClosed().subscribe(() => {
       this.setDisplayedOffices({
         country: undefined,

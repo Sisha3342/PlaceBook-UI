@@ -46,6 +46,11 @@ export class MapService {
     );
   }
 
+  deleteOffice(officeId: number): Observable<Office> {
+    return this.http.delete<Office>(this.urlOffice + `/${officeId}`, {
+      withCredentials: true,
+    });
+  }
   getOffices(officeAddress: OfficeAddress): Observable<Office[]> {
     if (officeAddress.country === undefined) {
       return this.http.get<Office[]>(

@@ -20,6 +20,10 @@ export class StatisticsBoxComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
+    this.setStatistics();
+  }
+
+  setStatistics(): void {
     this.statisticsService
       .getStatistics(this.authService.getCurrentUser().id)
       .subscribe((stats: Statistics) => {

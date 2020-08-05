@@ -4,6 +4,8 @@
     <app-table class="map-table"
                [data]="displayedOffices"
                [columns]="getColumns()"
-               (openEdit)="editOfficeAddress($event)"></app-table>
+               (openEdit)="editOfficeAddress($event)"
+               (openDelete)="deleteOfficeAddress($event)"
+               (openEditMap)="editMap($event)"></app-table>
   </div>
 </div>

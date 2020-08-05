@@ -41,5 +41,13 @@ export class BookService {
     );
   }
 
-  subscribe(placeId: number): void {}
+  subscribe(placeId: number): Observable<Place> {
+    return this.http.post<Place>(
+      `https://placebookapp.herokuapp.com/subscribe/${placeId}`,
+      {},
+      {
+        withCredentials: true,
+      }
+    );
+  }
 }

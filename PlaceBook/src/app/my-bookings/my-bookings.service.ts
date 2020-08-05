@@ -18,4 +18,13 @@ export class MyBookingsService {
       }
     );
   }
+
+  deleteBooking(id: number): Observable<Booking> {
+    return this.http.delete<Booking>(
+      `https://placebookapp.herokuapp.com/user/booking/${id}`,
+      {
+        withCredentials: true,
+      }
+    );
+  }
 }
