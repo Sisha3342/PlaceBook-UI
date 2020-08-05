@@ -2,7 +2,6 @@ import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { RatePlaceModalComponent } from '../my-bookings/rate-place-modal/rate-place-modal.component';
 import { Column } from '../models/column';
-import { AuthService } from '../auth/auth.service';
 import { Booking } from '../models/booking';
 import { Office } from '../models/office';
 
@@ -21,7 +20,7 @@ export class TableComponent implements OnInit {
   @Output() openDelete = new EventEmitter();
   @Output() openEditMap = new EventEmitter<Office>();
 
-  constructor(public dialog: MatDialog, public authService: AuthService) {}
+  constructor(public dialog: MatDialog) {}
 
   ngOnInit(): void {}
 

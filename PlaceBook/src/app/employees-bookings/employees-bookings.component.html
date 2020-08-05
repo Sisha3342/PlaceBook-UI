@@ -1,6 +1,4 @@
 <div class="tab-container">
-  <!--  <app-search></app-search>-->
-
   <div class="tab-group">
     <mat-tab-group
       mat-stretch-tabs
@@ -12,6 +10,7 @@
           [status]="status.active"
           [columns]="getColumns(status.active)"
           [openDetails]="openBookingDetailsModal"
+          (openDelete)="openCancelDialog($event)"
         ></app-table>
       </mat-tab>
 
@@ -24,11 +23,11 @@
         ></app-table>
       </mat-tab>
 
-      <mat-tab label="Cancelled">
+      <mat-tab label="Canceled">
         <app-table
           [data]="displayedBookings"
-          [status]="status.cancelled"
-          [columns]="getColumns(status.cancelled)"
+          [status]="status.canceled"
+          [columns]="getColumns(status.canceled)"
           [openDetails]="openBookingDetailsModal"
         ></app-table>
       </mat-tab>

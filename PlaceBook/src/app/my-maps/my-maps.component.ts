@@ -48,10 +48,7 @@ export class MyMapsComponent implements OnInit {
   editMap(e) {}
 
   deleteOfficeAddress(data: Office): void {
-    const dialogRef = this.dialog.open(DeleteOfficeAddressComponent, {
-      width: '30rem',
-      data: data,
-    });
+    const dialogRef = this.dialog.open(DeleteOfficeAddressComponent, { data });
 
     dialogRef.afterClosed().subscribe(() => {
       this.setDisplayedOffices({

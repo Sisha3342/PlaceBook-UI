@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { User } from '../models/user';
+import { User } from '../../models/user';
 import { Observable } from 'rxjs';
 import { HttpParams } from '@angular/common/http';
 import { HttpClient } from '@angular/common/http';
@@ -20,7 +20,7 @@ export class SearchService {
       .set('limit', limit.toString())
       .set('text', searchText);
     return this.http.get<User[]>('https://placebookapp.herokuapp.com/users', {
-      params: params,
+      params,
       withCredentials: true,
     });
   }

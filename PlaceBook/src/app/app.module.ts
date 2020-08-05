@@ -17,11 +17,9 @@ import { NotFoundComponent } from './not-found/not-found.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
 import { RouteButtonComponent } from './sidebar/route-button/route-button.component';
 import { UserCardComponent } from './sidebar/user-card/user-card.component';
-import { SearchComponent } from './search/search.component';
+import { SearchComponent } from './employees/search/search.component';
 import { EmployeeCardComponent } from './employees/employee-card/employee-card.component';
-import { SnackBarComponent } from './snack-bar/snack-bar.component';
 import { AppMaterialModule } from './app-material/app-material.module';
-import { MatSnackBar } from '@angular/material/snack-bar';
 import { HomeLayoutComponent } from './layouts/home/home-layout.component';
 import { LoginLayoutComponent } from './layouts/login/login-layout.component';
 import { AuthGuard } from './auth/auth.guard';
@@ -48,7 +46,6 @@ import { PlaceInfoComponent } from './book/place-info/place-info.component';
 import { MapBookingComponent } from './map-booking/map-booking.component';
 import { RatingComponent } from './rating/rating.component';
 import { DateRangeComponent } from './book/date-range/date-range.component';
-import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { SpinnerComponent } from './spinner/spinner.component';
 import { EditMapAddressComponent } from '././my-maps/map-address-modal/map-address-modal.component';
 import { DeleteOfficeAddressComponent } from './my-maps/delete-office-address/delete-office-address.component';
@@ -81,7 +78,6 @@ import { CancelBookingModalComponent } from './my-bookings/cancel-booking-modal/
     StatisticsBoxComponent,
     SearchComponent,
     EmployeeCardComponent,
-    SnackBarComponent,
     BookingDetailsModalComponent,
     BookingStatusComponent,
     RatePlaceModalComponent,
@@ -108,10 +104,8 @@ import { CancelBookingModalComponent } from './my-bookings/cancel-booking-modal/
     AppMaterialModule,
     GridsterModule,
     OverlayModule,
-    MatProgressSpinnerModule,
   ],
   providers: [
-    MatSnackBar,
     Overlay,
     AuthGuard,
     AuthService,

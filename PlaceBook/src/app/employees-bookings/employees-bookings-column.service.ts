@@ -72,20 +72,11 @@ export class EmployeesBookingsColumnService {
     type: 'cancel',
   };
 
-  rateColumn = {
-    id: 'rateButton',
-    type: 'rate',
-  };
-
   getColumns(status: string): Column[] {
     const columns = [...this.columns];
 
-    if (status === this.status.cancelled) {
+    if (status === this.status.active) {
       columns.push(this.cancelColumn);
-    }
-
-    if (status === this.status.completed) {
-      columns.push(this.rateColumn);
     }
 
     return columns;
