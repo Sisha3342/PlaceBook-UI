@@ -9,7 +9,7 @@ td.mat-cell {
 .bookmark {
   padding: var(--secondary-content-padding);
   margin-left: -1.5rem;
-  width: 30%;
+  width: 3rem;
   color: var(--secondary-color);
   border-radius: 0 var(--secondary-border-radius) var(--secondary-border-radius) 0;
   font-weight: normal;
@@ -28,20 +28,11 @@ tr.mat-row:hover {
 }
 
 .bookmark.canceled {
-  background: var(--cancelled-booking-color);
+  background: var(--canceled-booking-color);
 }
 
 .bookmark.completed {
   background: var(--completed-booking-color);
-}
-
-.edit-button {
-  display: inline-block;
-  position: relative;
-  background: #93CBFF;
-  color: var(--secondary-color);
-  right: 16px;
-  top: 13px;
 }
 
 .icon-button {

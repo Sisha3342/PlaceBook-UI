@@ -7,14 +7,14 @@
   text-transform: capitalize;
 }
 
-.status.active {
-  background: #673AB7;
+.status.ACTIVE {
+  background: var(--active-booking-color);
 }
 
-.status.cancelled {
-  background: #F44336;
+.status.CANCELED {
+  background: var(--delete-color);
 }
 
-.status.completed {
-  background: #00C19F;
+.status.COMPLETED {
+  background: var(--completed-booking-color);
 }

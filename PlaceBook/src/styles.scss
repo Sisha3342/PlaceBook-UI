@@ -10,17 +10,12 @@ body {
   --primary-color: #3f51b5;
   --secondary-color: white;
 
+  --active-booking-color: #673ab7;
   --completed-booking-color: #00c19f;
-  --cancelled-booking-color: #f44336;
+  --canceled-booking-color: #f44336;
 
   --delete-color: #f44336;
   --accept-color: #00c19f;
-  --active-booking-color: #673ab7;
-  --completed-booking-color: #43a047;
-  --cancelled-booking-color: #f44336;
-
-  --delete-color: #f44336;
-  --accept-color: #43a047;
 
   --delete-button-color: #f44336;
 
@@ -47,7 +42,7 @@ body {
 }
 
 .mat-snack-bar-container {
-  background-color: var(--cancelled-booking-color);
+  background-color: var(--canceled-booking-color);
   color: white;
 }
 

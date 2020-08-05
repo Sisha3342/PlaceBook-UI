@@ -9,6 +9,7 @@ app-booking-status {
 table.booking-details {
   border-collapse: collapse;
   margin-top: 0.5rem;
+  width: 100%;
 }
 
 table.booking-details td {
@@ -21,4 +22,9 @@ table.booking-details td {
 table.booking-details td.booking-details-label {
   color: #787878;
   padding-right: 1rem;
+}
+
+app-rating {
+  display: block;
+  margin-top: 1rem;
 }

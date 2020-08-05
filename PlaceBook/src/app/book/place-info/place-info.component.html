@@ -2,6 +2,7 @@
   <div class="place-info">
     <p class="place-header">Place №{{ place.placeNumber }} Info</p>
     <p class="text-place">Place Rating</p>
+
     <app-rating *ngIf="placeRating" [rating]="placeRating"></app-rating>
     <table
       *ngIf="place.occupied && currentBookings"
@@ -10,6 +11,7 @@
       class="mat-elevation-z8"
     >
       <p class="text-place">Booked by:</p>
+
       <ng-container matColumnDef="date">
         <td mat-cell *matCellDef="let element">
           {{ element.timeStart | date: "shortDate" }} -

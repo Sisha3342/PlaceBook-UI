@@ -13,7 +13,6 @@ import { Floor } from '../../models/floor';
 import { MapObjectComponent } from '../map-tools/map-object/map-object.component';
 import { MapConfigurationService } from './map-configuration.service';
 import { Place } from '../../models/place';
-import { MapObject } from '../map-model/map-object';
 
 @Component({
   selector: 'app-map',

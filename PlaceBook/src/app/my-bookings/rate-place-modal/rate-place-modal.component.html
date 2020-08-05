@@ -19,7 +19,7 @@
   <app-rate
     [(rate)]="bookingMark.markCleaning"
     [icon]="'fa-hand-sparkles'"
-    [iconTooltip]="'Сleanliness'"
+    [iconTooltip]="'Cleanliness'"
   ></app-rate>
   <app-rate
     [(rate)]="bookingMark.markLocation"
@@ -30,8 +30,6 @@
   <mat-form-field class="feedback-field" (keyup)="changeFeedback($event)">
     <input matInput placeholder="Feedback" />
   </mat-form-field>
-
-  <p>Feedback:</p>
 </div>
 
 <div mat-dialog-actions align="end">

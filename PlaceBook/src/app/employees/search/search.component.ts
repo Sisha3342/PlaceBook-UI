@@ -11,7 +11,7 @@ import {
 import { FormControl } from '@angular/forms';
 import { Observable } from 'rxjs';
 import { startWith, debounceTime, switchMap } from 'rxjs/operators';
-import { User } from '../models/user';
+import { User } from '../../models/user';
 
 @Component({
   selector: 'app-search',
@@ -20,7 +20,6 @@ import { User } from '../models/user';
 })
 export class SearchComponent implements OnInit, OnChanges {
   myControl = new FormControl();
-  options: string[] = [];
 
   @Input() filteredUsers: Observable<User[]>;
   @Output() filteredUsersChange = new EventEmitter<Observable<User[]>>();

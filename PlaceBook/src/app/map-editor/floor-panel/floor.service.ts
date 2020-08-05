@@ -13,9 +13,9 @@ export class FloorService {
 
   getNewFloor(width: number, height: number, floorNumber: number): Floor {
     return {
-      floorNumber: floorNumber,
-      height: height,
-      width: width,
+      floorNumber,
+      height,
+      width,
       dashboard: [],
     };
   }
