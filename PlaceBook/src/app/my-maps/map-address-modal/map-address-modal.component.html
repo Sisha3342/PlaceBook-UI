@@ -1,7 +1,7 @@
 <h2 mat-dialog-title
-    *ngIf="isEdit == true">Edit office address</h2>
+    *ngIf="isEdit">Edit office address</h2>
 <h2 mat-dialog-title
-    *ngIf="isEdit == false">Add new office</h2>
+    *ngIf="!isEdit">Add new office</h2>
 
 <div mat-dialog-content>
 
@@ -81,7 +81,7 @@
             color="primary"
             type="submit"
             (click)="onUpdateOffice($event,form)">Update office</button>
-    <button *ngIf="isEdit == false"
+    <button *ngIf="!isEdit"
             mat-button
             color="primary"
             type="submit"
