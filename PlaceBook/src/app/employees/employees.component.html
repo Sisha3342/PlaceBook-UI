@@ -1,5 +1,6 @@
 <div class="tab-container">
   <app-search [(filteredUsers)]="users"></app-search>
+  <app-spinner [name]="'employeeSpinner'"></app-spinner>
   <mat-grid-list
     id="user-list"
     [cols]="breakpoint"

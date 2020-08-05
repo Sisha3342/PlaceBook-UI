@@ -6,6 +6,7 @@ import { STATUS } from '../models/status';
 import { EmployeesBookingsService } from './employees-bookings.service';
 import { BookingDetailsModalComponent } from '../booking-details-modal/booking-details-modal.component';
 import { MatDialog } from '@angular/material/dialog';
+import { NgxSpinnerService } from 'ngx-spinner';
 import { CancelBookingModalComponent } from '../my-bookings/cancel-booking-modal/cancel-booking-modal.component';
 import { MatSnackBar } from '@angular/material/snack-bar';
 
@@ -23,16 +24,19 @@ export class EmployeesBookingsComponent {
     private columnService: EmployeesBookingsColumnService,
     private employeesBookingsService: EmployeesBookingsService,
     public dialog: MatDialog,
-    private snackbar: MatSnackBar
+    private snackbar: MatSnackBar,
+    private spinner: NgxSpinnerService
   ) {
     this.setBookings(this.status.active);
   }
 
   setBookings(statusLabel: string): void {
+    this.spinner.show('bookingsSpinner');
     this.employeesBookingsService
       .getBookings(this.status[statusLabel.toLowerCase()])
       .subscribe((bookings) => {
         this.displayedBookings = bookings;
+        this.spinner.hide('bookingsSpinner');
       });
   }
 

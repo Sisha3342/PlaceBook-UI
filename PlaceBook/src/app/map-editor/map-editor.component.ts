@@ -9,6 +9,7 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 import { MatDialog } from '@angular/material/dialog';
 import { RestoreDialogComponent } from './restore-dialog/restore-dialog.component';
 import { RestoreService } from './restore-dialog/restore.service';
+import { NgxSpinnerService } from 'ngx-spinner';
 
 @Component({
   selector: 'app-map-editor',
@@ -28,10 +29,12 @@ export class MapEditorComponent implements OnInit {
     private route: ActivatedRoute,
     private floorService: FloorService,
     private snackbar: MatSnackBar,
-    private dialog: MatDialog
+    private dialog: MatDialog,
+    private spinner: NgxSpinnerService
   ) {}
 
   ngOnInit(): void {
+    this.spinner.show('mainOfficeSpinner');
     this.route.params.subscribe((params) => {
       this.officeId = params.officeId;
 
@@ -40,10 +43,13 @@ export class MapEditorComponent implements OnInit {
       } else {
         this.setFloors(this.officeId);
       }
+
+      this.spinner.hide('mainOfficeSpinner');
     });
   }
 
   openDialog(): void {
+    this.spinner.show('officeSpinner');
     const dialogRef = this.dialog.open(RestoreDialogComponent, {
       width: '25rem',
     });
@@ -56,11 +62,13 @@ export class MapEditorComponent implements OnInit {
         this.setFloors(this.officeId);
 
         this.restoreService.deleteOffice(this.officeId);
+        //this.spinner.hide('officeSpinner');
       }
     });
   }
 
   setFloors(officeId: number): void {
+    this.spinner.show('mapSpinner');
     this.mapEditorService.getFloors(officeId).subscribe((floors) => {
       this.floors = floors.map<Floor>((floor) =>
         this.floorConverter.convertFromRequest(floor)
@@ -71,10 +79,12 @@ export class MapEditorComponent implements OnInit {
       }
 
       this.currentFloor = this.floors[0];
+      this.spinner.hide('mapSpinner');
     });
   }
 
   save(floors: Floor[]): void {
+    this.spinner.show('saveMapSpinner');
     this.mapEditorService.saveFloors(this.officeId, floors).subscribe(() => {
       this.snackbar.open('Map was saved', 'Close', {
         verticalPosition: 'top',
@@ -83,6 +93,7 @@ export class MapEditorComponent implements OnInit {
       });
 
       this.restoreService.deleteOffice(this.officeId);
+      this.spinner.hide('saveMapSpinner');
     });
   }
 

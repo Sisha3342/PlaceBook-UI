@@ -8,9 +8,8 @@ describe('EditMapAddressComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ EditMapAddressComponent ]
-    })
-    .compileComponents();
+      declarations: [EditMapAddressComponent],
+    }).compileComponents();
   }));
 
   beforeEach(() => {

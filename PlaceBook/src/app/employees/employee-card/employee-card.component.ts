@@ -2,6 +2,7 @@ import { Component, OnInit, Input } from '@angular/core';
 import { EmployeeService } from './employee.service';
 import { User } from '../../models/user';
 import { ROLE } from '../../models/role';
+import { NgxSpinnerService } from 'ngx-spinner';
 
 @Component({
   selector: 'app-employee-card',
@@ -21,7 +22,10 @@ export class EmployeeCardComponent implements OnInit {
     return this.employeeObject;
   }
 
-  constructor(private employeeService: EmployeeService) {}
+  constructor(
+    private employeeService: EmployeeService,
+    private spinner: NgxSpinnerService
+  ) {}
 
   ngOnInit(): void {}
 

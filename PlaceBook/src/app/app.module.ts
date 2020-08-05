@@ -51,6 +51,7 @@ import { EditMapAddressComponent } from '././my-maps/map-address-modal/map-addre
 import { DeleteOfficeAddressComponent } from './my-maps/delete-office-address/delete-office-address.component';
 import { RestoreDialogComponent } from './map-editor/restore-dialog/restore-dialog.component';
 import { CancelBookingModalComponent } from './my-bookings/cancel-booking-modal/cancel-booking-modal.component';
+import { NgxSpinnerModule } from 'ngx-spinner';
 
 @NgModule({
   declarations: [
@@ -104,6 +105,8 @@ import { CancelBookingModalComponent } from './my-bookings/cancel-booking-modal/
     AppMaterialModule,
     GridsterModule,
     OverlayModule,
+    MatProgressSpinnerModule,
+    NgxSpinnerModule,
   ],
   providers: [
     Overlay,

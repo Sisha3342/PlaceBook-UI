@@ -1,42 +1,43 @@
-<h2 mat-dialog-title>Booking details</h2>
-<ng-container *ngIf="booking !== undefined">
-  <app-booking-status [status]="booking.status"></app-booking-status>
+<div class="modal-container">
+  <app-spinner [name]="'detailsBookingSpinner'"></app-spinner>
+  <h2 mat-dialog-title>Booking details</h2>
+  <ng-container *ngIf="booking !== undefined">
+    <app-booking-status [status]="booking.status"></app-booking-status>
+    <div mat-dialog-content>
+      <table class="booking-details">
+        <tr>
+          <td class="booking-details-label">Date:</td>
+          <td>{{ booking.timeStart }} - {{ booking.timeEnd }}</td>
+        </tr>
+        <tr>
+          <td class="booking-details-label">Address:</td>
+          <td>
+            {{ booking.address.country }}, {{ booking.address.city }},
+            {{ booking.address.address }}
+          </td>
+        </tr>
+        <tr>
+          <td class="booking-details-label">Place #:</td>
+          <td>{{ booking.placeInfo }}</td>
+        </tr>
+        <tr
+          *ngIf="
+            booking.status === status.completed &&
+            booking.markSubmitDto.markLightning !== null
+          "
+        >
+          <td class="booking-details-label">Feedback:</td>
+          <td>{{ booking.markSubmitDto.feedBack }}</td>
+        </tr>
+      </table>
+      <app-rating
+        [rating]="booking.markSubmitDto"
+        [status]="booking.status"
+      ></app-rating>
+    </div>
 
-  <div mat-dialog-content>
-    <table class="booking-details">
-      <tr>
-        <td class="booking-details-label">Date:</td>
-        <td>{{ booking.timeStart }} - {{ booking.timeEnd }}</td>
-      </tr>
-      <tr>
-        <td class="booking-details-label">Address:</td>
-        <td>
-          {{ booking.address.country }}, {{ booking.address.city }},
-          {{ booking.address.address }}
-        </td>
-      </tr>
-      <tr>
-        <td class="booking-details-label">Place #:</td>
-        <td>{{ booking.placeInfo }}</td>
-      </tr>
-      <tr
-        *ngIf="
-          booking.status === status.completed &&
-          booking.markSubmitDto.markLightning !== null
-        "
-      >
-        <td class="booking-details-label">Feedback:</td>
-        <td>{{ booking.markSubmitDto.feedBack }}</td>
-      </tr>
-    </table>
-
-    <app-rating
-      [rating]="booking.markSubmitDto"
-      [status]="booking.status"
-    ></app-rating>
-  </div>
-
-  <mat-dialog-actions align="end">
-    <button mat-button mat-dialog-close>Close</button>
-  </mat-dialog-actions>
-</ng-container>
+    <mat-dialog-actions align="end">
+      <button mat-button mat-dialog-close>Close</button>
+    </mat-dialog-actions>
+  </ng-container>
+</div>

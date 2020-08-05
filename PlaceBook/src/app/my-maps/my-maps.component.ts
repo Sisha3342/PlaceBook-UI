@@ -7,6 +7,7 @@ import { MapService } from './map.service';
 import { Office } from '../models/office';
 import { OfficeAddress } from '../models/office-address';
 import { EditMapAddressComponent } from './map-address-modal/map-address-modal.component';
+import { NgxSpinnerService } from 'ngx-spinner';
 
 @Component({
   selector: 'app-my-maps',
@@ -20,7 +21,8 @@ export class MyMapsComponent implements OnInit {
   constructor(
     private mapService: MapService,
     private columnMapService: MyMapsColumnService,
-    public dialog: MatDialog
+    public dialog: MatDialog,
+    private spinner: NgxSpinnerService
   ) {}
 
   ngOnInit(): void {
@@ -32,22 +34,27 @@ export class MyMapsComponent implements OnInit {
   }
 
   editOfficeAddress(data: Office): void {
-    let dialogRef = this.dialog.open(EditMapAddressComponent, {
+    this.spinner.show('officesTableSpinner');
+
+    const dialogRef = this.dialog.open(EditMapAddressComponent, {
       width: '30rem',
-      data: data,
+      data,
     });
+
     dialogRef.afterClosed().subscribe(() => {
       this.setDisplayedOffices({
         country: undefined,
         city: undefined,
         address: undefined,
       });
+      this.spinner.hide('officesTableSpinner');
     });
   }
 
   editMap(e) {}
 
   deleteOfficeAddress(data: Office): void {
+    this.spinner.show('officesTableSpinner');
     const dialogRef = this.dialog.open(DeleteOfficeAddressComponent, { data });
 
     dialogRef.afterClosed().subscribe(() => {
@@ -56,13 +63,16 @@ export class MyMapsComponent implements OnInit {
         city: undefined,
         address: undefined,
       });
+      this.spinner.hide('officesTableSpinner');
     });
   }
 
   setDisplayedOffices(officeAddress: OfficeAddress): void {
-    this.mapService
-      .getOffices(officeAddress)
-      .subscribe((offices) => (this.displayedOffices = offices));
+    this.spinner.show('officesTableSpinner');
+    this.mapService.getOffices(officeAddress).subscribe((offices) => {
+      this.displayedOffices = offices;
+      this.spinner.hide('officesTableSpinner');
+    });
   }
 
   getColumns(): Column[] {

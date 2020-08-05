@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { User } from '../models/user';
+import { NgxSpinnerService } from 'ngx-spinner';
 
 @Component({
   selector: 'app-employees',
@@ -10,7 +11,7 @@ export class EmployeesComponent implements OnInit {
   breakpoint = 0;
   users: User[];
 
-  constructor() {}
+  constructor(private spinner: NgxSpinnerService) {}
 
   ngOnInit(): void {
     this.breakpoint = Math.floor(window.innerWidth / 450);

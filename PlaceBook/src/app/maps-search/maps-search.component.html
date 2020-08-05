@@ -7,6 +7,7 @@
           #countrySelect="matSelect"
           (selectionChange)="setCities($event.value, selectCity)"
         >
+          <app-spinner [name]="'showCountriesSpinner'"></app-spinner>
           <mat-option>None</mat-option>
           <mat-option *ngFor="let country of countries" [value]="country">{{
             country
@@ -22,6 +23,7 @@
           #selectCity="matSelect"
           (selectionChange)="setOffices(countrySelect.value, $event.value)"
         >
+          <app-spinner [name]="'showCitiesSpinner'"></app-spinner>
           <mat-option>None</mat-option>
           <mat-option *ngFor="let city of cities" [value]="city">{{
             city
@@ -34,6 +36,7 @@
       <mat-form-field appearance="fill" class="input-item">
         <mat-label>Address</mat-label>
         <mat-select (selectionChange)="setFloors($event.value)">
+          <app-spinner [name]="'showOfficesSpinner'"></app-spinner>
           <mat-option>None</mat-option>
           <mat-option *ngFor="let office of offices" [value]="office">{{
             office.address.address
@@ -46,6 +49,7 @@
       <mat-form-field appearance="fill" class="input-item">
         <mat-label>Floor</mat-label>
         <mat-select (selectionChange)="changeFloor.emit($event.value)">
+          <app-spinner [name]="'showFloorsSpinner'"></app-spinner>
           <mat-option>None</mat-option>
           <mat-option *ngFor="let floor of floors" [value]="floor">{{
             floor.floorNumber
