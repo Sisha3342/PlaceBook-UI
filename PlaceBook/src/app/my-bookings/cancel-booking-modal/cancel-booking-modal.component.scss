@@ -2,12 +2,8 @@ h2 {
   font-weight: bold;
 }
 
-.mat-dialog-content {
-  margin: 0;
-  padding: 0 1rem;
-  overflow: hidden;
+button.primary {
+  background: #3c4eae;
+  color: white;
 }
-.mat-dialog-actions .mat-button {
-  background-color: var(--primary-color);
-  color: var(--secondary-color);
-}
+

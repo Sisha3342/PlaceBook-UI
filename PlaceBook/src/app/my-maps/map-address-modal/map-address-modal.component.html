@@ -1,0 +1,103 @@
+<h2 mat-dialog-title *ngIf="isEdit">Edit office address</h2>
+<h2 mat-dialog-title *ngIf="!isEdit">Add new office</h2>
+
+<div mat-dialog-content>
+  <form #form="ngForm" class="office-location-fields" autocomplete="off">
+    <mat-form-field class="office-field id">
+      <mat-label class="field-label">Office ID</mat-label>
+      <input
+        matInput
+        placeholder="Office ID"
+        name="id"
+        [(ngModel)]="data.id"
+        readonly
+      />
+    </mat-form-field>
+
+    <mat-form-field class="office-field">
+      <mat-label class="field-label">Country</mat-label>
+      <input
+        matInput
+        placeholder="Country"
+        name="country"
+        [(ngModel)]="data.address.country"
+        required
+      />
+    </mat-form-field>
+
+    <mat-form-field class="office-field">
+      <mat-label class="field-label">City</mat-label>
+      <input
+        matInput
+        placeholder="City"
+        name="city"
+        [(ngModel)]="data.address.city"
+        required
+      />
+    </mat-form-field>
+
+    <mat-form-field class="office-field">
+      <mat-label class="field-label">Address</mat-label>
+      <input
+        matInput
+        placeholder="Address"
+        name="address"
+        [(ngModel)]="data.address.address"
+        required
+      />
+    </mat-form-field>
+
+    <div class="work-time">
+      <p>Working time:</p>
+      <mat-form-field class="work-time-field">
+        <ngx-material-timepicker #min></ngx-material-timepicker>
+        <input
+          matInput
+          placeholder="From "
+          [ngxTimepicker]="min"
+          name="worktimeStart"
+          [ngModel]="data.worktimeStart"
+          [format]="24"
+          required
+        />
+      </mat-form-field>
+
+      <mat-form-field class="work-time-field">
+        <ngx-material-timepicker #max></ngx-material-timepicker>
+        <input
+          matInput
+          placeholder="To "
+          [ngxTimepicker]="max"
+          name="worktimeEnd"
+          [ngModel]="data.worktimeEnd"
+          [format]="24"
+          [ngClass]="min.time < max.time ? '' : 'error'"
+          required
+        />
+      </mat-form-field>
+    </div>
+  </form>
+</div>
+
+<mat-dialog-actions align="end">
+  <button mat-button mat-dialog-close>Close</button>
+  <button
+    *ngIf="isEdit"
+    mat-button
+    color="primary"
+    type="submit"
+    (click)="onUpdateOffice($event, form)"
+  >
+    Update office
+  </button>
+  <button
+    *ngIf="!isEdit"
+    mat-button
+    color="primary"
+    type="submit"
+    [disabled]="form.invalid || min.time > max.time"
+    (click)="onSubmit($event, form)"
+  >
+    Add
+  </button>
+</mat-dialog-actions>

@@ -6,6 +6,7 @@ import { MatSelect } from '@angular/material/select';
 import { Office } from '../models/office';
 import { OfficeAddress } from '../models/office-address';
 import { NgxSpinnerService } from 'ngx-spinner';
+import { EditMapAddressComponent } from '.././my-maps/map-address-modal/map-address-modal.component';
 
 @Component({
   selector: 'app-maps-search',
@@ -38,6 +39,23 @@ export class MapsSearchComponent implements OnInit {
     this.mapSearchService.getCountries().subscribe((countries: string[]) => {
       this.countries = countries;
       this.spinner.hide('showCountriesSpinner');
+    });
+  }
+
+  addNewOffice(): void {
+    this.dialog.open(EditMapAddressComponent, {
+      width: '30rem',
+      data: {
+        id: null,
+        address: {
+          country: '',
+          city: '',
+          address: '',
+        },
+        worktimeStart: '',
+        worktimeEnd: '',
+        deleted: false,
+      },
     });
   }
 
@@ -109,10 +127,4 @@ export class MapsSearchComponent implements OnInit {
     this.changeFloor.emit(undefined);
     this.floors = [];
   }
-
-  // addNewOffice(): void {
-  //   this.dialog.open(AddMapModalComponent, {
-  //     width: '30rem',
-  //   });
-  // }
 }

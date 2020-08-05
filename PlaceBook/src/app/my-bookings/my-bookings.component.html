@@ -29,12 +29,12 @@
         ></app-table>
       </mat-tab>
 
-      <mat-tab label="Cancelled">
+      <mat-tab label="Canceled">
         <app-spinner [name]="'tableSpinner'"></app-spinner>
         <app-table
           [data]="displayedBookings"
-          [status]="status.cancelled"
-          [columns]="getColumns(status.cancelled)"
+          [status]="status.canceled"
+          [columns]="getColumns(status.canceled)"
           [openDetails]="openBookingDetailsModal"
         ></app-table>
       </mat-tab>

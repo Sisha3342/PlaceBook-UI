@@ -24,4 +24,6 @@
     <td>{{ rate.markLocation | number: "1.1-1" }}</td>
   </tr>
 </table>
-<p *ngIf="rate.markLightning === null">No rating yet</p>
+<p *ngIf="rate.markLightning === null && status !== 'CANCELED'">
+  No rating yet
+</p>

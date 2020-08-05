@@ -12,7 +12,7 @@ export class StatisticsBoxComponent implements OnInit {
   total: number;
   active: number;
   completed: number;
-  cancelled: number;
+  canceled: number;
 
   constructor(
     private statisticsService: StatisticsService,
@@ -29,9 +29,9 @@ export class StatisticsBoxComponent implements OnInit {
       .subscribe((stats: Statistics) => {
         this.active = stats.ACTIVE || 0;
         this.completed = stats.COMPLETED || 0;
-        this.cancelled = stats.CANCELED || 0;
+        this.canceled = stats.CANCELED || 0;
 
-        this.total = this.active + this.completed + this.cancelled;
+        this.total = this.active + this.completed + this.canceled;
       });
   }
 }

@@ -5,6 +5,7 @@
     (changeFloor)="changeCurrentFloor($event)"
     (changeOffice)="changeCurrentOffice($event)"
   ></app-maps-search>
+
   <div class="booking-container">
     <div class="map-grid">
       <app-map-booking
@@ -14,6 +15,7 @@
         [places]="places"
       ></app-map-booking>
     </div>
+
     <div class="place-panel">
       <app-date-range (dateChange)="changeDateRange($event)"></app-date-range>
       <app-place-info

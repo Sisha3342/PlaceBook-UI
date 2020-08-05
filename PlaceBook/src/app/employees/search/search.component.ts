@@ -11,7 +11,7 @@ import {
 import { FormControl } from '@angular/forms';
 import { Observable } from 'rxjs';
 import { startWith, debounceTime, switchMap } from 'rxjs/operators';
-import { User } from '../models/user';
+import { User } from '../../models/user';
 import { NgxSpinnerService } from 'ngx-spinner';
 
 @Component({
@@ -21,7 +21,6 @@ import { NgxSpinnerService } from 'ngx-spinner';
 })
 export class SearchComponent implements OnInit, OnChanges {
   myControl = new FormControl();
-  options: string[] = [];
 
   @Input() filteredUsers: Observable<User[]>;
   @Output() filteredUsersChange = new EventEmitter<Observable<User[]>>();
@@ -39,6 +38,7 @@ export class SearchComponent implements OnInit, OnChanges {
       switchMap((value) => {
         this.filteredUsersChange.emit(this.filteredUsers);
         this.spinner.hide('employeeSpinner');
+
         return this.searchService.searchUsers(0, 1000, value);
       })
     );

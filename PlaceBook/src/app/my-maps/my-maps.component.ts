@@ -1,4 +1,4 @@
-import { DeleteOfficeAddressComponent } from '././delete-office-address/delete-office-address.component';
+import { DeleteOfficeAddressComponent } from './delete-office-address/delete-office-address.component';
 import { MatDialog } from '@angular/material/dialog';
 import { Component, OnInit } from '@angular/core';
 import { Column } from '../models/column';
@@ -6,7 +6,7 @@ import { MyMapsColumnService } from './my-maps-column.service';
 import { MapService } from './map.service';
 import { Office } from '../models/office';
 import { OfficeAddress } from '../models/office-address';
-import { Router } from '@angular/router';
+import { EditMapAddressComponent } from './map-address-modal/map-address-modal.component';
 import { NgxSpinnerService } from 'ngx-spinner';
 
 @Component({
@@ -17,13 +17,11 @@ import { NgxSpinnerService } from 'ngx-spinner';
 })
 export class MyMapsComponent implements OnInit {
   displayedOffices: Office[];
-  showSpinner = true;
 
   constructor(
     private mapService: MapService,
     private columnMapService: MyMapsColumnService,
     public dialog: MatDialog,
-    private route: Router,
     private spinner: NgxSpinnerService
   ) {}
 
@@ -35,9 +33,10 @@ export class MyMapsComponent implements OnInit {
     });
   }
 
-  deleteOfficeAddress(data: Office): void {
+  editOfficeAddress(data: Office): void {
     this.spinner.show('deleteSpinner');
-    const dialogRef = this.dialog.open(DeleteOfficeAddressComponent, {
+
+    let dialogRef = this.dialog.open(EditMapAddressComponent, {
       width: '30rem',
       data: data,
     });
@@ -52,7 +51,23 @@ export class MyMapsComponent implements OnInit {
     });
   }
 
-  setDisplayedOffices(officeAddress?: OfficeAddress): void {
+  editMap(e) {}
+
+  deleteOfficeAddress(data: Office): void {
+    this.spinner.show('deleteSpinner');
+    const dialogRef = this.dialog.open(DeleteOfficeAddressComponent, { data });
+
+    dialogRef.afterClosed().subscribe(() => {
+      this.setDisplayedOffices({
+        country: undefined,
+        city: undefined,
+        address: undefined,
+      });
+      this.spinner.hide('deleteSpinner');
+    });
+  }
+
+  setDisplayedOffices(officeAddress: OfficeAddress): void {
     this.spinner.show('officesTableSpinner');
     this.mapService.getOffices(officeAddress).subscribe((offices) => {
       this.displayedOffices = offices;
@@ -62,9 +77,5 @@ export class MyMapsComponent implements OnInit {
 
   getColumns(): Column[] {
     return this.columnMapService.getColumns();
-  }
-
-  editMap(office: Office): void {
-    this.route.navigate(['editor', { officeId: office.id.toString() }]);
   }
 }

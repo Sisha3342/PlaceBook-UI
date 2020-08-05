@@ -1,19 +1,19 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { SnackBarComponent } from './snack-bar.component';
+import { EditMapAddressComponent } from './map-address-modal.component';
 
-describe('SnackBarComponent', () => {
-  let component: SnackBarComponent;
-  let fixture: ComponentFixture<SnackBarComponent>;
+describe('EditMapAddressComponent', () => {
+  let component: EditMapAddressComponent;
+  let fixture: ComponentFixture<EditMapAddressComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [SnackBarComponent],
+      declarations: [EditMapAddressComponent],
     }).compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(SnackBarComponent);
+    fixture = TestBed.createComponent(EditMapAddressComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
