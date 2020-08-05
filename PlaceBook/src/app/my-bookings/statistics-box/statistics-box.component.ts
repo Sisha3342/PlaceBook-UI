@@ -13,7 +13,6 @@ export class StatisticsBoxComponent implements OnInit {
   active: number;
   completed: number;
   cancelled: number;
-  showSpinner = true;
 
   constructor(
     private statisticsService: StatisticsService,
@@ -34,9 +33,5 @@ export class StatisticsBoxComponent implements OnInit {
 
         this.total = this.active + this.completed + this.cancelled;
       });
-
-    this.statisticsService
-      .getStatistics(this.authService.getCurrentUser().id)
-      .subscribe(() => (this.showSpinner = false));
   }
 }

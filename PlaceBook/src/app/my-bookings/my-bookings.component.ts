@@ -10,6 +10,7 @@ import { STATUS } from '../models/status';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { CancelBookingModalComponent } from './cancel-booking-modal/cancel-booking-modal.component';
 import { StatisticsBoxComponent } from './statistics-box/statistics-box.component';
+import { NgxSpinnerService } from 'ngx-spinner';
 
 @Component({
   selector: 'app-my-bookings',
@@ -20,7 +21,6 @@ import { StatisticsBoxComponent } from './statistics-box/statistics-box.componen
 export class MyBookingsComponent implements OnInit {
   displayedBookings: Booking[];
   status = STATUS;
-  showSpinner = true;
   @ViewChild('stats') stats: StatisticsBoxComponent;
 
   constructor(
@@ -28,7 +28,8 @@ export class MyBookingsComponent implements OnInit {
     private authService: AuthService,
     private columnService: MyBookingsColumnService,
     public dialog: MatDialog,
-    private snackbar: MatSnackBar
+    private snackbar: MatSnackBar,
+    private spinner: NgxSpinnerService
   ) {}
 
   ngOnInit(): void {
@@ -36,6 +37,7 @@ export class MyBookingsComponent implements OnInit {
   }
 
   setBookings(statusLabel: string): void {
+    this.spinner.show('tableSpinner');
     this.myBookingsService
       .getBookings(
         this.authService.getCurrentUser().id,
@@ -43,14 +45,8 @@ export class MyBookingsComponent implements OnInit {
       )
       .subscribe((bookings: Booking[]) => {
         this.displayedBookings = bookings;
+        this.spinner.hide('tableSpinner');
       });
-
-    this.myBookingsService
-      .getBookings(
-        this.authService.getCurrentUser().id,
-        this.status[statusLabel.toLowerCase()]
-      )
-      .subscribe(() => (this.showSpinner = false));
   }
 
   getColumns(status: string): Column[] {
@@ -77,6 +73,7 @@ export class MyBookingsComponent implements OnInit {
   }
 
   deleteBooking(booking: Booking): void {
+    this.spinner.show();
     this.myBookingsService
       .deleteBooking(booking.id)
       .subscribe((removedBooking) => {
@@ -88,6 +85,7 @@ export class MyBookingsComponent implements OnInit {
 
         this.setBookings(this.status.active);
         this.stats.setStatistics();
+        this.spinner.hide();
       });
   }
 }

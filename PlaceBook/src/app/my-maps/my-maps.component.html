@@ -1,15 +1,18 @@
 <div class="tab-container">
+  <app-spinner [name]="'officesTableSpinner'"></app-spinner>
   <app-maps-search
     (searchEvent)="setDisplayedOffices($event)"
   ></app-maps-search>
-  <div>
+
+  <div class="table-container">
+    <app-spinner [name]="'deleteSpinner'"></app-spinner>
     <app-table
       class="map-table"
       [data]="displayedOffices"
       [columns]="getColumns()"
       (openDelete)="deleteOfficeAddress($event)"
       (openEditMap)="editMap($event)"
-    ></app-table>
-    <app-spinner *ngIf="showSpinner"></app-spinner>
+    >
+    </app-table>
   </div>
 </div>

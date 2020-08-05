@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthService } from '../auth/auth.service';
 import { User } from '.././models/user';
+import { NgxSpinnerService } from 'ngx-spinner';
 
 @Component({
   selector: 'app-login',
@@ -16,17 +17,20 @@ export class LoginComponent implements OnInit {
   constructor(
     private snackbar: MatSnackBar,
     private router: Router,
-    private userService: AuthService
+    private userService: AuthService,
+    private spinner: NgxSpinnerService
   ) {}
 
   ngOnInit(): void {}
 
   loginUser(): void {
+    this.spinner.show('loginSpinner');
     this.snackbar.dismiss();
     this.userService.login(this.login, this.password).subscribe(
       (data: User) => {
         localStorage.setItem('user', JSON.stringify(data));
         this.router.navigate(['/my_bookings']);
+        this.spinner.hide();
       },
       (error) => {
         this.snackbar.open(
@@ -36,6 +40,7 @@ export class LoginComponent implements OnInit {
             verticalPosition: 'top',
           }
         );
+        this.spinner.hide('loginSpinner');
       }
     );
   }

@@ -1,10 +1,10 @@
 <div class="statistics-container">
   <div class="add-booking-container">
+    <app-spinner [name]="'statisticsSpinner'"></app-spinner>
     <button mat-raised-button color="primary" routerLink="/book">
       Add booking
     </button>
   </div>
-  <app-spinner *ngIf="showSpinner"></app-spinner>
 
   <div class="statistics-item">
     <div class="statistics-item-count all">{{ total }}</div>

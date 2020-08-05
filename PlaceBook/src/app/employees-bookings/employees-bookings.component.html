@@ -7,6 +7,7 @@
       (focusChange)="setBookings($event.tab.textLabel)"
     >
       <mat-tab label="Active" class="demo-tab-label">
+        <app-spinner [name]="'bookingsSpinner'"></app-spinner>
         <app-table
           [data]="displayedBookings"
           [status]="status.active"
@@ -16,6 +17,7 @@
       </mat-tab>
 
       <mat-tab label="Completed">
+        <app-spinner [name]="'bookingsSpinner'"></app-spinner>
         <app-table
           [data]="displayedBookings"
           [status]="status.completed"
@@ -25,6 +27,7 @@
       </mat-tab>
 
       <mat-tab label="Cancelled">
+        <app-spinner [name]="'bookingsSpinner'"></app-spinner>
         <app-table
           [data]="displayedBookings"
           [status]="status.cancelled"

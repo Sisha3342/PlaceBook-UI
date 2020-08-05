@@ -7,6 +7,7 @@ import { MapService } from './map.service';
 import { Office } from '../models/office';
 import { OfficeAddress } from '../models/office-address';
 import { Router } from '@angular/router';
+import { NgxSpinnerService } from 'ngx-spinner';
 
 @Component({
   selector: 'app-my-maps',
@@ -22,7 +23,8 @@ export class MyMapsComponent implements OnInit {
     private mapService: MapService,
     private columnMapService: MyMapsColumnService,
     public dialog: MatDialog,
-    private route: Router
+    private route: Router,
+    private spinner: NgxSpinnerService
   ) {}
 
   ngOnInit(): void {
@@ -34,6 +36,7 @@ export class MyMapsComponent implements OnInit {
   }
 
   deleteOfficeAddress(data: Office): void {
+    this.spinner.show('deleteSpinner');
     const dialogRef = this.dialog.open(DeleteOfficeAddressComponent, {
       width: '30rem',
       data: data,
@@ -45,17 +48,16 @@ export class MyMapsComponent implements OnInit {
         city: undefined,
         address: undefined,
       });
+      this.spinner.hide('deleteSpinner');
     });
   }
 
   setDisplayedOffices(officeAddress?: OfficeAddress): void {
-    this.mapService
-      .getOffices(officeAddress)
-      .subscribe((offices) => (this.displayedOffices = offices));
-
-    this.mapService
-      .getOffices(officeAddress)
-      .subscribe(() => (this.showSpinner = false));
+    this.spinner.show('officesTableSpinner');
+    this.mapService.getOffices(officeAddress).subscribe((offices) => {
+      this.displayedOffices = offices;
+      this.spinner.hide('officesTableSpinner');
+    });
   }
 
   getColumns(): Column[] {

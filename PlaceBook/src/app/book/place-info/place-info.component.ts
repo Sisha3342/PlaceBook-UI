@@ -10,6 +10,8 @@ import { BookingMark } from '../../models/booking-mark';
 import { PlaceInfoService } from './place-info.service';
 import { PlaceCurrentBooking } from '../../models/place-current-booking';
 import { FormGroup } from '@angular/forms';
+import { NgxSpinnerService } from 'ngx-spinner';
+import { forkJoin } from 'rxjs';
 
 @Component({
   selector: 'app-place-info',
@@ -22,31 +24,27 @@ export class PlaceInfoComponent implements OnInit, OnChanges {
   @Input() dateRange: FormGroup;
   placeRating: BookingMark;
   currentBookings: PlaceCurrentBooking[];
-  showSpinner = true;
 
-  constructor(private placeService: PlaceInfoService) {}
+  constructor(
+    private placeService: PlaceInfoService,
+    private spinner: NgxSpinnerService
+  ) {}
 
-  ngOnInit(): void {
-    this.placeService
-      .getPlaceRating(this.place.placeId)
-      .subscribe((rating) => (this.placeRating = rating));
-  }
+  ngOnInit(): void {}
 
   ngOnChanges(changes: SimpleChanges): void {
-    this.placeService
-      .getCurrentBookings(this.place.placeId, this.dateRange)
-      .subscribe((bookings) => (this.currentBookings = bookings));
+    this.spinner.show('placeInfoSpinner');
 
-    this.placeService
-      .getCurrentBookings(this.place.placeId, this.dateRange)
-      .subscribe(() => (this.showSpinner = false));
+    const bookingsInfo = this.placeService.getCurrentBookings(
+      this.place.placeId,
+      this.dateRange
+    );
+    const placesInfo = this.placeService.getPlaceRating(this.place.placeId);
 
-    this.placeService
-      .getPlaceRating(this.place.placeId)
-      .subscribe((rating) => (this.placeRating = rating));
-
-    this.placeService
-      .getPlaceRating(this.place.placeId)
-      .subscribe(() => (this.showSpinner = false));
+    forkJoin([bookingsInfo, placesInfo]).subscribe((result) => {
+      this.currentBookings = result[0];
+      this.placeRating = result[1];
+      this.spinner.hide('placeInfoSpinner');
+    });
   }
 }

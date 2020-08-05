@@ -10,6 +10,7 @@ import { AuthService } from '../auth/auth.service';
 import { Place } from '../models/place';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
+import { NgxSpinnerService } from 'ngx-spinner';
 
 @Component({
   selector: 'app-book',
@@ -31,7 +32,8 @@ export class BookComponent implements OnInit {
     private bookService: BookService,
     private authService: AuthService,
     private snackbar: MatSnackBar,
-    private route: Router
+    private route: Router,
+    private spinner: NgxSpinnerService
   ) {}
 
   ngOnInit(): void {}
@@ -73,6 +75,7 @@ export class BookComponent implements OnInit {
   }
 
   addBooking(): void {
+    this.spinner.show('addBookingSpinner');
     this.bookService
       .book(this.userId, this.currentPlace.placeId, this.dateRange)
       .subscribe(() => {
@@ -83,6 +86,7 @@ export class BookComponent implements OnInit {
         this.setPlaces(this.currentFloor.id, this.dateRange);
 
         this.route.navigate(['/my_bookings']);
+        this.spinner.hide('addBookingSpinner');
       });
   }
 

@@ -5,6 +5,7 @@ import { BookingDetailsService } from './booking-details.service';
 import { STATUS } from '../models/status';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { BookingDetails } from '../models/booking-details';
+import { NgxSpinnerService } from 'ngx-spinner';
 
 @Component({
   selector: 'app-booking-details-modal',
@@ -18,18 +19,22 @@ export class BookingDetailsModalComponent {
   constructor(
     @Inject(MAT_DIALOG_DATA) public data: Booking,
     private bookingDetailsService: BookingDetailsService,
-    private snackbar: MatSnackBar
+    private snackbar: MatSnackBar,
+    private spinner: NgxSpinnerService
   ) {
+    this.spinner.show('detailsBookingSpinner');
     this.bookingDetailsService
       .getBookingDetails(data.id, data.userId)
       .subscribe(
         (booking: BookingDetails) => {
           this.booking = booking;
+          this.spinner.hide('detailsBookingSpinner');
         },
         (error) => {
           this.snackbar.open("Can't load booking info", 'Close', {
             verticalPosition: 'top',
           });
+          this.spinner.hide('detailsBookingSpinner');
         }
       );
   }

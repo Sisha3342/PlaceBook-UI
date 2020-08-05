@@ -1,7 +1,8 @@
-<div class="tab-container" *ngIf="currentFloor; else spinner">
+<div class="tab-container" *ngIf="currentFloor">
   <div class="tools">
     <div class="tools-container">
       <ng-container *ngFor="let object of objects">
+        <app-spinner [name]="'mainOfficeSpinner'"></app-spinner>
         <app-map-object [object]="object" [isOnMap]="false"></app-map-object>
       </ng-container>
 
@@ -20,8 +21,8 @@
       </app-map-size-tool>
     </div>
   </div>
-
   <div class="my-grid">
+    <app-spinner [name]="'mapSpinner'"></app-spinner>
     <app-map
       [edit]="true"
       #map
@@ -29,7 +30,7 @@
       (configChange)="saveLatestChanges()"
     ></app-map>
   </div>
-
+  <app-spinner [name]="'saveMapSpinner'"></app-spinner>
   <app-floor-panel
     (saveFloors)="save($event)"
     [(floors)]="floors"
@@ -37,6 +38,3 @@
     [(currentFloor)]="currentFloor"
   ></app-floor-panel>
 </div>
-<ng-template #spinner>
-  <app-spinner></app-spinner>
-</ng-template>

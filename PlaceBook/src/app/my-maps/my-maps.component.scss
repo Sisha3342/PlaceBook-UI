@@ -3,19 +3,25 @@ button {
   color: white;
 }
 
-.map-table {
+.table-container{
   margin-top: 1rem;
   width: 100%;
+  height: calc(100% - 8rem);
   background: white;
   display: inline-block;
   box-shadow: 0 4px 23px rgba(0, 0, 0, 0.25);
+}
+
+.map-table {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
 }
 
 .add-map-container {
   display: inline-block;
   width: 20%;
 }
-
 
 button {
   width: 10rem;

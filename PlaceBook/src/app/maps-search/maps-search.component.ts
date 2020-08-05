@@ -5,6 +5,7 @@ import { FloorRequestConfig } from '../models/floor-request-config';
 import { MatSelect } from '@angular/material/select';
 import { Office } from '../models/office';
 import { OfficeAddress } from '../models/office-address';
+import { NgxSpinnerService } from 'ngx-spinner';
 
 @Component({
   selector: 'app-maps-search',
@@ -24,7 +25,8 @@ export class MapsSearchComponent implements OnInit {
 
   constructor(
     private mapSearchService: MapSearchService,
-    public dialog: MatDialog
+    public dialog: MatDialog,
+    private spinner: NgxSpinnerService
   ) {}
 
   ngOnInit(): void {
@@ -32,12 +34,15 @@ export class MapsSearchComponent implements OnInit {
   }
 
   setCountries(): void {
+    this.spinner.show('showCountriesSpinner');
     this.mapSearchService.getCountries().subscribe((countries: string[]) => {
       this.countries = countries;
+      this.spinner.hide('showCountriesSpinner');
     });
   }
 
   setCities(country: string, select: MatSelect): void {
+    this.spinner.show('showCitiesSpinner');
     this.resetCities();
     select.value = undefined;
     if (country !== undefined) {
@@ -49,11 +54,13 @@ export class MapsSearchComponent implements OnInit {
           city: undefined,
           address: undefined,
         });
+        this.spinner.hide('showCitiesSpinner');
       });
     }
   }
 
   setOffices(country: string, city: string): void {
+    this.spinner.show('showOfficesSpinner');
     this.resetOffices();
 
     if (country !== undefined && city !== undefined) {
@@ -67,11 +74,13 @@ export class MapsSearchComponent implements OnInit {
             city,
             address: undefined,
           });
+          this.spinner.hide('showOfficesSpinner');
         });
     }
   }
 
   setFloors(office: Office): void {
+    this.spinner.show('showFloorsSpinner');
     this.changeOffice.emit(office);
     this.resetFloors();
 
@@ -80,6 +89,7 @@ export class MapsSearchComponent implements OnInit {
         .getFloors(office.id)
         .subscribe((floors: FloorRequestConfig[]) => {
           this.floors = floors;
+          this.spinner.hide('showFloorsSpinner');
         });
     }
   }
@@ -99,4 +109,10 @@ export class MapsSearchComponent implements OnInit {
     this.changeFloor.emit(undefined);
     this.floors = [];
   }
+
+  // addNewOffice(): void {
+  //   this.dialog.open(AddMapModalComponent, {
+  //     width: '30rem',
+  //   });
+  // }
 }

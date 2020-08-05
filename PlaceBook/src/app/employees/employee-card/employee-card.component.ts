@@ -2,6 +2,7 @@ import { Component, OnInit, Input } from '@angular/core';
 import { EmployeeService } from './employee.service';
 import { User } from '../../models/user';
 import { ROLE } from '../../models/role';
+import { NgxSpinnerService } from 'ngx-spinner';
 
 @Component({
   selector: 'app-employee-card',
@@ -11,7 +12,6 @@ import { ROLE } from '../../models/role';
 export class EmployeeCardComponent implements OnInit {
   employeeObject: User;
   role = ROLE;
-  showSpinner = true;
 
   @Input()
   set employee(employeeObject: User) {
@@ -22,7 +22,10 @@ export class EmployeeCardComponent implements OnInit {
     return this.employeeObject;
   }
 
-  constructor(private employeeService: EmployeeService) {}
+  constructor(
+    private employeeService: EmployeeService,
+    private spinner: NgxSpinnerService
+  ) {}
 
   ngOnInit(): void {}
 
@@ -34,8 +37,5 @@ export class EmployeeCardComponent implements OnInit {
           this.employeeObject.role = user.role;
         });
     }
-    this.employeeService
-      .changeRole(this.employeeObject.id, role)
-      .subscribe(() => (this.showSpinner = false));
   }
 }

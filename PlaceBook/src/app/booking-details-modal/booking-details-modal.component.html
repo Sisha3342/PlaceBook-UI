@@ -1,70 +1,72 @@
-<h2 mat-dialog-title>Booking details</h2>
-<ng-container *ngIf="booking !== undefined">
-  <app-booking-status [status]="booking.status"></app-booking-status>
+<div class="modal-container">
+  <app-spinner [name]="'detailsBookingSpinner'"></app-spinner>
+  <h2 mat-dialog-title>Booking details</h2>
+  <ng-container *ngIf="booking !== undefined">
+    <app-booking-status [status]="booking.status"></app-booking-status>
+    <div mat-dialog-content>
+      <table class="booking-details">
+        <tr>
+          <td class="booking-details-label">Date:</td>
+          <td>{{ booking.timeStart }} - {{ booking.timeEnd }}</td>
+        </tr>
+        <tr>
+          <td class="booking-details-label">Address:</td>
+          <td>
+            {{ booking.address.country }}, {{ booking.address.city }},
+            {{ booking.address.address }}
+          </td>
+        </tr>
+        <tr>
+          <td class="booking-details-label">Place #:</td>
+          <td>{{ booking.placeInfo }}</td>
+        </tr>
+        <tr
+          *ngIf="
+            booking.status === status.completed &&
+            booking.markSubmitDto.markLightning !== null
+          "
+        >
+          <td class="booking-details-label">Feedback:</td>
+          <td>{{ booking.markSubmitDto.feedBack }}</td>
+        </tr>
+      </table>
 
-  <div mat-dialog-content>
-    <table class="booking-details">
-      <tr>
-        <td class="booking-details-label">Date:</td>
-        <td>{{ booking.timeStart }} - {{ booking.timeEnd }}</td>
-      </tr>
-      <tr>
-        <td class="booking-details-label">Address:</td>
-        <td>
-          {{ booking.address.country }}, {{ booking.address.city }},
-          {{ booking.address.address }}
-        </td>
-      </tr>
-      <tr>
-        <td class="booking-details-label">Place #:</td>
-        <td>{{ booking.placeInfo }}</td>
-      </tr>
-      <tr
+      <table
+        class="booking-rate"
         *ngIf="
           booking.status === status.completed &&
           booking.markSubmitDto.markLightning !== null
         "
       >
-        <td class="booking-details-label">Feedback:</td>
-        <td>{{ booking.markSubmitDto.feedBack }}</td>
-      </tr>
-    </table>
+        <tr>
+          <td matTooltip="Light" [matTooltipPosition]="'above'">
+            <i class="fa fa-lightbulb"></i>
+          </td>
+          <td matTooltip="Fresh air" [matTooltipPosition]="'above'">
+            <i class="fas fa-wind"> </i>
+          </td>
+          <td matTooltip="Noise" [matTooltipPosition]="'above'">
+            <i class="fas fa-volume-up"> </i>
+          </td>
+          <td matTooltip="Сleanliness" [matTooltipPosition]="'above'">
+            <i class="fas fa-hand-sparkles"> </i>
+          </td>
+          <td matTooltip="Location" [matTooltipPosition]="'above'">
+            <i class="fas fa-map-marker-alt"> </i>
+          </td>
+        </tr>
+        <tr>
+          <td>{{ booking.markSubmitDto.markLightning }}</td>
+          <td>{{ booking.markSubmitDto.markAir }}</td>
+          <td>{{ booking.markSubmitDto.markVolume }}</td>
+          <td>{{ booking.markSubmitDto.markCleaning }}</td>
+          <td>{{ booking.markSubmitDto.markLocation }}</td>
+        </tr>
+      </table>
+    </div>
 
-    <table
-      class="booking-rate"
-      *ngIf="
-        booking.status === status.completed &&
-        booking.markSubmitDto.markLightning !== null
-      "
-    >
-      <tr>
-        <td matTooltip="Light" [matTooltipPosition]="'above'">
-          <i class="fa fa-lightbulb"></i>
-        </td>
-        <td matTooltip="Fresh air" [matTooltipPosition]="'above'">
-          <i class="fas fa-wind"> </i>
-        </td>
-        <td matTooltip="Noise" [matTooltipPosition]="'above'">
-          <i class="fas fa-volume-up"> </i>
-        </td>
-        <td matTooltip="Сleanliness" [matTooltipPosition]="'above'">
-          <i class="fas fa-hand-sparkles"> </i>
-        </td>
-        <td matTooltip="Location" [matTooltipPosition]="'above'">
-          <i class="fas fa-map-marker-alt"> </i>
-        </td>
-      </tr>
-      <tr>
-        <td>{{ booking.markSubmitDto.markLightning }}</td>
-        <td>{{ booking.markSubmitDto.markAir }}</td>
-        <td>{{ booking.markSubmitDto.markVolume }}</td>
-        <td>{{ booking.markSubmitDto.markCleaning }}</td>
-        <td>{{ booking.markSubmitDto.markLocation }}</td>
-      </tr>
-    </table>
-  </div>
-
-  <mat-dialog-actions align="end">
-    <button mat-button mat-dialog-close>Close</button>
-  </mat-dialog-actions>
-</ng-container>
+    <mat-dialog-actions align="end">
+      <button mat-button mat-dialog-close>Close</button>
+    </mat-dialog-actions>
+  </ng-container>
+</div>

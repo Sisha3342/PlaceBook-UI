@@ -1,8 +1,8 @@
 <div class="place-info-container">
+  <app-spinner [name]="'placeInfoSpinner'"></app-spinner>
   <div class="place-info">
     <p class="place-header">Place №{{ place.placeNumber }} Info</p>
     <p class="text-place">Place Rating</p>
-    <app-spinner *ngIf="showSpinner"></app-spinner>
     <app-rating
       *ngIf="placeRating !== undefined"
       [rating]="placeRating"
@@ -16,7 +16,6 @@
         class="mat-elevation-z8"
       >
         <p class="text-place">Booked by:</p>
-        <app-spinner *ngIf="showSpinner"></app-spinner>
         <ng-container matColumnDef="date">
           <td mat-cell *matCellDef="let element">
             {{ element.timeStart | date: "longDate" }} -
