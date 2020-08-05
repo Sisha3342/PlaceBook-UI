@@ -80,6 +80,7 @@
             mat-button
             color="primary"
             type="submit"
+            [disabled]="form.invalid || min.time > max.time"
             (click)="onUpdateOffice($event,form)">Update office</button>
     <button *ngIf="!isEdit"
             mat-button
