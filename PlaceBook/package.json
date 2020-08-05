@@ -1,8 +1,7 @@
 {
   "name": "place-book",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "scripts": {
-    "heroku-postbuild": "ng build --prod --aot",
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
@@ -12,16 +11,9 @@
     "prettier": "./node_modules/.bin/prettier --write './src/**/*.{ts,js,html,css,json}'",
     "precommit": "lint-staged"
   },
-  "husky": {
-    "hooks": {
-      "pre-commit": "lint-staged"
-    }
-  },
-  "lint-staged": {
-    "*.{ts,js,html,css,json}": [
-      "prettier --write",
-      "git add"
-    ]
+  "engines": {
+    "node": ">=12",
+    "npm": ">=6"
   },
   "private": true,
   "dependencies": {
@@ -65,5 +57,16 @@
     "ts-node": "~8.3.0",
     "tslint": "~6.1.0",
     "typescript": "~3.9.5"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*.{ts,js,html,css,json}": [
+      "prettier --write",
+      "git add"
+    ]
   }
 }
