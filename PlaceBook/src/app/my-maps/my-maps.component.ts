@@ -8,6 +8,7 @@ import { Office } from '../models/office';
 import { OfficeAddress } from '../models/office-address';
 import { EditMapAddressComponent } from './map-address-modal/map-address-modal.component';
 import { NgxSpinnerService } from 'ngx-spinner';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-my-maps',
@@ -22,7 +23,8 @@ export class MyMapsComponent implements OnInit {
     private mapService: MapService,
     private columnMapService: MyMapsColumnService,
     public dialog: MatDialog,
-    private spinner: NgxSpinnerService
+    private spinner: NgxSpinnerService,
+    public route: Router
   ) {}
 
   ngOnInit(): void {
@@ -51,7 +53,9 @@ export class MyMapsComponent implements OnInit {
     });
   }
 
-  editMap(e) {}
+  editMap(office: Office): void {
+    this.route.navigate(['editor', { officeId: office.id.toString() }]);
+  }
 
   deleteOfficeAddress(data: Office): void {
     this.spinner.show('officesTableSpinner');

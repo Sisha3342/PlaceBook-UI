@@ -44,10 +44,6 @@ export class TableComponent implements OnInit {
     console.log(element);
   }
 
-  editBooking(event: Event): void {
-    event.stopPropagation();
-  }
-
   editMap(event: MouseEvent, element: Office): void {
     event.stopPropagation();
 
