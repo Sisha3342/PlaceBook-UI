@@ -21,10 +21,4 @@ export class EmployeesComponent implements OnInit {
   onResize(event): void {
     this.breakpoint = Math.floor(event.target.innerWidth / 450);
   }
-
-  // filterEmployees(searchText: string): void {
-  //   this.searchService.searchUsers(0, 1000, searchText).subscribe((data) => {
-  //     this.users = data;
-  //   });
-  // }
 }
