@@ -3,12 +3,12 @@ import { MapComponent } from './map.component';
 import {
   CompactType,
   DisplayGrid,
+  GridsterConfig,
   GridsterItem,
   GridType,
 } from 'angular-gridster2';
 import { MapObject } from '../map-model/map-object';
 import { Safe } from '../map-model/safe';
-import { GridsterItemComponentInterface } from 'angular-gridster2/lib/gridsterItem.interface';
 
 @Injectable({
   providedIn: 'root',
@@ -16,7 +16,7 @@ import { GridsterItemComponentInterface } from 'angular-gridster2/lib/gridsterIt
 export class MapConfigurationService {
   constructor() {}
 
-  getDefaultOptions(map: MapComponent) {
+  getDefaultOptions(map: MapComponent): Safe {
     return {
       gridType: GridType.Fixed,
       compactType: CompactType.None,

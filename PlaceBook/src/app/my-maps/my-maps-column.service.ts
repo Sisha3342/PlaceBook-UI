@@ -51,9 +51,11 @@ export class MyMapsColumnService {
 
   getColumns(): Column[] {
     const columns = [...this.columns];
+
     columns.push(this.editAddressColumn);
     columns.push(this.editMapColumn);
     columns.push(this.cancelColumn);
+
     return columns;
   }
 }

@@ -49,17 +49,15 @@
     appearance="legacy"
     [(value)]="object.border"
   >
-    <mat-button-toggle [value]="border.top">
-      {{ border.top }}
-    </mat-button-toggle>
-    <mat-button-toggle [value]="border.right">
-      {{ border.right }}
-    </mat-button-toggle>
-    <mat-button-toggle [value]="border.bottom">
-      {{ border.bottom }}
-    </mat-button-toggle>
-    <mat-button-toggle [value]="border.left">
-      {{ border.left }}
-    </mat-button-toggle>
+    <mat-button-toggle [value]="border.top">{{ border.top }}</mat-button-toggle>
+    <mat-button-toggle [value]="border.right">{{
+      border.right
+    }}</mat-button-toggle>
+    <mat-button-toggle [value]="border.bottom">{{
+      border.bottom
+    }}</mat-button-toggle>
+    <mat-button-toggle [value]="border.left">{{
+      border.left
+    }}</mat-button-toggle>
   </mat-button-toggle-group>
 </div>

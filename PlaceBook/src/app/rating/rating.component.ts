@@ -1,5 +1,4 @@
-import { Component, OnInit, Inject, Input } from '@angular/core';
-import { Booking } from '../models/booking';
+import { Component, OnInit, Input } from '@angular/core';
 import { BookingMark } from '../models/booking-mark';
 
 @Component({
@@ -9,6 +8,7 @@ import { BookingMark } from '../models/booking-mark';
 })
 export class RatingComponent implements OnInit {
   rate: BookingMark;
+  @Input() status: string;
 
   constructor() {}
 

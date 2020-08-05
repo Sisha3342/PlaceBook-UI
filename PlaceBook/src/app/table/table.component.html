@@ -21,12 +21,9 @@
           </span>
 
           <span *ngSwitchCase="'booking'">
-            <span class="bookmark" [ngClass]="getBookmarkClass()">{{
-              element[column.field]
-            }}</span>
-            <button mat-icon-button class="edit-button">
-              <mat-icon>edit</mat-icon>
-            </button>
+            <span class="bookmark" [ngClass]="getBookmarkClass()">
+              {{ element[column.field] }}
+            </span>
           </span>
 
           <span *ngSwitchCase="'logo'">
