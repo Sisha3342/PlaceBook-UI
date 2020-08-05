@@ -34,11 +34,11 @@ export class MyMapsComponent implements OnInit {
   }
 
   editOfficeAddress(data: Office): void {
-    this.spinner.show('deleteSpinner');
+    this.spinner.show('officesTableSpinner');
 
-    let dialogRef = this.dialog.open(EditMapAddressComponent, {
+    const dialogRef = this.dialog.open(EditMapAddressComponent, {
       width: '30rem',
-      data: data,
+      data,
     });
 
     dialogRef.afterClosed().subscribe(() => {
@@ -47,14 +47,14 @@ export class MyMapsComponent implements OnInit {
         city: undefined,
         address: undefined,
       });
-      this.spinner.hide('deleteSpinner');
+      this.spinner.hide('officesTableSpinner');
     });
   }
 
   editMap(e) {}
 
   deleteOfficeAddress(data: Office): void {
-    this.spinner.show('deleteSpinner');
+    this.spinner.show('officesTableSpinner');
     const dialogRef = this.dialog.open(DeleteOfficeAddressComponent, { data });
 
     dialogRef.afterClosed().subscribe(() => {
@@ -63,7 +63,7 @@ export class MyMapsComponent implements OnInit {
         city: undefined,
         address: undefined,
       });
-      this.spinner.hide('deleteSpinner');
+      this.spinner.hide('officesTableSpinner');
     });
   }
 
