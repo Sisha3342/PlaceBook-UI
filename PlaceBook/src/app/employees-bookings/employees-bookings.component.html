@@ -12,6 +12,7 @@
           [status]="status.active"
           [columns]="getColumns(status.active)"
           [openDetails]="openBookingDetailsModal"
+          (openDelete)="openCancelDialog($event)"
         ></app-table>
       </mat-tab>
 
