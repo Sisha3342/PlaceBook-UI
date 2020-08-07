@@ -25,13 +25,13 @@ export class EmployeesBookingsColumnService {
     },
     {
       id: 'name',
-      label: 'Employee',
+      label: 'Name',
       field: 'userName',
       type: 'text',
     },
     {
       id: 'surname',
-      label: 'Employee',
+      label: 'Surname',
       field: 'userSurname',
       type: 'text',
     },
