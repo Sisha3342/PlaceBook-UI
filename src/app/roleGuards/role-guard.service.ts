@@ -18,14 +18,14 @@ export class RoleGuard implements CanActivate {
   constructor(
     @Inject(AuthService) private auth: AuthService,
     private router: Router
-  ) {
-    this.currentRole = this.auth.getCurrentUser().role;
-  }
+  ) {}
 
   canActivate(
     next: ActivatedRouteSnapshot,
     state: RouterStateSnapshot
   ): boolean {
+    this.currentRole = this.auth.getCurrentUser().role;
+
     switch (next.routeConfig.path) {
       case 'employees_bookings':
         if (
