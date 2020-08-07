@@ -4,6 +4,7 @@ import { RatePlaceModalComponent } from '../my-bookings/rate-place-modal/rate-pl
 import { Column } from '../models/column';
 import { Booking } from '../models/booking';
 import { Office } from '../models/office';
+import { NgxSpinnerService } from 'ngx-spinner';
 
 @Component({
   selector: 'app-table',
@@ -20,7 +21,7 @@ export class TableComponent implements OnInit {
   @Output() openDelete = new EventEmitter();
   @Output() openEditMap = new EventEmitter<Office>();
 
-  constructor(public dialog: MatDialog) {}
+  constructor(public dialog: MatDialog, private spinner: NgxSpinnerService) {}
 
   ngOnInit(): void {}
 

@@ -31,12 +31,12 @@ export class EmployeesBookingsComponent {
   }
 
   setBookings(statusLabel: string): void {
-    this.spinner.show('bookingsSpinner');
+    this.spinner.show('tableSpinner');
     this.employeesBookingsService
       .getBookings(this.status[statusLabel.toLowerCase()])
       .subscribe((bookings) => {
         this.displayedBookings = bookings;
-        this.spinner.hide('bookingsSpinner');
+        this.spinner.hide('tableSpinner');
       });
   }
 
