@@ -2,16 +2,14 @@ app-search {
   width: 100%;
   min-width: 20rem;
 }
+
 app-employees {
   display: inline-block;
   min-width: 20rem;
 }
 
-app-employee-card {
-  position: relative;
-  width: 80%;
-}
-
-mat-grid-list {
-  min-width: 20rem;
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(20rem, auto));
+  grid-gap: 1rem;
 }
