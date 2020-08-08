@@ -1,6 +1,5 @@
 table {
   width: 100%;
-  min-width: 40rem;
 }
 
 td.mat-cell {
@@ -47,12 +46,10 @@ tr.mat-row:hover {
 }
 
 div[ng-reflect-ng-switch="logo"] {
-  width: 8rem;
-  height: 8rem;
-  margin: 1rem auto;
-  border-radius: 50%;
   width: 4rem;
   height: 4rem;
+  margin: 1rem auto;
+  border-radius: 50%;
   overflow: hidden;
 }
 
