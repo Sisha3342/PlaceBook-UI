@@ -10,6 +10,6 @@ app-employees {
 
 .grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(20rem, auto));
+  grid-template-columns: repeat(auto-fit, minmax(18rem, auto));
   grid-gap: 1rem;
 }
