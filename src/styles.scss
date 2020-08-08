@@ -38,6 +38,7 @@ body {
 .tab-container {
   width: calc(100% - 8rem);
   height: 100%;
+  min-width: 50rem;
   padding: 2rem 4rem 0 4rem;
 }
 
