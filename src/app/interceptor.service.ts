@@ -15,6 +15,8 @@ export class InterceptorService implements HttpInterceptor {
   constructor(private authService: AuthService) {}
 
   intercept(req: HttpRequest<any>, next: HttpHandler): Observable<any> {
+    req = req.clone({ withCredentials: true });
+
     return next.handle(req).pipe(
       catchError(() => {
         return this.authService.logout();
