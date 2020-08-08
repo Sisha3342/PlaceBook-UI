@@ -57,6 +57,7 @@ export class EmployeesBookingsComponent {
   }
 
   deleteBooking(booking: Booking): void {
+    this.spinner.show('deleteSpinner');
     this.employeesBookingsService
       .deleteBooking(booking.id)
       .subscribe((removedBooking) => {
@@ -67,6 +68,7 @@ export class EmployeesBookingsComponent {
         });
 
         this.setBookings(this.status.active);
+        this.spinner.hide('deleteSpinner');
       });
   }
 

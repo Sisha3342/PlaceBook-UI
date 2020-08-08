@@ -64,7 +64,6 @@ export class MyBookingsComponent implements OnInit {
     const dialogRef = this.dialog.open(CancelBookingModalComponent, {
       width: '25rem',
     });
-
     dialogRef.afterClosed().subscribe((cancel) => {
       if (cancel) {
         this.deleteBooking(booking);
@@ -73,7 +72,7 @@ export class MyBookingsComponent implements OnInit {
   }
 
   deleteBooking(booking: Booking): void {
-    this.spinner.show();
+    this.spinner.show('deleteSpinner');
     this.myBookingsService
       .deleteBooking(booking.id)
       .subscribe((removedBooking) => {
@@ -85,7 +84,7 @@ export class MyBookingsComponent implements OnInit {
 
         this.setBookings(this.status.active);
         this.stats.setStatistics();
-        this.spinner.hide();
+        this.spinner.hide('deleteSpinner');
       });
   }
 }
