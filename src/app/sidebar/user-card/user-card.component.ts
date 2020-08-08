@@ -17,6 +17,6 @@ export class UserCardComponent implements OnInit {
   }
 
   logout(): void {
-    this.authService.logout();
+    this.authService.logout().subscribe();
   }
 }

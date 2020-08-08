@@ -1,4 +1,4 @@
-import { Observable } from 'rxjs';
+import { from, Observable } from 'rxjs';
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { User } from '../models/user';
@@ -33,10 +33,10 @@ export class AuthService {
     );
   }
 
-  logout(): void {
-    this.router.navigate(['/login']);
+  logout(): Observable<any> {
     this.cookieService.deleteAll();
     localStorage.removeItem('user');
+    return from(this.router.navigate(['/login']));
   }
 
   getCurrentUser(): User {

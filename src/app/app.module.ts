@@ -52,6 +52,8 @@ import { RestoreDialogComponent } from './map-editor/restore-dialog/restore-dial
 import { CancelBookingModalComponent } from './my-bookings/cancel-booking-modal/cancel-booking-modal.component';
 import { NgxSpinnerModule } from 'ngx-spinner';
 import { DeleteOfficeAddressComponent } from './my-maps/delete-office-address/delete-office-address.component';
+import { HTTP_INTERCEPTORS } from '@angular/common/http';
+import { InterceptorService } from './interceptor.service';
 
 @NgModule({
   declarations: [
@@ -114,6 +116,7 @@ import { DeleteOfficeAddressComponent } from './my-maps/delete-office-address/de
     EmployeesBookingsColumnService,
     MyBookingsColumnService,
     MyMapsColumnService,
+    { provide: HTTP_INTERCEPTORS, useClass: InterceptorService, multi: true },
   ],
   bootstrap: [AppComponent],
 })
