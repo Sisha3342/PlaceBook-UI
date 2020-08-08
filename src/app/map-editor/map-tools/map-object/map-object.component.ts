@@ -8,6 +8,7 @@ import {
 import { MapObject } from '../../map-model/map-object';
 import { MapConfigurationService } from '../../map/map-configuration.service';
 import { Place } from '../../../models/place';
+import { MapObjectService } from './map-object.service';
 
 @Component({
   selector: 'app-map-object',
@@ -25,7 +26,10 @@ export class MapObjectComponent implements OnInit, OnChanges {
   @Input() neighborPlaces: Place[];
   place: Place;
 
-  constructor(public editorService: MapConfigurationService) {}
+  constructor(
+    public editorService: MapConfigurationService,
+    public mapObjectService: MapObjectService
+  ) {}
 
   ngOnInit(): void {}
 
@@ -34,7 +38,7 @@ export class MapObjectComponent implements OnInit, OnChanges {
   }
 
   findPlace(places: Place[], placeNumber: string): Place {
-    if (!(placeNumber === undefined || places === undefined)) {
+    if (placeNumber && places) {
       return places.find((place) => {
         return place.placeNumber === placeNumber;
       });
@@ -45,15 +49,5 @@ export class MapObjectComponent implements OnInit, OnChanges {
 
   getFontSize(): number {
     return this.zoom > 0.25 ? 1.2 * this.zoom : 0;
-  }
-
-  getBorder(object: MapObject, isOnMap: boolean): any {
-    if (object.border && ['window', 'door'].includes(object.type) && isOnMap) {
-      return {
-        [`border-${object.border}`]: '0.5rem solid var(--primary-color)',
-      };
-    }
-
-    return {};
   }
 }
