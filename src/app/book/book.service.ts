@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpParams } from '@angular/common/http';
-import { FormGroup } from '@angular/forms';
 import { Observable } from 'rxjs';
 import { Booking } from '../models/booking';
 import { Place } from '../models/place';
@@ -11,13 +10,17 @@ import { Place } from '../models/place';
 export class BookService {
   constructor(private http: HttpClient) {}
 
-  getPlaces(floorId: number, dateRange: FormGroup): Observable<Place[]> {
+  getPlaces(
+    floorId: number,
+    dateStart: string,
+    dateEnd: string
+  ): Observable<Place[]> {
     return this.http.get<Place[]>(
       `https://placebookapp.herokuapp.com/floor/${floorId}/places`,
       {
         params: new HttpParams()
-          .set('timeStart', dateRange.value.start.toISOString())
-          .set('timeEnd', dateRange.value.end.toISOString()),
+          .set('timeStart', dateStart)
+          .set('timeEnd', dateEnd),
         withCredentials: true,
       }
     );
@@ -26,14 +29,15 @@ export class BookService {
   book(
     userId: number,
     placeId: number,
-    dateRange: FormGroup
+    dateStart: string,
+    dateEnd: string
   ): Observable<Booking> {
     return this.http.post<Booking>(
       `https://placebookapp.herokuapp.com/user/${userId}/booking`,
       {
         placeId,
-        timeStart: dateRange.value.start,
-        timeEnd: dateRange.value.end,
+        timeStart: dateStart,
+        timeEnd: dateEnd,
       },
       {
         withCredentials: true,
