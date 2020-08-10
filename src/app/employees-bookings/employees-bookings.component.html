@@ -7,6 +7,7 @@
       (focusChange)="setBookings($event.tab.textLabel)"
     >
       <mat-tab label="Active" class="demo-tab-label">
+        <app-spinner [name]="'deleteSpinner'"></app-spinner>
         <app-table
           [data]="displayedBookings"
           [status]="status.active"
