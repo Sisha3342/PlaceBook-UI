@@ -62,7 +62,6 @@ export class MapEditorComponent implements OnInit {
         this.setFloors(this.officeId);
 
         this.restoreService.deleteOffice(this.officeId);
-        //this.spinner.hide('officeSpinner');
       }
     });
   }
