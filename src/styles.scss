@@ -41,6 +41,10 @@ body {
   padding: 2rem 4rem 0 4rem;
 }
 
+.table-container {
+  min-width: 50rem;
+}
+
 .mat-snack-bar-container {
   background-color: var(--canceled-booking-color);
   color: white;
