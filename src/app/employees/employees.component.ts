@@ -8,16 +8,9 @@ import { NgxSpinnerService } from 'ngx-spinner';
   styleUrls: ['./employees.component.scss'],
 })
 export class EmployeesComponent implements OnInit {
-  breakpoint = 0;
   users: User[];
 
   constructor(private spinner: NgxSpinnerService) {}
 
-  ngOnInit(): void {
-    this.breakpoint = Math.floor(window.innerWidth / 450);
-  }
-
-  onResize(event): void {
-    this.breakpoint = Math.floor(event.target.innerWidth / 450);
-  }
+  ngOnInit(): void {}
 }

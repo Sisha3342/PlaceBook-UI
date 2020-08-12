@@ -11,6 +11,7 @@ import { Place } from '../models/place';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
 import { NgxSpinnerService } from 'ngx-spinner';
+import * as moment from 'moment';
 
 @Component({
   selector: 'app-book',
@@ -26,6 +27,7 @@ export class BookComponent implements OnInit {
   currentOffice: Office;
   dateRange: FormGroup;
   places: Place[];
+  dateFormat = 'YYYY-MM-DD[T]HH:mm:ss';
 
   constructor(
     private floorsConverterService: FloorsConverterService,
@@ -68,16 +70,28 @@ export class BookComponent implements OnInit {
   }
 
   setPlaces(floorId: number, dateRange: FormGroup): void {
-    this.bookService.getPlaces(floorId, dateRange).subscribe((places) => {
-      this.places = places;
-      this.currentPlace = undefined;
-    });
+    this.bookService
+      .getPlaces(
+        floorId,
+        moment(dateRange.value.start).format(this.dateFormat),
+        moment(dateRange.value.end).format(this.dateFormat)
+      )
+      .subscribe((places) => {
+        this.places = places;
+        this.currentPlace = undefined;
+      });
   }
 
   addBooking(): void {
     this.spinner.show('addBookingSpinner');
+
     this.bookService
-      .book(this.userId, this.currentPlace.placeId, this.dateRange)
+      .book(
+        this.userId,
+        this.currentPlace.placeId,
+        moment(this.dateRange.value.start).format(this.dateFormat),
+        moment(this.dateRange.value.end).format(this.dateFormat)
+      )
       .subscribe(() => {
         this.snackbar.open('Successful book', 'Close', {
           verticalPosition: 'top',

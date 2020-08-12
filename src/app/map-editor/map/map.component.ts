@@ -105,7 +105,7 @@ export class MapComponent implements OnInit, OnChanges {
   }
 
   getPlaceInfo(object: MapObjectComponent): void {
-    if (!this.edit && object.object.active && object.place !== undefined) {
+    if (!this.edit && object.object.active && object.place) {
       this.showPlaceInfo.emit(object.place);
     }
   }

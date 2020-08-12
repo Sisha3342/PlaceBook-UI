@@ -1,6 +1,7 @@
 import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
 import { MapObject } from '../map-model/map-object';
-import { BORDER } from '../map-model/BORDER';
+import { MapObjectService } from '../map-tools/map-object/map-object.service';
+import { Border } from '../map-model/Border';
 
 @Component({
   selector: 'app-action-tools',
@@ -10,17 +11,13 @@ import { BORDER } from '../map-model/BORDER';
 export class ActionToolsComponent implements OnInit {
   @Input() object: MapObject;
   @Output() deleteEvent = new EventEmitter<MouseEvent>();
-  border = BORDER;
+  border = Border;
 
-  constructor() {}
+  constructor(public mapObjectService: MapObjectService) {}
 
   ngOnInit(): void {}
 
   delete(): void {
     this.deleteEvent.emit();
-  }
-
-  shouldHasBorder(): boolean {
-    return ['window', 'door'].includes(this.object.type);
   }
 }

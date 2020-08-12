@@ -31,12 +31,12 @@ export class EmployeesBookingsComponent {
   }
 
   setBookings(statusLabel: string): void {
-    this.spinner.show('bookingsSpinner');
+    this.spinner.show('tableSpinner');
     this.employeesBookingsService
       .getBookings(this.status[statusLabel.toLowerCase()])
       .subscribe((bookings) => {
         this.displayedBookings = bookings;
-        this.spinner.hide('bookingsSpinner');
+        this.spinner.hide('tableSpinner');
       });
   }
 
@@ -57,6 +57,7 @@ export class EmployeesBookingsComponent {
   }
 
   deleteBooking(booking: Booking): void {
+    this.spinner.show('deleteSpinner');
     this.employeesBookingsService
       .deleteBooking(booking.id)
       .subscribe((removedBooking) => {
@@ -67,6 +68,7 @@ export class EmployeesBookingsComponent {
         });
 
         this.setBookings(this.status.active);
+        this.spinner.hide('deleteSpinner');
       });
   }
 

@@ -9,7 +9,7 @@
     'icon-background': !isOnMap,
     selected: selected
   }"
-  [ngStyle]="getBorder(object, isOnMap)"
+  [ngStyle]="mapObjectService.getBorder(object, isOnMap)"
 >
   <div
     class="object-content"
