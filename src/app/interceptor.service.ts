@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import {
+  HttpErrorResponse,
   HttpHandler,
   HttpInterceptor,
   HttpRequest,
@@ -18,8 +19,12 @@ export class InterceptorService implements HttpInterceptor {
     req = req.clone({ withCredentials: true });
 
     return next.handle(req).pipe(
-      catchError(() => {
-        return this.authService.logout();
+      catchError((error: HttpErrorResponse) => {
+        if (error.status === 200) {
+          return this.authService.logout();
+        }
+
+        return new Observable<any>();
       })
     );
   }
