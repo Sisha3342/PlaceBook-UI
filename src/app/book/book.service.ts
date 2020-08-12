@@ -21,7 +21,6 @@ export class BookService {
         params: new HttpParams()
           .set('timeStart', dateStart)
           .set('timeEnd', dateEnd),
-        withCredentials: true,
       }
     );
   }
@@ -38,9 +37,6 @@ export class BookService {
         placeId,
         timeStart: dateStart,
         timeEnd: dateEnd,
-      },
-      {
-        withCredentials: true,
       }
     );
   }
@@ -48,10 +44,7 @@ export class BookService {
   subscribe(placeId: number): Observable<Place> {
     return this.http.post<Place>(
       `https://placebookapp.herokuapp.com/subscribe/${placeId}`,
-      {},
-      {
-        withCredentials: true,
-      }
+      {}
     );
   }
 }

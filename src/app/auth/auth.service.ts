@@ -26,10 +26,7 @@ export class AuthService {
 
     return this.http.post<User>(
       'https://placebookapp.herokuapp.com/login',
-      formData,
-      {
-        withCredentials: true,
-      }
+      formData
     );
   }
 

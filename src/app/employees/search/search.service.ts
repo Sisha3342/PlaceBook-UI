@@ -21,7 +21,6 @@ export class SearchService {
       .set('text', searchText);
     return this.http.get<User[]>('https://placebookapp.herokuapp.com/users', {
       params,
-      withCredentials: true,
     });
   }
 }
