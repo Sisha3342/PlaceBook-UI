@@ -20,13 +20,7 @@ export class MapService {
       worktimeStart: formData.worktimeStart + ':00',
       worktimeEnd: formData.worktimeEnd + ':00',
     };
-    return this.http.post<Office>(
-      'https://placebookapp.herokuapp.com/office',
-      requestBody,
-      {
-        withCredentials: true,
-      }
-    );
+    return this.http.post<Office>(this.urlOffice, requestBody);
   }
 
   updateOffice(formData: any): Observable<Office> {
@@ -39,40 +33,27 @@ export class MapService {
     };
     return this.http.put<Office>(
       this.urlOffice + `/${formData.id}`,
-      requestBody,
-      {
-        withCredentials: true,
-      }
+      requestBody
     );
   }
 
   deleteOffice(officeId: number): Observable<Office> {
-    return this.http.delete<Office>(this.urlOffice + `/${officeId}`, {
-      withCredentials: true,
-    });
+    return this.http.delete<Office>(this.urlOffice + `/${officeId}`);
   }
+
   getOffices(officeAddress: OfficeAddress): Observable<Office[]> {
-    if (officeAddress.country === undefined) {
+    if (!officeAddress.country) {
       return this.http.get<Office[]>(
-        'https://placebookapp.herokuapp.com/offices',
-        {
-          withCredentials: true,
-        }
+        'https://placebookapp.herokuapp.com/offices'
       );
-    } else if (officeAddress.city === undefined) {
+    } else if (!officeAddress.city) {
       return this.http.get<Office[]>(
-        `https://placebookapp.herokuapp.com/countries/${officeAddress.country}/offices`,
-        {
-          withCredentials: true,
-        }
+        `https://placebookapp.herokuapp.com/countries/${officeAddress.country}/offices`
       );
     }
 
     return this.http.get<Office[]>(
-      `https://placebookapp.herokuapp.com/countries/${officeAddress.country}/cities/${officeAddress.city}/offices`,
-      {
-        withCredentials: true,
-      }
+      `https://placebookapp.herokuapp.com/countries/${officeAddress.country}/cities/${officeAddress.city}/offices`
     );
   }
 }

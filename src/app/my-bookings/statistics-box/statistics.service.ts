@@ -11,10 +11,7 @@ export class StatisticsService {
 
   getStatistics(id: number): Observable<Statistics> {
     return this.http.get<Statistics>(
-      `https://placebookapp.herokuapp.com/user/${id}/booking/statistics`,
-      {
-        withCredentials: true,
-      }
+      `https://placebookapp.herokuapp.com/user/${id}/booking/statistics`
     );
   }
 }

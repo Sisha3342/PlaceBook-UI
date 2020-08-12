@@ -12,10 +12,7 @@ export class EmployeeService {
   changeRole(id: number, role: string): Observable<User> {
     return this.http.put<User>(
       `https://placebookapp.herokuapp.com/users/${id}`,
-      { role },
-      {
-        withCredentials: true,
-      }
+      { role }
     );
   }
 }

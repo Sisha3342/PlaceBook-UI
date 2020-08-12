@@ -20,19 +20,13 @@ export class MapEditorService {
       `https://placebookapp.herokuapp.com/office/${officeId}/configuration`,
       floors.map<FloorRequestConfig>((floor) =>
         this.floorConverter.convertToRequest(floor)
-      ),
-      {
-        withCredentials: true,
-      }
+      )
     );
   }
 
   getFloors(officeId: number): Observable<FloorRequestConfig[]> {
     return this.http.get<FloorRequestConfig[]>(
-      `https://placebookapp.herokuapp.com/office/${officeId}/floors`,
-      {
-        withCredentials: true,
-      }
+      `https://placebookapp.herokuapp.com/office/${officeId}/floors`
     );
   }
 }

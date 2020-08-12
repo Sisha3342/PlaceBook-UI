@@ -14,10 +14,7 @@ export class BookingDetailsService {
     userId: number
   ): Observable<BookingDetails> {
     return this.http.get<BookingDetails>(
-      `https://placebookapp.herokuapp.com/user/${userId}/booking/${bookingId}/info`,
-      {
-        withCredentials: true,
-      }
+      `https://placebookapp.herokuapp.com/user/${userId}/booking/${bookingId}/info`
     );
   }
 }

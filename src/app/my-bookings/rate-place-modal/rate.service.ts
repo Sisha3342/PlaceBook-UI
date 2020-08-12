@@ -15,10 +15,7 @@ export class RateService {
   ): Observable<BookingMark> {
     return this.http.post<BookingMark>(
       `https://placebookapp.herokuapp.com/booking/${bookingId}/mark`,
-      bookingMark,
-      {
-        withCredentials: true,
-      }
+      bookingMark
     );
   }
 }
