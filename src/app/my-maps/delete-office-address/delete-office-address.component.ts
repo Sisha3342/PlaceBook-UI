@@ -7,6 +7,7 @@ import {
 } from '@angular/material/dialog';
 import { MapService } from '../map.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { NgxSpinnerService } from 'ngx-spinner';
 
 @Component({
   selector: 'app-delete-office-address',
@@ -19,12 +20,14 @@ export class DeleteOfficeAddressComponent implements OnInit {
     public dialogRef: MatDialogRef<DeleteOfficeAddressComponent>,
     public dialog: MatDialog,
     public mapService: MapService,
+    private spinner: NgxSpinnerService,
     @Inject(MAT_DIALOG_DATA) public data: Office
   ) {}
 
   ngOnInit(): void {}
 
   deleteOffice(): void {
+    this.spinner.show('deleteSpinner');
     this.mapService.deleteOffice(this.data.id).subscribe(
       () => {
         this.snackbar.open('Office was successfully removed', 'Close', {
@@ -33,12 +36,14 @@ export class DeleteOfficeAddressComponent implements OnInit {
           panelClass: 'success',
         });
         this.dialogRef.close();
+        this.spinner.hide('deleteSpinner');
       },
       () => {
         this.snackbar.open('Office was not removed', 'Close', {
           verticalPosition: 'top',
           duration: 2000,
         });
+        this.spinner.hide('deleteSpinner');
       }
     );
   }

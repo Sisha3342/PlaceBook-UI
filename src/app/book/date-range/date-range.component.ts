@@ -33,6 +33,8 @@ export class DateRangeComponent implements OnInit, AfterViewInit {
   }
 
   dateRangeChange(): void {
+    this.range.value.start.setHours(0, 0, 0);
+    this.range.value.end.setHours(23, 59, 59);
     this.dateChange.emit(this.range);
   }
 
