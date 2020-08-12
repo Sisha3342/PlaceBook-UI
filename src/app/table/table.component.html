@@ -34,8 +34,11 @@
           </span>
 
           <span *ngSwitchCase="'logo'">
-            <app-user-photo class="photo-logo"
-                            [imgSrc]="element[column.field]"></app-user-photo>
+            <div class="logo-container">
+              <app-user-photo class="photo-logo"
+                              [imgSrc]="element[column.field]"></app-user-photo>
+            </div>
+
           </span>
 
           <span *ngSwitchCase="'editAddress'">
