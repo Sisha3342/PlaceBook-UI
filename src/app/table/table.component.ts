@@ -5,6 +5,7 @@ import { Column } from '../models/column';
 import { Booking } from '../models/booking';
 import { Office } from '../models/office';
 import { NgxSpinnerService } from 'ngx-spinner';
+import { Sort } from '@angular/material/sort';
 
 @Component({
   selector: 'app-table',
@@ -62,5 +63,9 @@ export class TableComponent implements OnInit {
     event.stopPropagation();
 
     this.openDelete.emit(element);
+  }
+
+  sort(event: Sort): void {
+    console.log(event);
   }
 }
