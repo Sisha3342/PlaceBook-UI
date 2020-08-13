@@ -21,7 +21,7 @@ export class InterceptorService implements HttpInterceptor {
     return next.handle(req).pipe(
       catchError((error: HttpErrorResponse) => {
         if (error.status === 200) {
-          return this.authService.logout();
+          this.authService.logout();
         }
 
         return new Observable<any>();

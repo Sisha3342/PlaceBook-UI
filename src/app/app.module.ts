@@ -1,6 +1,6 @@
 import { BookingDetailsModalComponent } from './booking-details-modal/booking-details-modal.component';
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { ErrorHandler, NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -54,6 +54,7 @@ import { NgxSpinnerModule } from 'ngx-spinner';
 import { DeleteOfficeAddressComponent } from './my-maps/delete-office-address/delete-office-address.component';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { InterceptorService } from './interceptor.service';
+import { ErrorHandlerService } from './error-handler/error-handler.service';
 
 @NgModule({
   declarations: [
@@ -117,6 +118,7 @@ import { InterceptorService } from './interceptor.service';
     MyBookingsColumnService,
     MyMapsColumnService,
     { provide: HTTP_INTERCEPTORS, useClass: InterceptorService, multi: true },
+    { provide: ErrorHandler, useClass: ErrorHandlerService },
   ],
   bootstrap: [AppComponent],
 })
