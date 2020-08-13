@@ -19,11 +19,11 @@ import { NgxSpinnerService } from 'ngx-spinner';
   templateUrl: './search.component.html',
   styleUrls: ['./search.component.scss'],
 })
-export class SearchComponent implements OnInit, OnChanges {
+export class SearchComponent implements OnInit {
   myControl = new FormControl();
 
-  @Input() filteredUsers: Observable<User[]>;
-  @Output() filteredUsersChange = new EventEmitter<Observable<User[]>>();
+  @Input() users: User[];
+  @Output() usersChange = new EventEmitter<User[]>();
 
   constructor(
     private searchService: SearchService,
@@ -32,19 +32,20 @@ export class SearchComponent implements OnInit, OnChanges {
 
   ngOnInit(): void {
     this.spinner.show('employeeSpinner');
-    this.filteredUsers = this.myControl.valueChanges.pipe(
+    const filteredUsers = this.myControl.valueChanges.pipe(
       startWith(''),
       debounceTime(500),
       switchMap((value) => {
-        this.filteredUsersChange.emit(this.filteredUsers);
         this.spinner.hide('employeeSpinner');
 
         return this.searchService.searchUsers(0, 1000, value);
       })
     );
-  }
 
-  ngOnChanges(changes: SimpleChanges): void {
-    this.filteredUsersChange.emit(this.filteredUsers);
+    filteredUsers.subscribe((users) => {
+      this.users = users;
+
+      this.usersChange.emit(users);
+    });
   }
 }
