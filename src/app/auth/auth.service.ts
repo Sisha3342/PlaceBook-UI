@@ -4,6 +4,7 @@ import { HttpClient } from '@angular/common/http';
 import { User } from '../models/user';
 import { Router } from '@angular/router';
 import { CookieService } from 'ngx-cookie-service';
+import { GlobalVariable } from '../globals';
 
 @Injectable({
   providedIn: 'root',
@@ -25,7 +26,7 @@ export class AuthService {
     formData.append('password', password);
 
     return this.http.post<User>(
-      'https://placebookapp.herokuapp.com/login',
+      `${GlobalVariable.BASE_API_URL}/login`,
       formData
     );
   }

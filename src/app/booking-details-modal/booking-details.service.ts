@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import { BookingDetails } from '../models/booking-details';
+import { GlobalVariable } from '../globals';
 
 @Injectable({
   providedIn: 'root',
@@ -14,7 +15,7 @@ export class BookingDetailsService {
     userId: number
   ): Observable<BookingDetails> {
     return this.http.get<BookingDetails>(
-      `https://placebookapp.herokuapp.com/user/${userId}/booking/${bookingId}/info`
+      `${GlobalVariable.BASE_API_URL}/user/${userId}/booking/${bookingId}/info`
     );
   }
 }

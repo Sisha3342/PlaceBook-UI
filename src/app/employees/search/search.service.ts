@@ -3,6 +3,7 @@ import { User } from '../../models/user';
 import { Observable } from 'rxjs';
 import { HttpParams } from '@angular/common/http';
 import { HttpClient } from '@angular/common/http';
+import { GlobalVariable } from 'src/app/globals';
 
 @Injectable({
   providedIn: 'root',
@@ -19,7 +20,7 @@ export class SearchService {
       .set('offset', offset.toString())
       .set('limit', limit.toString())
       .set('text', searchText);
-    return this.http.get<User[]>('https://placebookapp.herokuapp.com/users', {
+    return this.http.get<User[]>(`${GlobalVariable.BASE_API_URL}/users`, {
       params,
     });
   }

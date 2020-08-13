@@ -3,6 +3,7 @@ import { HttpClient, HttpParams } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Booking } from '../models/booking';
 import { Place } from '../models/place';
+import { GlobalVariable } from '../globals';
 
 @Injectable({
   providedIn: 'root',
@@ -16,7 +17,7 @@ export class BookService {
     dateEnd: string
   ): Observable<Place[]> {
     return this.http.get<Place[]>(
-      `https://placebookapp.herokuapp.com/floor/${floorId}/places`,
+      `${GlobalVariable.BASE_API_URL}/floor/${floorId}/places`,
       {
         params: new HttpParams()
           .set('timeStart', dateStart)
@@ -32,7 +33,7 @@ export class BookService {
     dateEnd: string
   ): Observable<Booking> {
     return this.http.post<Booking>(
-      `https://placebookapp.herokuapp.com/user/${userId}/booking`,
+      `${GlobalVariable.BASE_API_URL}/user/${userId}/booking`,
       {
         placeId,
         timeStart: dateStart,
@@ -43,7 +44,7 @@ export class BookService {
 
   subscribe(placeId: number): Observable<Place> {
     return this.http.post<Place>(
-      `https://placebookapp.herokuapp.com/subscribe/${placeId}`,
+      `${GlobalVariable.BASE_API_URL}/subscribe/${placeId}`,
       {}
     );
   }
