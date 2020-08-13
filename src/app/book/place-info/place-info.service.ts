@@ -4,7 +4,7 @@ import { Observable } from 'rxjs';
 import { BookingMark } from '../../models/booking-mark';
 import { FormGroup } from '@angular/forms';
 import { PlaceCurrentBooking } from '../../models/place-current-booking';
-import { GlobalVariable } from 'src/app/globals';
+import { BASE_API_URL } from 'src/app/globals';
 
 @Injectable({
   providedIn: 'root',
@@ -13,9 +13,7 @@ export class PlaceInfoService {
   constructor(private http: HttpClient) {}
 
   getPlaceRating(placeId: number): Observable<BookingMark> {
-    return this.http.get<BookingMark>(
-      `${GlobalVariable.BASE_API_URL}/place/${placeId}/marks`
-    );
+    return this.http.get<BookingMark>(`${BASE_API_URL}/place/${placeId}/marks`);
   }
 
   getCurrentBookings(
@@ -23,7 +21,7 @@ export class PlaceInfoService {
     dateRange: FormGroup
   ): Observable<PlaceCurrentBooking[]> {
     return this.http.get<PlaceCurrentBooking[]>(
-      `${GlobalVariable.BASE_API_URL}/place/${placeId}/bookings`,
+      `${BASE_API_URL}/place/${placeId}/bookings`,
       {
         params: new HttpParams()
           .set('timeStart', dateRange.value.start.toISOString())

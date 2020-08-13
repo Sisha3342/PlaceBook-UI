@@ -3,7 +3,7 @@ import { HttpClient, HttpParams } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Booking } from '../models/booking';
 import { Place } from '../models/place';
-import { GlobalVariable } from '../globals';
+import { BASE_API_URL } from '../globals';
 
 @Injectable({
   providedIn: 'root',
@@ -16,14 +16,11 @@ export class BookService {
     dateStart: string,
     dateEnd: string
   ): Observable<Place[]> {
-    return this.http.get<Place[]>(
-      `${GlobalVariable.BASE_API_URL}/floor/${floorId}/places`,
-      {
-        params: new HttpParams()
-          .set('timeStart', dateStart)
-          .set('timeEnd', dateEnd),
-      }
-    );
+    return this.http.get<Place[]>(`${BASE_API_URL}/floor/${floorId}/places`, {
+      params: new HttpParams()
+        .set('timeStart', dateStart)
+        .set('timeEnd', dateEnd),
+    });
   }
 
   book(
@@ -32,20 +29,14 @@ export class BookService {
     dateStart: string,
     dateEnd: string
   ): Observable<Booking> {
-    return this.http.post<Booking>(
-      `${GlobalVariable.BASE_API_URL}/user/${userId}/booking`,
-      {
-        placeId,
-        timeStart: dateStart,
-        timeEnd: dateEnd,
-      }
-    );
+    return this.http.post<Booking>(`${BASE_API_URL}/user/${userId}/booking`, {
+      placeId,
+      timeStart: dateStart,
+      timeEnd: dateEnd,
+    });
   }
 
   subscribe(placeId: number): Observable<Place> {
-    return this.http.post<Place>(
-      `${GlobalVariable.BASE_API_URL}/subscribe/${placeId}`,
-      {}
-    );
+    return this.http.post<Place>(`${BASE_API_URL}/subscribe/${placeId}`, {});
   }
 }

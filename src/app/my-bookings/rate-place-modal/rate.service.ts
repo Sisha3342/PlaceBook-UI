@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { BookingMark } from '../../models/booking-mark';
 import { Observable } from 'rxjs';
-import { GlobalVariable } from 'src/app/globals';
+import { BASE_API_URL } from 'src/app/globals';
 
 @Injectable({
   providedIn: 'root',
@@ -15,7 +15,7 @@ export class RateService {
     bookingMark: BookingMark
   ): Observable<BookingMark> {
     return this.http.post<BookingMark>(
-      `${GlobalVariable.BASE_API_URL}/booking/${bookingId}/mark`,
+      `${BASE_API_URL}/booking/${bookingId}/mark`,
       bookingMark
     );
   }
