@@ -1,11 +1,13 @@
 <app-user-card></app-user-card>
 
-<app-route-button
-  *ngFor="let button of getRouteButtons()"
-  [name]="button.name"
-  [routerLink]="button.route"
-  [iconType]="button.iconType"
-  [setType]="button.setType"
-  [isActive]="isActive(button.route)"
->
-</app-route-button>
+<div class="navbar-nav">
+  <app-route-button
+    *ngFor="let button of getRouteButtons()"
+    [name]="button.name"
+    [routerLink]="button.route"
+    [iconType]="button.iconType"
+    [setType]="button.setType"
+    [isActive]="isActive(button.route)"
+  >
+  </app-route-button>
+</div>
