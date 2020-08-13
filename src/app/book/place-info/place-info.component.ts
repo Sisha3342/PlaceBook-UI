@@ -12,6 +12,7 @@ import { PlaceCurrentBooking } from '../../models/place-current-booking';
 import { FormGroup } from '@angular/forms';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { forkJoin } from 'rxjs';
+import * as moment from 'moment';
 
 @Component({
   selector: 'app-place-info',
@@ -24,6 +25,7 @@ export class PlaceInfoComponent implements OnInit, OnChanges {
   @Input() dateRange: FormGroup;
   placeRating: BookingMark;
   currentBookings: PlaceCurrentBooking[];
+  dateFormat = 'YYYY-MM-DD[T]HH:mm:ss';
 
   constructor(
     private placeService: PlaceInfoService,
@@ -37,7 +39,8 @@ export class PlaceInfoComponent implements OnInit, OnChanges {
 
     const bookingsInfo = this.placeService.getCurrentBookings(
       this.place.placeId,
-      this.dateRange
+      moment(this.dateRange.value.start).format(this.dateFormat),
+      moment(this.dateRange.value.end).format(this.dateFormat)
     );
     const placesInfo = this.placeService.getPlaceRating(this.place.placeId);
 
