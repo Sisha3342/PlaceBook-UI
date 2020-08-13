@@ -19,14 +19,15 @@ export class PlaceInfoService {
 
   getCurrentBookings(
     placeId: number,
-    dateRange: FormGroup
+    dateStart: string,
+    dateEnd: string
   ): Observable<PlaceCurrentBooking[]> {
     return this.http.get<PlaceCurrentBooking[]>(
       `https://placebookapp.herokuapp.com/place/${placeId}/bookings`,
       {
         params: new HttpParams()
-          .set('timeStart', dateRange.value.start.toISOString())
-          .set('timeEnd', dateRange.value.end.toISOString()),
+          .set('timeStart', dateStart)
+          .set('timeEnd', dateEnd),
       }
     );
   }

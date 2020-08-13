@@ -9,7 +9,11 @@
     'icon-background': !isOnMap,
     selected: selected
   }"
-  [ngStyle]="mapObjectService.getBorder(object, isOnMap)"
+  [ngStyle]="
+    zoom > 0.25
+      ? mapObjectService.getBorder(object, isOnMap)
+      : { border: 'none' }
+  "
 >
   <div
     class="object-content"

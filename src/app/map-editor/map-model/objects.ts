@@ -12,7 +12,7 @@ export const OBJECTS: MapObject[] = [
   {
     type: Type.constant,
     active: true,
-    icon: 'fa-id-badge',
+    icon: 'fa-user',
     tooltip: 'Constant desk',
     number: '0',
   },
