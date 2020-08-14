@@ -20,8 +20,8 @@ body {
   --delete-button-color: #f44336;
 
   --primary-border: 2px solid #dedede;
-  --primary-border-radius: 4rem;
-  --secondary-border-radius: 2rem;
+  --primary-border-radius: 1rem;
+  --secondary-border-radius: 1rem;
   --primary-border-width: 2px;
 
   --primary-content-margin: 4rem;
@@ -41,8 +41,10 @@ body {
   padding: 2rem 4rem 0 4rem;
 }
 
-.table-container {
-  min-width: 50rem;
+@media only screen and (max-width: 600px) {
+  .tab-container {
+    padding: 1rem;
+  }
 }
 
 .mat-snack-bar-container {

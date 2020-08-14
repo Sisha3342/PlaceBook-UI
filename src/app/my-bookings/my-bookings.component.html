@@ -4,12 +4,14 @@
   </div>
 
   <div class="tab-group">
+    <app-spinner [name]="'tableSpinner'"></app-spinner>
     <mat-tab-group
       animationDuration="0ms"
       mat-stretch-tabs
       (focusChange)="setBookings($event.tab.textLabel)"
     >
       <mat-tab label="Active" class="demo-tab-label">
+        <app-spinner [name]="'deleteSpinner'"></app-spinner>
         <app-table
           [data]="displayedBookings"
           [status]="status.active"
