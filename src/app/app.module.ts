@@ -56,6 +56,7 @@ import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { InterceptorService } from './interceptor.service';
 import { MatSortModule } from '@angular/material/sort';
 import { ErrorHandlerService } from './error-handler/error-handler.service';
+import { BookTimerComponent } from './book/book-timer/book-timer.component';
 
 @NgModule({
   declarations: [
@@ -99,6 +100,7 @@ import { ErrorHandlerService } from './error-handler/error-handler.service';
     DeleteOfficeAddressComponent,
     RestoreDialogComponent,
     CancelBookingModalComponent,
+    BookTimerComponent,
   ],
   imports: [
     BrowserModule,

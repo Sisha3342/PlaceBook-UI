@@ -24,6 +24,10 @@
         [dateRange]="dateRange"
       ></app-place-info>
       <app-spinner [name]="'addBookingSpinner'"></app-spinner>
+      <app-book-timer
+        *ngIf="showTimer"
+        (stopBooking)="stopBooking()"
+      ></app-book-timer>
       <div align="end" class="button-group" *ngIf="currentPlace">
         <button
           *ngIf="!currentPlace.occupied; else subscribeButton"

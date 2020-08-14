@@ -26,7 +26,9 @@ export class BookComponent implements OnInit {
   currentOffice: Office;
   dateRange: FormGroup;
   places: Place[];
+
   dateFormat = 'YYYY-MM-DD[T]HH:mm:ss';
+  showTimer = false;
 
   constructor(
     private floorsConverterService: FloorsConverterService,
@@ -65,7 +67,25 @@ export class BookComponent implements OnInit {
   }
 
   getPlaceInfo(place: Place): void {
-    this.currentPlace = place;
+    if (!place.occupied) {
+      this.bookService
+        .tryToBook(place.placeId)
+        .subscribe((canBook: boolean) => {
+          if (canBook) {
+            this.showTimer = true;
+            this.currentPlace = place;
+          } else {
+            this.snackbar.open('This place is in booking process', 'Close', {
+              verticalPosition: 'top',
+              duration: 3000,
+            });
+
+            this.setPlaces(this.currentFloor.id, this.dateRange);
+          }
+        });
+    } else {
+      this.currentPlace = place;
+    }
   }
 
   setPlaces(floorId: number, dateRange: FormGroup): void {
@@ -96,11 +116,21 @@ export class BookComponent implements OnInit {
           verticalPosition: 'top',
           panelClass: 'success',
         });
-        this.setPlaces(this.currentFloor.id, this.dateRange);
 
+        this.setPlaces(this.currentFloor.id, this.dateRange);
         this.route.navigate(['/my_bookings']);
         this.spinner.hide('addBookingSpinner');
       });
+  }
+
+  stopBooking(): void {
+    this.snackbar.open('Your booking session ended', 'Close', {
+      verticalPosition: 'top',
+      duration: 3000,
+    });
+
+    this.showTimer = false;
+    this.setPlaces(this.currentFloor.id, this.dateRange);
   }
 
   subscribe(): void {

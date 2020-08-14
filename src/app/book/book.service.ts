@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpParams } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { from, Observable, of } from 'rxjs';
 import { Booking } from '../models/booking';
 import { Place } from '../models/place';
 import { BASE_API_URL } from '../globals';
@@ -38,5 +38,9 @@ export class BookService {
 
   subscribe(placeId: number): Observable<Place> {
     return this.http.post<Place>(`${BASE_API_URL}/subscribe/${placeId}`, {});
+  }
+
+  tryToBook(placeId: number): Observable<boolean> {
+    return of(true);
   }
 }
