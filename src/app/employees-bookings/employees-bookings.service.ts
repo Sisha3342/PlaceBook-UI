@@ -11,8 +11,6 @@ import { Order } from '../models/Order';
   providedIn: 'root',
 })
 export class EmployeesBookingsService {
-  role = Role;
-
   constructor(private http: HttpClient, private authService: AuthService) {}
 
   getBookings(
@@ -21,7 +19,7 @@ export class EmployeesBookingsService {
     order: string = Order.asc
   ): Observable<Booking[]> {
     const adminUrl =
-      this.authService.getCurrentUser().role === this.role.admin ? '/all' : '';
+      this.authService.getCurrentUser().role === Role.admin ? '/all' : '';
 
     return this.http.get<Booking[]>(
       `https://placebookapp.herokuapp.com/employees/bookings${adminUrl}`,
