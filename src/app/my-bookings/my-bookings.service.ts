@@ -4,6 +4,7 @@ import { Observable } from 'rxjs';
 import { Booking } from '../models/booking';
 import { ColumnId } from '../models/column';
 import { Order } from '../models/Order';
+import { BASE_API_URL } from '../globals';
 
 @Injectable({
   providedIn: 'root',
@@ -17,22 +18,17 @@ export class MyBookingsService {
     sortBy: string = ColumnId.dateStart,
     order: string = Order.asc
   ): Observable<Booking[]> {
-    return this.http.get<Booking[]>(
-      `https://placebookapp.herokuapp.com/user/${userId}/bookings`,
-      {
-        params: new HttpParams()
-          .set('status', status)
-          .set('order', order)
-          .set('bookingSort', sortBy)
-          .set('limit', '1000')
-          .set('offset', '0'),
-      }
-    );
+    return this.http.get<Booking[]>(`${BASE_API_URL}/user/${userId}/bookings`, {
+      params: new HttpParams()
+        .set('status', status)
+        .set('order', order)
+        .set('bookingSort', sortBy)
+        .set('limit', '1000')
+        .set('offset', '0'),
+    });
   }
 
   deleteBooking(id: number): Observable<Booking> {
-    return this.http.delete<Booking>(
-      `https://placebookapp.herokuapp.com/user/booking/${id}`
-    );
+    return this.http.delete<Booking>(`${BASE_API_URL}/user/booking/${id}`);
   }
 }

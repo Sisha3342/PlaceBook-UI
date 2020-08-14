@@ -5,12 +5,13 @@ import { Observable } from 'rxjs';
 import { Office } from '../models/office';
 import { ColumnId } from '../models/column';
 import { Order } from '../models/Order';
+import { BASE_API_URL } from '../globals';
 
 @Injectable({
   providedIn: 'root',
 })
 export class MapService {
-  urlOffice = 'https://placebookapp.herokuapp.com/office';
+  urlOffice = `${BASE_API_URL}/office`;
 
   constructor(private http: HttpClient) {}
 
@@ -55,15 +56,12 @@ export class MapService {
       .set('offset', '0');
 
     if (!officeAddress.country) {
-      return this.http.get<Office[]>(
-        'https://placebookapp.herokuapp.com/offices',
-        {
-          params,
-        }
-      );
+      return this.http.get<Office[]>('${BASE_API_URL}/offices', {
+        params,
+      });
     } else if (!officeAddress.city) {
       return this.http.get<Office[]>(
-        `https://placebookapp.herokuapp.com/countries/${officeAddress.country}/offices`,
+        `${BASE_API_URL}/countries/${officeAddress.country}/offices`,
         {
           params,
         }
@@ -71,7 +69,7 @@ export class MapService {
     }
 
     return this.http.get<Office[]>(
-      `https://placebookapp.herokuapp.com/countries/${officeAddress.country}/cities/${officeAddress.city}/offices`,
+      `${BASE_API_URL}/countries/${officeAddress.country}/cities/${officeAddress.city}/offices`,
       {
         params,
       }

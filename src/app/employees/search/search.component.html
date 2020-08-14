@@ -9,7 +9,7 @@
     />
     <mat-autocomplete #auto="matAutocomplete">
       <mat-option
-        *ngFor="let option of filteredUsers | async | slice: 0:3"
+        *ngFor="let option of users | slice: 0:3"
         [value]="option.name + ' ' + option.surname"
       >
         {{ option.name + " " + option.surname }}
