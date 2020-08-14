@@ -1,7 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { EmployeeService } from './employee.service';
 import { User } from '../../models/user';
-import { ROLE } from '../../models/role';
+import { Role } from '../../models/Role';
 import { NgxSpinnerService } from 'ngx-spinner';
 
 @Component({
@@ -11,7 +11,7 @@ import { NgxSpinnerService } from 'ngx-spinner';
 })
 export class EmployeeCardComponent implements OnInit {
   employeeObject: User;
-  role = ROLE;
+  role = Role;
 
   @Input()
   set employee(employeeObject: User) {

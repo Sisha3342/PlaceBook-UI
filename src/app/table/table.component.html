@@ -1,18 +1,23 @@
 <div class="table-group">
-  <table mat-table
-         [dataSource]="data"
-         class="mat-elevation-z8">
-    <!--Place Column -->
-
-    <ng-container *ngFor="let column of columns"
-                  [matColumnDef]="column.id">
-      <th mat-header-cell
-          *matHeaderCellDef
-          [width]="column.width">
+  <app-spinner [name]="'tableSpinner'"></app-spinner>
+  <table
+    mat-table
+    [dataSource]="data"
+    matSort
+    (matSortChange)="sort($event)"
+    class="mat-elevation-z8"
+  >
+    <ng-container *ngFor="let column of columns" [matColumnDef]="column.id">
+      <th
+        mat-header-cell
+        *matHeaderCellDef
+        mat-sort-header
+        [disabled]="column.disableSorting"
+        [width]="column.width"
+      >
         {{ column.label || "" }}
       </th>
-      <td mat-cell
-          *matCellDef="let element">
+      <td mat-cell *matCellDef="let element">
         <div [ngSwitch]="column.type">
           <span *ngSwitchDefault>
             {{ element[column.field] }}
@@ -27,56 +32,64 @@
           </span>
 
           <span *ngSwitchCase="'booking'">
-            <span class="bookmark"
-                  [ngClass]="getBookmarkClass()">
+            <span class="bookmark" [ngClass]="getBookmarkClass()">
               {{ element[column.field] }}
             </span>
           </span>
 
           <span *ngSwitchCase="'logo'">
             <div class="logo-container">
-              <app-user-photo class="photo-logo"
-                              [imgSrc]="element[column.field]"></app-user-photo>
+              <app-user-photo
+                class="photo-logo"
+                [imgSrc]="element[column.field]"
+              ></app-user-photo>
             </div>
-
           </span>
 
           <span *ngSwitchCase="'editAddress'">
-            <button mat-icon-button
-                    [matTooltip]="column.tooltip"
-                    [matTooltipPosition]="'above'"
-                    class="icon-button"
-                    (click)="edit($event, element)">
+            <button
+              mat-icon-button
+              [matTooltip]="column.tooltip"
+              [matTooltipPosition]="'above'"
+              class="icon-button"
+              (click)="edit($event, element)"
+            >
               <mat-icon>edit</mat-icon>
             </button>
           </span>
 
           <span *ngSwitchCase="'editMap'">
-            <button mat-icon-button
-                    [matTooltip]="column.tooltip"
-                    [matTooltipPosition]="'above'"
-                    class="icon-button"
-                    (click)="editMap($event, element)">
+            <button
+              mat-icon-button
+              [matTooltip]="column.tooltip"
+              [matTooltipPosition]="'above'"
+              class="icon-button"
+              (click)="editMap($event, element)"
+            >
               <mat-icon>edit_location</mat-icon>
             </button>
           </span>
 
           <span *ngSwitchCase="'cancel'">
-            <button mat-icon-button
-                    class="close-button icon-button"
-                    [matTooltip]="column.tooltip"
-                    [matTooltipPosition]="'above'"
-                    (click)="delete($event, element)">
+            <button
+              mat-icon-button
+              class="close-button icon-button"
+              [matTooltip]="column.tooltip"
+              [matTooltipPosition]="'above'"
+              (click)="delete($event, element)"
+            >
               <mat-icon>close</mat-icon>
             </button>
           </span>
 
           <span *ngSwitchCase="'rate'">
-            <button mat-icon-button
-                    (click)="openRatePlaceDialog($event, element)"
-                    [matTooltip]="column.tooltip"
-                    [matTooltipPosition]="'above'"
-                    class="icon-button">
+            <button
+              mat-icon-button
+              (click)="openRatePlaceDialog($event, element)"
+              [matTooltip]="column.tooltip"
+              [matTooltipPosition]="'above'"
+              class="icon-button"
+            >
               <mat-icon>star</mat-icon>
             </button>
           </span>
@@ -84,10 +97,11 @@
       </td>
     </ng-container>
 
-    <tr mat-header-row
-        *matHeaderRowDef="getTableColumns()"></tr>
-    <tr mat-row
-        *matRowDef="let row; columns: getTableColumns()"
-        (click)="openDetails($event, row)"></tr>
+    <tr mat-header-row *matHeaderRowDef="getTableColumns()"></tr>
+    <tr
+      mat-row
+      *matRowDef="let row; columns: getTableColumns()"
+      (click)="openDetails($event, row)"
+    ></tr>
   </table>
 </div>

@@ -1,48 +1,48 @@
 import { Injectable } from '@angular/core';
-import { Column } from '../models/column';
-import { STATUS } from '../models/status';
+import { Column, ColumnId } from '../models/column';
+import { Status } from '../models/Status';
 
 @Injectable({
   providedIn: 'root',
 })
 export class MyBookingsColumnService {
-  status = STATUS;
+  status = Status;
 
   constructor() {}
 
   columns: Column[] = [
     {
-      id: 'place',
+      id: ColumnId.placeNumber,
       label: 'Place No.',
       field: 'placeNumber',
       type: 'booking',
     },
     {
-      id: 'dateStart',
+      id: ColumnId.dateStart,
       label: 'Date start',
       field: 'timeStart',
       type: 'date',
     },
     {
-      id: 'dateEnd',
+      id: ColumnId.dateEnd,
       label: 'Date end',
       field: 'timeEnd',
       type: 'date',
     },
     {
-      id: 'country',
+      id: ColumnId.country,
       label: 'Country',
       field: 'country',
       type: 'address',
     },
     {
-      id: 'city',
+      id: ColumnId.city,
       label: 'City',
       field: 'city',
       type: 'address',
     },
     {
-      id: 'address',
+      id: ColumnId.office,
       label: 'Address',
       field: 'address',
       type: 'address',
@@ -53,12 +53,14 @@ export class MyBookingsColumnService {
     id: 'cancelButton',
     type: 'cancel',
     tooltip: 'Cancel booking',
+    disableSorting: true,
   };
 
   rateColumn = {
     id: 'rateButton',
     type: 'rate',
     tooltip: 'Rate booking',
+    disableSorting: true,
   };
 
   getColumns(status: string): Column[] {

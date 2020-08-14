@@ -6,7 +6,7 @@ import { BookingDetailsModalComponent } from '../booking-details-modal/booking-d
 import { MatDialog } from '@angular/material/dialog';
 import { MyBookingsService } from './my-bookings.service';
 import { AuthService } from '../auth/auth.service';
-import { STATUS } from '../models/status';
+import { Status } from '../models/Status';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { CancelBookingModalComponent } from './cancel-booking-modal/cancel-booking-modal.component';
 import { StatisticsBoxComponent } from './statistics-box/statistics-box.component';
@@ -20,7 +20,7 @@ import { NgxSpinnerService } from 'ngx-spinner';
 })
 export class MyBookingsComponent implements OnInit {
   displayedBookings: Booking[];
-  status = STATUS;
+  status = Status;
   @ViewChild('stats') stats: StatisticsBoxComponent;
 
   constructor(
@@ -72,19 +72,25 @@ export class MyBookingsComponent implements OnInit {
   }
 
   deleteBooking(booking: Booking): void {
-    this.spinner.show('deleteSpinner');
-    this.myBookingsService
-      .deleteBooking(booking.id)
-      .subscribe((removedBooking) => {
-        this.snackbar.open('Booking was deleted', 'Close', {
-          verticalPosition: 'top',
-          panelClass: 'success',
-          duration: 3000,
-        });
-
-        this.setBookings(this.status.active);
-        this.stats.setStatistics();
-        this.spinner.hide('deleteSpinner');
+    this.spinner.show('tableSpinner');
+    this.myBookingsService.deleteBooking(booking.id).subscribe(() => {
+      this.snackbar.open('Booking was canceled', 'Close', {
+        verticalPosition: 'top',
+        panelClass: 'success',
+        duration: 3000,
       });
+
+      this.setBookings(this.status.active);
+      this.stats.setStatistics();
+      this.spinner.hide('tableSpinner');
+    });
+  }
+
+  getSortFunction(status: string): any {
+    return this.myBookingsService.getBookings.bind(
+      this.myBookingsService,
+      this.authService.getCurrentUser().id,
+      status
+    );
   }
 }

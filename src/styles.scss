@@ -59,3 +59,8 @@ body {
 .mat-simple-snackbar-action {
   color: white;
 }
+
+mat-tab-group,
+mat-tab-group .mat-tab-body-wrapper {
+  height: 100%;
+}

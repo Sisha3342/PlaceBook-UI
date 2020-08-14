@@ -54,6 +54,7 @@ import { NgxSpinnerModule } from 'ngx-spinner';
 import { DeleteOfficeAddressComponent } from './my-maps/delete-office-address/delete-office-address.component';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { InterceptorService } from './interceptor.service';
+import { MatSortModule } from '@angular/material/sort';
 import { ErrorHandlerService } from './error-handler/error-handler.service';
 
 @NgModule({
@@ -109,6 +110,7 @@ import { ErrorHandlerService } from './error-handler/error-handler.service';
     GridsterModule,
     OverlayModule,
     NgxSpinnerModule,
+    MatSortModule,
   ],
   providers: [
     Overlay,

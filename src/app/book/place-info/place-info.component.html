@@ -4,18 +4,18 @@
     <p class="place-header">Place №{{ place.placeNumber }} Info</p>
     <p class="text-place">Place Rating</p>
 
-    <app-rating *ngIf="placeRating"
-                [rating]="placeRating"></app-rating>
+    <app-rating *ngIf="placeRating" [rating]="placeRating"></app-rating>
     <div class="table-container">
-      <table *ngIf="place.occupied && currentBookings"
-             mat-table
-             [dataSource]="currentBookings"
-             class="mat-elevation-z8">
+      <table
+        *ngIf="place.occupied && currentBookings"
+        mat-table
+        [dataSource]="currentBookings"
+        class="mat-elevation-z8"
+      >
         <p class="text-place">Booked by:</p>
 
         <ng-container matColumnDef="date">
-          <td mat-cell
-              *matCellDef="let element">
+          <td mat-cell *matCellDef="let element">
             {{ element.timeStart | date: "shortDate" }} -
             <br />
             {{ element.timeEnd | date: "shortDate" }}
@@ -23,14 +23,12 @@
         </ng-container>
 
         <ng-container matColumnDef="name">
-          <td mat-cell
-              *matCellDef="let element">
+          <td mat-cell *matCellDef="let element">
             {{ element.userName }} {{ element.userSurname }}
           </td>
         </ng-container>
 
-        <tr mat-row
-            *matRowDef="let row; columns: headers"></tr>
+        <tr mat-row *matRowDef="let row; columns: headers"></tr>
       </table>
     </div>
   </div>

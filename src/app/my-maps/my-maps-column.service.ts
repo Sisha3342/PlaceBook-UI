@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Column } from '../models/column';
+import { Column, ColumnId } from '../models/column';
 
 @Injectable({
   providedIn: 'root',
@@ -9,19 +9,19 @@ export class MyMapsColumnService {
 
   columns: Column[] = [
     {
-      id: 'country',
+      id: ColumnId.country,
       label: 'Country',
       field: 'country',
       type: 'address',
     },
     {
-      id: 'city',
+      id: ColumnId.city,
       label: 'City',
       field: 'city',
       type: 'address',
     },
     {
-      id: 'address',
+      id: ColumnId.office,
       label: 'Address',
       field: 'address',
       type: 'address',
@@ -33,6 +33,7 @@ export class MyMapsColumnService {
     type: 'cancel',
     width: '5%',
     tooltip: 'Delete map',
+    disableSorting: true,
   };
 
   editAddressColumn = {
@@ -40,6 +41,7 @@ export class MyMapsColumnService {
     type: 'editAddress',
     width: '5%',
     tooltip: 'Edit address',
+    disableSorting: true,
   };
 
   editMapColumn = {
@@ -47,6 +49,7 @@ export class MyMapsColumnService {
     type: 'editMap',
     width: '5%',
     tooltip: 'Edit map',
+    disableSorting: true,
   };
 
   getColumns(): Column[] {
