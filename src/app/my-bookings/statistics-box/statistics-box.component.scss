@@ -1,10 +1,10 @@
 .statistics-container {
   background: var(--secondary-color);
   border-radius: var(--secondary-border-radius);
-  float: left;
   display: block;
   padding: var(--primary-content-padding);
   box-shadow: var(--primary-box-shadow);
+  text-align: center;
 }
 
 .statistics-container .add-booking-container button {
@@ -56,14 +56,14 @@
   margin-top: 2.5rem;
 }
 
-@media (max-width: 1530px) {
+@media (max-width: 1335px) {
   .statistics-container {
     padding: 1rem;
   }
 
   .statistics-container .statistics-item {
     display: inline-block;
-    margin: 2rem 1rem 1rem 1rem;
+    margin: 1rem;
   }
 
   .statistics-container .add-booking-container {
@@ -72,5 +72,28 @@
 
   .statistics-container .add-booking-container button {
     margin-top: 1rem;
+  }
+}
+
+@media (max-width: 600px) {
+  .statistics-container {
+    text-align: left;
+  }
+
+  .add-booking-container {
+    width: 80vw;
+  }
+
+  .statistics-container .statistics-item {
+    width: 3rem;
+    height: 3rem;
+    border-radius: var(--secondary-border-radius);
+    box-shadow: var(--primary-box-shadow);
+    background: var(--secondary-color);
+    padding: var(--secondary-content-padding);
+  }
+
+  .statistics-item .text-bookings {
+    display: none;
   }
 }

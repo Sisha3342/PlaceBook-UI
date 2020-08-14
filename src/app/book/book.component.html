@@ -1,46 +1,38 @@
 <div class="booking-screen">
-  <app-maps-search
-    [showFloor]="true"
-    class="selectors"
-    (changeFloor)="changeCurrentFloor($event)"
-    (changeOffice)="changeCurrentOffice($event)"
-  ></app-maps-search>
+  <app-maps-search [showFloor]="true"
+                   class="selectors"
+                   (changeFloor)="changeCurrentFloor($event)"
+                   (changeOffice)="changeCurrentOffice($event)"></app-maps-search>
 
   <div class="booking-container">
     <div class="map-grid">
-      <app-map-booking
-        [currentPlace]="currentPlace"
-        (showPlaceInfo)="getPlaceInfo($event)"
-        [currentFloor]="currentFloor"
-        [places]="places"
-      ></app-map-booking>
+      <app-map-booking [currentPlace]="currentPlace"
+                       (showPlaceInfo)="getPlaceInfo($event)"
+                       [currentFloor]="currentFloor"
+                       [places]="places"></app-map-booking>
     </div>
 
     <div class="place-panel">
       <app-date-range (dateChange)="changeDateRange($event)"></app-date-range>
-      <app-place-info
-        *ngIf="currentPlace"
-        [place]="currentPlace"
-        [dateRange]="dateRange"
-      ></app-place-info>
+      <app-place-info *ngIf="currentPlace"
+                      [place]="currentPlace"
+                      [dateRange]="dateRange"></app-place-info>
       <app-spinner [name]="'addBookingSpinner'"></app-spinner>
-      <div align="end" class="button-group" *ngIf="currentPlace">
-        <button
-          *ngIf="!currentPlace.occupied; else subscribeButton"
-          mat-raised-button
-          color="primary"
-          cdkFocusInitial
-          (click)="addBooking()"
-        >
+      <div align="end"
+           class="button-group"
+           *ngIf="currentPlace">
+        <button *ngIf="!currentPlace.occupied; else subscribeButton"
+                mat-raised-button
+                color="primary"
+                cdkFocusInitial
+                (click)="addBooking()">
           Book
         </button>
         <ng-template #subscribeButton>
-          <button
-            mat-raised-button
-            color="primary"
-            cdkFocusInitial
-            (click)="subscribe()"
-          >
+          <button mat-raised-button
+                  color="primary"
+                  cdkFocusInitial
+                  (click)="subscribe()">
             Subscribe
           </button>
         </ng-template>

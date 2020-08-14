@@ -6,3 +6,7 @@ mat-form-field {
   width: 100%;
   min-width: 16rem;
 }
+
+::ng-deep .mat-autocomplete-panel.mat-autocomplete-visible {
+  height: 6rem;
+}

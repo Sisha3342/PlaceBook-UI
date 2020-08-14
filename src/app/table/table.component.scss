@@ -1,10 +1,12 @@
 table {
   width: 100%;
+  min-width: 45rem;
   box-shadow: none;
 }
 
 td.mat-cell {
-  padding: var(--secondary-content-padding) 0;
+  padding: var(--secondary-content-padding) 0.5rem;
+  // white-space: nowrap;
 }
 
 .bookmark {
