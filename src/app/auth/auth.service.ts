@@ -5,6 +5,7 @@ import { User } from '../models/user';
 import { Router } from '@angular/router';
 import { CookieService } from 'ngx-cookie-service';
 import { BASE_API_URL } from '../globals';
+import { UserError } from '../error-handler/user-error';
 
 @Injectable({
   providedIn: 'root',
@@ -28,14 +29,18 @@ export class AuthService {
     return this.http.post<User>(`${BASE_API_URL}/login`, formData);
   }
 
-  logout(): Observable<any> {
+  logout(): void {
     this.cookieService.deleteAll();
     localStorage.removeItem('user');
-    return from(this.router.navigate(['/login']));
+    this.router.navigate(['/login']);
   }
 
   getCurrentUser(): User {
     const user = localStorage.getItem('user');
+
+    if (!user) {
+      throw new UserError();
+    }
 
     return JSON.parse(user);
   }
