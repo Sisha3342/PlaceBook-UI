@@ -33,6 +33,7 @@ export class MyMapsColumnService {
     type: 'cancel',
     width: '5%',
     tooltip: 'Delete map',
+    disableSorting: true,
   };
 
   editAddressColumn = {
@@ -40,6 +41,7 @@ export class MyMapsColumnService {
     type: 'editAddress',
     width: '5%',
     tooltip: 'Edit address',
+    disableSorting: true,
   };
 
   editMapColumn = {
@@ -47,6 +49,7 @@ export class MyMapsColumnService {
     type: 'editMap',
     width: '5%',
     tooltip: 'Edit map',
+    disableSorting: true,
   };
 
   getColumns(): Column[] {

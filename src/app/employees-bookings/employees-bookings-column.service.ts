@@ -71,6 +71,7 @@ export class EmployeesBookingsColumnService {
   cancelColumn = {
     id: 'cancelButton',
     type: 'cancel',
+    disableSorting: true,
   };
 
   getColumns(status: string): Column[] {

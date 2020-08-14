@@ -53,12 +53,14 @@ export class MyBookingsColumnService {
     id: 'cancelButton',
     type: 'cancel',
     tooltip: 'Cancel booking',
+    disableSorting: true,
   };
 
   rateColumn = {
     id: 'rateButton',
     type: 'rate',
     tooltip: 'Rate booking',
+    disableSorting: true,
   };
 
   getColumns(status: string): Column[] {

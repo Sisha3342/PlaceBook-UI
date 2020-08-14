@@ -56,7 +56,7 @@ export class MapService {
       .set('offset', '0');
 
     if (!officeAddress.country) {
-      return this.http.get<Office[]>('${BASE_API_URL}/offices', {
+      return this.http.get<Office[]>(`${BASE_API_URL}/offices`, {
         params,
       });
     } else if (!officeAddress.city) {
