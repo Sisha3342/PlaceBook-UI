@@ -3,13 +3,13 @@ import { Observable } from 'rxjs';
 import { Booking } from '../models/booking';
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { AuthService } from '../auth/auth.service';
-import { ROLE } from '../models/role';
+import { Role } from '../models/Role';
 
 @Injectable({
   providedIn: 'root',
 })
 export class EmployeesBookingsService {
-  role = ROLE;
+  role = Role;
 
   constructor(private http: HttpClient, private authService: AuthService) {}
 

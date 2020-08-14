@@ -2,7 +2,7 @@ import { Component, Inject } from '@angular/core';
 import { MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { Booking } from '../models/booking';
 import { BookingDetailsService } from './booking-details.service';
-import { STATUS } from '../models/status';
+import { Status } from '../models/Status';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { BookingDetails } from '../models/booking-details';
 import { NgxSpinnerService } from 'ngx-spinner';
@@ -14,7 +14,7 @@ import { NgxSpinnerService } from 'ngx-spinner';
 })
 export class BookingDetailsModalComponent {
   booking: BookingDetails;
-  status = STATUS;
+  status = Status;
 
   constructor(
     @Inject(MAT_DIALOG_DATA) public data: Booking,

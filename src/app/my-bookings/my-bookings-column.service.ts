@@ -1,12 +1,12 @@
 import { Injectable } from '@angular/core';
-import { Column } from '../models/column';
-import { STATUS } from '../models/status';
+import { Column, ColumnId } from '../models/column';
+import { Status } from '../models/Status';
 
 @Injectable({
   providedIn: 'root',
 })
 export class MyBookingsColumnService {
-  status = STATUS;
+  status = Status;
 
   constructor() {}
 

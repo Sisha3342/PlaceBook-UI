@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { Booking } from '../models/booking';
 import { Column } from '../models/column';
 import { EmployeesBookingsColumnService } from './employees-bookings-column.service';
-import { STATUS } from '../models/status';
+import { Status } from '../models/Status';
 import { EmployeesBookingsService } from './employees-bookings.service';
 import { BookingDetailsModalComponent } from '../booking-details-modal/booking-details-modal.component';
 import { MatDialog } from '@angular/material/dialog';
@@ -18,7 +18,7 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 })
 export class EmployeesBookingsComponent {
   displayedBookings: Booking[];
-  status = STATUS;
+  status = Status;
 
   constructor(
     private columnService: EmployeesBookingsColumnService,

@@ -6,8 +6,6 @@
     (matSortChange)="sort($event)"
     class="mat-elevation-z8"
   >
-    <!--Place Column -->
-
     <ng-container *ngFor="let column of columns" [matColumnDef]="column.id">
       <th
         mat-header-cell
