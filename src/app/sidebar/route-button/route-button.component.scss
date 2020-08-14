@@ -7,7 +7,7 @@
 }
 
 .mat-button {
-  margin: var(--secondary-content-margin) auto;
+  margin-top: var(--secondary-content-margin);
   display: flex;
   align-items: center;
   text-decoration: none;
@@ -39,10 +39,12 @@
     width: 6.5rem;
     height: 6.5rem;
   }
+
   .icon-background {
     height: 2.5rem;
     width: 2.5rem;
   }
+
   .mat-icon {
     margin: 0.5rem auto;
     height: 40%;

@@ -1,10 +1,10 @@
 .statistics-container {
   background: var(--secondary-color);
   border-radius: var(--secondary-border-radius);
-  float: left;
   display: block;
   padding: var(--primary-content-padding);
   box-shadow: var(--primary-box-shadow);
+  text-align: center;
 }
 
 .statistics-container .add-booking-container button {
@@ -76,6 +76,14 @@
 }
 
 @media (max-width: 600px) {
+  .statistics-container {
+    text-align: left;
+  }
+
+  .add-booking-container {
+    width: 80vw;
+  }
+
   .statistics-container .statistics-item {
     width: 3rem;
     height: 3rem;
@@ -83,7 +91,6 @@
     box-shadow: var(--primary-box-shadow);
     background: var(--secondary-color);
     padding: var(--secondary-content-padding);
-    text-align: center;
   }
 
   .statistics-item .text-bookings {
