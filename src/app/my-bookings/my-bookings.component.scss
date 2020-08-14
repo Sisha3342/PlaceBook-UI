@@ -1,3 +1,7 @@
+.tab-container {
+  display: table;
+}
+
 .tab-group {
   width: 80%;
   height: 100%;
@@ -9,9 +13,8 @@
 }
 
 .statistics {
-  width: 20%;
-  display: flex;
-  justify-content: center;
+  float: right;
+  margin-bottom: var(--secondary-content-margin);
 }
 
 @media (max-width: 1530px) {
@@ -21,11 +24,7 @@
   }
 
   .statistics {
-    float: inherit;
-    margin-bottom: var(--secondary-content-margin);
+    display: flex;
+    justify-content: center;
   }
-}
-
-.tab-container {
-  display: table;
 }
