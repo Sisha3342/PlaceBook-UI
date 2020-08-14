@@ -3,12 +3,13 @@ import { HttpClient } from '@angular/common/http';
 import { OfficeAddress } from '../models/office-address';
 import { Observable } from 'rxjs';
 import { Office } from '../models/office';
+import { BASE_API_URL } from '../globals';
 
 @Injectable({
   providedIn: 'root',
 })
 export class MapService {
-  urlOffice = 'https://placebookapp.herokuapp.com/office';
+  urlOffice = `${BASE_API_URL}/office`;
 
   constructor(private http: HttpClient) {}
 
@@ -43,17 +44,15 @@ export class MapService {
 
   getOffices(officeAddress: OfficeAddress): Observable<Office[]> {
     if (!officeAddress.country) {
-      return this.http.get<Office[]>(
-        'https://placebookapp.herokuapp.com/offices'
-      );
+      return this.http.get<Office[]>(`${BASE_API_URL}/offices`);
     } else if (!officeAddress.city) {
       return this.http.get<Office[]>(
-        `https://placebookapp.herokuapp.com/countries/${officeAddress.country}/offices`
+        `${BASE_API_URL}/countries/${officeAddress.country}/offices`
       );
     }
 
     return this.http.get<Office[]>(
-      `https://placebookapp.herokuapp.com/countries/${officeAddress.country}/cities/${officeAddress.city}/offices`
+      `${BASE_API_URL}/countries/${officeAddress.country}/cities/${officeAddress.city}/offices`
     );
   }
 }

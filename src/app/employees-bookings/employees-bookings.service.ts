@@ -4,6 +4,7 @@ import { Booking } from '../models/booking';
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { AuthService } from '../auth/auth.service';
 import { ROLE } from '../models/role';
+import { BASE_API_URL } from '../globals';
 
 @Injectable({
   providedIn: 'root',
@@ -18,7 +19,7 @@ export class EmployeesBookingsService {
       this.authService.getCurrentUser().role === this.role.admin ? '/all' : '';
 
     return this.http.get<Booking[]>(
-      `https://placebookapp.herokuapp.com/employees/bookings${adminUrl}`,
+      `${BASE_API_URL}/employees/bookings${adminUrl}`,
       {
         params: new HttpParams().set('status', status),
       }
@@ -26,8 +27,6 @@ export class EmployeesBookingsService {
   }
 
   deleteBooking(id: number): Observable<Booking> {
-    return this.http.delete<Booking>(
-      `https://placebookapp.herokuapp.com/user/booking/${id}`
-    );
+    return this.http.delete<Booking>(`${BASE_API_URL}/user/booking/${id}`);
   }
 }
