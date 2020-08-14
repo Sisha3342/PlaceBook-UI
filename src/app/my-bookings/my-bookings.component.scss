@@ -26,6 +26,10 @@
     float: inherit;
     margin-bottom: var(--secondary-content-margin);
   }
+
+  .tab-group {
+    height: calc(100% - 20rem);
+  }
 }
 
 .tab-container {

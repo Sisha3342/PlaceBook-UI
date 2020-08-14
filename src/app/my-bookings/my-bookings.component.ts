@@ -72,9 +72,9 @@ export class MyBookingsComponent implements OnInit {
   }
 
   deleteBooking(booking: Booking): void {
-    this.spinner.show('deleteSpinner');
+    this.spinner.show('tableSpinner');
     this.myBookingsService.deleteBooking(booking.id).subscribe(() => {
-      this.snackbar.open('Booking was deleted', 'Close', {
+      this.snackbar.open('Booking was canceled', 'Close', {
         verticalPosition: 'top',
         panelClass: 'success',
         duration: 3000,
@@ -82,7 +82,7 @@ export class MyBookingsComponent implements OnInit {
 
       this.setBookings(this.status.active);
       this.stats.setStatistics();
-      this.spinner.hide('deleteSpinner');
+      this.spinner.hide('tableSpinner');
     });
   }
 

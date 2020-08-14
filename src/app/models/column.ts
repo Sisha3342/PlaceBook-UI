@@ -5,6 +5,7 @@ export interface Column {
   type?: string;
   width?: string;
   tooltip?: string;
+  disableSorting?: boolean;
 }
 
 export enum ColumnId {
@@ -16,6 +17,5 @@ export enum ColumnId {
   office = 'ADDRESS',
   userName = 'USER_NAME',
   userSurname = 'USER_SURNAME',
-  userEmail = 'EMAIL',
   userPhoto = 'PHOTO',
 }

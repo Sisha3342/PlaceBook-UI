@@ -36,7 +36,7 @@ export class MyMapsComponent implements OnInit {
   }
 
   editOfficeAddress(data: Office): void {
-    this.spinner.show('officesTableSpinner');
+    this.spinner.show('tableSpinner');
 
     const dialogRef = this.dialog.open(EditMapAddressComponent, {
       width: '30rem',
@@ -49,7 +49,7 @@ export class MyMapsComponent implements OnInit {
         city: undefined,
         address: undefined,
       });
-      this.spinner.hide('officesTableSpinner');
+      this.spinner.hide('tableSpinner');
     });
   }
 
@@ -58,7 +58,7 @@ export class MyMapsComponent implements OnInit {
   }
 
   deleteOfficeAddress(data: Office): void {
-    this.spinner.show('officesTableSpinner');
+    this.spinner.show('tableSpinner');
     const dialogRef = this.dialog.open(DeleteOfficeAddressComponent, { data });
 
     dialogRef.afterClosed().subscribe(() => {
@@ -67,15 +67,15 @@ export class MyMapsComponent implements OnInit {
         city: undefined,
         address: undefined,
       });
-      this.spinner.hide('officesTableSpinner');
+      this.spinner.hide('tableSpinner');
     });
   }
 
   setDisplayedOffices(officeAddress: OfficeAddress): void {
-    this.spinner.show('officesTableSpinner');
+    this.spinner.show('tableSpinner');
     this.mapService.getOffices(officeAddress).subscribe((offices) => {
       this.displayedOffices = offices;
-      this.spinner.hide('officesTableSpinner');
+      this.spinner.hide('tableSpinner');
     });
   }
 

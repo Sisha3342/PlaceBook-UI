@@ -7,7 +7,6 @@ import { Office } from '../models/office';
 import { Sort } from '@angular/material/sort';
 import { Observable } from 'rxjs';
 import { Order } from '../models/Order';
-import { NgxSpinner } from 'ngx-spinner/lib/ngx-spinner.enum';
 import { NgxSpinnerService } from 'ngx-spinner';
 
 @Component({
@@ -77,6 +76,7 @@ export class TableComponent implements OnInit {
 
   sort(event: Sort): void {
     this.spinner.show('tableSpinner');
+
     if (event.direction) {
       this.sortFunction(event.active, this.order[event.direction]).subscribe(
         (data) => {

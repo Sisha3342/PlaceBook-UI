@@ -22,6 +22,7 @@ export class EmployeesBookingsColumnService {
       label: 'Photo',
       field: 'photoUrl',
       type: 'logo',
+      disableSorting: true,
     },
     {
       id: ColumnId.userName,
