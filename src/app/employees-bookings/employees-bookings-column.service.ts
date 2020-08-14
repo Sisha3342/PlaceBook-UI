@@ -1,66 +1,67 @@
 import { Injectable } from '@angular/core';
-import { Column } from '../models/column';
-import { STATUS } from '../models/status';
+import { Column, ColumnId } from '../models/column';
+import { Status } from '../models/Status';
 
 @Injectable({
   providedIn: 'root',
 })
 export class EmployeesBookingsColumnService {
-  status = STATUS;
+  status = Status;
 
   constructor() {}
 
   columns: Column[] = [
     {
-      id: 'place',
+      id: ColumnId.placeNumber,
       label: 'Place No.',
       field: 'placeNumber',
       type: 'booking',
     },
     {
-      id: 'logo',
+      id: ColumnId.userPhoto,
       label: 'Photo',
       field: 'photoUrl',
       type: 'logo',
+      disableSorting: true,
     },
     {
-      id: 'name',
+      id: ColumnId.userName,
       label: 'First Name',
       field: 'userName',
       type: 'text',
     },
     {
-      id: 'surname',
+      id: ColumnId.userSurname,
       label: 'Last Name',
       field: 'userSurname',
       type: 'text',
     },
     {
-      id: 'dateStart',
+      id: ColumnId.dateStart,
       label: 'Date start',
       field: 'timeStart',
       type: 'date',
     },
     {
-      id: 'dateEnd',
+      id: ColumnId.dateEnd,
       label: 'Date end',
       field: 'timeEnd',
       type: 'date',
     },
     {
-      id: 'country',
+      id: ColumnId.country,
       label: 'Country',
       field: 'country',
       type: 'address',
     },
     {
-      id: 'city',
+      id: ColumnId.city,
       label: 'City',
       field: 'city',
       type: 'address',
     },
     {
-      id: 'address',
+      id: ColumnId.office,
       label: 'Address',
       field: 'address',
       type: 'address',
@@ -70,6 +71,7 @@ export class EmployeesBookingsColumnService {
   cancelColumn = {
     id: 'cancelButton',
     type: 'cancel',
+    disableSorting: true,
   };
 
   getColumns(status: string): Column[] {

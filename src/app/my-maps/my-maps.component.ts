@@ -9,6 +9,7 @@ import { OfficeAddress } from '../models/office-address';
 import { EditMapAddressComponent } from './map-address-modal/map-address-modal.component';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { Router } from '@angular/router';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-my-maps',
@@ -18,6 +19,11 @@ import { Router } from '@angular/router';
 })
 export class MyMapsComponent implements OnInit {
   displayedOffices: Office[];
+  sortFunction: (
+    sortBy?: string,
+    order?: string,
+    status?: string
+  ) => Observable<any>;
 
   constructor(
     private mapService: MapService,
@@ -36,7 +42,7 @@ export class MyMapsComponent implements OnInit {
   }
 
   editOfficeAddress(data: Office): void {
-    this.spinner.show('officesTableSpinner');
+    this.spinner.show('tableSpinner');
 
     const dialogRef = this.dialog.open(EditMapAddressComponent, {
       width: '30rem',
@@ -49,7 +55,7 @@ export class MyMapsComponent implements OnInit {
         city: undefined,
         address: undefined,
       });
-      this.spinner.hide('officesTableSpinner');
+      this.spinner.hide('tableSpinner');
     });
   }
 
@@ -58,7 +64,6 @@ export class MyMapsComponent implements OnInit {
   }
 
   deleteOfficeAddress(data: Office): void {
-    this.spinner.show('officesTableSpinner');
     const dialogRef = this.dialog.open(DeleteOfficeAddressComponent, { data });
 
     dialogRef.afterClosed().subscribe(() => {
@@ -67,19 +72,26 @@ export class MyMapsComponent implements OnInit {
         city: undefined,
         address: undefined,
       });
-      this.spinner.hide('officesTableSpinner');
     });
   }
 
   setDisplayedOffices(officeAddress: OfficeAddress): void {
-    this.spinner.show('officesTableSpinner');
+    this.spinner.show('tableSpinner');
     this.mapService.getOffices(officeAddress).subscribe((offices) => {
       this.displayedOffices = offices;
-      this.spinner.hide('officesTableSpinner');
+      this.setSortFunction(officeAddress);
+      this.spinner.hide('tableSpinner');
     });
   }
 
   getColumns(): Column[] {
     return this.columnMapService.getColumns();
+  }
+
+  setSortFunction(officeAddress: OfficeAddress): any {
+    this.sortFunction = this.mapService.getOffices.bind(
+      this.mapService,
+      officeAddress
+    );
   }
 }

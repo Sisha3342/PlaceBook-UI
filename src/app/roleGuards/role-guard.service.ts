@@ -6,14 +6,14 @@ import {
   Router,
 } from '@angular/router';
 import { AuthService } from '../auth/auth.service';
-import { ROLE } from '../models/role';
+import { Role } from '../models/Role';
 
 @Injectable({
   providedIn: 'root',
 })
 export class RoleGuard implements CanActivate {
   currentRole: string;
-  role = ROLE;
+  role = Role;
 
   constructor(
     @Inject(AuthService) private auth: AuthService,

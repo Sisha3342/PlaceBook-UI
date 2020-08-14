@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthService } from '../auth/auth.service';
-import { ROLE } from '../models/role';
+import { Role } from '../models/Role';
 import {
   RouteButton,
   myBookingsButton,
@@ -17,7 +17,7 @@ import {
 })
 export class SidebarComponent implements OnInit {
   currentRole: string;
-  role = ROLE;
+  role = Role;
 
   constructor(private router: Router, private authService: AuthService) {}
 

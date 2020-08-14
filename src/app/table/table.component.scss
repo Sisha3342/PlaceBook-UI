@@ -24,7 +24,7 @@ td.mat-cell {
 
 .mat-header-cell,
 .mat-cell:not(:first-child) {
-  text-align: center;
+  text-align: left;
 }
 
 tr.mat-row:hover {
@@ -51,7 +51,7 @@ tr.mat-row:hover {
 .logo-container {
   width: 4rem;
   height: 4rem;
-  margin: 1rem auto;
+  margin: 1rem 0;
   border-radius: 50%;
   overflow: hidden;
 }

@@ -21,7 +21,6 @@ import * as moment from 'moment';
 })
 export class BookComponent implements OnInit {
   @Input() showFloor: boolean;
-  userId = this.authService.getCurrentUser().id;
   currentFloor: Floor;
   currentPlace: Place;
   currentOffice: Office;
@@ -87,7 +86,7 @@ export class BookComponent implements OnInit {
 
     this.bookService
       .book(
-        this.userId,
+        this.authService.getCurrentUser().id,
         this.currentPlace.placeId,
         moment(this.dateRange.value.start).format(this.dateFormat),
         moment(this.dateRange.value.end).format(this.dateFormat)
