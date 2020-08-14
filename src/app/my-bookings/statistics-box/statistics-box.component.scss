@@ -63,7 +63,7 @@
 
   .statistics-container .statistics-item {
     display: inline-block;
-    margin: 2rem 1rem 1rem 1rem;
+    margin: 1rem;
   }
 
   .statistics-container .add-booking-container {
@@ -75,26 +75,13 @@
   }
 }
 
-@media (max-width: 862px) {
-  .statistics-container .add-booking-container button {
-    margin-top: 1rem;
-  }
-  .statistics-container {
-    width: 20rem;
-  }
-}
-
 @media (max-width: 600px) {
-  .statistics-container {
-    width: 100%;
-  }
   .statistics-container .statistics-item {
     width: 3rem;
     height: 3rem;
     border-radius: var(--secondary-border-radius);
     box-shadow: var(--primary-box-shadow);
     background: var(--secondary-color);
-
     padding: var(--secondary-content-padding);
     text-align: center;
   }

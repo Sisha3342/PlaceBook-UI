@@ -10,18 +10,7 @@ mat-sidenav {
   box-shadow: var(--primary-box-shadow);
 }
 
-.table-container {
-  min-width: 50rem;
-}
-
-// @media only screen and (min-width: 600px) {
-//   mat-sidenav {
-//     top: 0;
-//     height: 100vh;
-//   }
-// }
-
-@media only screen and (max-width: 600px) and (max-width: 700px) {
+@media only screen and (max-width: 600px) {
   app-sidebar {
     display: flex;
     justify-content: space-between;

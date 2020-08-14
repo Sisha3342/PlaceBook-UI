@@ -25,6 +25,13 @@
 
   .statistics {
     display: flex;
-    justify-content: center;
+    justify-content: space-around;
+  }
+}
+
+@media (max-width: 600px) {
+  .statistics {
+    display: flex;
+    justify-content: start;
   }
 }
