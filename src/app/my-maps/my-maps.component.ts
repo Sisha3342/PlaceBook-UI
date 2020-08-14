@@ -64,7 +64,6 @@ export class MyMapsComponent implements OnInit {
   }
 
   deleteOfficeAddress(data: Office): void {
-    this.spinner.show('tableSpinner');
     const dialogRef = this.dialog.open(DeleteOfficeAddressComponent, { data });
 
     dialogRef.afterClosed().subscribe(() => {
@@ -73,7 +72,6 @@ export class MyMapsComponent implements OnInit {
         city: undefined,
         address: undefined,
       });
-      this.spinner.hide('tableSpinner');
     });
   }
 
