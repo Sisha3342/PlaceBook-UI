@@ -11,7 +11,6 @@
   display: flex;
   align-items: center;
   text-decoration: none;
-  //display: block;
   border-radius: var(--secondary-border-radius);
   border: var(--primary-border);
   width: 8rem;
@@ -32,4 +31,20 @@
   margin: 0 auto 0.7rem auto;
   border-radius: 50%;
   background-color: var(--primary-color);
+}
+
+@media only screen and (max-width: 600px) {
+  .mat-button {
+    margin: 1rem 0.5rem;
+    width: 6.5rem;
+    height: 6.5rem;
+  }
+  .icon-background {
+    height: 2.5rem;
+    width: 2.5rem;
+  }
+  .mat-icon {
+    margin: 0.5rem auto;
+    height: 40%;
+  }
 }

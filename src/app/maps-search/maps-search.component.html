@@ -1,15 +1,15 @@
 <table>
   <tr>
     <td>
-      <mat-form-field appearance="fill" class="input-item">
+      <mat-form-field appearance="fill"
+                      class="input-item">
         <mat-label>Country</mat-label>
-        <mat-select
-          #countrySelect="matSelect"
-          (selectionChange)="setCities($event.value, selectCity)"
-        >
+        <mat-select #countrySelect="matSelect"
+                    (selectionChange)="setCities($event.value, selectCity)">
           <app-spinner [name]="'showCountriesSpinner'"></app-spinner>
           <mat-option>None</mat-option>
-          <mat-option *ngFor="let country of countries" [value]="country">{{
+          <mat-option *ngFor="let country of countries"
+                      [value]="country">{{
             country
           }}</mat-option>
         </mat-select>
@@ -17,15 +17,15 @@
     </td>
 
     <td>
-      <mat-form-field appearance="fill" class="input-item">
+      <mat-form-field appearance="fill"
+                      class="input-item">
         <mat-label>City</mat-label>
-        <mat-select
-          #selectCity="matSelect"
-          (selectionChange)="setOffices(countrySelect.value, $event.value)"
-        >
+        <mat-select #selectCity="matSelect"
+                    (selectionChange)="setOffices(countrySelect.value, $event.value)">
           <app-spinner [name]="'showCitiesSpinner'"></app-spinner>
           <mat-option>None</mat-option>
-          <mat-option *ngFor="let city of cities" [value]="city">{{
+          <mat-option *ngFor="let city of cities"
+                      [value]="city">{{
             city
           }}</mat-option>
         </mat-select>
@@ -33,12 +33,14 @@
     </td>
 
     <td>
-      <mat-form-field appearance="fill" class="input-item">
+      <mat-form-field appearance="fill"
+                      class="input-item">
         <mat-label>Address</mat-label>
         <mat-select (selectionChange)="setFloors($event.value)">
           <app-spinner [name]="'showOfficesSpinner'"></app-spinner>
           <mat-option>None</mat-option>
-          <mat-option *ngFor="let office of offices" [value]="office">{{
+          <mat-option *ngFor="let office of offices"
+                      [value]="office">{{
             office.address.address
           }}</mat-option>
         </mat-select>
@@ -46,12 +48,14 @@
     </td>
 
     <td *ngIf="showFloor">
-      <mat-form-field appearance="fill" class="input-item">
+      <mat-form-field appearance="fill"
+                      class="input-item">
         <mat-label>Floor</mat-label>
         <mat-select (selectionChange)="changeFloor.emit($event.value)">
           <app-spinner [name]="'showFloorsSpinner'"></app-spinner>
           <mat-option>None</mat-option>
-          <mat-option *ngFor="let floor of floors" [value]="floor">{{
+          <mat-option *ngFor="let floor of floors"
+                      [value]="floor">{{
             floor.floorNumber
           }}</mat-option>
         </mat-select>
@@ -60,7 +64,9 @@
 
     <td *ngIf="!showFloor">
       <div class="add-map-container">
-        <button mat-raised-button color="primary" (click)="addNewOffice()">
+        <button mat-raised-button
+                color="primary"
+                (click)="addNewOffice()">
           Add Map
         </button>
       </div>

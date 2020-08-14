@@ -14,15 +14,13 @@
 .booking-container .place-panel {
   width: 22rem;
   height: 100%;
-  float: right;
   display: inline-block;
   position: relative;
 }
 
-.place{
+.place {
   height: 20rem;
 }
-
 
 .place-panel {
   background: white;
@@ -59,4 +57,20 @@ mat-form-field {
   margin: 2rem 1rem 1rem 1rem;
   width: 6rem;
   height: 3rem;
+}
+
+@media only screen and (max-width: 1169px) {
+  .booking-container .place-panel {
+    width: 40%;
+    height: 20rem;
+    display: inline-block;
+    position: absolute;
+    top: 0.5rem;
+    right: 4rem;
+  }
+
+  .booking-container .map-grid {
+    display: block;
+    width: 100%;
+  }
 }
