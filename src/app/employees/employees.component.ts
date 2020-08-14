@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { User } from '../models/user';
-import { NgxSpinnerService } from 'ngx-spinner';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-employees',
@@ -10,7 +10,7 @@ import { NgxSpinnerService } from 'ngx-spinner';
 export class EmployeesComponent implements OnInit {
   users: User[];
 
-  constructor(private spinner: NgxSpinnerService) {}
+  constructor() {}
 
   ngOnInit(): void {}
 }

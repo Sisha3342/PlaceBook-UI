@@ -1,11 +1,10 @@
 <div class="tab-container">
-  <app-search [(filteredUsers)]="users"></app-search>
+  <app-search [(users)]="users"></app-search>
   <app-spinner [name]="'employeeSpinner'"></app-spinner>
 
   <div class="grid">
-    <div *ngFor="let employee of users | async">
+    <div *ngFor="let employee of users">
       <app-employee-card [employee]="employee"></app-employee-card>
     </div>
   </div>
-
 </div>
