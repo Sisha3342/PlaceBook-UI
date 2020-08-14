@@ -17,16 +17,12 @@
   margin-bottom: var(--secondary-content-margin);
 }
 
-@media (max-width: 1530px) {
+@media (max-width: 1335px) {
   .tab-group,
   .statistics {
+    display: inline-block;
     width: 100%;
   }
-
-  // .statistics {
-  //   // display: flex;
-  //   justify-content: space-around;
-  // }
 }
 
 @media (max-width: 600px) {
