@@ -9,6 +9,7 @@ import { OfficeAddress } from '../models/office-address';
 import { EditMapAddressComponent } from './map-address-modal/map-address-modal.component';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { Router } from '@angular/router';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-my-maps',
@@ -18,6 +19,11 @@ import { Router } from '@angular/router';
 })
 export class MyMapsComponent implements OnInit {
   displayedOffices: Office[];
+  sortFunction: (
+    sortBy?: string,
+    order?: string,
+    status?: string
+  ) => Observable<any>;
 
   constructor(
     private mapService: MapService,
@@ -75,11 +81,19 @@ export class MyMapsComponent implements OnInit {
     this.spinner.show('tableSpinner');
     this.mapService.getOffices(officeAddress).subscribe((offices) => {
       this.displayedOffices = offices;
+      this.setSortFunction(officeAddress);
       this.spinner.hide('tableSpinner');
     });
   }
 
   getColumns(): Column[] {
     return this.columnMapService.getColumns();
+  }
+
+  setSortFunction(officeAddress: OfficeAddress): any {
+    this.sortFunction = this.mapService.getOffices.bind(
+      this.mapService,
+      officeAddress
+    );
   }
 }
