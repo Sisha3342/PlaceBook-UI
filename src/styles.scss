@@ -41,8 +41,10 @@ body {
   padding: 2rem 4rem 0 4rem;
 }
 
-.table-container {
-  min-width: 50rem;
+@media only screen and (max-width: 600px) {
+  .tab-container {
+    padding: 1rem;
+  }
 }
 
 .mat-snack-bar-container {
@@ -57,3 +59,15 @@ body {
 .mat-simple-snackbar-action {
   color: white;
 }
+
+// body::-webkit-scrollbar {
+//   width: 0.25rem;
+// }
+
+// body::-webkit-scrollbar-track {
+//   background: var(--primary-box-shadow);
+// }
+
+// body::-webkit-scrollbar-thumb {
+//   background: var(--active-booking-color);
+// }
