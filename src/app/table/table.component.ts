@@ -5,6 +5,10 @@ import { Column } from '../models/column';
 import { Booking } from '../models/booking';
 import { Office } from '../models/office';
 import { Sort } from '@angular/material/sort';
+import { Observable } from 'rxjs';
+import { Order } from '../models/Order';
+import { NgxSpinner } from 'ngx-spinner/lib/ngx-spinner.enum';
+import { NgxSpinnerService } from 'ngx-spinner';
 
 @Component({
   selector: 'app-table',
@@ -12,6 +16,7 @@ import { Sort } from '@angular/material/sort';
   styleUrls: ['./table.component.scss'],
 })
 export class TableComponent implements OnInit {
+  order = Order;
   @Input() data;
   @Input() status: string;
   @Input() columns: Column[];
@@ -21,7 +26,13 @@ export class TableComponent implements OnInit {
   @Output() openDelete = new EventEmitter();
   @Output() openEditMap = new EventEmitter<Office>();
 
-  constructor(public dialog: MatDialog) {}
+  @Input() sortFunction: (
+    sortBy?: string,
+    order?: string,
+    status?: string
+  ) => Observable<any>;
+
+  constructor(public dialog: MatDialog, private spinner: NgxSpinnerService) {}
 
   ngOnInit(): void {}
 
@@ -65,6 +76,21 @@ export class TableComponent implements OnInit {
   }
 
   sort(event: Sort): void {
-    console.log(event);
+    this.spinner.show('tableSpinner');
+    if (event.direction) {
+      this.sortFunction(event.active, this.order[event.direction]).subscribe(
+        (data) => {
+          this.data = data;
+
+          // this.spinner.hide('tableSpinner');
+        }
+      );
+    } else {
+      this.sortFunction().subscribe((data) => {
+        this.data = data;
+
+        // this.spinner.hide('tableSpinner');
+      });
+    }
   }
 }

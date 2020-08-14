@@ -18,6 +18,7 @@
           [columns]="getColumns(status.active)"
           [openDetails]="openBookingDetailsModal"
           (openDelete)="openCancelDialog($event)"
+          [sortFunction]="getSortFunction(status.active)"
         ></app-table>
       </mat-tab>
 
@@ -27,6 +28,7 @@
           [status]="status.completed"
           [columns]="getColumns(status.completed)"
           [openDetails]="openBookingDetailsModal"
+          [sortFunction]="getSortFunction(status.completed)"
         ></app-table>
       </mat-tab>
 
@@ -36,6 +38,7 @@
           [status]="status.canceled"
           [columns]="getColumns(status.canceled)"
           [openDetails]="openBookingDetailsModal"
+          [sortFunction]="getSortFunction(status.canceled)"
         ></app-table>
       </mat-tab>
     </mat-tab-group>

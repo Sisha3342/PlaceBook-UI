@@ -73,18 +73,24 @@ export class MyBookingsComponent implements OnInit {
 
   deleteBooking(booking: Booking): void {
     this.spinner.show('deleteSpinner');
-    this.myBookingsService
-      .deleteBooking(booking.id)
-      .subscribe((removedBooking) => {
-        this.snackbar.open('Booking was deleted', 'Close', {
-          verticalPosition: 'top',
-          panelClass: 'success',
-          duration: 3000,
-        });
-
-        this.setBookings(this.status.active);
-        this.stats.setStatistics();
-        this.spinner.hide('deleteSpinner');
+    this.myBookingsService.deleteBooking(booking.id).subscribe(() => {
+      this.snackbar.open('Booking was deleted', 'Close', {
+        verticalPosition: 'top',
+        panelClass: 'success',
+        duration: 3000,
       });
+
+      this.setBookings(this.status.active);
+      this.stats.setStatistics();
+      this.spinner.hide('deleteSpinner');
+    });
+  }
+
+  getSortFunction(status: string): any {
+    return this.myBookingsService.getBookings.bind(
+      this.authService,
+      this.authService.getCurrentUser().id,
+      status
+    );
   }
 }
