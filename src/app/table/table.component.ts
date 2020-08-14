@@ -82,14 +82,14 @@ export class TableComponent implements OnInit {
         (data) => {
           this.data = data;
 
-          // this.spinner.hide('tableSpinner');
+          this.spinner.hide('tableSpinner');
         }
       );
     } else {
       this.sortFunction().subscribe((data) => {
         this.data = data;
 
-        // this.spinner.hide('tableSpinner');
+        this.spinner.hide('tableSpinner');
       });
     }
   }

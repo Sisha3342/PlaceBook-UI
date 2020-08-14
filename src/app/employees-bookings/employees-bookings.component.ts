@@ -78,4 +78,11 @@ export class EmployeesBookingsComponent {
       data: booking,
     });
   }
+
+  getSortFunction(status: string): any {
+    return this.employeesBookingsService.getBookings.bind(
+      this.employeesBookingsService,
+      status
+    );
+  }
 }

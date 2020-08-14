@@ -88,7 +88,7 @@ export class MyBookingsComponent implements OnInit {
 
   getSortFunction(status: string): any {
     return this.myBookingsService.getBookings.bind(
-      this.authService,
+      this.myBookingsService,
       this.authService.getCurrentUser().id,
       status
     );

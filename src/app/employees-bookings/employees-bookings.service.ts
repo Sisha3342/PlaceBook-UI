@@ -4,6 +4,8 @@ import { Booking } from '../models/booking';
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { AuthService } from '../auth/auth.service';
 import { Role } from '../models/Role';
+import { ColumnId } from '../models/column';
+import { Order } from '../models/Order';
 
 @Injectable({
   providedIn: 'root',
@@ -13,14 +15,23 @@ export class EmployeesBookingsService {
 
   constructor(private http: HttpClient, private authService: AuthService) {}
 
-  getBookings(status: string): Observable<Booking[]> {
+  getBookings(
+    status: string,
+    sortBy: string = ColumnId.dateStart,
+    order: string = Order.asc
+  ): Observable<Booking[]> {
     const adminUrl =
       this.authService.getCurrentUser().role === this.role.admin ? '/all' : '';
 
     return this.http.get<Booking[]>(
       `https://placebookapp.herokuapp.com/employees/bookings${adminUrl}`,
       {
-        params: new HttpParams().set('status', status),
+        params: new HttpParams()
+          .set('status', status)
+          .set('order', order)
+          .set('bookingSort', sortBy)
+          .set('limit', '1000')
+          .set('offset', '0'),
       }
     );
   }
