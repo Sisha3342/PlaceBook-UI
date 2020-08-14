@@ -12,37 +12,37 @@ export class MyBookingsColumnService {
 
   columns: Column[] = [
     {
-      id: 'place',
+      id: ColumnId.placeNumber,
       label: 'Place No.',
       field: 'placeNumber',
       type: 'booking',
     },
     {
-      id: 'dateStart',
+      id: ColumnId.dateStart,
       label: 'Date start',
       field: 'timeStart',
       type: 'date',
     },
     {
-      id: 'dateEnd',
+      id: ColumnId.dateEnd,
       label: 'Date end',
       field: 'timeEnd',
       type: 'date',
     },
     {
-      id: 'country',
+      id: ColumnId.country,
       label: 'Country',
       field: 'country',
       type: 'address',
     },
     {
-      id: 'city',
+      id: ColumnId.city,
       label: 'City',
       field: 'city',
       type: 'address',
     },
     {
-      id: 'address',
+      id: ColumnId.office,
       label: 'Address',
       field: 'address',
       type: 'address',

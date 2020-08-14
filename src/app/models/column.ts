@@ -17,4 +17,5 @@ export enum ColumnId {
   userName = 'USER_NAME',
   userSurname = 'USER_SURNAME',
   userEmail = 'EMAIL',
+  userPhoto = 'PHOTO',
 }
