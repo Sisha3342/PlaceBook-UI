@@ -13,7 +13,7 @@ import { Router } from '@angular/router';
 import { NgxSpinnerService } from 'ngx-spinner';
 import * as moment from 'moment';
 import { BookingBlock } from '../models/booking-block';
-import { forkJoin, Observable } from 'rxjs';
+import { Observable } from 'rxjs';
 import { MapObjectService } from '../map-editor/map-tools/map-object/map-object.service';
 
 @Component({
