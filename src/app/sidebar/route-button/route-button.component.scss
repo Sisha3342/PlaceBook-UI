@@ -50,3 +50,24 @@
     height: 40%;
   }
 }
+
+@media only screen and (max-width: 414px) {
+  .mat-button {
+    margin: 0.25rem 1rem;
+    width: 2.5rem;
+    height: 2.5rem;
+    font-size: 0px;
+  }
+
+  .icon-background {
+    height: 1.5rem;
+    width: 1.5rem;
+    font-size: inherit;
+    margin-top: 1.5rem;
+  }
+
+  .mat-icon {
+    margin: 0.2rem auto;
+    height: 40%;
+  }
+}
