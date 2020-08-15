@@ -52,10 +52,12 @@ export class BookComponent implements OnInit {
         floorRequestConfig
       );
 
-      this.getPlacesObservable(
-        this.currentFloor.id,
-        this.dateRange
-      ).subscribe((places) => this.setPlaces(places));
+      this.getPlacesObservable(this.currentFloor.id, this.dateRange).subscribe(
+        (places) => {
+          this.setPlaces(places);
+          this.currentPlace = undefined;
+        }
+      );
     } else {
       this.currentFloor = undefined;
       this.currentPlace = undefined;
@@ -71,10 +73,12 @@ export class BookComponent implements OnInit {
     this.showTimer = false;
 
     if (this.currentFloor) {
-      this.getPlacesObservable(
-        this.currentFloor.id,
-        this.dateRange
-      ).subscribe((places) => this.setPlaces(places));
+      this.getPlacesObservable(this.currentFloor.id, this.dateRange).subscribe(
+        (places) => {
+          this.setPlaces(places);
+          this.currentPlace = undefined;
+        }
+      );
     }
   }
 
@@ -88,6 +92,7 @@ export class BookComponent implements OnInit {
           this.tryBooking(place);
         } else {
           this.currentPlace = place;
+          this.showTimer = false;
         }
       }
     );
@@ -128,7 +133,6 @@ export class BookComponent implements OnInit {
 
   setPlaces(places): void {
     this.places = places;
-    this.currentPlace = undefined;
   }
 
   addBooking(): void {
@@ -159,10 +163,12 @@ export class BookComponent implements OnInit {
     });
 
     this.showTimer = false;
-    this.getPlacesObservable(
-      this.currentFloor.id,
-      this.dateRange
-    ).subscribe((places) => this.setPlaces(places));
+    this.getPlacesObservable(this.currentFloor.id, this.dateRange).subscribe(
+      (places) => {
+        this.setPlaces(places);
+        this.currentPlace = undefined;
+      }
+    );
   }
 
   subscribe(): void {
