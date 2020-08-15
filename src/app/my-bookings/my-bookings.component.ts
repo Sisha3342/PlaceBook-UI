@@ -56,7 +56,6 @@ export class MyBookingsComponent implements OnInit {
   openBookingDetailsModal(event: Event, booking: Booking): void {
     this.dialog.open(BookingDetailsModalComponent, {
       width: '30rem',
-      height: '23rem',
       data: booking,
     });
   }

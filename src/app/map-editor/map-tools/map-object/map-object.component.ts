@@ -34,17 +34,10 @@ export class MapObjectComponent implements OnInit, OnChanges {
   ngOnInit(): void {}
 
   ngOnChanges(changes: SimpleChanges): void {
-    this.place = this.findPlace(this.neighborPlaces, this.object.number);
-  }
-
-  findPlace(places: Place[], placeNumber: string): Place {
-    if (placeNumber && places) {
-      return places.find((place) => {
-        return place.placeNumber === placeNumber;
-      });
-    }
-
-    return undefined;
+    this.place = this.mapObjectService.findPlace(
+      this.neighborPlaces,
+      this.object.number
+    );
   }
 
   getFontSize(): number {

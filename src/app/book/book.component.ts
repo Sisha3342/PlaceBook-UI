@@ -12,6 +12,9 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
 import { NgxSpinnerService } from 'ngx-spinner';
 import * as moment from 'moment';
+import { BookingBlock } from '../models/booking-block';
+import { forkJoin, Observable } from 'rxjs';
+import { MapObjectService } from '../map-editor/map-tools/map-object/map-object.service';
 
 @Component({
   selector: 'app-book',
@@ -26,8 +29,9 @@ export class BookComponent implements OnInit {
   currentOffice: Office;
   dateRange: FormGroup;
   places: Place[];
-
   dateFormat = 'YYYY-MM-DD[T]HH:mm:ss';
+
+  timerValue: number;
   showTimer = false;
 
   constructor(
@@ -36,7 +40,8 @@ export class BookComponent implements OnInit {
     private authService: AuthService,
     private snackbar: MatSnackBar,
     private route: Router,
-    private spinner: NgxSpinnerService
+    private spinner: NgxSpinnerService,
+    private mapObjectService: MapObjectService
   ) {}
 
   ngOnInit(): void {}
@@ -47,7 +52,10 @@ export class BookComponent implements OnInit {
         floorRequestConfig
       );
 
-      this.setPlaces(this.currentFloor.id, this.dateRange);
+      this.getPlacesObservable(
+        this.currentFloor.id,
+        this.dateRange
+      ).subscribe((places) => this.setPlaces(places));
     } else {
       this.currentFloor = undefined;
       this.currentPlace = undefined;
@@ -60,45 +68,67 @@ export class BookComponent implements OnInit {
 
   changeDateRange(dateRange: FormGroup): void {
     this.dateRange = dateRange;
+    this.showTimer = false;
 
     if (this.currentFloor) {
-      this.setPlaces(this.currentFloor.id, this.dateRange);
+      this.getPlacesObservable(
+        this.currentFloor.id,
+        this.dateRange
+      ).subscribe((places) => this.setPlaces(places));
     }
   }
 
   getPlaceInfo(place: Place): void {
-    if (!place.occupied) {
-      this.bookService
-        .tryToBook(place.placeId)
-        .subscribe((canBook: boolean) => {
-          if (canBook) {
-            this.showTimer = true;
-            this.currentPlace = place;
-          } else {
-            this.snackbar.open('This place is in booking process', 'Close', {
-              verticalPosition: 'top',
-              duration: 3000,
-            });
+    this.getPlacesObservable(this.currentFloor.id, this.dateRange).subscribe(
+      (places) => {
+        this.setPlaces(places);
+        place = this.mapObjectService.findPlace(places, place.placeNumber);
 
-            this.setPlaces(this.currentFloor.id, this.dateRange);
-          }
-        });
-    } else {
-      this.currentPlace = place;
-    }
+        if (!place.occupied) {
+          this.tryBooking(place);
+        } else {
+          this.currentPlace = place;
+        }
+      }
+    );
   }
 
-  setPlaces(floorId: number, dateRange: FormGroup): void {
+  tryBooking(place: Place): void {
     this.bookService
-      .getPlaces(
-        floorId,
-        moment(dateRange.value.start).format(this.dateFormat),
-        moment(dateRange.value.end).format(this.dateFormat)
-      )
-      .subscribe((places) => {
-        this.places = places;
-        this.currentPlace = undefined;
+      .tryToBook(place.placeId, this.authService.getCurrentUser().id)
+      .subscribe((block: BookingBlock) => {
+        if (block.userId === this.authService.getCurrentUser().id) {
+          this.timerValue = 60;
+          this.showTimer = true;
+
+          this.currentPlace = place;
+        } else {
+          this.snackbar.open(
+            "This place is under another user's reservation",
+            'Close',
+            {
+              verticalPosition: 'top',
+              duration: 3000,
+            }
+          );
+        }
       });
+  }
+
+  getPlacesObservable(
+    floorId: number,
+    dateRange: FormGroup
+  ): Observable<Place[]> {
+    return this.bookService.getPlaces(
+      floorId,
+      moment(dateRange.value.start).format(this.dateFormat),
+      moment(dateRange.value.end).format(this.dateFormat)
+    );
+  }
+
+  setPlaces(places): void {
+    this.places = places;
+    this.currentPlace = undefined;
   }
 
   addBooking(): void {
@@ -117,7 +147,6 @@ export class BookComponent implements OnInit {
           panelClass: 'success',
         });
 
-        this.setPlaces(this.currentFloor.id, this.dateRange);
         this.route.navigate(['/my_bookings']);
         this.spinner.hide('addBookingSpinner');
       });
@@ -130,10 +159,15 @@ export class BookComponent implements OnInit {
     });
 
     this.showTimer = false;
-    this.setPlaces(this.currentFloor.id, this.dateRange);
+    this.getPlacesObservable(
+      this.currentFloor.id,
+      this.dateRange
+    ).subscribe((places) => this.setPlaces(places));
   }
 
   subscribe(): void {
-    this.bookService.subscribe(this.currentPlace.placeId).subscribe();
+    this.bookService.subscribe(this.currentPlace.placeId).subscribe(() => {
+      this.route.navigate(['/my_bookings']);
+    });
   }
 }

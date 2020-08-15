@@ -57,6 +57,7 @@ import { InterceptorService } from './interceptor.service';
 import { MatSortModule } from '@angular/material/sort';
 import { ErrorHandlerService } from './error-handler/error-handler.service';
 import { BookTimerComponent } from './book/book-timer/book-timer.component';
+import { MatChipsModule } from '@angular/material/chips';
 
 @NgModule({
   declarations: [
@@ -113,6 +114,7 @@ import { BookTimerComponent } from './book/book-timer/book-timer.component';
     OverlayModule,
     NgxSpinnerModule,
     MatSortModule,
+    MatChipsModule,
   ],
   providers: [
     Overlay,

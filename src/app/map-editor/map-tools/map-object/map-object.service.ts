@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { MapObject } from '../../map-model/map-object';
 import { Type } from '../../map-model/Type';
+import { Place } from '../../../models/place';
 
 @Injectable({
   providedIn: 'root',
@@ -24,5 +25,15 @@ export class MapObjectService {
     }
 
     return {};
+  }
+
+  findPlace(places: Place[], placeNumber: string): Place {
+    if (placeNumber && places) {
+      return places.find((place) => {
+        return place.placeNumber === placeNumber;
+      });
+    }
+
+    return undefined;
   }
 }

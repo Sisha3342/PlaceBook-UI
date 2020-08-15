@@ -1,14 +1,10 @@
 .timer-container {
-  text-align: center;
-}
-
-.mat-progress-spinner {
-  margin: auto;
-}
-
-.timer-value {
+  display: inline-block;
+  float: left;
   position: relative;
-  top: 4.5rem;
-  font-weight: bold;
-  font-size: 2rem;
+  top: 0.5rem;
+}
+
+.timer-container mat-icon {
+  padding-right: 0.3rem;
 }

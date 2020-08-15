@@ -7,20 +7,21 @@ import { timer } from 'rxjs';
   styleUrls: ['./book-timer.component.scss'],
 })
 export class BookTimerComponent implements OnInit {
-  startTimerValue = 5;
-  currentTimerValue = this.startTimerValue;
-
+  @Input() timerValue;
+  @Output() timerValueChange = new EventEmitter<number>();
   @Output() stopBooking = new EventEmitter<void>();
 
   constructor() {}
 
   ngOnInit(): void {
-    timer(0, 1000).subscribe((value) => {
-      this.currentTimerValue = this.startTimerValue - value;
+    timer(0, 1000).subscribe(() => {
+      this.timerValue -= 1;
 
-      if (!this.currentTimerValue) {
+      if (!this.timerValue) {
         this.stopBooking.emit();
       }
+
+      this.timerValueChange.emit(this.timerValue);
     });
   }
 }
