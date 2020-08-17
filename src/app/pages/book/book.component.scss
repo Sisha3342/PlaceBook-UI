@@ -74,14 +74,6 @@ mat-form-field {
     position: sticky;
   }
 
-  button {
-    position: sticky;
-  }
-
-  button:focus {
-    opacity: 1;
-  }
-
   .booking-container .map-grid {
     display: block;
     width: 100%;
@@ -92,8 +84,12 @@ mat-form-field {
   .booking-container .place-panel {
     right: 1rem;
     height: 20rem;
+    font-size: 50%;
   }
 
+  .td {
+    font-size: 50%;
+  }
   .booking-screen {
     width: calc(100% - 2rem);
     padding: 0 1rem;
