@@ -13,7 +13,6 @@ mat-card-content {
   padding: var(--secondary-content-padding);
   width: 20rem;
   margin: 10rem auto;
-  width: calc(100vw - 6rem);
 }
 
 .logo {
@@ -31,4 +30,10 @@ button#login-button {
   border-radius: var(--primary-border-radius);
   background-color: #3f51b5;
   margin: 0 auto;
+}
+
+@media only screen and (max-width: 414px) {
+  mat-card-content {
+    width: calc(80vw - 6rem);
+  }
 }
