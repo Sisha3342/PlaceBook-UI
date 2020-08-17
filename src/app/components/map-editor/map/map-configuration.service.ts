@@ -7,8 +7,8 @@ import {
   GridsterItem,
   GridType,
 } from 'angular-gridster2';
-import { MapObject } from '../map-model/map-object';
-import { Safe } from '../map-model/safe';
+import { MapObject } from '../../../models/map-model/map-object';
+import { Safe } from '../../../models/map-model/safe';
 
 @Injectable({
   providedIn: 'root',

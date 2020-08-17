@@ -1,4 +1,4 @@
-import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
+import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { Floor } from '../../../models/floor';
 import { FloorService } from './floor.service';
 
@@ -7,7 +7,7 @@ import { FloorService } from './floor.service';
   templateUrl: './floor-panel.component.html',
   styleUrls: ['./floor-panel.component.scss'],
 })
-export class FloorPanelComponent implements OnInit {
+export class FloorPanelComponent {
   @Input() floors;
   @Input() currentFloor;
 
@@ -19,8 +19,6 @@ export class FloorPanelComponent implements OnInit {
   initHeight = 10;
 
   constructor(private floorService: FloorService) {}
-
-  ngOnInit(): void {}
 
   addEmptyFloor(): void {
     const newFloor = this.floorService.getNewFloor(

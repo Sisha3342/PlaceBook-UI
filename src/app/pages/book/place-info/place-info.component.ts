@@ -1,10 +1,4 @@
-import {
-  Component,
-  Input,
-  OnChanges,
-  OnInit,
-  SimpleChanges,
-} from '@angular/core';
+import { Component, Input, OnChanges, SimpleChanges } from '@angular/core';
 import { Place } from '../../../models/place';
 import { BookingMark } from '../../../models/booking-mark';
 import { PlaceInfoService } from './place-info.service';
@@ -19,7 +13,7 @@ import * as moment from 'moment';
   templateUrl: './place-info.component.html',
   styleUrls: ['./place-info.component.scss'],
 })
-export class PlaceInfoComponent implements OnInit, OnChanges {
+export class PlaceInfoComponent implements OnChanges {
   headers = ['date', 'name'];
   @Input() place: Place;
   @Input() dateRange: FormGroup;
@@ -31,8 +25,6 @@ export class PlaceInfoComponent implements OnInit, OnChanges {
     private placeService: PlaceInfoService,
     private spinner: NgxSpinnerService
   ) {}
-
-  ngOnInit(): void {}
 
   ngOnChanges(changes: SimpleChanges): void {
     this.spinner.show('placeInfoSpinner');

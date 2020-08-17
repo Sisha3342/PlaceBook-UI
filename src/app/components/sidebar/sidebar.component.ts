@@ -8,7 +8,7 @@ import {
   employeesBookingsButton,
   employeesButton,
   myMapsButton,
-} from './route-button/route-buttons';
+} from '../../models/route-buttons';
 
 @Component({
   selector: 'app-sidebar',

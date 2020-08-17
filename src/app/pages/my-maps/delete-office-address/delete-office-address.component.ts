@@ -1,4 +1,4 @@
-import { Component, OnInit, Inject } from '@angular/core';
+import { Component, Inject } from '@angular/core';
 import { Office } from 'src/app/models/office';
 import {
   MatDialogRef,
@@ -14,7 +14,7 @@ import { NgxSpinnerService } from 'ngx-spinner';
   templateUrl: './delete-office-address.component.html',
   styleUrls: ['./delete-office-address.component.scss'],
 })
-export class DeleteOfficeAddressComponent implements OnInit {
+export class DeleteOfficeAddressComponent {
   constructor(
     private snackbar: MatSnackBar,
     public dialogRef: MatDialogRef<DeleteOfficeAddressComponent>,
@@ -23,8 +23,6 @@ export class DeleteOfficeAddressComponent implements OnInit {
     private spinner: NgxSpinnerService,
     @Inject(MAT_DIALOG_DATA) public data: Office
   ) {}
-
-  ngOnInit(): void {}
 
   deleteOffice(): void {
     this.spinner.show('deleteSpinner');

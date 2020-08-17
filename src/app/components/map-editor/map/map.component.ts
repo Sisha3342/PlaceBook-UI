@@ -8,7 +8,7 @@ import {
   SimpleChanges,
 } from '@angular/core';
 import { GridsterItem } from 'angular-gridster2';
-import { Safe } from '../map-model/safe';
+import { Safe } from '../../../models/map-model/safe';
 import { Floor } from '../../../models/floor';
 import { MapObjectComponent } from '../map-tools/map-object/map-object.component';
 import { MapConfigurationService } from './map-configuration.service';

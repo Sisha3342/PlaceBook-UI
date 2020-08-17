@@ -1,11 +1,5 @@
-import {
-  Component,
-  Input,
-  OnChanges,
-  OnInit,
-  SimpleChanges,
-} from '@angular/core';
-import { MapObject } from '../../map-model/map-object';
+import { Component, Input, OnChanges, SimpleChanges } from '@angular/core';
+import { MapObject } from '../../../../models/map-model/map-object';
 import { MapConfigurationService } from '../../map/map-configuration.service';
 import { Place } from '../../../../models/place';
 import { MapObjectService } from './map-object.service';
@@ -15,7 +9,7 @@ import { MapObjectService } from './map-object.service';
   templateUrl: './map-object.component.html',
   styleUrls: ['./map-object.component.scss'],
 })
-export class MapObjectComponent implements OnInit, OnChanges {
+export class MapObjectComponent implements OnChanges {
   @Input() object: MapObject;
   @Input() isOnMap;
   @Input() zoom: number;
@@ -30,8 +24,6 @@ export class MapObjectComponent implements OnInit, OnChanges {
     public editorService: MapConfigurationService,
     public mapObjectService: MapObjectService
   ) {}
-
-  ngOnInit(): void {}
 
   ngOnChanges(changes: SimpleChanges): void {
     this.place = this.mapObjectService.findPlace(

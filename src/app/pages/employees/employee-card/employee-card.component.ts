@@ -1,15 +1,14 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { EmployeeService } from './employee.service';
 import { User } from '../../../models/user';
 import { Role } from '../../../models/Role';
-import { NgxSpinnerService } from 'ngx-spinner';
 
 @Component({
   selector: 'app-employee-card',
   templateUrl: './employee-card.component.html',
   styleUrls: ['./employee-card.component.scss'],
 })
-export class EmployeeCardComponent implements OnInit {
+export class EmployeeCardComponent {
   employeeObject: User;
   role = Role;
 
@@ -22,12 +21,7 @@ export class EmployeeCardComponent implements OnInit {
     return this.employeeObject;
   }
 
-  constructor(
-    private employeeService: EmployeeService,
-    private spinner: NgxSpinnerService
-  ) {}
-
-  ngOnInit(): void {}
+  constructor(private employeeService: EmployeeService) {}
 
   changeRole(role: string): void {
     if (role !== undefined && role !== this.employeeObject.role) {

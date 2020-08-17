@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { OBJECTS } from './map-model/objects';
+import { OBJECTS } from '../../models/map-model/objects';
 import { Floor } from '../../models/floor';
 import { MapEditorService } from './map-editor.service';
 import { FloorsConverterService } from './floor-converter/floors-converter.service';

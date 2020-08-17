@@ -1,18 +1,16 @@
-import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { Component, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-zoom-tool',
   templateUrl: './zoom-tool.component.html',
   styleUrls: ['./zoom-tool.component.scss'],
 })
-export class ZoomToolComponent implements OnInit {
+export class ZoomToolComponent {
   @Output() scopeEvent = new EventEmitter<number>();
   scope = 1;
   scopeChange = 0.25;
 
   constructor() {}
-
-  ngOnInit(): void {}
 
   decrease(): void {
     if (this.scope > 0.25) {

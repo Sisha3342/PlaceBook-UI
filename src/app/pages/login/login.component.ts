@@ -1,5 +1,5 @@
 import { MatSnackBar } from '@angular/material/snack-bar';
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthService } from '../../services/auth/auth.service';
 import { User } from '../../models/user';
@@ -10,7 +10,7 @@ import { NgxSpinnerService } from 'ngx-spinner';
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.scss'],
 })
-export class LoginComponent implements OnInit {
+export class LoginComponent {
   login = '';
   password = '';
 
@@ -20,8 +20,6 @@ export class LoginComponent implements OnInit {
     private userService: AuthService,
     private spinner: NgxSpinnerService
   ) {}
-
-  ngOnInit(): void {}
 
   loginUser(): void {
     this.spinner.show('loginSpinner');

@@ -1,11 +1,11 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-user-photo',
   templateUrl: './user-photo.component.html',
   styleUrls: ['./user-photo.component.scss'],
 })
-export class UserPhotoComponent implements OnInit {
+export class UserPhotoComponent {
   width: string;
   height: string;
   @Input() imgSrc: string;
@@ -18,5 +18,4 @@ export class UserPhotoComponent implements OnInit {
     this.width = event.target.naturalWidth;
     this.height = event.target.naturalHeight;
   }
-  ngOnInit(): void {}
 }

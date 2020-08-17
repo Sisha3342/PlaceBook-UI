@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { Floor } from '../../models/floor';
 import { FloorsConverterService } from '../../components/map-editor/floor-converter/floors-converter.service';
@@ -22,7 +22,7 @@ import { MapObjectService } from '../../components/map-editor/map-tools/map-obje
   styleUrls: ['./book.component.scss'],
   providers: [MatDatepickerModule],
 })
-export class BookComponent implements OnInit {
+export class BookComponent {
   @Input() showFloor: boolean;
   currentFloor: Floor;
   currentPlace: Place;
@@ -43,8 +43,6 @@ export class BookComponent implements OnInit {
     private spinner: NgxSpinnerService,
     private mapObjectService: MapObjectService
   ) {}
-
-  ngOnInit(): void {}
 
   changeCurrentFloor(floorRequestConfig: FloorRequestConfig): void {
     if (floorRequestConfig) {

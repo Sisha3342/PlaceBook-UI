@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
-import { MapObject } from '../../map-model/map-object';
-import { Type } from '../../map-model/Type';
+import { MapObject } from '../../../../models/map-model/map-object';
+import { Type } from '../../../../models/map-model/Type';
 import { Place } from '../../../../models/place';
 
 @Injectable({

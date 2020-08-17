@@ -74,7 +74,7 @@ export class EditMapAddressComponent implements OnInit {
         });
         this.dialogRef.close();
       },
-      (error) => {
+      () => {
         this.snackbar.open('Office was not updated', 'Close', {
           verticalPosition: 'top',
           duration: 2000,
@@ -88,9 +88,5 @@ export class EditMapAddressComponent implements OnInit {
     this.data.worktimeStart = [arrStart[0], arrStart[1]].join(':');
     const arrEnd = this.data.worktimeEnd.split(':');
     this.data.worktimeEnd = [arrEnd[0], arrEnd[1]].join(':');
-  }
-
-  onNoClick(): void {
-    this.dialogRef.close();
   }
 }

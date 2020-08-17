@@ -1,4 +1,4 @@
-import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
+import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { RatePlaceModalComponent } from '../../pages/my-bookings/rate-place-modal/rate-place-modal.component';
 import { Column } from '../../models/column';
@@ -14,7 +14,7 @@ import { NgxSpinnerService } from 'ngx-spinner';
   templateUrl: './table.component.html',
   styleUrls: ['./table.component.scss'],
 })
-export class TableComponent implements OnInit {
+export class TableComponent {
   order = Order;
   @Input() data;
   @Input() status: string;
@@ -32,8 +32,6 @@ export class TableComponent implements OnInit {
   ) => Observable<any>;
 
   constructor(public dialog: MatDialog, private spinner: NgxSpinnerService) {}
-
-  ngOnInit(): void {}
 
   getBookmarkClass(): string {
     return this.status.toLowerCase();

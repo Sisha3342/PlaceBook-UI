@@ -1,12 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-restore-dialog',
   templateUrl: './restore-dialog.component.html',
   styleUrls: ['./restore-dialog.component.scss'],
 })
-export class RestoreDialogComponent implements OnInit {
+export class RestoreDialogComponent {
   constructor() {}
-
-  ngOnInit(): void {}
 }

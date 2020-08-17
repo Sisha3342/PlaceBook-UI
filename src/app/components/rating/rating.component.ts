@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { BookingMark } from '../../models/booking-mark';
 
 @Component({
@@ -6,7 +6,7 @@ import { BookingMark } from '../../models/booking-mark';
   templateUrl: './rating.component.html',
   styleUrls: ['./rating.component.scss'],
 })
-export class RatingComponent implements OnInit {
+export class RatingComponent {
   rate: BookingMark;
   @Input() status: string;
 
@@ -20,6 +20,4 @@ export class RatingComponent implements OnInit {
   get rating(): BookingMark {
     return this.rate;
   }
-
-  ngOnInit(): void {}
 }
