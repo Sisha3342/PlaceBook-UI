@@ -37,6 +37,8 @@ export class MyBookingsComponent implements OnInit {
   }
 
   setBookings(statusLabel: string): void {
+    this.displayedBookings = [];
+
     this.spinner.show('tableSpinner');
     this.myBookingsService
       .getBookings(
