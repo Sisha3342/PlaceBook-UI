@@ -31,6 +31,12 @@ export const OBJECTS: MapObject[] = [
     tooltip: 'Kitchen',
   },
   {
+    type: Type.shower,
+    active: true,
+    icon: 'fa-shower',
+    tooltip: 'Shower',
+  },
+  {
     type: Type.toilet,
     active: true,
     icon: 'fa-restroom',

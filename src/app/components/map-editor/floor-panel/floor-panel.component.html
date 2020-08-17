@@ -1,30 +1,56 @@
 <div class="floor-panel">
   <div class="floor-panel-container">
-    <button mat-mini-fab (click)="save()">
-      <mat-icon>save</mat-icon>
-    </button>
-
-    <div *ngFor="let floor of floors; let i = index">
+    <div class="floor-buttons">
       <button
-        mat-mini-fab
-        [class.inactive]="floors[i] !== currentFloor"
-        (click)="changeCurrentFloor(i)"
+        mat-raised-button
+        class="action-button"
+        color="primary"
+        (click)="save()"
+        [disabled]="hasDuplicates"
       >
-        {{ i + 1 }}
+        Save
       </button>
-
       <button
-        mat-mini-fab
-        class="remove-floor"
-        *ngIf="floors.length > 1"
-        (click)="deleteFloor(i)"
+        mat-raised-button
+        class="action-button"
+        color="primary"
+        (click)="addEmptyFloor()"
       >
-        <mat-icon>delete</mat-icon>
+        Add floor
       </button>
+      <mat-form-field [class.invalid]="hasDuplicates">
+        <mat-label>Floor number</mat-label>
+        <input
+          matInput
+          type="number"
+          [(ngModel)]="currentFloor.floorNumber"
+          (ngModelChange)="changeFloorNumber(currentFloor.floorNumber)"
+          [min]="1"
+        />
+      </mat-form-field>
+      <mat-error *ngIf="hasDuplicates"
+        >Floor with this number already exists</mat-error
+      >
     </div>
+    <div class="floors">
+      <div *ngFor="let floor of floors; let i = index">
+        <button
+          mat-mini-fab
+          [class.inactive]="floors[i] !== currentFloor"
+          (click)="changeCurrentFloor(i)"
+        >
+          {{ floor.floorNumber }}
+        </button>
 
-    <button mat-mini-fab (click)="addEmptyFloor()">
-      <mat-icon>add</mat-icon>
-    </button>
+        <button
+          mat-mini-fab
+          class="remove-floor"
+          *ngIf="floors.length > 1"
+          (click)="deleteFloor(i)"
+        >
+          <mat-icon>delete</mat-icon>
+        </button>
+      </div>
+    </div>
   </div>
 </div>
