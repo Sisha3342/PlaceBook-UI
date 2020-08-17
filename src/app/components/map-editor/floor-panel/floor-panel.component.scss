@@ -13,6 +13,10 @@
   color: var(--secondary-color);
 }
 
+.floor-panel .floor-panel-container .floor-buttons mat-form-field {
+  width: 6rem;
+}
+
 .floor-panel .floor-panel-container {
   padding: 0.5rem;
   background-color: var(--secondary-color);
@@ -23,8 +27,8 @@
 }
 
 .floor-panel .floor-panel-container .floors {
-  //overflow: auto;
-  height: 100%;
+  overflow: auto;
+  height: 75%;
 }
 
 .floor-panel .floor-panel-container button {
