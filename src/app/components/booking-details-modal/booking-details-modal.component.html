@@ -6,7 +6,10 @@
     <table class="booking-details">
       <tr>
         <td class="booking-details-label">Date:</td>
-        <td>{{ booking.timeStart }} - {{ booking.timeEnd }}</td>
+        <td>
+          {{ booking.timeStart | date: "longDate" }} -
+          {{ booking.timeEnd | date: "longDate" }}
+        </td>
       </tr>
       <tr>
         <td class="booking-details-label">Address:</td>
