@@ -11,8 +11,25 @@
   width: 100%;
 }
 
-.floor-panel .floor-panel-container .floor-buttons mat-form-field {
+.floor-panel .floor-panel-container .floor-buttons mat-form-field,
+.floor-panel .floor-panel-container .floor-buttons mat-error {
   width: 7rem;
+}
+
+.floor-panel .floor-panel-container .floor-buttons mat-form-field.invalid {
+  & mat-label {
+    color: var(--canceled-booking-color);
+  }
+
+  & .mat-form-field-ripple {
+    background-color: var(--canceled-booking-color);
+  }
+}
+
+.floor-panel .floor-panel-container .floor-buttons mat-error {
+  font-size: 75%;
+  margin-top: 0.5rem;
+  line-height: 85%;
 }
 
 .floor-panel .floor-panel-container {
