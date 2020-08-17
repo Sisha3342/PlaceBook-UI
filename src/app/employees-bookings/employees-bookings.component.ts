@@ -31,6 +31,8 @@ export class EmployeesBookingsComponent {
   }
 
   setBookings(statusLabel: string): void {
+    this.displayedBookings = [];
+
     this.spinner.show('tableSpinner');
     this.employeesBookingsService
       .getBookings(this.status[statusLabel.toLowerCase()])
