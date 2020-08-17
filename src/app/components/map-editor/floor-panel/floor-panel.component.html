@@ -1,30 +1,41 @@
 <div class="floor-panel">
   <div class="floor-panel-container">
-    <button mat-mini-fab (click)="save()">
-      <mat-icon>save</mat-icon>
-    </button>
-
-    <div *ngFor="let floor of floors; let i = index">
-      <button
-        mat-mini-fab
-        [class.inactive]="floors[i] !== currentFloor"
-        (click)="changeCurrentFloor(i)"
-      >
-        {{ i + 1 }}
+    <div class="floor-buttons">
+      <button mat-raised-button class="action-button" (click)="save()">
+        Save
       </button>
-
-      <button
-        mat-mini-fab
-        class="remove-floor"
-        *ngIf="floors.length > 1"
-        (click)="deleteFloor(i)"
-      >
-        <mat-icon>delete</mat-icon>
+      <button mat-raised-button class="action-button" (click)="addEmptyFloor()">
+        Add floor
       </button>
+      <mat-form-field>
+        <mat-label>Floor number</mat-label>
+        <input
+          matInput
+          type="number"
+          [(ngModel)]="currentFloor.floorNumber"
+          [min]="1"
+        />
+      </mat-form-field>
     </div>
+    <div class="floors">
+      <div *ngFor="let floor of floors; let i = index">
+        <button
+          mat-mini-fab
+          [class.inactive]="floors[i] !== currentFloor"
+          (click)="changeCurrentFloor(i)"
+        >
+          {{ floor.floorNumber }}
+        </button>
 
-    <button mat-mini-fab (click)="addEmptyFloor()">
-      <mat-icon>add</mat-icon>
-    </button>
+        <button
+          mat-mini-fab
+          class="remove-floor"
+          *ngIf="floors.length > 1"
+          (click)="deleteFloor(i)"
+        >
+          <mat-icon>delete</mat-icon>
+        </button>
+      </div>
+    </div>
   </div>
 </div>

@@ -2,6 +2,15 @@
   text-align: center;
   display: flex;
   justify-content: center;
+  height: 100%;
+}
+
+.floor-panel .floor-panel-container .floor-buttons .action-button {
+  display: block;
+  margin: 0 auto 0.5rem auto;
+  width: 100%;
+  background-color: var(--primary-color);
+  color: var(--secondary-color);
 }
 
 .floor-panel .floor-panel-container {
@@ -10,6 +19,12 @@
   box-shadow: var(--primary-box-shadow);
   border-radius: var(--secondary-border-radius);
   text-align: left;
+  height: 100%;
+}
+
+.floor-panel .floor-panel-container .floors {
+  //overflow: auto;
+  height: 100%;
 }
 
 .floor-panel .floor-panel-container button {

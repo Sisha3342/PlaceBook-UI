@@ -19,10 +19,4 @@ export class FloorService {
       dashboard: [],
     };
   }
-
-  resetFloorNumbers(floors: Floor[]): void {
-    for (let i = 0; i < floors.length; i++) {
-      floors[i].floorNumber = i + 1;
-    }
-  }
 }

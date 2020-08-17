@@ -8,8 +8,8 @@ import { FloorService } from './floor.service';
   styleUrls: ['./floor-panel.component.scss'],
 })
 export class FloorPanelComponent {
-  @Input() floors;
-  @Input() currentFloor;
+  @Input() floors: Floor[];
+  @Input() currentFloor: Floor;
 
   @Output() floorsChange = new EventEmitter<Floor[]>();
   @Output() currentFloorChange = new EventEmitter<Floor>();
@@ -24,7 +24,10 @@ export class FloorPanelComponent {
     const newFloor = this.floorService.getNewFloor(
       this.initWidth,
       this.initHeight,
-      this.floors.length + 1
+      Math.max.apply(
+        null,
+        this.floors.map((floor) => floor.floorNumber)
+      ) + 1
     );
 
     this.floors = [...this.floors, newFloor];
@@ -41,8 +44,6 @@ export class FloorPanelComponent {
     } else {
       this.changeCurrentFloor(index);
     }
-
-    this.floorService.resetFloorNumbers(this.floors);
 
     this.floorsChange.emit(this.floors);
   }

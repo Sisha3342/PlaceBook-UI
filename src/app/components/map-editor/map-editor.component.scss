@@ -29,6 +29,7 @@ app-floor-panel {
   width: 15%;
   display: inline-block;
   text-align: center;
+  height: calc(100% - 12rem);
 }
 
 app-zoom-tool {
