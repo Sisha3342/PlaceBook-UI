@@ -1,18 +1,18 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
-import { LoginComponent } from './login/login.component';
-import { MyBookingsComponent } from './my-bookings/my-bookings.component';
-import { BookComponent } from './book/book.component';
-import { EmployeesBookingsComponent } from './employees-bookings/employees-bookings.component';
-import { EmployeesComponent } from './employees/employees.component';
-import { MyMapsComponent } from './my-maps/my-maps.component';
-import { EditorComponent } from './editor/editor.component';
-import { NotFoundComponent } from './not-found/not-found.component';
-import { HomeLayoutComponent } from './layouts/home/home-layout.component';
-import { LoginLayoutComponent } from './layouts/login/login-layout.component';
-import { AuthGuard } from './auth/auth.guard';
-import { RoleGuard } from './roleGuards/role-guard.service';
+import { LoginComponent } from './pages/login/login.component';
+import { MyBookingsComponent } from './pages/my-bookings/my-bookings.component';
+import { BookComponent } from './pages/book/book.component';
+import { EmployeesBookingsComponent } from './pages/employees-bookings/employees-bookings.component';
+import { EmployeesComponent } from './pages/employees/employees.component';
+import { MyMapsComponent } from './pages/my-maps/my-maps.component';
+import { EditorComponent } from './pages/editor/editor.component';
+import { NotFoundComponent } from './pages/not-found/not-found.component';
+import { HomeLayoutComponent } from './components/layouts/home/home-layout.component';
+import { LoginLayoutComponent } from './components/layouts/login/login-layout.component';
+import { AuthGuard } from './services/auth/auth.guard';
+import { RoleGuard } from './services/roleGuards/role-guard.service';
 
 const routes: Routes = [
   {
