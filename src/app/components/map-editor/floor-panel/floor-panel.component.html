@@ -13,6 +13,7 @@
           matInput
           type="number"
           [(ngModel)]="currentFloor.floorNumber"
+          (ngModelChange)="floorsChange.emit(floors)"
           [min]="1"
         />
       </mat-form-field>
