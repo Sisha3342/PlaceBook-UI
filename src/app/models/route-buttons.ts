@@ -6,7 +6,7 @@ export type RouteButton = {
 };
 
 export const myBookingsButton: RouteButton = {
-  name: 'My bookings',
+  name: 'Bookings',
   route: '/my_bookings',
   iconType: 'fa-list',
   setType: 'fas',
@@ -27,7 +27,7 @@ export const employeesButton: RouteButton = {
 };
 
 export const myMapsButton: RouteButton = {
-  name: 'My maps',
+  name: 'Maps',
   route: '/my_maps',
   iconType: 'fa-map',
   setType: 'fas',
