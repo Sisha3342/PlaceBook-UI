@@ -2,14 +2,48 @@
   text-align: center;
   display: flex;
   justify-content: center;
+  height: 100%;
+}
+
+.floor-panel .floor-panel-container .floor-buttons .action-button {
+  display: block;
+  margin: 0 auto 1rem auto;
+  width: 100%;
+}
+
+.floor-panel .floor-panel-container .floor-buttons mat-form-field,
+.floor-panel .floor-panel-container .floor-buttons mat-error {
+  width: 7rem;
+}
+
+.floor-panel .floor-panel-container .floor-buttons mat-form-field.invalid {
+  & mat-label {
+    color: var(--canceled-booking-color);
+  }
+
+  & .mat-form-field-ripple {
+    background-color: var(--canceled-booking-color);
+  }
+}
+
+.floor-panel .floor-panel-container .floor-buttons mat-error {
+  font-size: 75%;
+  margin-top: 0.5rem;
+  line-height: 85%;
 }
 
 .floor-panel .floor-panel-container {
-  padding: 0.5rem;
+  padding: 1rem;
   background-color: var(--secondary-color);
   box-shadow: var(--primary-box-shadow);
   border-radius: var(--secondary-border-radius);
   text-align: left;
+  height: 100%;
+}
+
+.floor-panel .floor-panel-container .floors {
+  overflow: auto;
+  height: calc(100% - 8rem);
 }
 
 .floor-panel .floor-panel-container button {

@@ -20,9 +20,15 @@ export class FloorService {
     };
   }
 
-  resetFloorNumbers(floors: Floor[]): void {
-    for (let i = 0; i < floors.length; i++) {
-      floors[i].floorNumber = i + 1;
+  hasDuplicateNumbers(floorNumber: number, floors: Floor[]): boolean {
+    let counter = 0;
+
+    for (const floor of floors) {
+      if (+floor.floorNumber === floorNumber) {
+        counter += 1;
+      }
     }
+
+    return counter === 2;
   }
 }

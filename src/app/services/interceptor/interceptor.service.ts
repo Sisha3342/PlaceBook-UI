@@ -5,7 +5,7 @@ import {
   HttpInterceptor,
   HttpRequest,
 } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { Observable, throwError } from 'rxjs';
 import { catchError } from 'rxjs/operators';
 import { AuthService } from '../auth/auth.service';
 
@@ -23,8 +23,7 @@ export class InterceptorService implements HttpInterceptor {
         if (error.status === 200) {
           this.authService.logout();
         }
-
-        return new Observable<any>();
+        return throwError(error);
       })
     );
   }

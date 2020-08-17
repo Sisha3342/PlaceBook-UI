@@ -63,7 +63,7 @@ export class EmployeesBookingsComponent {
     this.employeesBookingsService
       .deleteBooking(booking.id)
       .subscribe((removedBooking) => {
-        this.snackbar.open('Booking was deleted', 'Close', {
+        this.snackbar.open('Booking was canceled', 'Close', {
           verticalPosition: 'top',
           panelClass: 'success',
           duration: 3000,
