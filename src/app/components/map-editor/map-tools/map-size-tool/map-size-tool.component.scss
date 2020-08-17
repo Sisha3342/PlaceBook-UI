@@ -1,5 +1,5 @@
 mat-form-field {
-  margin: 0.5rem;;
+  margin: 0.5rem;
   width: 6rem;
 }
 
@@ -8,6 +8,6 @@ p {
   color: #706e6b;
 }
 
-::ng-deep .mat-form-field-wrapper{
+.size-tools-wrapper mat-form-field {
   margin-bottom: -1.25em;
 }

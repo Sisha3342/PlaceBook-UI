@@ -1,21 +1,23 @@
-<mat-form-field>
-  <mat-label>Floor width, m</mat-label>
-  <input
-    matInput
-    type="number"
-    [(ngModel)]="width"
-    (ngModelChange)="changeWidth()"
-    [min]="10"
-  />
-</mat-form-field>
+<div class="size-tools-wrapper">
+  <mat-form-field>
+    <mat-label>Floor width, m</mat-label>
+    <input
+      matInput
+      type="number"
+      [(ngModel)]="width"
+      (ngModelChange)="changeWidth()"
+      [min]="10"
+    />
+  </mat-form-field>
 
-<mat-form-field>
-  <mat-label>Floor length, m</mat-label>
-  <input
-    matInput
-    type="number"
-    [(ngModel)]="height"
-    (ngModelChange)="changeHeight()"
-    [min]="10"
-  />
-</mat-form-field>
+  <mat-form-field>
+    <mat-label>Floor length, m</mat-label>
+    <input
+      matInput
+      type="number"
+      [(ngModel)]="height"
+      (ngModelChange)="changeHeight()"
+      [min]="10"
+    />
+  </mat-form-field>
+</div>
