@@ -20,7 +20,7 @@ export class InterceptorService implements HttpInterceptor {
 
     return next.handle(req).pipe(
       catchError((error: HttpErrorResponse) => {
-        if (error.status === 200) {
+        if ([200, 401].includes(error.status)) {
           this.authService.logout();
         }
         return throwError(error);

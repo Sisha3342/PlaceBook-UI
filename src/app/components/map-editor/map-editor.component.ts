@@ -11,6 +11,7 @@ import { RestoreDialogComponent } from './restore-dialog/restore-dialog.componen
 import { RestoreService } from './restore-dialog/restore.service';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { MapComponent } from './map/map.component';
+import { HttpErrorResponse } from '@angular/common/http';
 
 @Component({
   selector: 'app-map-editor',
@@ -89,16 +90,29 @@ export class MapEditorComponent implements OnInit, AfterViewInit {
 
   save(floors: Floor[]): void {
     this.spinner.show('saveMapSpinner');
-    this.mapEditorService.saveFloors(this.officeId, floors).subscribe(() => {
-      this.snackbar.open('Map was saved', 'Close', {
-        verticalPosition: 'top',
-        panelClass: 'success',
-        duration: 3000,
-      });
+    this.mapEditorService.saveFloors(this.officeId, floors).subscribe(
+      () => {
+        this.snackbar.open('Map was saved', 'Close', {
+          verticalPosition: 'top',
+          panelClass: 'success',
+          duration: 3000,
+        });
 
-      this.restoreService.deleteOffice(this.officeId);
-      this.spinner.hide('saveMapSpinner');
-    });
+        this.restoreService.deleteOffice(this.officeId);
+        this.spinner.hide('saveMapSpinner');
+      },
+      (error: HttpErrorResponse) => {
+        const message =
+          error.error.message[0].toUpperCase() + error.error.message.slice(1);
+
+        this.snackbar.open(message, 'Close', {
+          verticalPosition: 'top',
+          duration: 3000,
+        });
+
+        this.spinner.hide('saveMapSpinner');
+      }
+    );
   }
 
   saveLatestChanges(): void {

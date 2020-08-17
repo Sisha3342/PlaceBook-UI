@@ -21,7 +21,7 @@ import { MapObject } from '../../../models/map-model/map-object';
   templateUrl: './map.component.html',
   styleUrls: ['./map.component.scss'],
 })
-export class MapComponent implements OnInit, OnChanges, AfterViewInit {
+export class MapComponent implements OnInit, OnChanges {
   @Input() config: Floor;
   options: Safe = this.editorService.getDefaultOptions(this);
   initCellHeight: number;
@@ -34,13 +34,13 @@ export class MapComponent implements OnInit, OnChanges, AfterViewInit {
   @Output() showPlaceInfo = new EventEmitter<Place>();
   @Input() selectedPlace: Place;
 
-  dashboard: GridsterItem[];
-
   constructor(private editorService: MapConfigurationService) {}
 
   ngOnInit(): void {
     this.initCellWidth = this.options.fixedColWidth;
     this.initCellHeight = this.options.fixedRowHeight;
+    this.editorService.setHeight(this.config.height, this.options);
+    this.editorService.setWidth(this.config.width, this.options);
 
     if (!this.edit) {
       this.options.enableEmptyCellDrop = false;
@@ -62,13 +62,6 @@ export class MapComponent implements OnInit, OnChanges, AfterViewInit {
       this.changeHeight(this.config.height);
       this.changeWidth(this.config.width);
     }
-  }
-
-  ngAfterViewInit(): void {
-    this.changeHeight(this.config.height);
-    this.changeWidth(this.config.width);
-
-    this.dashboard = this.config.dashboard;
   }
 
   changeScope(zoom: number): void {
