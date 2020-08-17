@@ -1,0 +1,8 @@
+<div class="timer-container">
+  <mat-chip-list>
+    <mat-chip selected [color]="timerValue > 25 ? 'primary' : 'warn'">
+      <mat-icon>timer</mat-icon>
+      00:{{ timerValue }}
+    </mat-chip>
+  </mat-chip-list>
+</div>

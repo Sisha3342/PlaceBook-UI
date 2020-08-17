@@ -6,7 +6,7 @@ import { MatSelect } from '@angular/material/select';
 import { Office } from '../models/office';
 import { OfficeAddress } from '../models/office-address';
 import { NgxSpinnerService } from 'ngx-spinner';
-import { EditMapAddressComponent } from '.././my-maps/map-address-modal/map-address-modal.component';
+import { EditMapAddressComponent } from '../my-maps/map-address-modal/map-address-modal.component';
 
 @Component({
   selector: 'app-maps-search',

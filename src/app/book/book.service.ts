@@ -4,6 +4,7 @@ import { Observable } from 'rxjs';
 import { Booking } from '../models/booking';
 import { Place } from '../models/place';
 import { BASE_API_URL } from '../globals';
+import { BookingBlock } from '../models/booking-block';
 
 @Injectable({
   providedIn: 'root',
@@ -38,5 +39,12 @@ export class BookService {
 
   subscribe(placeId: number): Observable<Place> {
     return this.http.post<Place>(`${BASE_API_URL}/subscribe/${placeId}`, {});
+  }
+
+  tryToBook(placeId: number, userId: number): Observable<BookingBlock> {
+    return this.http.post<BookingBlock>(
+      `${BASE_API_URL}/place/${placeId}/${userId}/block`,
+      {}
+    );
   }
 }
