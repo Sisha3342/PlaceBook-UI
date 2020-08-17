@@ -3,6 +3,7 @@ export enum Type {
   constant = 'constant',
   meeting = 'meetingRoom',
   kitchen = 'kitchen',
+  shower = 'shower',
   toilet = 'toilet',
   door = 'door',
   window = 'window',
