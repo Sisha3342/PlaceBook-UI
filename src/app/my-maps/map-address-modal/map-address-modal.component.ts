@@ -47,6 +47,11 @@ export class EditMapAddressComponent implements OnInit {
   insertRecord(form: NgForm): void {
     this.mapService.postOffice(form.value).subscribe((office) => {
       this.resetForm();
+      this.snackbar.open('Office address was succesfully added', 'Close', {
+        verticalPosition: 'top',
+        duration: 2000,
+        panelClass: 'success',
+      });
       this.dialogRef.close();
       this.route.navigate(['editor', { officeId: office.id.toString() }]);
     });
