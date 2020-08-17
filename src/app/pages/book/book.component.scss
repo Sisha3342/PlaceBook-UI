@@ -67,6 +67,19 @@ mat-form-field {
     position: absolute;
     top: 0.5rem;
     right: 4rem;
+    overflow: auto;
+  }
+
+  .button-group {
+    position: sticky;
+  }
+
+  button {
+    position: sticky;
+  }
+
+  button:focus {
+    opacity: 1;
   }
 
   .booking-container .map-grid {
@@ -78,6 +91,7 @@ mat-form-field {
 @media screen and (max-width: 767px) {
   .booking-container .place-panel {
     right: 1rem;
+    height: 20rem;
   }
 
   .booking-screen {
