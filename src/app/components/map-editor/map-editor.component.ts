@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { AfterViewInit, Component, OnInit, ViewChild } from '@angular/core';
 import { OBJECTS } from '../../models/map-model/objects';
 import { Floor } from '../../models/floor';
 import { MapEditorService } from './map-editor.service';
@@ -10,17 +10,20 @@ import { MatDialog } from '@angular/material/dialog';
 import { RestoreDialogComponent } from './restore-dialog/restore-dialog.component';
 import { RestoreService } from './restore-dialog/restore.service';
 import { NgxSpinnerService } from 'ngx-spinner';
+import { MapComponent } from './map/map.component';
 
 @Component({
   selector: 'app-map-editor',
   templateUrl: './map-editor.component.html',
   styleUrls: ['./map-editor.component.scss'],
 })
-export class MapEditorComponent implements OnInit {
+export class MapEditorComponent implements OnInit, AfterViewInit {
   objects = OBJECTS;
   floors: Floor[];
   officeId: number;
   currentFloor: Floor;
+
+  @ViewChild(MapComponent) map: MapComponent;
 
   constructor(
     private mapEditorService: MapEditorService,
@@ -47,6 +50,8 @@ export class MapEditorComponent implements OnInit {
       this.spinner.hide('mainOfficeSpinner');
     });
   }
+
+  ngAfterViewInit(): void {}
 
   openDialog(): void {
     this.spinner.show('officeSpinner');

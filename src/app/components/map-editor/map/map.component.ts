@@ -6,6 +6,7 @@ import {
   EventEmitter,
   OnChanges,
   SimpleChanges,
+  AfterViewInit,
 } from '@angular/core';
 import { GridsterItem } from 'angular-gridster2';
 import { Safe } from '../../../models/map-model/safe';
@@ -13,13 +14,14 @@ import { Floor } from '../../../models/floor';
 import { MapObjectComponent } from '../map-tools/map-object/map-object.component';
 import { MapConfigurationService } from './map-configuration.service';
 import { Place } from '../../../models/place';
+import { MapObject } from '../../../models/map-model/map-object';
 
 @Component({
   selector: 'app-map',
   templateUrl: './map.component.html',
   styleUrls: ['./map.component.scss'],
 })
-export class MapComponent implements OnInit, OnChanges {
+export class MapComponent implements OnInit, OnChanges, AfterViewInit {
   @Input() config: Floor;
   options: Safe = this.editorService.getDefaultOptions(this);
   initCellHeight: number;
@@ -32,9 +34,9 @@ export class MapComponent implements OnInit, OnChanges {
   @Output() showPlaceInfo = new EventEmitter<Place>();
   @Input() selectedPlace: Place;
 
-  constructor(private editorService: MapConfigurationService) {
-    this.options = this.editorService.getDefaultOptions(this);
-  }
+  dashboard: GridsterItem[];
+
+  constructor(private editorService: MapConfigurationService) {}
 
   ngOnInit(): void {
     this.initCellWidth = this.options.fixedColWidth;
@@ -62,6 +64,13 @@ export class MapComponent implements OnInit, OnChanges {
     }
   }
 
+  ngAfterViewInit(): void {
+    this.changeHeight(this.config.height);
+    this.changeWidth(this.config.width);
+
+    this.dashboard = this.config.dashboard;
+  }
+
   changeScope(zoom: number): void {
     this.zoom = zoom;
 
@@ -76,14 +85,12 @@ export class MapComponent implements OnInit, OnChanges {
 
   changeHeight(height: number): void {
     this.editorService.setHeight(height, this.options);
-
     this.options.api.optionsChanged();
     this.configChange.emit(this.config);
   }
 
   changeWidth(width: number): void {
     this.editorService.setWidth(width, this.options);
-
     this.options.api.optionsChanged();
     this.configChange.emit(this.config);
   }

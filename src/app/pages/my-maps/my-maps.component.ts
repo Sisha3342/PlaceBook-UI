@@ -42,8 +42,6 @@ export class MyMapsComponent implements OnInit {
   }
 
   editOfficeAddress(data: Office): void {
-    this.spinner.show('tableSpinner');
-
     const dialogRef = this.dialog.open(EditMapAddressComponent, {
       width: '30rem',
       data,
@@ -55,7 +53,6 @@ export class MyMapsComponent implements OnInit {
         city: undefined,
         address: undefined,
       });
-      this.spinner.hide('tableSpinner');
     });
   }
 
