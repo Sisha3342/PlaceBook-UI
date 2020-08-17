@@ -47,6 +47,11 @@ export class EditMapAddressComponent implements OnInit {
   insertRecord(form: NgForm): void {
     this.mapService.postOffice(form.value).subscribe((office) => {
       this.resetForm();
+      this.snackbar.open('Office address was succesfully added', 'Close', {
+        verticalPosition: 'top',
+        duration: 2000,
+        panelClass: 'success',
+      });
       this.dialogRef.close();
       this.route.navigate(['editor', { officeId: office.id.toString() }]);
     });
@@ -62,7 +67,7 @@ export class EditMapAddressComponent implements OnInit {
     this.mapService.updateOffice(form.value).subscribe(
       () => {
         this.resetForm();
-        this.snackbar.open('Office address was succesfully added', 'Close', {
+        this.snackbar.open('Office address was succesfully updated', 'Close', {
           verticalPosition: 'top',
           duration: 2000,
           panelClass: 'success',
@@ -70,7 +75,7 @@ export class EditMapAddressComponent implements OnInit {
         this.dialogRef.close();
       },
       (error) => {
-        this.snackbar.open('Office was not added', 'Close', {
+        this.snackbar.open('Office was not updated', 'Close', {
           verticalPosition: 'top',
           duration: 2000,
         });
