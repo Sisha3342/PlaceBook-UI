@@ -18,6 +18,8 @@ export class FloorPanelComponent {
   initWidth = 10;
   initHeight = 10;
 
+  hasDuplicates = false;
+
   constructor(private floorService: FloorService) {}
 
   addEmptyFloor(): void {
@@ -56,5 +58,14 @@ export class FloorPanelComponent {
 
   save(): void {
     this.saveFloors.emit(this.floors);
+  }
+
+  changeFloorNumber(floorNumber: number): void {
+    this.hasDuplicates = this.floorService.hasDuplicateNumbers(
+      floorNumber,
+      this.floors
+    );
+
+    this.floorsChange.emit(this.floors);
   }
 }

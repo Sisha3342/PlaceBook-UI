@@ -13,10 +13,13 @@
           matInput
           type="number"
           [(ngModel)]="currentFloor.floorNumber"
-          (ngModelChange)="floorsChange.emit(floors)"
+          (ngModelChange)="changeFloorNumber(currentFloor.floorNumber)"
           [min]="1"
         />
       </mat-form-field>
+      <mat-error *ngIf="hasDuplicates"
+        >Floor with this number already exists</mat-error
+      >
     </div>
     <div class="floors">
       <div *ngFor="let floor of floors; let i = index">
