@@ -6,7 +6,10 @@ table {
 
 td.mat-cell {
   padding: var(--secondary-content-padding) 0.5rem;
-  // white-space: nowrap;
+}
+
+th.mat-header-cell {
+  padding: 0 0.5rem;
 }
 
 .bookmark {
